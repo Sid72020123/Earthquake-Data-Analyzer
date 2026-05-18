@@ -9,3 +9,4 @@ plotly>=5.0.0
 reverse_geocoder>=1.5.1
 pycountry>=22.3.5
 scikit-learn>=1.0.0
+statsmodels>=0.13.0

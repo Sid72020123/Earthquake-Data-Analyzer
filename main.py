@@ -533,33 +533,33 @@ def main():
             st.error(f"Could not render the 3D plot: {exc}")
 
     with tab5:
-        st.subheader("🤖 ML Trend Forecasting: Random Forest Model")
+        st.subheader("🤖 ML Trend Forecasting: Moving Average Model")
         st.caption(
-            "A Random Forest model predicts earthquake frequency trends using historical patterns. "
-            "This helps identify general earthquake activity trends, not exact timing or locations."
+            "A Moving Average model smooths recent monthly earthquake counts to reveal short-term trends. "
+            "This helps identify general earthquake frequency direction, not exact timing or locations."
         )
 
         # Show explanation first
-        with st.expander("ℹ️ How does the Random Forest model work?"):
+        with st.expander("ℹ️ How does the Moving Average model work?"):
             st.markdown(get_model_explanation())
 
         try:
-            # Get ML data from full history (last 3 years)
+            # Get ML data from full history (last 5 years)
             with st.spinner("Loading historical earthquake data..."):
-                ml_data = get_ml_data_from_full_history(data, years=3)
+                ml_data = get_ml_data_from_full_history(data, years=5)
 
             # Prepare time series data (monthly frequency)
             with st.spinner("Preparing monthly earthquake frequency data..."):
                 frequency_data = prepare_time_series_data(ml_data, period="M")
 
             # Check if we have enough data
-            if len(frequency_data) < 10:
+            if len(frequency_data) < 15:
                 st.warning(
-                    "Not enough data for ML model training. Need at least 10 months."
+                    "Not enough data for ML model training. Need at least 15 months."
                 )
             else:
                 # Train the model
-                with st.spinner("Training Random Forest model..."):
+                with st.spinner("Training Moving Average model..."):
                     ml_results = train_ml_model(frequency_data, test_size=0.2)
 
                 # Display data summary
@@ -582,7 +582,7 @@ def main():
                 )
                 summary_cols[3].metric(
                     "Data Period",
-                    "Last 3 Years",
+                    "Last 5 Years",
                     help="Global historical earthquake data",
                 )
 
@@ -614,27 +614,23 @@ def main():
                 # Display actual vs predicted visualization
                 st.markdown("### 📊 Actual vs Predicted Earthquake Frequency")
                 st.caption(
-                    "Left: Trend comparison over time | Right: How accurate predictions are"
+                    "Left: How the trend line compares to actual monthly data | Right: Prediction accuracy"
                 )
-                st.pyplot(
-                    plot_actual_vs_predicted(ml_results), use_container_width=True
-                )
+                st.pyplot(plot_actual_vs_predicted(ml_results), width="stretch")
 
                 # Display feature importance
                 st.markdown("### 🎯 Feature Importance")
                 st.caption("How important time is for the model's predictions")
-                st.pyplot(
-                    create_feature_importance_plot(ml_results), use_container_width=True
-                )
+                st.pyplot(create_feature_importance_plot(ml_results), width="stretch")
 
                 # Display trend forecast
                 st.markdown("### 🔮 12-Month Trend Forecast")
                 st.caption(
-                    "Gray dots = raw monthly data (noisy) | Teal line = Random Forest trend line | Pink dotted line = future forecast"
+                    "Gray dots = raw monthly data (noisy) | Teal line = Moving Average trend | Pink dotted line = future forecast"
                 )
                 st.plotly_chart(
                     create_prediction_plotly(ml_results, future_periods=12),
-                    use_container_width=True,
+                    width="stretch",
                 )
 
                 # Display important limitations
@@ -646,7 +642,7 @@ def main():
                     - It captures patterns in historical data, but earthquakes are largely random
                     - Regional data quality varies - some areas have better records than others
                     - External factors (tectonic shifts, instrumentation changes) are not included
-                    - Small sample size (36 months) may not capture all long-term patterns
+                    - Earthquake frequency changes may be too irregular to predict with a simple model
                     
                     **Use this model to understand trends, NOT to predict when earthquakes will occur.**
                     """)

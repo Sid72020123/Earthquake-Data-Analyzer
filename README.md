@@ -81,13 +81,13 @@ Earthquake Data Analyzer/
 - **Animated Timeline**: Month-by-month animation showing earthquake patterns over time
 - **3D Visualization**: Interactive 3D plot showing longitude, latitude, depth, and magnitude relationships
 
-### 🤖 ML Trend Forecasting Tab
+-### 🤖 ML Trend Forecasting Tab
 
-- **Machine Learning Model**: Random Forest Regressor for earthquake frequency prediction
-- **Data Source**: Last 3 years of complete historical earthquake data
+- **Machine Learning Model**: Moving Average for earthquake frequency trend prediction
+- **Data Source**: Last 5 years of complete historical earthquake data (~60 months)
 - **Monthly Aggregation**: Earthquake counts grouped by month for stable trends
 - **Performance Metrics**: Train/Test R² scores and RMSE
-- **Visualizations**: Actual vs Predicted trends, feature importance, and 12-month forecast
+- **Visualizations**: Actual vs Predicted trends, model fit, and 12-month forecast
 - **Data Transparency**: Shows total samples, training/testing split details
 - **Beginner-friendly Explanations**: Clear documentation of what the model does and limitations
 
@@ -95,38 +95,34 @@ Earthquake Data Analyzer/
 
 ### What It Does
 
-The ML module uses a **Random Forest Regressor** to forecast earthquake **frequency trends** over time using the last **3 years of global historical earthquake data**. It helps identify whether earthquake activity is increasing or decreasing globally.
+The ML module uses **Moving Average** to forecast earthquake **frequency trends** over time using the last **5 years of global historical earthquake data**. It helps identify whether earthquake activity is increasing or decreasing globally.
 
-### Why Random Forest?
+### Why Moving Average?
 
-Random Forest is chosen because:
+Moving Average is chosen because:
 
-- **Handles Non-linear Patterns**: Earthquake frequency doesn't follow a straight line
-- **Works with Noisy Data**: Earthquake patterns are chaotic and irregular
-- **No Complex Preprocessing**: Unlike polynomial regression, Random Forest doesn't require scaling or smoothing
-- **Interpretable**: Easy to understand which features are important
-- **Robust**: Averages multiple decision trees to reduce overfitting
-- **Beginner-Friendly**: Simple to explain to students and non-technical users
+- **Simple and Robust**: Smooths short-term noise and reveals local direction
+- **Weights Recent Data**: Short-window MA emphasizes recent observations
+- **Handles Noise**: Works well with noisy, chaotic earthquake frequency data
+- **No Overfitting**: Avoids fitting to random fluctuations
+- **Beginner-Friendly**: Intuitive and easy to explain
 
 ### How It Works (Simplified)
 
-1. **Data Selection**: Load last 3 years from complete historical earthquake dataset
+1. **Data Selection**: Load last 5 years (~60 months) from complete historical earthquake dataset
 2. **Data Grouping**: Count earthquakes by month for stability
-3. **Date Conversion**: Convert dates to numeric values (days since earliest date)
-4. **Train/Test Split**: 80% for training, 20% for testing (chronological order preserved)
-5. **Model Training**: Build 100 decision trees, each learning different patterns
-6. **Averaging**: Combine predictions from all trees for final result
-7. **Forecast**: Extend trends 12 months into the future
+3. **Train/Test Split**: 80% for training (~48 months), 20% for testing (~12 months)
+4. **Model Training**: Compute Moving Average using a short window
+5. **Forecast**: Extend trends 12 months into the future
 
 ### Model Details
 
-- **Algorithm**: Random Forest Regressor
-- **Number of Trees**: 100 (balanced for accuracy and speed)
-- **Tree Depth**: Max 10 levels (prevents overfitting)
-- **Features**: Time (converted to days since earliest date)
-- **Target**: Monthly earthquake frequency (count)
-- **Training Data**: 80% of monthly samples
-- **Testing Data**: 20% of monthly samples
+- **Algorithm**: Moving Average (short-window smoothing)
+- **Features**: Monthly earthquake frequency counts (no feature engineering)
+- **Scaling**: None needed (uses raw monthly counts)
+- **Training Data**: 80% of ~60 months = ~48 months
+- **Testing Data**: 20% of ~60 months = ~12 months
+- **Forecast Horizon**: 12 months into the future
 
 ### What It DOES NOT Do
 
@@ -191,7 +187,7 @@ The model uses the **last 3 years** of complete historical data for these reason
 ## 📝 Files Description
 
 - **main.py**: Main Streamlit application with dashboard interface and ML section
-- **ml_prediction.py**: ML module with Random Forest model for earthquake frequency prediction
+- **ml_prediction.py**: ML module with Moving Average model for earthquake frequency trend prediction
 - **visualization.py**: Functions for creating charts and maps
 - **load_data.py**: Functions for fetching and processing earthquake data
 - **plot.py**: Additional plotting utilities
