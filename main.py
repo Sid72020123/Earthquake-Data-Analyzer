@@ -1,7 +1,22 @@
 import pandas as pd
+from visualization import (
+    plot_magnitude_distribution,
+    create_heatmap,
+    plot_country_counts,
+    plot_depth_vs_magnitude,
+    plot_correlation_heatmap,
+    plot_magnitude_boxplot,
+    plot_country_counts,
+)
 
 df = pd.read_csv("data/historical_processed.csv")
 
+# plot_magnitude_distribution(df)
+# plot_country_counts(df)
+# plot_depth_vs_magnitude(df)
+# plot_correlation_heatmap(df)
+# plot_magnitude_boxplot(df)
+plot_country_counts(df)
 
 """
 # print(df.info())
