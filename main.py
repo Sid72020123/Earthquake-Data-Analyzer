@@ -596,7 +596,7 @@ def main():
                 )
                 st.plotly_chart(
                     create_prediction_plotly(ml_results, future_periods=12),
-                    use_container_width=True,
+                    width="stretch",
                 )
 
         except Exception as exc:

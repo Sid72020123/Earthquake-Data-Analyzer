@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler, PolynomialFeatures
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
 
@@ -161,10 +160,14 @@ def train_ml_model(frequency_data, test_size=0.2, poly_degree=2):
     # Reshape X to 2D array (required by sklearn)
     X = X.reshape(-1, 1)
 
-    # Split data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, random_state=42
-    )
+    # Split data chronologically so the model respects the time-series order.
+    split_index = max(1, int(len(X) * (1 - test_size)))
+    X_train, X_test = X[:split_index], X[split_index:]
+    y_train, y_test = y[:split_index], y[split_index:]
+
+    if len(X_test) == 0:
+        X_train, X_test = X[:-1], X[-1:]
+        y_train, y_test = y[:-1], y[-1:]
 
     # Create polynomial features and scale them
     poly = PolynomialFeatures(degree=poly_degree, include_bias=False)
@@ -349,33 +352,34 @@ def create_prediction_plotly(results, future_periods=12):
         Interactive Plotly figure
     """
 
-    frequency_data = results["frequency_data"]
+    frequency_data = results["frequency_data"].copy()
     model = results["model"]
     scaler = results["scaler"]
     poly = results["poly"]
 
-    # Prepare data for plotting
-    X_all = np.vstack([results["X_train"], results["X_test"]])
-    y_pred_all = np.hstack([results["y_train_pred"], results["y_test_pred"]])
+    # Prepare dates and a shared numeric reference so historical and future
+    # predictions stay aligned with the monthly timeline.
+    frequency_data["time"] = pd.to_datetime(frequency_data["time"])
+    all_dates = pd.to_datetime(frequency_data["time"])
+    all_numeric_dates, min_date_timestamp = convert_dates_to_numeric(all_dates)
+    all_numeric_dates = all_numeric_dates.reshape(-1, 1)
+    min_date = pd.to_datetime(min_date_timestamp, unit="s")
 
-    # Get all dates
-    all_dates = frequency_data["time"].values
-    sorted_idx = np.argsort(X_all.flatten())
+    historical_scaled = scaler.transform(poly.transform(all_numeric_dates))
+    historical_predictions = model.predict(historical_scaled)
 
     # Generate future predictions
-    max_X = X_all.max()
-    future_X = np.linspace(max_X + 1, max_X + future_periods, future_periods).reshape(
-        -1, 1
+    future_dates = pd.date_range(
+        start=all_dates.iloc[-1] + pd.DateOffset(months=1),
+        periods=future_periods,
+        freq="MS",
     )
-    future_X_poly = poly.transform(future_X)
+    future_numeric_dates = np.array(
+        [(date - min_date).total_seconds() / (24 * 3600) for date in future_dates]
+    ).reshape(-1, 1)
+    future_X_poly = poly.transform(future_numeric_dates)
     future_X_scaled = scaler.transform(future_X_poly)
     future_y_pred = model.predict(future_X_scaled)
-
-    # Generate future dates (assuming monthly data)
-    last_date = pd.to_datetime(all_dates[-1])
-    future_dates = pd.date_range(
-        start=last_date + pd.DateOffset(months=1), periods=future_periods, freq="MS"
-    )
 
     # Create figure
     fig = go.Figure()
@@ -385,10 +389,9 @@ def create_prediction_plotly(results, future_periods=12):
         go.Scatter(
             x=all_dates,
             y=frequency_data["count"].values,
-            mode="lines+markers",
+            mode="markers",
             name="Raw Data (Noisy)",
-            line=dict(color="#cbd5e1", width=1),
-            marker=dict(size=4),
+            marker=dict(size=6, color="#94a3b8"),
             opacity=0.5,
         )
     )
@@ -404,11 +407,11 @@ def create_prediction_plotly(results, future_periods=12):
         )
     )
 
-    # Add predictions on training/test data
+    # Add fitted model values across the full historical timeline.
     fig.add_trace(
         go.Scatter(
-            x=all_dates[sorted_idx],
-            y=y_pred_all[sorted_idx],
+            x=all_dates,
+            y=historical_predictions,
             mode="lines",
             name="Model Predictions",
             line=dict(color="#f97316", width=2, dash="dash"),
@@ -419,7 +422,7 @@ def create_prediction_plotly(results, future_periods=12):
     fig.add_trace(
         go.Scatter(
             x=list(all_dates) + list(future_dates),
-            y=list(y_pred_all[sorted_idx]) + list(future_y_pred),
+            y=list(historical_predictions) + list(future_y_pred),
             mode="lines",
             name="Future Forecast",
             line=dict(color="#ec4899", width=2, dash="dot"),
