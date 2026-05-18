@@ -351,13 +351,28 @@ def create_animated_timeline(df, sample_size=5000):
     timeline_df["time"] = pd.to_datetime(timeline_df["time"], errors="coerce", utc=True)
     timeline_df = timeline_df.dropna(subset=["time"])
 
-    timeline_df["month_ts"] = (
-        timeline_df["time"].dt.tz_convert(None).dt.to_period("M").dt.to_timestamp()
-    )
-    timeline_df["month"] = timeline_df["month_ts"].dt.strftime("%Y-%m")
-    month_order = sorted(timeline_df["month"].unique())
-    timeline_df["month"] = pd.Categorical(
-        timeline_df["month"], categories=month_order, ordered=True
+    # Decide on an appropriate animation frame granularity.
+    # For short ranges (<= 90 days) animate by day; otherwise animate by month.
+    timeline_df["time"] = pd.to_datetime(timeline_df["time"], errors="coerce", utc=True)
+    timeline_df = timeline_df.dropna(subset=["time"])  # ensure times exist
+    span_days = (
+        timeline_df["time"].dt.tz_convert(None).max()
+        - timeline_df["time"].dt.tz_convert(None).min()
+    ).days
+
+    if span_days <= 90:
+        # animate by day for clearer motion when the window is short
+        timeline_df["frame"] = timeline_df["time"].dt.strftime("%Y-%m-%d")
+    else:
+        timeline_df["month_ts"] = (
+            timeline_df["time"].dt.tz_convert(None).dt.to_period("M").dt.to_timestamp()
+        )
+        timeline_df["frame"] = timeline_df["month_ts"].dt.strftime("%Y-%m")
+
+    # order frames chronologically
+    frame_order = sorted(timeline_df["frame"].unique())
+    timeline_df["frame"] = pd.Categorical(
+        timeline_df["frame"], categories=frame_order, ordered=True
     )
 
     # Format hover time for readability
@@ -378,13 +393,13 @@ def create_animated_timeline(df, sample_size=5000):
         size="mag",
         hover_name="country",
         hover_data={"time_str": True, "mag": True},
-        animation_frame="month",
+        animation_frame="frame",
         projection="natural earth",
         title="Animated Earthquake Timeline",
         color_continuous_scale="YlOrRd",
         height=650,
         template=plotly_template,
-        category_orders={"month": month_order},
+        category_orders={"frame": frame_order},
     )
     fig.update_layout(
         margin=dict(l=0, r=0, t=50, b=0),

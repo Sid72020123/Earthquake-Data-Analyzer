@@ -196,6 +196,10 @@ def main():
 
     min_date = data["time"].dt.date.min()
     max_date = data["time"].dt.date.max()
+    # default to the most recent 15 days for the initial view
+    default_start = (pd.to_datetime(max_date) - pd.Timedelta(days=14)).date()
+    if default_start < min_date:
+        default_start = min_date
     country_options = sorted(data["country"].dropna().unique().tolist())
     min_magnitude = float(data["mag"].min())
     max_magnitude = float(data["mag"].max())
@@ -242,13 +246,14 @@ def main():
 
         selected_dates = st.date_input(
             "📅 Date Range",
-            value=(min_date, max_date),
+            value=(default_start, max_date),
             min_value=min_date,
             max_value=max_date,
         )
 
         # Limit how many records to use for heavy visuals (maps, large charts)
-        max_records_default = min(5000, len(data)) if len(data) > 0 else 500
+        # Start by showing only 100 records in visuals to keep the app responsive
+        max_records_default = 100
         max_records = st.slider(
             "Max records used for visuals",
             min_value=100,
@@ -270,13 +275,14 @@ def main():
         st.divider()
         st.subheader("Chart Options")
 
-        timeline_sample_limit = max(500, min(10000, len(data)))
+        # Keep timeline sampling small by default (100) and allow up to dataset size
+        timeline_sample_limit = max(100, min(10000, len(data)))
         timeline_sample_size = st.slider(
             "Animated Timeline Sample Size",
-            min_value=500,
+            min_value=100,
             max_value=timeline_sample_limit,
-            value=min(5000, timeline_sample_limit),
-            step=500,
+            value=min(100, timeline_sample_limit),
+            step=100,
         )
 
     if isinstance(selected_dates, tuple):
@@ -481,11 +487,13 @@ def main():
             "Animation progresses month by month. Watch earthquake patterns unfold over time!"
         )
         try:
-            timeline_sample_size = min(timeline_sample_size, len(display_data))
+            # Allow the timeline slider to control how many rows are sampled
+            # for the animation by using the filtered dataset (not the display-limited one).
+            timeline_sample_size = min(timeline_sample_size, len(filtered_data))
             with st.spinner("Rendering animated timeline..."):
                 st.plotly_chart(
                     create_animated_timeline(
-                        display_data, sample_size=timeline_sample_size
+                        filtered_data, sample_size=timeline_sample_size
                     ),
                     width="stretch",
                 )
@@ -500,7 +508,7 @@ def main():
             with st.spinner("Rendering 3D visualization..."):
                 st.plotly_chart(
                     create_3d_earthquake_visualization(
-                        display_data, sample_size=timeline_sample_size
+                        filtered_data, sample_size=timeline_sample_size
                     ),
                     width="stretch",
                 )
