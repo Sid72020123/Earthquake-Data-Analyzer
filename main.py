@@ -8,7 +8,7 @@ from visualization import (
     plot_magnitude_boxplot,
     plot_country_counts,
     create_animated_earthquake_map,
-    create_3d_earthquake_plot
+    create_3d_earthquake_plot,
 )
 
 df = pd.read_csv("data/historical_processed.csv")
@@ -20,7 +20,7 @@ print(df.info())
 # plot_magnitude_boxplot(df)
 # plot_country_counts(df)
 # create_animated_earthquake_map(df).show()
-create_3d_earthquake_plot.show()
+create_3d_earthquake_plot(df).show()
 
 """
 # print(df.info())
