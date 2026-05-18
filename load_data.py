@@ -1,4 +1,6 @@
 import pandas as pd
+import reverse_geocoder as rg
+import pycountry
 
 ROOT_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query.csv"
 
@@ -35,6 +37,19 @@ def load_historical_data(start_year, end_year, save_directory="data", min_magnit
 
     print(f"\nTotal records: {len(final_df)}")
     print(f"Saved to: '{save_directory}/historical.csv'")
+
+
+def process_historical_data():
+    df = pd.read_csv("data/historical.csv")
+
+    df["time"] = pd.to_datetime(df["time"])
+
+    df = df[["id", "time", "latitude", "longitude", "depth", "mag", "place"]]
+    df["region"] = df["place"].str.split(",").str[-1].str.strip()  # extract region
+
+    # Reverse geocoding
+    coordinates = list(zip(df["latitude"], df["longitude"]))
+    results = rg.search(coordinates)
 
 
 if __name__ == "__main__":
