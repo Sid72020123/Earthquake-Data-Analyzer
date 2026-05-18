@@ -27,6 +27,7 @@ from ml_prediction import (
     plot_actual_vs_predicted,
     create_prediction_plotly,
     get_model_explanation,
+    get_ml_data_from_full_history,
 )
 
 DATA_PATH = "data/historical_processed.csv"
@@ -534,90 +535,68 @@ def main():
     with tab5:
         st.subheader("🤖 Machine Learning: Earthquake Frequency Prediction")
         st.caption(
-            "A Linear Regression model predicts earthquake frequency trends over time. "
+            "A Polynomial Regression model with data smoothing predicts earthquake frequency trends. "
             "This helps identify whether earthquake activity is increasing or decreasing."
         )
 
         # Show explanation first
-        with st.expander("📚 Learn about the ML model"):
+        with st.expander("ℹ️ How does the model work?"):
             st.markdown(get_model_explanation())
 
-        st.markdown("### 🔧 Training the Model")
-        st.caption(
-            "The model uses weekly earthquake counts to learn patterns in frequency. "
-            "It splits data into 80% training and 20% testing."
-        )
-
         try:
-            # Prepare time series data (weekly frequency)
-            with st.spinner("Preparing earthquake frequency data..."):
-                frequency_data = prepare_time_series_data(filtered_data, period="W")
+            # Get ML data from full history (last 3 years)
+            with st.spinner("Loading historical earthquake data..."):
+                ml_data = get_ml_data_from_full_history(data, years=3)
+
+            # Prepare time series data (monthly frequency with smoothing)
+            with st.spinner("Training polynomial model with smoothing..."):
+                frequency_data = prepare_time_series_data(ml_data, period="M")
 
             # Check if we have enough data
             if len(frequency_data) < 10:
                 st.warning(
-                    "Not enough data for ML model training. "
-                    "Please select a larger date range or more earthquakes."
+                    "Not enough data for ML model training. Need at least 10 months."
                 )
             else:
                 # Train the model
-                with st.spinner("Training Linear Regression model..."):
+                with st.spinner("Training model..."):
                     ml_results = train_ml_model(frequency_data, test_size=0.2)
 
                 # Display model metrics
                 st.markdown("### 📊 Model Performance")
 
-                metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
+                metric_col1, metric_col2, metric_col3 = st.columns(3)
                 metric_col1.metric(
-                    "Train R² Score",
-                    f"{ml_results['train_r2']:.4f}",
-                    help="Goodness of fit on training data (0-1, higher is better)",
+                    "Train R²",
+                    f"{ml_results['train_r2']:.3f}",
+                    help="Goodness of fit (0-1, higher is better)",
                 )
                 metric_col2.metric(
-                    "Test R² Score",
-                    f"{ml_results['test_r2']:.4f}",
-                    help="Goodness of fit on test data (0-1, higher is better)",
+                    "Test R²",
+                    f"{ml_results['test_r2']:.3f}",
+                    help="Test set accuracy (0-1, higher is better)",
                 )
                 metric_col3.metric(
-                    "Train MSE",
-                    f"{ml_results['train_mse']:.4f}",
-                    help="Mean Squared Error on training data (lower is better)",
-                )
-                metric_col4.metric(
-                    "Test RMSE",
+                    "RMSE",
                     f"{ml_results['test_rmse']:.4f}",
-                    help="Root Mean Squared Error on test data (lower is better)",
+                    help="Prediction error (lower is better)",
                 )
 
                 # Display visualizations
-                st.markdown("### 📈 Training Visualization")
-                st.pyplot(plot_training_process(ml_results), use_container_width=True)
+                st.markdown("### 📊 Model Error Distribution")
+                st.pyplot(plot_training_process(ml_results), width="stretch")
 
-                st.markdown("### 🎯 Actual vs Predicted")
-                st.caption(
-                    "Left: Predicted trend line overlaid on actual frequency. "
-                    "Right: Scatter plot showing prediction accuracy."
-                )
-                st.pyplot(
-                    plot_actual_vs_predicted(ml_results), use_container_width=True
-                )
+                st.markdown("### 📊 Actual vs Predicted")
+                st.caption("Left: Trend comparison | Right: Prediction accuracy")
+                st.pyplot(plot_actual_vs_predicted(ml_results), width="stretch")
 
-                st.markdown("### 📉 Trend Prediction with Future Forecast")
+                st.markdown("### 📉 Trend Forecast (12 Months)")
                 st.caption(
-                    "Interactive plot showing actual data, model predictions, and extrapolated trend "
-                    "for the next 12 weeks."
+                    "Gray = raw data (noisy) | Teal = smoothed trend | Orange = model | Pink = forecast"
                 )
                 st.plotly_chart(
                     create_prediction_plotly(ml_results, future_periods=12),
                     use_container_width=True,
-                )
-
-                st.markdown("### 💡 Interpretation")
-                st.info(
-                    "**Model Slope Interpretation**: "
-                    "A positive slope means earthquake frequency is increasing over time. "
-                    "A negative slope means frequency is decreasing. "
-                    "The magnitude of the slope indicates how fast the change is happening."
                 )
 
         except Exception as exc:

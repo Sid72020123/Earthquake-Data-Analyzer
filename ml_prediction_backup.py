@@ -1,9 +1,8 @@
 """
-Machine Learning module for predicting earthquake frequency trends.
+Simple Machine Learning module for predicting earthquake frequency trends.
 
-This module uses Polynomial Regression with data smoothing to predict
-earthquake frequency trends. The model captures non-linear patterns in
-earthquake occurrence rates over time.
+This module uses Linear Regression to predict the number of earthquakes over time.
+The goal is to identify trends in earthquake frequency, not to predict exact locations or times.
 """
 
 import numpy as np
@@ -29,6 +28,9 @@ def get_ml_data_from_full_history(data, years=3):
         Full earthquake data with 'time' column
     years : int
         Number of years of historical data to use (default: 3)
+        - 3 years: ~156 weeks, recent patterns, good for trend analysis
+        - 5 years: ~260 weeks, more data but includes older patterns
+        - 1 year: ~52 weeks, limited data, high volatility
 
     Returns:
     --------
@@ -53,23 +55,20 @@ def get_ml_data_from_full_history(data, years=3):
 
 def prepare_time_series_data(data, period="M"):
     """
-    Prepare earthquake frequency data grouped by time period with smoothing.
-
-    Monthly aggregation (instead of weekly) provides more stable trends
-    while reducing noise from short-term fluctuations.
+    Prepare earthquake frequency data grouped by time period.
 
     Parameters:
     -----------
     data : pd.DataFrame
         Earthquake data with 'time' column (must be datetime)
-    period : str
-        Pandas period string ('D' for daily, 'W' for weekly, 'M' for monthly)
-        Default is 'M' (monthly) for smoother trends
+        period : str
+            Pandas period string ('D' for daily, 'W' for weekly, 'M' for monthly)
+            Default is 'M' (monthly) for smoother trends
 
     Returns:
     --------
     pd.DataFrame
-        DataFrame with 'time', 'count', and 'count_smoothed' columns
+        DataFrame with 'time' and 'count' columns representing earthquake frequency
     """
 
     # Create a copy to avoid modifying original data
@@ -79,9 +78,11 @@ def prepare_time_series_data(data, period="M"):
     df["time"] = pd.to_datetime(df["time"], utc=True)
 
     # Convert to timezone-naive to avoid UserWarning with to_period()
+    # to_period() drops timezone info anyway, so we do it explicitly first
     df["time"] = df["time"].dt.tz_localize(None)
 
     # Group by period and count earthquakes
+    # Using timezone-naive dates prevents: UserWarning about dropping timezone
     frequency_data = (
         df.groupby(df["time"].dt.to_period(period)).size().reset_index(name="count")
     )
@@ -103,7 +104,7 @@ def convert_dates_to_numeric(dates):
     """
     Convert datetime values to numeric values for ML model.
 
-    This converts dates to 'days since the earliest date' for regression.
+    This converts dates to 'days since the earliest date' to make them usable for regression.
 
     Parameters:
     -----------
@@ -130,21 +131,16 @@ def convert_dates_to_numeric(dates):
     return numeric_dates.values, min_date.timestamp()
 
 
-def train_ml_model(frequency_data, test_size=0.2, poly_degree=2):
+def train_ml_model(frequency_data, test_size=0.2):
     """
-    Train a Polynomial Regression model to predict earthquake frequency.
-
-    Uses polynomial features (degree 2) with data smoothing to better
-    capture non-linear trends in earthquake frequency.
+    Train a Linear Regression model to predict earthquake frequency.
 
     Parameters:
     -----------
     frequency_data : pd.DataFrame
-        Time series data with 'time', 'count', and 'count_smoothed' columns
+        Time series data with 'time' and 'count' columns
     test_size : float
         Fraction of data to use for testing (0.2 = 20%)
-    poly_degree : int
-        Degree of polynomial features (default: 2)
 
     Returns:
     --------
@@ -154,9 +150,9 @@ def train_ml_model(frequency_data, test_size=0.2, poly_degree=2):
 
     # Prepare features (X) and target (y)
     # X: numeric representation of dates
-    # y: earthquake frequency using smoothed data (less noisy)
+    # y: earthquake frequency (count)
     X, _ = convert_dates_to_numeric(frequency_data["time"])
-    y = frequency_data["count_smoothed"].values
+    y = frequency_data["count"].values
 
     # Reshape X to 2D array (required by sklearn)
     X = X.reshape(-1, 1)
@@ -166,17 +162,12 @@ def train_ml_model(frequency_data, test_size=0.2, poly_degree=2):
         X, y, test_size=test_size, random_state=42
     )
 
-    # Create polynomial features and scale them
-    poly = PolynomialFeatures(degree=poly_degree, include_bias=False)
-    X_train_poly = poly.fit_transform(X_train)
-    X_test_poly = poly.transform(X_test)
-
-    # Scale features for better numerical stability
+    # Scale features for better model performance
     scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform(X_train_poly)
-    X_test_scaled = scaler.transform(X_test_poly)
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
 
-    # Train the Polynomial Regression model
+    # Train the Linear Regression model
     model = LinearRegression()
     model.fit(X_train_scaled, y_train)
 
@@ -195,7 +186,6 @@ def train_ml_model(frequency_data, test_size=0.2, poly_degree=2):
     results = {
         "model": model,
         "scaler": scaler,
-        "poly": poly,
         "X_train": X_train,
         "X_test": X_test,
         "X_train_scaled": X_train_scaled,
@@ -210,7 +200,6 @@ def train_ml_model(frequency_data, test_size=0.2, poly_degree=2):
         "test_mse": test_mse,
         "test_rmse": test_rmse,
         "frequency_data": frequency_data,
-        "poly_degree": poly_degree,
     }
 
     return results
@@ -218,7 +207,7 @@ def train_ml_model(frequency_data, test_size=0.2, poly_degree=2):
 
 def plot_training_process(results):
     """
-    Create a matplotlib figure showing error distribution during training.
+    Create a matplotlib figure showing training vs test loss over time.
 
     Parameters:
     -----------
@@ -233,20 +222,20 @@ def plot_training_process(results):
 
     fig, ax = plt.subplots(figsize=(10, 5))
 
-    # Plot training errors
+    # Plot training and test errors
+    epochs = np.arange(len(results["y_train"]))
     train_errors = np.abs(results["y_train"] - results["y_train_pred"])
+
     ax.scatter(
         results["X_train"] / results["X_train"].max(),
         train_errors,
         alpha=0.6,
         label="Train Error",
         s=30,
-        color="#0ea5a4",
     )
-
     ax.set_xlabel("Time (normalized)", fontsize=11)
     ax.set_ylabel("Absolute Error (earthquake count)", fontsize=11)
-    ax.set_title("Model Error Distribution", fontsize=12, fontweight="bold")
+    ax.set_title("Training Error Distribution", fontsize=12, fontweight="bold")
     ax.legend()
     ax.grid(True, alpha=0.3)
 
@@ -283,14 +272,7 @@ def plot_actual_vs_predicted(results):
     y_pred_sorted = y_pred_all[sorted_idx]
 
     ax1.plot(
-        X_sorted,
-        y_sorted,
-        "o-",
-        label="Actual (Smoothed)",
-        alpha=0.7,
-        linewidth=2,
-        markersize=6,
-        color="#0ea5a4",
+        X_sorted, y_sorted, "o-", label="Actual", alpha=0.7, linewidth=2, markersize=6
     )
     ax1.plot(
         X_sorted,
@@ -300,16 +282,17 @@ def plot_actual_vs_predicted(results):
         alpha=0.7,
         linewidth=2,
         markersize=6,
-        color="#f97316",
     )
     ax1.set_xlabel("Time (days since start)", fontsize=11)
     ax1.set_ylabel("Earthquake Frequency (count)", fontsize=11)
-    ax1.set_title("Trend Analysis: Actual vs Predicted", fontsize=12, fontweight="bold")
+    ax1.set_title(
+        "Earthquake Frequency: Actual vs Predicted", fontsize=12, fontweight="bold"
+    )
     ax1.legend()
     ax1.grid(True, alpha=0.3)
 
     # Plot 2: Scatter plot for prediction accuracy
-    ax2.scatter(y_all, y_pred_all, alpha=0.6, s=50, color="#0ea5a4")
+    ax2.scatter(y_all, y_pred_all, alpha=0.6, s=50)
 
     # Add perfect prediction line
     min_val = min(y_all.min(), y_pred_all.min())
@@ -322,8 +305,8 @@ def plot_actual_vs_predicted(results):
         linewidth=2,
     )
 
-    ax2.set_xlabel("Actual Frequency", fontsize=11)
-    ax2.set_ylabel("Predicted Frequency", fontsize=11)
+    ax2.set_xlabel("Actual Earthquake Frequency", fontsize=11)
+    ax2.set_ylabel("Predicted Earthquake Frequency", fontsize=11)
     ax2.set_title("Prediction Accuracy", fontsize=12, fontweight="bold")
     ax2.legend()
     ax2.grid(True, alpha=0.3)
@@ -352,7 +335,6 @@ def create_prediction_plotly(results, future_periods=12):
     frequency_data = results["frequency_data"]
     model = results["model"]
     scaler = results["scaler"]
-    poly = results["poly"]
 
     # Prepare data for plotting
     X_all = np.vstack([results["X_train"], results["X_test"]])
@@ -367,40 +349,27 @@ def create_prediction_plotly(results, future_periods=12):
     future_X = np.linspace(max_X + 1, max_X + future_periods, future_periods).reshape(
         -1, 1
     )
-    future_X_poly = poly.transform(future_X)
-    future_X_scaled = scaler.transform(future_X_poly)
+    future_X_scaled = scaler.transform(future_X)
     future_y_pred = model.predict(future_X_scaled)
 
-    # Generate future dates (assuming monthly data)
+    # Generate future dates (assuming weekly data)
     last_date = pd.to_datetime(all_dates[-1])
     future_dates = pd.date_range(
-        start=last_date + pd.DateOffset(months=1), periods=future_periods, freq="MS"
+        start=last_date + pd.Timedelta(weeks=1), periods=future_periods, freq="W"
     )
 
     # Create figure
     fig = go.Figure()
 
-    # Add actual raw data (lightly)
+    # Add actual data
     fig.add_trace(
         go.Scatter(
             x=all_dates,
             y=frequency_data["count"].values,
             mode="lines+markers",
-            name="Raw Data (Noisy)",
-            line=dict(color="#cbd5e1", width=1),
-            marker=dict(size=4),
-            opacity=0.5,
-        )
-    )
-
-    # Add smoothed actual data
-    fig.add_trace(
-        go.Scatter(
-            x=all_dates,
-            y=frequency_data["count_smoothed"].values,
-            mode="lines",
-            name="Actual Trend (Smoothed)",
-            line=dict(color="#0ea5a4", width=3),
+            name="Actual Frequency",
+            line=dict(color="#0ea5a4", width=2),
+            marker=dict(size=6),
         )
     )
 
@@ -410,7 +379,7 @@ def create_prediction_plotly(results, future_periods=12):
             x=all_dates[sorted_idx],
             y=y_pred_all[sorted_idx],
             mode="lines",
-            name="Model Predictions",
+            name="Model Predictions (Historical)",
             line=dict(color="#f97316", width=2, dash="dash"),
         )
     )
@@ -421,13 +390,13 @@ def create_prediction_plotly(results, future_periods=12):
             x=list(all_dates) + list(future_dates),
             y=list(y_pred_all[sorted_idx]) + list(future_y_pred),
             mode="lines",
-            name="Future Forecast",
+            name="Future Trend (Extrapolated)",
             line=dict(color="#ec4899", width=2, dash="dot"),
         )
     )
 
     fig.update_layout(
-        title="Earthquake Frequency Trend Analysis",
+        title="Earthquake Frequency Trend: Actual vs Predicted",
         xaxis_title="Date",
         yaxis_title="Earthquake Frequency (count)",
         hovermode="x unified",
@@ -452,38 +421,52 @@ def get_model_explanation():
     explanation = """
     ### 🤖 About This ML Model
     
-    **What it predicts:**
-    Earthquake **frequency trends** over time (is activity increasing or decreasing?).
+    **What it does:**
+    This model predicts earthquake **frequency trends** (how many earthquakes occur over time).
+    It does NOT predict:
+    - Exact earthquake locations
+    - Exact earthquake times
+    - Specific earthquake magnitudes
     
-    **What it does NOT predict:**
-    - Exact earthquake locations or times
-    - Specific earthquake magnitudes  
-    - Earthquake timing accuracy
+    **Data Source:**
+    - Uses the **last 3 years** of complete global historical earthquake data
+    - Independent of dashboard filters (always consistent predictions)
+    - ~156 weekly data points for robust trend analysis
     
-    **Key Features:**
-    - **Data**: Last 3 years of global earthquake data (~36 months)
-    - **Method**: Polynomial Regression (degree 2) with data smoothing
-    - **Smoothing**: Exponential weighted moving average reduces noise
-    - **Monthly Aggregation**: More stable than weekly data
-    - **Training**: 80% training, 20% test data
+    **Why 3 years?**
+    - ✅ Captures recent seismic patterns (relevant to current activity)
+    - ✅ Enough data (~156 weeks) for good model training
+    - ✅ Avoids stale patterns from 5+ years ago
+    - ✅ Balances data volume with trend relevance
     
-    **Why this approach works:**
-    - Earthquake frequency is noisy and non-linear
-    - Polynomial features capture curved trends better than straight lines
-    - Data smoothing filters out random spikes and fluctuations
-    - Monthly grouping provides stable, meaningful patterns
+    **How it works:**
+    1. **Data Selection**: Loads last 3 years from complete historical dataset
+    2. **Data Grouping**: Earthquake data is grouped by week, counting occurrences
+    3. **Timezone Handling**: Converts timezone-aware dates to naive for clean processing
+    4. **Date Conversion**: Dates are converted to numbers (days since the first date)
+    5. **Train/Test Split**: 80% for training, 20% for validation
+    6. **Feature Scaling**: StandardScaler normalizes numeric features
+    7. **Model Training**: Linear Regression learns the relationship between time and frequency
+    8. **Prediction**: The model finds the trend and predicts future frequency patterns
     
-    **Important Limitations:**
-    - Earthquake patterns are inherently chaotic
-    - Model captures general trends only, not short-term changes
+    **Why Linear Regression?**
+    - Simple and interpretable
+    - Good for understanding overall trends
+    - Shows if earthquake frequency is increasing or decreasing
+    - Perfect for beginners learning ML concepts
+    
+    **Limitations:**
+    - Real earthquake patterns are complex and chaotic
+    - This model only captures general trends, not short-term variations
+    - External factors (e.g., tectonic changes, climate) are not accounted for
     - Historical data quality varies by region
-    - External factors (tectonic shifts, climate, instrumentation) not modeled
+    - Short-term predictions are inherently uncertain
     
-    **Understanding R² Score:**
-    - Ranges from 0 to 1 (higher = better fit)
-    - 0.5-0.7: Reasonable trend capture
-    - 0.3-0.5: Captures some patterns
-    - Below 0.3: High randomness dominates
+    **Model Score (R² Score):**
+    - Ranges from 0 to 1 (higher is better)
+    - 1.0 = perfect predictions
+    - 0.5 = model explains 50% of the variation
+    - 0.0 = model is no better than just guessing the average
     """
 
     return explanation
