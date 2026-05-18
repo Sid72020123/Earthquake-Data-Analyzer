@@ -55,6 +55,20 @@ def apply_page_style():
                 color: #475569;
                 font-size: 1rem;
             }
+            /* Dark mode adjustments */
+            [data-theme="dark"] .stApp {
+                background: linear-gradient(180deg, #071027 0%, #0b1220 100%);
+            }
+            [data-theme="dark"] .title-block {
+                background: #0f172a;
+                box-shadow: 0 10px 30px rgba(255, 255, 255, 0.03);
+            }
+            [data-theme="dark"] .title-block h1 {
+                color: #e6eef8;
+            }
+            [data-theme="dark"] .title-block p {
+                color: #cbd5e1;
+            }
         </style>
         """,
         unsafe_allow_html=True,
@@ -225,6 +239,17 @@ def main():
             max_value=max_date,
         )
 
+        # Limit how many records to use for heavy visuals (maps, large charts)
+        max_records_default = min(5000, len(data)) if len(data) > 0 else 500
+        max_records = st.slider(
+            "Max records used for visuals",
+            min_value=100,
+            max_value=max(100, len(data)),
+            value=max_records_default,
+            step=100,
+            help="Limits the sampled rows used by maps and large charts to keep the UI responsive.",
+        )
+
         st.divider()
         st.subheader("Map Options")
 
@@ -261,11 +286,20 @@ def main():
         )
         st.stop()
 
+    # Sample the filtered data for heavy visuals if it exceeds the user-selected max
+    if len(filtered_data) > max_records:
+        display_data = filtered_data.sample(n=max_records, random_state=42)
+    else:
+        display_data = filtered_data
+
     show_metric_cards(filtered_data)
 
     st.markdown("### 📋 Dataset Preview")
-    st.dataframe(
-        filtered_data[
+    preview_df = (
+        filtered_data.sort_values("time", ascending=False)
+        .copy()
+        .loc[
+            :,
             [
                 "time",
                 "country",
@@ -275,17 +309,25 @@ def main():
                 "latitude",
                 "longitude",
                 "place",
-            ]
-        ].head(20),
-        width="stretch",
+            ],
+        ]
     )
+    # Format time for readability in the UI preview
+    preview_df["time"] = (
+        pd.to_datetime(preview_df["time"])
+        .dt.tz_convert(None)
+        .dt.strftime("%Y-%m-%d %H:%M UTC")
+    )
+    st.dataframe(preview_df.head(20), width="stretch")
 
     st.markdown("### 📊 Quick Summary")
     summary_col1, summary_col2, summary_col3 = st.columns(3)
     summary_col1.write(f"**Countries in view:** {filtered_data['country'].nunique()}")
     summary_col2.write(f"**Regions in view:** {filtered_data['region'].nunique()}")
+    min_time = pd.to_datetime(filtered_data["time"]).dt.tz_convert(None).min()
+    max_time = pd.to_datetime(filtered_data["time"]).dt.tz_convert(None).max()
     summary_col3.write(
-        f"**Date span:** {filtered_data['time'].dt.date.min()} to {filtered_data['time'].dt.date.max()}"
+        f"**Date span:** {min_time.strftime('%Y-%m-%d')} to {max_time.strftime('%Y-%m-%d')}"
     )
 
     tab1, tab2, tab3, tab4, tab5 = st.tabs(
@@ -296,13 +338,13 @@ def main():
         st.subheader("Statistical Analysis")
         left_col, right_col = st.columns(2)
         with left_col:
-            st.pyplot(plot_magnitude_distribution(filtered_data), width="stretch")
-            st.pyplot(plot_depth_vs_magnitude(filtered_data), width="stretch")
-            st.pyplot(plot_earthquake_trend(filtered_data), width="stretch")
+            st.pyplot(plot_magnitude_distribution(display_data), width="stretch")
+            st.pyplot(plot_depth_vs_magnitude(display_data), width="stretch")
+            st.pyplot(plot_earthquake_trend(display_data), width="stretch")
         with right_col:
-            st.pyplot(plot_correlation_heatmap(filtered_data), width="stretch")
-            st.pyplot(plot_top_countries_bar_chart(filtered_data), width="stretch")
-            st.pyplot(plot_top_countries_pie_chart(filtered_data), width="stretch")
+            st.pyplot(plot_correlation_heatmap(display_data), width="stretch")
+            st.pyplot(plot_top_countries_bar_chart(display_data), width="stretch")
+            st.pyplot(plot_top_countries_pie_chart(display_data), width="stretch")
 
     with tab2:
         st.subheader("🔥 Folium Earthquake Heatmap")
@@ -311,7 +353,7 @@ def main():
         )
         if show_heatmap:
             try:
-                st_folium(create_folium_heatmap(filtered_data), width=1200, height=600)
+                st_folium(create_folium_heatmap(display_data), width=1200, height=600)
             except Exception as exc:
                 st.error(f"Could not render the heatmap: {exc}")
         else:
@@ -325,7 +367,7 @@ def main():
             if show_magnitude_map:
                 try:
                     st_folium(
-                        create_magnitude_based_map(filtered_data), width=600, height=500
+                        create_magnitude_based_map(display_data), width=600, height=500
                     )
                 except Exception as exc:
                     st.error(f"Could not render the magnitude map: {exc}")
@@ -338,7 +380,7 @@ def main():
             if show_depth_map:
                 try:
                     st_folium(
-                        create_depth_based_map(filtered_data), width=600, height=500
+                        create_depth_based_map(display_data), width=600, height=500
                     )
                 except Exception as exc:
                     st.error(f"Could not render the depth map: {exc}")
@@ -352,7 +394,7 @@ def main():
         if show_cluster_map:
             try:
                 st_folium(
-                    create_marker_cluster_map(filtered_data), width=1200, height=600
+                    create_marker_cluster_map(display_data), width=1200, height=600
                 )
             except Exception as exc:
                 st.error(f"Could not render the cluster map: {exc}")
@@ -366,7 +408,7 @@ def main():
         if show_country_map:
             try:
                 st_folium(
-                    create_country_region_map(filtered_data), width=1200, height=600
+                    create_country_region_map(display_data), width=1200, height=600
                 )
             except Exception as exc:
                 st.error(f"Could not render the country map: {exc}")
@@ -419,9 +461,10 @@ def main():
             "Animation progresses month by month. Watch earthquake patterns unfold over time!"
         )
         try:
+            timeline_sample_size = min(timeline_sample_size, max_records)
             st.plotly_chart(
                 create_animated_timeline(
-                    filtered_data, sample_size=timeline_sample_size
+                    display_data, sample_size=timeline_sample_size
                 ),
                 width="stretch",
             )
@@ -435,7 +478,7 @@ def main():
         try:
             st.plotly_chart(
                 create_3d_earthquake_visualization(
-                    filtered_data, sample_size=timeline_sample_size
+                    display_data, sample_size=timeline_sample_size
                 ),
                 width="stretch",
             )

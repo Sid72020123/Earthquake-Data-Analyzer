@@ -1,14 +1,45 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import streamlit as st
 import plotly.express as px
 import folium
 from branca.colormap import LinearColormap
 
 from folium.plugins import HeatMap, MarkerCluster
 
-# Use a clean default style for all charts.
-sns.set_style("whitegrid")
+# Apply plotting theme based on Streamlit theme (light/dark) when available.
+try:
+    theme_base = st.get_option("theme.base")
+except Exception:
+    theme_base = "light"
+
+if theme_base == "dark":
+    sns.set_style("darkgrid")
+    plt.rcParams.update(
+        {
+            "figure.facecolor": "#0b1220",
+            "axes.facecolor": "#0b1220",
+            "savefig.facecolor": "#0b1220",
+            "text.color": "#e6eef8",
+            "axes.labelcolor": "#e6eef8",
+            "xtick.color": "#e6eef8",
+            "ytick.color": "#e6eef8",
+        }
+    )
+else:
+    sns.set_style("whitegrid")
+    plt.rcParams.update(
+        {
+            "figure.facecolor": "none",
+            "axes.facecolor": "none",
+            "savefig.facecolor": "none",
+            "text.color": "#0f172a",
+            "axes.labelcolor": "#0f172a",
+            "xtick.color": "#0f172a",
+            "ytick.color": "#0f172a",
+        }
+    )
 
 
 def _empty_matplotlib_figure(message):
@@ -160,7 +191,7 @@ def create_marker_cluster_map(df, sample_size=1000):
             color="#b91c1c",
             fill=True,
             fill_opacity=0.6,
-            popup=f"Country: {row['country']}<br>Magnitude: {row['mag']}<br>Depth: {row['depth']}",
+            popup=f"Country: {row['country']}<br>Magnitude: {row['mag']}<br>Depth: {row['depth']}<br>Time: {pd.to_datetime(row.get('time')).strftime('%Y-%m-%d %H:%M UTC')}",
         ).add_to(marker_cluster)
 
     return m
@@ -200,7 +231,7 @@ def create_magnitude_based_map(df, sample_size=2000):
                 f"""<b>{row['country']}</b><br>
                 Magnitude: {row['mag']}<br>
                 Depth: {row['depth']} km<br>
-                Time: {row['time']}<br>
+                Time: {pd.to_datetime(row['time']).strftime('%Y-%m-%d %H:%M UTC')}<br>
                 Region: {row.get('region', 'N/A')}""",
                 max_width=250,
             ),
@@ -251,7 +282,7 @@ def create_depth_based_map(df, sample_size=2000):
                 f"""<b>{row['country']}</b><br>
                 Depth: {row['depth']} km<br>
                 Magnitude: {mag}<br>
-                Time: {row['time']}<br>
+                Time: {pd.to_datetime(row['time']).strftime('%Y-%m-%d %H:%M UTC')}<br>
                 Region: {row.get('region', 'N/A')}""",
                 max_width=250,
             ),
@@ -319,9 +350,20 @@ def create_animated_timeline(df, sample_size=5000):
 
     timeline_df["time"] = pd.to_datetime(timeline_df["time"], errors="coerce", utc=True)
     timeline_df = timeline_df.dropna(subset=["time"])
-    timeline_df["month"] = (
-        timeline_df["time"].dt.tz_convert(None).dt.to_period("M").astype(str)
+
+    # Create a zero-padded month string (YYYY-MM) and order frames chronologically
+    timeline_df["month_ts"] = (
+        timeline_df["time"].dt.tz_convert(None).dt.to_period("M").dt.to_timestamp()
     )
+    timeline_df["month"] = timeline_df["month_ts"].dt.strftime("%Y-%m")
+    # Ensure frames are categorical and ordered so Plotly animates in time order
+    month_order = sorted(timeline_df["month"].unique())
+    timeline_df["month"] = pd.Categorical(
+        timeline_df["month"], categories=month_order, ordered=True
+    )
+
+    # Format hover time for readability
+    timeline_df["time_str"] = timeline_df["time"].dt.strftime("%Y-%m-%d %H:%M UTC")
 
     fig = px.scatter_geo(
         timeline_df,
@@ -330,6 +372,7 @@ def create_animated_timeline(df, sample_size=5000):
         color="mag",
         size="mag",
         hover_name="country",
+        hover_data={"time_str": True, "mag": True},
         animation_frame="month",
         projection="natural earth",
         title="Animated Earthquake Timeline",

@@ -20,6 +20,12 @@ def fetch_year_data(year, min_magnitude):
         df = pd.read_csv(url)
     except Exception as e:
         print(f"Error while fetching data: {e}")
+        if os.path.exists(f"data/year_{year}.csv"):
+            print(f"Loading from local cache for year {year}...")
+            df = pd.read_csv(f"data/year_{year}.csv")
+            return df
+        else:
+            print(f"No local cache found for year {year}. Skipping.")
         return pd.DataFrame()
 
     print(f"Successfully fetched {len(df)} rows.")

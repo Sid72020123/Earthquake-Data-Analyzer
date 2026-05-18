@@ -10159,7 +10159,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-04-05T16:13:20.733Z,0.5402,98.5578,57.402,4.8,mb,54.0,157.0,1.241,0.83,us,us7000ma7n,2024-06-12T21:51:54.040Z,"84 km E of Teluk Dalam, Indonesia",earthquake,8.65,7.55,0.07,64.0,reviewed,us,us
 2024-04-05T15:40:10.073Z,36.9977,141.3028,54.034,4.4,mb,31.0,130.0,2.528,1.14,us,us7000ma7g,2024-06-12T21:51:54.040Z,"37 km E of Iwaki, Japan",earthquake,7.16,8.088,0.143,14.0,reviewed,us,us
 2024-04-05T15:00:36.463Z,24.1336,121.8445,8.048,4.9,mb,49.0,73.0,0.684,0.86,us,us7000ma78,2024-06-12T21:51:54.040Z,"29 km NE of Hualien City, Taiwan",earthquake,4.58,4.43,0.081,47.0,reviewed,us,us
-2024-04-05T14:23:20.045Z,40.6963,-74.7596,2.624,4.8,mwr,245.0,54.0,0.684,0.63,us,us7000ma74,2026-05-14T13:31:28.645Z,"2024 Tewksbury, New Jersey Earthquake",earthquake,0.9,3.316,0.027,130.0,reviewed,us,us
+2024-04-05T14:23:20.045Z,40.6963,-74.7596,2.624,4.8,mwr,245.0,54.0,0.684,0.63,us,us7000ma74,2026-05-15T00:56:04.108Z,"2024 Tewksbury, New Jersey Earthquake",earthquake,0.9,3.316,0.027,130.0,reviewed,us,us
 2024-04-05T13:34:39.047Z,-19.2164,-177.4651,568.441,4.4,mb,34.0,75.0,2.879,0.72,us,us7000ma5f,2024-06-12T21:51:54.040Z,Fiji region,earthquake,13.62,11.2,0.108,25.0,reviewed,us,us
 2024-04-05T12:59:12.558Z,24.2276,121.7354,28.654,4.3,mb,34.0,77.0,0.549,0.93,us,us7000mbqg,2024-06-12T21:52:00.040Z,"30 km NNE of Hualien City, Taiwan",earthquake,3.44,4.063,0.168,10.0,reviewed,us,us
 2024-04-05T12:45:38.655Z,26.4924,96.9139,69.136,5.7,mb,157.0,22.0,5.571,0.71,us,us7000ma59,2024-06-12T21:51:54.040Z,"33 km NNE of Sarupathar, India",earthquake,8.38,6.269,0.031,379.0,reviewed,us,us
