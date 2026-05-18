@@ -562,3 +562,256 @@ def get_model_explanation():
     - Negative: Model worse than simple average (indicative of randomness)
     """
     return explanation
+
+
+def compare_models(frequency_data):
+    """
+    Compare multiple ML models on the same earthquake frequency data.
+
+    Trains and evaluates 7 different models: Linear Regression, Exponential
+    Smoothing, Moving Average, Ridge Regression, ARIMA, Seasonal Naive, and
+    Baseline (mean prediction). Returns comparison metrics sorted by Test R².
+
+    Parameters:
+    -----------
+    frequency_data : pd.DataFrame
+        Time series data with 'time' and 'count' columns
+
+    Returns:
+    --------
+    pd.DataFrame
+        Comparison table with columns: Model, Train R², Test R², Train RMSE, Test RMSE
+        Sorted by Test R² (highest first)
+    """
+    try:
+        from sklearn.linear_model import Ridge
+        from statsmodels.tsa.holtwinters import ExponentialSmoothing
+        from statsmodels.tsa.arima.model import ARIMA
+    except ImportError:
+        # Return empty dataframe if statsmodels not available
+        return pd.DataFrame()
+
+    # Prepare data
+    y = frequency_data["count"].values
+    split_index = int(len(y) * 0.8)
+    y_train = y[:split_index]
+    y_test = y[split_index:]
+
+    results_list = []
+
+    # 1. Linear Regression (current model from train_ml_model)
+    try:
+        ml_results = train_ml_model(frequency_data, test_size=0.2)
+        results_list.append(
+            {
+                "Model": "Linear Regression",
+                "Train R²": ml_results["train_r2"],
+                "Test R²": ml_results["test_r2"],
+                "Train RMSE": ml_results["train_rmse"],
+                "Test RMSE": ml_results["test_rmse"],
+            }
+        )
+    except Exception:
+        results_list.append(
+            {
+                "Model": "Linear Regression",
+                "Train R²": 0.0,
+                "Test R²": 0.0,
+                "Train RMSE": 0.0,
+                "Test RMSE": 0.0,
+            }
+        )
+
+    # 2. Exponential Smoothing
+    try:
+        exp_smooth = ExponentialSmoothing(
+            y_train, trend="add", seasonal=None, initialization_method="estimated"
+        )
+        exp_model = exp_smooth.fit(optimized=True)
+        exp_train_pred = exp_model.fittedvalues
+        exp_test_pred = exp_model.forecast(steps=len(y_test))
+        exp_train_r2 = r2_score(y_train, exp_train_pred)
+        exp_test_r2 = r2_score(y_test, exp_test_pred)
+        exp_train_rmse = np.sqrt(mean_squared_error(y_train, exp_train_pred))
+        exp_test_rmse = np.sqrt(mean_squared_error(y_test, exp_test_pred))
+        results_list.append(
+            {
+                "Model": "Exponential Smoothing",
+                "Train R²": exp_train_r2,
+                "Test R²": exp_test_r2,
+                "Train RMSE": exp_train_rmse,
+                "Test RMSE": exp_test_rmse,
+            }
+        )
+    except Exception:
+        results_list.append(
+            {
+                "Model": "Exponential Smoothing",
+                "Train R²": 0.0,
+                "Test R²": 0.0,
+                "Train RMSE": 0.0,
+                "Test RMSE": 0.0,
+            }
+        )
+
+    # 3. Moving Average (simple implementation for comparison)
+    try:
+        window_size = 3
+        ma_train = np.convolve(
+            y_train, np.ones(window_size) / window_size, mode="valid"
+        )
+        ma_train_actual = y_train[window_size - 1 :]
+        ma_test_pred = np.full(len(y_test), np.mean(y_train))
+        ma_train_r2 = r2_score(ma_train_actual, ma_train)
+        ma_test_r2 = r2_score(y_test, ma_test_pred)
+        ma_train_rmse = np.sqrt(mean_squared_error(ma_train_actual, ma_train))
+        ma_test_rmse = np.sqrt(mean_squared_error(y_test, ma_test_pred))
+        results_list.append(
+            {
+                "Model": "Moving Average",
+                "Train R²": ma_train_r2,
+                "Test R²": ma_test_r2,
+                "Train RMSE": ma_train_rmse,
+                "Test RMSE": ma_test_rmse,
+            }
+        )
+    except Exception:
+        results_list.append(
+            {
+                "Model": "Moving Average",
+                "Train R²": 0.0,
+                "Test R²": 0.0,
+                "Train RMSE": 0.0,
+                "Test RMSE": 0.0,
+            }
+        )
+
+    # 4. Ridge Regression
+    try:
+        X_train_idx = np.arange(len(y_train)).reshape(-1, 1)
+        X_test_idx = np.arange(len(y_train), len(y_train) + len(y_test)).reshape(-1, 1)
+        ridge_model = Ridge(alpha=1.0)
+        ridge_model.fit(X_train_idx, y_train)
+        ridge_train_pred = ridge_model.predict(X_train_idx)
+        ridge_test_pred = ridge_model.predict(X_test_idx)
+        ridge_train_r2 = r2_score(y_train, ridge_train_pred)
+        ridge_test_r2 = r2_score(y_test, ridge_test_pred)
+        ridge_train_rmse = np.sqrt(mean_squared_error(y_train, ridge_train_pred))
+        ridge_test_rmse = np.sqrt(mean_squared_error(y_test, ridge_test_pred))
+        results_list.append(
+            {
+                "Model": "Ridge Regression",
+                "Train R²": ridge_train_r2,
+                "Test R²": ridge_test_r2,
+                "Train RMSE": ridge_train_rmse,
+                "Test RMSE": ridge_test_rmse,
+            }
+        )
+    except Exception:
+        results_list.append(
+            {
+                "Model": "Ridge Regression",
+                "Train R²": 0.0,
+                "Test R²": 0.0,
+                "Train RMSE": 0.0,
+                "Test RMSE": 0.0,
+            }
+        )
+
+    # 5. ARIMA
+    try:
+        arima_model = ARIMA(y_train, order=(1, 1, 1)).fit()
+        arima_train_pred = arima_model.fittedvalues
+        arima_test_pred = arima_model.get_forecast(steps=len(y_test)).predicted_mean
+        arima_train_r2 = r2_score(y_train, arima_train_pred)
+        arima_test_r2 = r2_score(y_test, arima_test_pred)
+        arima_train_rmse = np.sqrt(mean_squared_error(y_train, arima_train_pred))
+        arima_test_rmse = np.sqrt(mean_squared_error(y_test, arima_test_pred))
+        results_list.append(
+            {
+                "Model": "ARIMA",
+                "Train R²": arima_train_r2,
+                "Test R²": arima_test_r2,
+                "Train RMSE": arima_train_rmse,
+                "Test RMSE": arima_test_rmse,
+            }
+        )
+    except Exception:
+        results_list.append(
+            {
+                "Model": "ARIMA",
+                "Train R²": 0.0,
+                "Test R²": 0.0,
+                "Train RMSE": 0.0,
+                "Test RMSE": 0.0,
+            }
+        )
+
+    # 6. Seasonal Naive
+    try:
+        season = 12
+        if len(y_train) >= season:
+            sn_train_pred = y_train[season:]
+            sn_train_actual = y_train[season:]
+            sn_test_pred = np.full(
+                len(y_test),
+                y_train[-season] if len(y_train) >= season else np.mean(y_train),
+            )
+            sn_train_r2 = r2_score(sn_train_actual, sn_train_pred)
+            sn_test_r2 = r2_score(y_test, sn_test_pred)
+            sn_train_rmse = np.sqrt(mean_squared_error(sn_train_actual, sn_train_pred))
+            sn_test_rmse = np.sqrt(mean_squared_error(y_test, sn_test_pred))
+        else:
+            sn_train_r2 = sn_test_r2 = sn_train_rmse = sn_test_rmse = 0.0
+        results_list.append(
+            {
+                "Model": "Seasonal Naive",
+                "Train R²": sn_train_r2,
+                "Test R²": sn_test_r2,
+                "Train RMSE": sn_train_rmse,
+                "Test RMSE": sn_test_rmse,
+            }
+        )
+    except Exception:
+        results_list.append(
+            {
+                "Model": "Seasonal Naive",
+                "Train R²": 0.0,
+                "Test R²": 0.0,
+                "Train RMSE": 0.0,
+                "Test RMSE": 0.0,
+            }
+        )
+
+    # 7. Baseline (Mean)
+    try:
+        baseline_pred_train = np.full(len(y_train), np.mean(y_train))
+        baseline_pred_test = np.full(len(y_test), np.mean(y_train))
+        baseline_train_r2 = r2_score(y_train, baseline_pred_train)
+        baseline_test_r2 = r2_score(y_test, baseline_pred_test)
+        baseline_train_rmse = np.sqrt(mean_squared_error(y_train, baseline_pred_train))
+        baseline_test_rmse = np.sqrt(mean_squared_error(y_test, baseline_pred_test))
+        results_list.append(
+            {
+                "Model": "Baseline (Mean)",
+                "Train R²": baseline_train_r2,
+                "Test R²": baseline_test_r2,
+                "Train RMSE": baseline_train_rmse,
+                "Test RMSE": baseline_test_rmse,
+            }
+        )
+    except Exception:
+        results_list.append(
+            {
+                "Model": "Baseline (Mean)",
+                "Train R²": 0.0,
+                "Test R²": 0.0,
+                "Train RMSE": 0.0,
+                "Test RMSE": 0.0,
+            }
+        )
+
+    # Create dataframe and sort by Test R² (highest first)
+    df = pd.DataFrame(results_list)
+    df = df.sort_values("Test R²", ascending=False).reset_index(drop=True)
+    return df

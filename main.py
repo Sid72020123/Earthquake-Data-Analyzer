@@ -28,6 +28,7 @@ from ml_prediction import (
     create_feature_importance_plot,
     get_model_explanation,
     get_ml_data_from_full_history,
+    compare_models,
 )
 
 DATA_PATH = "data/historical_processed.csv"
@@ -551,6 +552,44 @@ def main():
             # Prepare time series data (monthly frequency)
             with st.spinner("Preparing monthly earthquake frequency data..."):
                 frequency_data = prepare_time_series_data(ml_data, period="M")
+
+            # Show model comparison summary
+            with st.expander("🏆 Model Comparison (All Tested Models)"):
+                st.caption(
+                    "Comparison of 7 different ML models evaluated on the same earthquake frequency data. "
+                    "Ranked by Test R² score (higher is better)."
+                )
+                try:
+                    with st.spinner("Comparing models..."):
+                        comparison_df = compare_models(frequency_data)
+                    if not comparison_df.empty:
+                        # Format the dataframe for display
+                        display_df = comparison_df.copy()
+                        display_df["Train R²"] = display_df["Train R²"].apply(
+                            lambda x: f"{x:.4f}"
+                        )
+                        display_df["Test R²"] = display_df["Test R²"].apply(
+                            lambda x: f"{x:.4f}"
+                        )
+                        display_df["Train RMSE"] = display_df["Train RMSE"].apply(
+                            lambda x: f"{x:.4f}"
+                        )
+                        display_df["Test RMSE"] = display_df["Test RMSE"].apply(
+                            lambda x: f"{x:.4f}"
+                        )
+                        # Reset index to show ranking 1-7
+                        display_df.index = list(range(1, len(display_df) + 1))
+                        display_df.index.name = "Rank"
+                        st.table(display_df)
+
+                        # st.markdown(
+                        #     f"**Selected Model:** {comparison_df.iloc[0]['Model']} "
+                        #     f"(Test R² = {comparison_df.iloc[0]['Test R²']:.4f})"
+                        # )
+                    else:
+                        st.warning("Could not run model comparison.")
+                except Exception as e:
+                    st.info(f"Model comparison not available: {e}")
 
             # Check if we have enough data
             if len(frequency_data) < 15:
