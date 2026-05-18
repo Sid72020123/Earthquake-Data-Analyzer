@@ -42,7 +42,7 @@ def load_historical_data(start_year, end_year, save_directory="data", min_magnit
 def process_historical_data():
     df = pd.read_csv("data/historical.csv")
 
-    df["time"] = pd.to_datetime(df["time"])
+    df["time"] = pd.to_datetime(df["time"], format="mixed", utc=True)
 
     df = df[["id", "time", "latitude", "longitude", "depth", "mag", "place"]]
     df["region"] = df["place"].str.split(",").str[-1].str.strip()  # extract region

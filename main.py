@@ -7,16 +7,20 @@ from visualization import (
     plot_correlation_heatmap,
     plot_magnitude_boxplot,
     plot_country_counts,
+    create_animated_earthquake_map,
+    create_3d_earthquake_plot
 )
 
 df = pd.read_csv("data/historical_processed.csv")
-
+print(df.info())
 # plot_magnitude_distribution(df)
 # plot_country_counts(df)
 # plot_depth_vs_magnitude(df)
 # plot_correlation_heatmap(df)
 # plot_magnitude_boxplot(df)
-plot_country_counts(df)
+# plot_country_counts(df)
+# create_animated_earthquake_map(df).show()
+create_3d_earthquake_plot.show()
 
 """
 # print(df.info())
