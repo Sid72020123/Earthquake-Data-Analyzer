@@ -351,12 +351,10 @@ def create_animated_timeline(df, sample_size=5000):
     timeline_df["time"] = pd.to_datetime(timeline_df["time"], errors="coerce", utc=True)
     timeline_df = timeline_df.dropna(subset=["time"])
 
-    # Create a zero-padded month string (YYYY-MM) and order frames chronologically
     timeline_df["month_ts"] = (
         timeline_df["time"].dt.tz_convert(None).dt.to_period("M").dt.to_timestamp()
     )
     timeline_df["month"] = timeline_df["month_ts"].dt.strftime("%Y-%m")
-    # Ensure frames are categorical and ordered so Plotly animates in time order
     month_order = sorted(timeline_df["month"].unique())
     timeline_df["month"] = pd.Categorical(
         timeline_df["month"], categories=month_order, ordered=True
@@ -364,6 +362,13 @@ def create_animated_timeline(df, sample_size=5000):
 
     # Format hover time for readability
     timeline_df["time_str"] = timeline_df["time"].dt.strftime("%Y-%m-%d %H:%M UTC")
+
+    try:
+        base_theme = st.get_option("theme.base")
+    except Exception:
+        base_theme = "light"
+
+    plotly_template = "plotly_dark" if base_theme == "dark" else "plotly_white"
 
     fig = px.scatter_geo(
         timeline_df,
@@ -378,8 +383,13 @@ def create_animated_timeline(df, sample_size=5000):
         title="Animated Earthquake Timeline",
         color_continuous_scale="YlOrRd",
         height=650,
+        template=plotly_template,
+        category_orders={"month": month_order},
     )
-    fig.update_layout(margin=dict(l=0, r=0, t=50, b=0))
+    fig.update_layout(
+        margin=dict(l=0, r=0, t=50, b=0),
+        transition={"duration": 400, "easing": "linear"},
+    )
     return fig
 
 

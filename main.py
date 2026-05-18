@@ -55,6 +55,13 @@ def apply_page_style():
                 color: #475569;
                 font-size: 1rem;
             }
+            /* Typography and accent */
+            .stApp {
+                font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            }
+            .title-block {
+                border-left: 6px solid #0ea5a4;
+            }
             /* Dark mode adjustments */
             [data-theme="dark"] .stApp {
                 background: linear-gradient(180deg, #071027 0%, #0b1220 100%);
@@ -62,6 +69,7 @@ def apply_page_style():
             [data-theme="dark"] .title-block {
                 background: #0f172a;
                 box-shadow: 0 10px 30px rgba(255, 255, 255, 0.03);
+                border-left: 6px solid #06b6d4;
             }
             [data-theme="dark"] .title-block h1 {
                 color: #e6eef8;
@@ -80,7 +88,7 @@ def load_data():
     """Load the processed earthquake dataset and clean the key columns."""
 
     try:
-        data = pd.read_csv(DATA_PATH)
+        data = pd.read_csv(DATA_PATH, parse_dates=["time"], low_memory=False)
     except FileNotFoundError:
         return pd.DataFrame()
     except Exception:
@@ -288,9 +296,12 @@ def main():
 
     # Sample the filtered data for heavy visuals if it exceeds the user-selected max
     if len(filtered_data) > max_records:
-        display_data = filtered_data.sample(n=max_records, random_state=42)
+        # use the most recent records to keep timelines and previews chronological
+        display_data = (
+            filtered_data.sort_values("time", ascending=False).head(max_records).copy()
+        )
     else:
-        display_data = filtered_data
+        display_data = filtered_data.copy()
 
     show_metric_cards(filtered_data)
 
@@ -353,7 +364,10 @@ def main():
         )
         if show_heatmap:
             try:
-                st_folium(create_folium_heatmap(display_data), width=1200, height=600)
+                with st.spinner("Rendering heatmap..."):
+                    st_folium(
+                        create_folium_heatmap(display_data), width=1200, height=600
+                    )
             except Exception as exc:
                 st.error(f"Could not render the heatmap: {exc}")
         else:
@@ -366,9 +380,12 @@ def main():
             st.caption("Circle size and color represent earthquake magnitude.")
             if show_magnitude_map:
                 try:
-                    st_folium(
-                        create_magnitude_based_map(display_data), width=600, height=500
-                    )
+                    with st.spinner("Rendering magnitude map..."):
+                        st_folium(
+                            create_magnitude_based_map(display_data),
+                            width=600,
+                            height=500,
+                        )
                 except Exception as exc:
                     st.error(f"Could not render the magnitude map: {exc}")
             else:
@@ -379,9 +396,10 @@ def main():
             st.caption("Circle color represents depth (shallow to deep).")
             if show_depth_map:
                 try:
-                    st_folium(
-                        create_depth_based_map(display_data), width=600, height=500
-                    )
+                    with st.spinner("Rendering depth map..."):
+                        st_folium(
+                            create_depth_based_map(display_data), width=600, height=500
+                        )
                 except Exception as exc:
                     st.error(f"Could not render the depth map: {exc}")
             else:
@@ -393,9 +411,10 @@ def main():
         )
         if show_cluster_map:
             try:
-                st_folium(
-                    create_marker_cluster_map(display_data), width=1200, height=600
-                )
+                with st.spinner("Rendering cluster map..."):
+                    st_folium(
+                        create_marker_cluster_map(display_data), width=1200, height=600
+                    )
             except Exception as exc:
                 st.error(f"Could not render the cluster map: {exc}")
         else:
@@ -407,9 +426,10 @@ def main():
         )
         if show_country_map:
             try:
-                st_folium(
-                    create_country_region_map(display_data), width=1200, height=600
-                )
+                with st.spinner("Rendering country overview map..."):
+                    st_folium(
+                        create_country_region_map(display_data), width=1200, height=600
+                    )
             except Exception as exc:
                 st.error(f"Could not render the country map: {exc}")
         else:
@@ -461,13 +481,14 @@ def main():
             "Animation progresses month by month. Watch earthquake patterns unfold over time!"
         )
         try:
-            timeline_sample_size = min(timeline_sample_size, max_records)
-            st.plotly_chart(
-                create_animated_timeline(
-                    display_data, sample_size=timeline_sample_size
-                ),
-                width="stretch",
-            )
+            timeline_sample_size = min(timeline_sample_size, len(display_data))
+            with st.spinner("Rendering animated timeline..."):
+                st.plotly_chart(
+                    create_animated_timeline(
+                        display_data, sample_size=timeline_sample_size
+                    ),
+                    width="stretch",
+                )
         except Exception as exc:
             st.error(f"Could not render the animated timeline: {exc}")
 
@@ -476,12 +497,13 @@ def main():
             "3D plot showing longitude, latitude, depth, and magnitude relationships."
         )
         try:
-            st.plotly_chart(
-                create_3d_earthquake_visualization(
-                    display_data, sample_size=timeline_sample_size
-                ),
-                width="stretch",
-            )
+            with st.spinner("Rendering 3D visualization..."):
+                st.plotly_chart(
+                    create_3d_earthquake_visualization(
+                        display_data, sample_size=timeline_sample_size
+                    ),
+                    width="stretch",
+                )
         except Exception as exc:
             st.error(f"Could not render the 3D plot: {exc}")
 
