@@ -432,16 +432,75 @@ def create_feature_importance_plot(results):
     matplotlib.figure.Figure
         Figure object with feature importance
     """
-    fig, ax = plt.subplots(figsize=(8, 4))
+    # More useful feature-summary visualization for a single-feature time series.
+    # Left: scatter of time vs counts with simple linear fit and Pearson r
+    # Right: average counts by calendar month (seasonality check)
+    freq = results.get("frequency_data")
+    if freq is None:
+        # Fallback to simple bar if data missing
+        fig, ax = plt.subplots(figsize=(8, 3))
+        importance = results.get("feature_importance", 1.0)
+        ax.barh(["Time"], [importance], color="#0ea5a4")
+        ax.set_xlabel("Importance Score", fontsize=11)
+        ax.set_title("Feature Importance (Time)", fontsize=12, fontweight="bold")
+        ax.set_xlim(0, 1.1)
+        ax.text(importance + 0.02, 0, f"{importance:.3f}", va="center", fontsize=11)
+        plt.tight_layout()
+        return fig
 
-    importance = results["feature_importance"]
-    ax.barh(["Time"], [importance], color="#0ea5a4")
-    ax.set_xlabel("Importance Score", fontsize=11)
-    ax.set_title("Feature Importance (Time)", fontsize=12, fontweight="bold")
-    ax.set_xlim(0, 1.1)
+    df = freq.copy()
+    df["time"] = pd.to_datetime(df["time"])
+    df = df.sort_values("time").reset_index(drop=True)
 
-    # Add value label on bar
-    ax.text(importance + 0.02, 0, f"{importance:.3f}", va="center", fontsize=11)
+    # Numeric time for regression (days since start)
+    t0 = df["time"].min()
+    numeric_time = (df["time"] - t0).dt.total_seconds() / (24 * 3600)
+    counts = df["count"].values
+
+    # Linear fit (simple trend) for visualization
+    try:
+        coef = np.polyfit(numeric_time, counts, 1)
+        fit_line = np.polyval(coef, numeric_time)
+        # Pearson-like measure (correlation)
+        if np.std(counts) > 0 and np.std(numeric_time) > 0:
+            corr = np.corrcoef(numeric_time, counts)[0, 1]
+        else:
+            corr = 0.0
+    except Exception:
+        fit_line = np.full_like(counts, np.mean(counts))
+        corr = 0.0
+
+    # Monthly seasonality: average by calendar month (1..12)
+    df["month"] = df["time"].dt.month
+    month_avg = df.groupby("month")["count"].mean().reindex(range(1, 13), fill_value=0)
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
+    # Scatter + trend
+    ax1.scatter(df["time"], counts, alpha=0.6, s=30, color="#0ea5a4")
+    ax1.plot(df["time"], fit_line, color="#f97316", linewidth=2, label="Linear trend")
+    ax1.set_xlabel("Date", fontsize=10)
+    ax1.set_ylabel("Earthquake Count", fontsize=10)
+    ax1.set_title("Time vs Count (trend + correlation)")
+    ax1.grid(True, alpha=0.25)
+    ax1.legend()
+    ax1.text(
+        0.02,
+        0.95,
+        f"corr(time,count) = {corr:.3f}",
+        transform=ax1.transAxes,
+        fontsize=10,
+        verticalalignment="top",
+        bbox=dict(boxstyle="round", facecolor="white", alpha=0.6),
+    )
+
+    # Month averages
+    ax2.bar(month_avg.index, month_avg.values, color="#60a5fa")
+    ax2.set_xlabel("Month", fontsize=10)
+    ax2.set_ylabel("Avg Earthquake Count", fontsize=10)
+    ax2.set_title("Average Count by Calendar Month")
+    ax2.set_xticks(range(1, 13))
+    ax2.grid(axis="y", alpha=0.2)
 
     plt.tight_layout()
     return fig
