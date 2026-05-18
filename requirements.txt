@@ -1,0 +1,10 @@
+pandas
+matplotlib
+seaborn
+folium
+branca
+streamlit
+streamlit-folium
+plotly
+reverse_geocoder
+pycountry

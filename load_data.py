@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 import reverse_geocoder as rg
 import pycountry
@@ -16,55 +18,72 @@ def fetch_year_data(year, min_magnitude):
 
     try:
         df = pd.read_csv(url)
-    except Exception as E:
-        print(f"Error while fetching data: {E}")
+    except Exception as e:
+        print(f"Error while fetching data: {e}")
         return pd.DataFrame()
 
     print(f"Successfully fetched {len(df)} rows.")
-
     return df
 
 
 def load_historical_data(start_year, end_year, save_directory="data", min_magnitude=4):
+    os.makedirs(save_directory, exist_ok=True)
+
     all_dataframes = []
     for year in range(start_year, end_year + 1):
         df = fetch_year_data(year, min_magnitude)
         df.to_csv(f"{save_directory}/year_{year}.csv", index=False)
         all_dataframes.append(df)
 
+    if not all_dataframes:
+        print("No yearly data was loaded.")
+        return pd.DataFrame()
+
     final_df = pd.concat(all_dataframes, ignore_index=True)
     final_df.to_csv(f"{save_directory}/historical.csv", index=False)
 
     print(f"\nTotal records: {len(final_df)}")
     print(f"Saved to: '{save_directory}/historical.csv'")
+    return final_df
 
 
 def process_historical_data():
+    if not os.path.exists("data/historical.csv"):
+        print("data/historical.csv was not found.")
+        return pd.DataFrame()
+
     df = pd.read_csv("data/historical.csv")
 
-    df["time"] = pd.to_datetime(df["time"], format="mixed", utc=True)
+    if df.empty:
+        print("historical.csv is empty.")
+        df.to_csv("data/historical_processed.csv", index=False)
+        return df
+
+    df = df.copy()
+    df["time"] = pd.to_datetime(df["time"], format="mixed", utc=True, errors="coerce")
+    df = df.dropna(subset=["time", "latitude", "longitude", "mag", "depth"])
 
     df = df[["id", "time", "latitude", "longitude", "depth", "mag", "place"]]
     df["region"] = df["place"].str.split(",").str[-1].str.strip()  # extract region
 
     # Reverse geocoding
     coordinates = list(zip(df["latitude"], df["longitude"]))
-    results = rg.search(coordinates)
+    results = rg.search(coordinates) if coordinates else []
 
     # ISO country codes
-    df["country_iso"] = [result["cc"] for result in results]
+    df["country_iso"] = [result["cc"] for result in results] if results else []
 
     # Convert ISO codes to country names
-    df["country"] = [
-        (
-            pycountry.countries.get(alpha_2=code).name
-            if pycountry.countries.get(alpha_2=code)
-            else "Unknown"
-        )
-        for code in df["country_iso"]
-    ]
+    countries = []
+    for code in df["country_iso"]:
+        country_obj = pycountry.countries.get(alpha_2=code)
+        countries.append(country_obj.name if country_obj else "Unknown")
+
+    df["country"] = countries
 
     df.to_csv("data/historical_processed.csv", index=False)
+    print(f"Processed records saved: {len(df)}")
+    return df
 
 
 if __name__ == "__main__":
