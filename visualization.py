@@ -159,19 +159,3 @@ def create_animated_earthquake_map(df):
     )
 
     return fig
-
-
-def create_3d_earthquake_plot(df):
-
-    fig = px.scatter_3d(
-        df.sample(5000),
-        x="longitude",
-        y="latitude",
-        z="depth",
-        color="mag",
-        size="mag",
-        hover_name="country",
-        title="3D Earthquake Visualization",
-    )
-
-    return fig
