@@ -51,6 +51,23 @@ def process_historical_data():
     coordinates = list(zip(df["latitude"], df["longitude"]))
     results = rg.search(coordinates)
 
+    # ISO country codes
+    df["country_iso"] = [result["cc"] for result in results]
+
+    # Convert ISO codes to country names
+    df["country"] = [
+        (
+            pycountry.countries.get(alpha_2=code).name
+            if pycountry.countries.get(alpha_2=code)
+            else "Unknown"
+        )
+        for code in df["country_iso"]
+    ]
+
+    df.to_csv("data/historical_processed.csv", index=False)
+
 
 if __name__ == "__main__":
-    load_historical_data(2020, 2026)
+    # load_historical_data(2020, 2026)
+    # process_historical_data()
+    ...

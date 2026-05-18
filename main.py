@@ -1,42 +1,7 @@
 import pandas as pd
-import reverse_geocoder as rg
-import pycountry
 
-df = pd.read_csv("data/historical.csv")
+df = pd.read_csv("data/historical_processed.csv")
 
-print("Duplicates:", df.duplicated().sum())  # Duplicates
-
-df["time"] = pd.to_datetime(df["time"])
-
-# df["year"] = df["time"].dt.year
-# df["month"] = df["time"].dt.month
-# df["day"] = df["time"].dt.day
-
-df = df[["id", "time", "latitude", "longitude", "depth", "mag", "place"]]
-df["region"] = df["place"].str.split(",").str[-1].str.strip()  # extract region
-
-
-# Reverse geocoding
-coordinates = list(zip(df["latitude"], df["longitude"]))
-
-results = rg.search(coordinates)
-
-# ISO country codes
-df["country_iso"] = [result["cc"] for result in results]
-
-# Convert ISO codes to country names
-df["country"] = [
-    (
-        pycountry.countries.get(alpha_2=code).name
-        if pycountry.countries.get(alpha_2=code)
-        else "Unknown"
-    )
-    for code in df["country_iso"]
-]
-
-# df.to_csv("data/historical_processed.csv", index=False)
-
-print(df.head())
 
 """
 # print(df.info())
