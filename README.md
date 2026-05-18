@@ -18,16 +18,17 @@ streamlit run main.py
 
 ## Required libraries
 
-- pandas
-- matplotlib
-- seaborn
-- folium
-- streamlit
-- streamlit-folium
-- plotly
-- reverse_geocoder
-- pycountry
-- scikit-learn (for ML predictions)
+- pandas (≥1.3.0)
+- matplotlib (≥3.4.0)
+- seaborn (≥0.11.0)
+- folium (≥0.12.0)
+- branca (≥0.4.2)
+- streamlit (≥1.0.0)
+- streamlit-folium (≥0.4.0)
+- plotly (≥5.0.0)
+- reverse_geocoder (≥1.5.1)
+- pycountry (≥22.3.5)
+- scikit-learn (≥1.0.0) - for ML predictions
 
 ## Folder structure
 
@@ -80,83 +81,117 @@ Earthquake Data Analyzer/
 - **Animated Timeline**: Month-by-month animation showing earthquake patterns over time
 - **3D Visualization**: Interactive 3D plot showing longitude, latitude, depth, and magnitude relationships
 
-### 🤖 ML Prediction Tab
+### 🤖 ML Trend Forecasting Tab
 
-- **Data Source**: Uses last **3 years of complete historical data** (independent of dashboard filters)
-- **Linear Regression Model**: Predicts earthquake frequency trends
-- **Weekly Aggregation**: Groups earthquakes by week for trend analysis
-- **Training Visualization**: Shows how well the model fits the training data
-- **Actual vs Predicted**: Scatter plots and time series comparing predictions with real earthquake counts
-- **Future Forecast**: Extrapolates trends for the next 12 weeks
-- **Model Metrics**: Displays R² score, MSE, and RMSE for model evaluation
-- **Beginner-friendly Explanation**: Learn how the ML model works with clear documentation
+- **Machine Learning Model**: Random Forest Regressor for earthquake frequency prediction
+- **Data Source**: Last 3 years of complete historical earthquake data
+- **Monthly Aggregation**: Earthquake counts grouped by month for stable trends
+- **Performance Metrics**: Train/Test R² scores and RMSE
+- **Visualizations**: Actual vs Predicted trends, feature importance, and 12-month forecast
+- **Data Transparency**: Shows total samples, training/testing split details
+- **Beginner-friendly Explanations**: Clear documentation of what the model does and limitations
 
-## 🤖 Machine Learning: Earthquake Frequency Prediction
+## 🤖 Machine Learning: Earthquake Frequency Trend Forecasting
 
 ### What It Does
 
-The ML module uses **Linear Regression** to predict earthquake **frequency trends** over time using the last **3 years of global historical earthquake data**. It helps identify whether earthquake activity is increasing or decreasing globally.
+The ML module uses a **Random Forest Regressor** to forecast earthquake **frequency trends** over time using the last **3 years of global historical earthquake data**. It helps identify whether earthquake activity is increasing or decreasing globally.
 
-### Data Strategy: Why Last 3 Years?
+### Why Random Forest?
 
-The model uses the **last 3 years** of complete historical data (independent of dashboard filters) for these reasons:
+Random Forest is chosen because:
 
-| Timeframe                 | Weekly Points | Pros                                                                   | Cons                                                                |
-| ------------------------- | ------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| **3 Years (Recommended)** | ~156 weeks    | ✅ Recent seismic patterns, good sample size, avoids outdated behavior | Shorter term trends                                                 |
-| 5 Years                   | ~260 weeks    | ✅ More data points                                                    | ❌ Includes very old patterns that may not reflect current activity |
-| 1 Year                    | ~52 weeks     | ✅ Very recent                                                         | ❌ Too few data points, high volatility, poor trends                |
+- **Handles Non-linear Patterns**: Earthquake frequency doesn't follow a straight line
+- **Works with Noisy Data**: Earthquake patterns are chaotic and irregular
+- **No Complex Preprocessing**: Unlike polynomial regression, Random Forest doesn't require scaling or smoothing
+- **Interpretable**: Easy to understand which features are important
+- **Robust**: Averages multiple decision trees to reduce overfitting
+- **Beginner-Friendly**: Simple to explain to students and non-technical users
 
-**Best Practice**: 3 years balances data volume with relevance, capturing current earthquake behavior without stale historical noise.
+### How It Works (Simplified)
 
-### How It Works
-
-1. **Data Selection**: Loads last 3 years from complete historical dataset (not dashboard filters)
-2. **Data Grouping**: Earthquake data is grouped by week and counted
-3. **Timezone Handling**: Converts timezone-aware dates to naive for clean period grouping
-4. **Date Conversion**: Dates are converted to numeric values (days since earliest date) for ML
-5. **Train/Test Split**: 80% of data for training, 20% for testing
-6. **Feature Scaling**: StandardScaler normalizes numeric date features
-7. **Model Training**: Linear Regression learns the relationship between time and earthquake frequency
-8. **Prediction**: The model generates predictions and extrapolates future trends for 12 weeks
+1. **Data Selection**: Load last 3 years from complete historical earthquake dataset
+2. **Data Grouping**: Count earthquakes by month for stability
+3. **Date Conversion**: Convert dates to numeric values (days since earliest date)
+4. **Train/Test Split**: 80% for training, 20% for testing (chronological order preserved)
+5. **Model Training**: Build 100 decision trees, each learning different patterns
+6. **Averaging**: Combine predictions from all trees for final result
+7. **Forecast**: Extend trends 12 months into the future
 
 ### Model Details
 
-- **Algorithm**: Linear Regression (simple, interpretable, beginner-friendly)
-- **Features**: Time (converted to days since the earliest date)
-- **Target**: Weekly earthquake frequency (count)
-- **Scaling**: StandardScaler for improved model performance
-- **Evaluation**: R² score, Mean Squared Error (MSE), Root Mean Squared Error (RMSE)
+- **Algorithm**: Random Forest Regressor
+- **Number of Trees**: 100 (balanced for accuracy and speed)
+- **Tree Depth**: Max 10 levels (prevents overfitting)
+- **Features**: Time (converted to days since earliest date)
+- **Target**: Monthly earthquake frequency (count)
+- **Training Data**: 80% of monthly samples
+- **Testing Data**: 20% of monthly samples
 
 ### What It DOES NOT Do
 
 - Predict exact earthquake locations
-- Predict exact earthquake times
+- Predict exact earthquake times or dates
 - Predict specific earthquake magnitudes
-- Account for external factors (tectonic changes, climate, etc.)
-- Provide 100% accurate predictions (earthquake patterns are chaotic)
+- Claim 100% accuracy
+- Account for external factors (tectonic changes, climate, instrumentation)
 
-### Limitations
+### Important Limitations
 
-- Real earthquake patterns are complex and influenced by many factors
-- The model only captures general trends, not short-term variations
-- Results depend heavily on data quality and timeframe
-- Historical earthquakes are underreported in many regions
-- Small sample sizes may produce unreliable trends
+- **Earthquake patterns are chaotic**: Real earthquakes are largely random and unpredictable
+- **General trends only**: Model captures broad patterns, not short-term fluctuations
+- **Data quality varies**: Some regions have better historical records than others
+- **Small sample**: Only 36 months of data may not capture all patterns
+- **No external factors**: Tectonic shifts, instrumentation changes not modeled
+- **Historical bias**: Past earthquakes may not reflect future patterns
+
+### Displayed Metrics
+
+For the trained model, the dashboard shows:
+
+| Metric                 | Explanation                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| **Total Samples**      | Number of months used (usually ~36)                          |
+| **Training Samples**   | 80% of total (used to train the model)                       |
+| **Testing Samples**    | 20% of total (used to evaluate model)                        |
+| **Train R² Score**     | How well the model fits training data (0-1, higher = better) |
+| **Test R² Score**      | How well the model predicts new data (0-1, higher = better)  |
+| **Train RMSE**         | Average error on training data                               |
+| **Test RMSE**          | Average prediction error on test data (lower = better)       |
+| **Feature Importance** | How important "time" is for predictions (0-1)                |
+
+### Visualizations
+
+1. **Actual vs Predicted Trends**: Shows how well the model follows real earthquake patterns
+2. **Prediction Accuracy Scatter Plot**: Points near diagonal line = accurate predictions
+3. **Feature Importance Chart**: Shows the "Time" feature importance in the model
+4. **12-Month Forecast**: Raw data (dots), model trend (line), and future forecast (dotted line)
 
 ### Usage
 
-1. Navigate to the **🤖 ML Prediction** tab
-2. The model automatically trains on the last 3 years of global historical data (dashboard filters don't affect ML)
-3. Review the model performance metrics (R², MSE, RMSE)
-4. Examine the training visualization, prediction graphs, and trend analysis
-5. Check the info box explaining why 3 years was chosen
-6. Read the model explanation to understand the results
+1. Navigate to the **🤖 ML Trend Forecasting** tab
+2. The model automatically trains on the last 3 years of global historical data
+3. Review all performance metrics
+4. Examine the trend analysis and prediction graphs
+5. Check the forecast for the next 12 months
+6. Read the explanations and limitations honestly stated
+
+## Data Strategy: Why Last 3 Years?
+
+The model uses the **last 3 years** of complete historical data for these reasons:
+
+| Timeframe          | Monthly Points | Pros                                                           | Cons                                                 |
+| ------------------ | -------------- | -------------------------------------------------------------- | ---------------------------------------------------- |
+| **3 Years (Used)** | ~36 months     | ✅ Recent patterns, good sample size, avoids outdated behavior | Recent trends only                                   |
+| 5 Years            | ~60 months     | ✅ More data points                                            | ❌ Includes older patterns that may be less relevant |
+| 1 Year             | ~12 months     | ✅ Very recent                                                 | ❌ Too few points, high volatility, poor trends      |
+
+**Best Practice**: 3 years balances data volume with relevance, capturing current seismic behavior without stale historical noise.
 
 ## 📝 Files Description
 
-- **main.py**: Main Streamlit application with dashboard interface
-- **ml_prediction.py**: ML module for earthquake frequency prediction
+- **main.py**: Main Streamlit application with dashboard interface and ML section
+- **ml_prediction.py**: ML module with Random Forest model for earthquake frequency prediction
 - **visualization.py**: Functions for creating charts and maps
 - **load_data.py**: Functions for fetching and processing earthquake data
 - **plot.py**: Additional plotting utilities

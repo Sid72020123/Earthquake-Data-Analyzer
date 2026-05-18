@@ -23,9 +23,9 @@ from visualization import (
 from ml_prediction import (
     prepare_time_series_data,
     train_ml_model,
-    plot_training_process,
     plot_actual_vs_predicted,
     create_prediction_plotly,
+    create_feature_importance_plot,
     get_model_explanation,
     get_ml_data_from_full_history,
 )
@@ -533,14 +533,14 @@ def main():
             st.error(f"Could not render the 3D plot: {exc}")
 
     with tab5:
-        st.subheader("🤖 Machine Learning: Earthquake Frequency Prediction")
+        st.subheader("🤖 ML Trend Forecasting: Random Forest Model")
         st.caption(
-            "A Polynomial Regression model with data smoothing predicts earthquake frequency trends. "
-            "This helps identify whether earthquake activity is increasing or decreasing."
+            "A Random Forest model predicts earthquake frequency trends using historical patterns. "
+            "This helps identify general earthquake activity trends, not exact timing or locations."
         )
 
         # Show explanation first
-        with st.expander("ℹ️ How does the model work?"):
+        with st.expander("ℹ️ How does the Random Forest model work?"):
             st.markdown(get_model_explanation())
 
         try:
@@ -548,8 +548,8 @@ def main():
             with st.spinner("Loading historical earthquake data..."):
                 ml_data = get_ml_data_from_full_history(data, years=3)
 
-            # Prepare time series data (monthly frequency with smoothing)
-            with st.spinner("Training polynomial model with smoothing..."):
+            # Prepare time series data (monthly frequency)
+            with st.spinner("Preparing monthly earthquake frequency data..."):
                 frequency_data = prepare_time_series_data(ml_data, period="M")
 
             # Check if we have enough data
@@ -559,48 +559,103 @@ def main():
                 )
             else:
                 # Train the model
-                with st.spinner("Training model..."):
+                with st.spinner("Training Random Forest model..."):
                     ml_results = train_ml_model(frequency_data, test_size=0.2)
 
-                # Display model metrics
-                st.markdown("### 📊 Model Performance")
+                # Display data summary
+                st.markdown("### 📊 Data Summary")
+                summary_cols = st.columns(4)
+                summary_cols[0].metric(
+                    "Total Samples",
+                    ml_results["n_total_samples"],
+                    help="Total months of data used",
+                )
+                summary_cols[1].metric(
+                    "Training Samples",
+                    ml_results["n_train_samples"],
+                    help="80% of total data",
+                )
+                summary_cols[2].metric(
+                    "Testing Samples",
+                    ml_results["n_test_samples"],
+                    help="20% of total data",
+                )
+                summary_cols[3].metric(
+                    "Data Period",
+                    "Last 3 Years",
+                    help="Global historical earthquake data",
+                )
 
+                # Display model performance metrics
+                st.markdown("### 📊 Model Performance Metrics")
                 metric_col1, metric_col2, metric_col3 = st.columns(3)
                 metric_col1.metric(
-                    "Train R²",
+                    "Train R² Score",
                     f"{ml_results['train_r2']:.3f}",
-                    help="Goodness of fit (0-1, higher is better)",
+                    help="How well model fits training data (0-1, higher is better)",
                 )
                 metric_col2.metric(
-                    "Test R²",
+                    "Test R² Score",
                     f"{ml_results['test_r2']:.3f}",
-                    help="Test set accuracy (0-1, higher is better)",
+                    help="How well model predicts test data (0-1, higher is better)",
                 )
                 metric_col3.metric(
-                    "RMSE",
+                    "Test RMSE",
                     f"{ml_results['test_rmse']:.4f}",
-                    help="Prediction error (lower is better)",
+                    help="Average prediction error (lower is better)",
                 )
 
-                # Display visualizations
-                st.markdown("### 📊 Model Error Distribution")
-                st.pyplot(plot_training_process(ml_results), width="stretch")
+                # Display train RMSE as well
+                st.markdown("### 📈 Training RMSE")
+                st.write(
+                    f"**Train RMSE:** {ml_results['train_rmse']:.4f} - Average error on training data"
+                )
 
-                st.markdown("### 📊 Actual vs Predicted")
-                st.caption("Left: Trend comparison | Right: Prediction accuracy")
-                st.pyplot(plot_actual_vs_predicted(ml_results), width="stretch")
-
-                st.markdown("### 📉 Trend Forecast (12 Months)")
+                # Display actual vs predicted visualization
+                st.markdown("### 📊 Actual vs Predicted Earthquake Frequency")
                 st.caption(
-                    "Gray = raw data (noisy) | Teal = smoothed trend | Orange = model | Pink = forecast"
+                    "Left: Trend comparison over time | Right: How accurate predictions are"
+                )
+                st.pyplot(
+                    plot_actual_vs_predicted(ml_results), use_container_width=True
+                )
+
+                # Display feature importance
+                st.markdown("### 🎯 Feature Importance")
+                st.caption("How important time is for the model's predictions")
+                st.pyplot(
+                    create_feature_importance_plot(ml_results), use_container_width=True
+                )
+
+                # Display trend forecast
+                st.markdown("### 🔮 12-Month Trend Forecast")
+                st.caption(
+                    "Gray dots = raw monthly data (noisy) | Teal line = Random Forest trend line | Pink dotted line = future forecast"
                 )
                 st.plotly_chart(
                     create_prediction_plotly(ml_results, future_periods=12),
-                    width="stretch",
+                    use_container_width=True,
                 )
+
+                # Display important limitations
+                st.markdown("### ⚠️ Important Limitations")
+                st.warning("""
+                    **Earthquake activity is highly chaotic and difficult to predict accurately.**
+                    
+                    - This model only estimates **general trends**, not specific earthquakes
+                    - It captures patterns in historical data, but earthquakes are largely random
+                    - Regional data quality varies - some areas have better records than others
+                    - External factors (tectonic shifts, instrumentation changes) are not included
+                    - Small sample size (36 months) may not capture all long-term patterns
+                    
+                    **Use this model to understand trends, NOT to predict when earthquakes will occur.**
+                    """)
 
         except Exception as exc:
             st.error(f"Could not train ML model: {exc}")
+            import traceback
+
+            st.error(traceback.format_exc())
 
     with tab6:
         st.markdown("""
