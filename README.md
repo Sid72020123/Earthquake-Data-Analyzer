@@ -82,26 +82,43 @@ Earthquake Data Analyzer/
 
 ### 🤖 ML Prediction Tab
 
+- **Data Source**: Uses last **3 years of complete historical data** (independent of dashboard filters)
 - **Linear Regression Model**: Predicts earthquake frequency trends
-- **Training Visualization**: Shows how well the model fits the data
-- **Actual vs Predicted**: Compares predictions with real earthquake counts
+- **Weekly Aggregation**: Groups earthquakes by week for trend analysis
+- **Training Visualization**: Shows how well the model fits the training data
+- **Actual vs Predicted**: Scatter plots and time series comparing predictions with real earthquake counts
 - **Future Forecast**: Extrapolates trends for the next 12 weeks
-- **Model Metrics**: Displays R² score, MSE, and RMSE
-- **Beginner-friendly Explanation**: Learn how the ML model works without needing a data science background
+- **Model Metrics**: Displays R² score, MSE, and RMSE for model evaluation
+- **Beginner-friendly Explanation**: Learn how the ML model works with clear documentation
 
 ## 🤖 Machine Learning: Earthquake Frequency Prediction
 
 ### What It Does
 
-The ML module uses **Linear Regression** to predict earthquake **frequency trends** over time. It helps identify whether earthquake activity is increasing or decreasing in the selected region and time period.
+The ML module uses **Linear Regression** to predict earthquake **frequency trends** over time using the last **3 years of global historical earthquake data**. It helps identify whether earthquake activity is increasing or decreasing globally.
+
+### Data Strategy: Why Last 3 Years?
+
+The model uses the **last 3 years** of complete historical data (independent of dashboard filters) for these reasons:
+
+| Timeframe                 | Weekly Points | Pros                                                                   | Cons                                                                |
+| ------------------------- | ------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **3 Years (Recommended)** | ~156 weeks    | ✅ Recent seismic patterns, good sample size, avoids outdated behavior | Shorter term trends                                                 |
+| 5 Years                   | ~260 weeks    | ✅ More data points                                                    | ❌ Includes very old patterns that may not reflect current activity |
+| 1 Year                    | ~52 weeks     | ✅ Very recent                                                         | ❌ Too few data points, high volatility, poor trends                |
+
+**Best Practice**: 3 years balances data volume with relevance, capturing current earthquake behavior without stale historical noise.
 
 ### How It Works
 
-1. **Data Grouping**: Earthquake data is grouped by week and counted
-2. **Date Conversion**: Dates are converted to numeric values for the model
-3. **Train/Test Split**: 80% of data for training, 20% for testing
-4. **Model Training**: Linear Regression learns the relationship between time and earthquake frequency
-5. **Prediction**: The model generates predictions and extrapolates future trends
+1. **Data Selection**: Loads last 3 years from complete historical dataset (not dashboard filters)
+2. **Data Grouping**: Earthquake data is grouped by week and counted
+3. **Timezone Handling**: Converts timezone-aware dates to naive for clean period grouping
+4. **Date Conversion**: Dates are converted to numeric values (days since earliest date) for ML
+5. **Train/Test Split**: 80% of data for training, 20% for testing
+6. **Feature Scaling**: StandardScaler normalizes numeric date features
+7. **Model Training**: Linear Regression learns the relationship between time and earthquake frequency
+8. **Prediction**: The model generates predictions and extrapolates future trends for 12 weeks
 
 ### Model Details
 
@@ -129,11 +146,12 @@ The ML module uses **Linear Regression** to predict earthquake **frequency trend
 
 ### Usage
 
-1. Select your desired filters (country, date range, magnitude range)
-2. The model automatically trains on the filtered data
-3. Review the model performance metrics
-4. Examine the prediction graphs and trend analysis
-5. Read the model explanation to understand the results
+1. Navigate to the **🤖 ML Prediction** tab
+2. The model automatically trains on the last 3 years of global historical data (dashboard filters don't affect ML)
+3. Review the model performance metrics (R², MSE, RMSE)
+4. Examine the training visualization, prediction graphs, and trend analysis
+5. Check the info box explaining why 3 years was chosen
+6. Read the model explanation to understand the results
 
 ## 📝 Files Description
 
