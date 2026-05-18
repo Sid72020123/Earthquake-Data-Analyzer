@@ -41,7 +41,7 @@ def apply_page_style():
             }
             .title-block {
                 padding: 1.5rem 1.25rem;
-                background: white;
+                background: #ffffff;
                 border-radius: 1.25rem;
                 box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
                 margin-bottom: 1rem;
