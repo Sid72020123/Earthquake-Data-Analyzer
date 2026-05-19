@@ -95500,9 +95500,20 @@ us6000pjqz,2025-01-01 01:46:59.538000+00:00,-3.8682,151.6536,10.0,4.7,"67 km WNW
 us6000pgru,2025-01-01 01:07:10.492000+00:00,-5.9077,128.8869,277.355,4.4,"256 km SSE of Ambon, Indonesia",Indonesia,ID,Indonesia
 us6000pgrt,2025-01-01 01:00:50.839000+00:00,34.6287,16.5823,10.0,4.0,"228 km SE of Marsaskala, Malta",Malta,MT,Malta
 us6000pjr6,2025-01-01 00:13:22.650000+00:00,12.7441,143.6244,35.0,4.2,"127 km WSW of Merizo Village, Guam",Guam,GU,Guam
-us6000syi9,2026-05-18 11:40:50.406000+00:00,18.9764,-65.3598,35.0,4.0,"74 km N of Culebra, Puerto Rico",Puerto Rico,PR,Puerto Rico
+us6000synm,2026-05-19 02:29:25.526000+00:00,-18.1598,168.1719,37.376,5.8,"49 km SSW of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
+aka2026jvbbsg,2026-05-19 02:01:25.134000+00:00,51.34,-176.767,22.0,4.2,"60 km S of Adak, Alaska",Alaska,US,United States
+us6000symk,2026-05-18 22:36:10.893000+00:00,51.7922,173.9433,10.0,4.4,"128 km SSE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000sym0,2026-05-18 21:37:20.076000+00:00,52.4994,-171.7719,10.0,4.9,"168 km E of Atka, Alaska",Alaska,US,United States
+us6000sykw,2026-05-18 18:50:00.309000+00:00,-54.2795,-1.2672,10.0,5.3,Bouvet Island region,Bouvet Island region,SH,"Saint Helena, Ascension and Tristan da Cunha"
+us6000sykj,2026-05-18 18:06:04.422000+00:00,6.079,126.9025,54.161,4.5,"86 km ESE of Pondaguitan, Philippines",Philippines,PH,Philippines
+us6000syk9,2026-05-18 17:04:31.928000+00:00,39.801,143.2523,35.0,4.6,"113 km E of Miyako, Japan",Japan,JP,Japan
+us6000syik,2026-05-18 13:44:26.230000+00:00,24.4799,109.2073,10.0,5.1,"26 km NW of Liuzhou, China",China,CN,China
+pr2026138002,2026-05-18 11:40:50.490000+00:00,19.1051,-65.3303,26.0,4.19,"88 km N of Culebra, Puerto Rico",Puerto Rico,PR,Puerto Rico
+us6000syhk,2026-05-18 08:49:11.158000+00:00,36.1018,70.5982,102.914,4.4,"81 km NNW of Pārūn, Afghanistan",Afghanistan,AF,Afghanistan
 us6000syhg,2026-05-18 08:48:06.071000+00:00,-20.4733,-70.1945,85.183,4.7,"22 km SSW of La Tirana, Chile",Chile,CL,Chile
 us6000syh2,2026-05-18 07:34:30.448000+00:00,-28.5299,74.2599,10.0,5.2,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
+us6000syh8,2026-05-18 07:34:13.855000+00:00,30.1658,138.6362,443.668,4.1,"Izu Islands, Japan region",Japan region,JP,Japan
+us6000syge,2026-05-18 05:11:19.301000+00:00,35.3683,27.6827,49.831,4.2,"45 km ESE of Karpathos, Greece",Greece,GR,Greece
 us6000sygd,2026-05-18 05:07:21.590000+00:00,40.9349,84.4461,10.0,4.4,"153 km SE of Kuqa, China",China,CN,China
 us6000syg1,2026-05-18 02:10:41.745000+00:00,-43.4009,-82.4593,10.0,5.4,West Chile Rise,West Chile Rise,CL,Chile
 us6000syg0,2026-05-18 02:05:24.327000+00:00,16.4431,96.3164,10.0,5.2,"36 km SSE of Syriam, Burma (Myanmar)",Burma (Myanmar),MM,Myanmar
@@ -95639,7 +95650,8 @@ us6000swtz,2026-05-11 01:41:17.815000+00:00,27.3989,129.4593,10.0,5.0,"60 km ESE
 us6000swtm,2026-05-11 00:21:40.314000+00:00,39.8116,143.6317,10.0,4.9,"146 km E of Miyako, Japan",Japan,JP,Japan
 us6000swte,2026-05-10 23:20:55.111000+00:00,-23.4697,-179.8206,542.202,5.0,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
 us6000swtd,2026-05-10 23:15:43.825000+00:00,-23.3618,-179.9969,562.91,5.1,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
-aka2026jgajzj,2026-05-10 22:45:17.306000+00:00,52.953,-132.737,15.1,4.1,"220 km SW of Prince Rupert, Canada",Canada,US,United States
+us6000swvu,2026-05-10 22:51:05.005000+00:00,-25.3841,179.7289,517.37,4.5,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
+us6000sxcp,2026-05-10 22:44:41.230000+00:00,51.3128,173.2194,10.0,4.4,"170 km S of Attu Station, Alaska",Alaska,RU,Russian Federation
 us6000swt4,2026-05-10 22:01:16.116000+00:00,9.3613,40.0258,10.0,4.3,"44 km NNW of Āwash, Ethiopia",Ethiopia,ET,Ethiopia
 us6000swsy,2026-05-10 21:55:02.495000+00:00,-19.9819,-71.1494,10.0,4.2,"107 km WNW of Puerto, Chile",Chile,CL,Chile
 us6000swss,2026-05-10 21:08:18.305000+00:00,17.8567,145.6782,174.768,4.6,"292 km N of Saipan, Northern Mariana Islands",Northern Mariana Islands,MP,Northern Mariana Islands
@@ -95686,6 +95698,7 @@ aka2026jcufoy,2026-05-09 04:42:21.975000+00:00,50.981,179.214,16.3,6.1,"Rat Isla
 us6000swe6,2026-05-09 01:26:56.595000+00:00,24.1702,125.2755,35.0,4.4,"68 km S of Miyakojima, Japan",Japan,JP,Japan
 us6000swe0,2026-05-09 00:10:26.670000+00:00,-2.1622,139.0989,10.0,4.6,"177 km WNW of Abepura, Indonesia",Indonesia,ID,Indonesia
 us6000swdw,2026-05-08 23:51:48.670000+00:00,-7.6944,117.2145,316.261,4.2,"84 km NNW of Pototano, Indonesia",Indonesia,ID,Indonesia
+us6000sy18,2026-05-08 22:00:06.297000+00:00,53.1845,161.5977,10.0,4.1,"199 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us6000swce,2026-05-08 21:19:34.903000+00:00,-22.7233,-70.4465,38.724,4.4,"41 km N of Mejillones, Chile",Chile,CL,Chile
 us6000swcg,2026-05-08 21:18:55.272000+00:00,-2.8026,147.7837,10.0,4.9,"102 km SE of Lorengau, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000sy13,2026-05-08 21:16:19.587000+00:00,-22.9178,179.2297,576.49,4.6,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
@@ -95777,10 +95790,12 @@ us6000sxhu,2026-05-05 22:14:53.392000+00:00,-19.9518,133.8912,5.0,4.3,"45 km SW 
 us6000svg2,2026-05-05 22:02:01.395000+00:00,60.2935,59.778,10.0,4.4,"12 km WSW of Cherëmukhovo, Russia",Russia,RU,Russian Federation
 us6000svfq,2026-05-05 21:37:25.235000+00:00,60.3582,60.083,10.0,4.2,"5 km ENE of Cherëmukhovo, Russia",Russia,RU,Russian Federation
 us6000svfd,2026-05-05 21:01:45.479000+00:00,-55.8782,-27.5178,62.946,4.9,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
-us6000svip,2026-05-05 20:54:44.837000+00:00,9.365,-84.3327,20.585,4.3,"17 km S of Parrita, Costa Rica",Costa Rica,CR,Costa Rica
-us6000svfc,2026-05-05 20:53:20.849000+00:00,34.1806,45.7647,10.0,4.9,"32 km SSW of Sarpol-e Z̄ahāb, Iran",Iran,IR,"Iran, Islamic Republic of"
-us6000svei,2026-05-05 19:38:40.829000+00:00,35.0061,25.9719,10.0,4.3,"20 km E of Kentrí, Greece",Greece,GR,Greece
-us6000svel,2026-05-05 19:35:07.666000+00:00,37.5206,140.5402,109.9,4.3,"8 km NNW of Funehikimachi-funehiki, Japan",Japan,JP,Japan
+us6000svip,2026-05-05 20:54:43.391000+00:00,9.2957,-84.3477,10.0,4.1,"25 km S of Parrita, Costa Rica",Costa Rica,CR,Costa Rica
+us6000svfc,2026-05-05 20:53:20.599000+00:00,34.1718,45.6809,10.0,4.9,"36 km SSW of Sarpol-e Z̄ahāb, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000svf6,2026-05-05 20:27:48.294000+00:00,1.9664,128.2837,126.749,4.3,"40 km NE of Tobelo, Indonesia",Indonesia,ID,Indonesia
+us6000svei,2026-05-05 19:38:40.771000+00:00,34.9461,26.1325,10.0,4.3,"29 km S of Sitia, Greece",Greece,GR,Greece
+us6000svel,2026-05-05 19:35:07.434000+00:00,37.5262,140.5837,107.358,4.2,"8 km N of Funehikimachi-funehiki, Japan",Japan,JP,Japan
+us6000sxhs,2026-05-05 18:32:45.683000+00:00,-59.5711,-26.1859,87.69,4.9,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
 us6000sve0,2026-05-05 18:23:39.033000+00:00,35.8277,69.4605,10.0,4.4,"39 km SE of Nahrīn, Afghanistan",Afghanistan,AF,Afghanistan
 us6000svdm,2026-05-05 17:10:58.212000+00:00,-36.6825,177.2998,11.227,4.3,"133 km ENE of Pauanui, New Zealand",New Zealand,NZ,New Zealand
 us6000svdk,2026-05-05 16:59:08.807000+00:00,36.8707,71.6724,130.045,4.0,"17 km NNE of Ishqoshim, Tajikistan",Tajikistan,TJ,Tajikistan
@@ -96814,7 +96829,7 @@ us6000squ7,2026-04-08 07:27:43.838000+00:00,26.3567,128.8537,26.65,4.5,"76 km ES
 us7000sbac,2026-04-08 06:54:21.709000+00:00,36.4771,25.7157,10.0,4.4,"25 km ENE of Mesariá, Greece",Greece,GR,Greece
 us7000sba8,2026-04-08 06:48:46.986000+00:00,28.9561,142.4332,10.0,4.7,"Bonin Islands, Japan region",Japan region,JP,Japan
 us7000sba4,2026-04-08 06:27:49.123000+00:00,39.6566,143.4339,10.0,4.4,"128 km E of Miyako, Japan",Japan,JP,Japan
-us6000squ5,2026-04-08 05:56:22.337000+00:00,7.484,127.1157,9.987,4.5,"58 km E of Baculin, Philippines",Philippines,PH,Philippines
+us6000squ5,2026-04-08 05:56:23.342000+00:00,7.5174,127.0406,19.756,4.5,"50 km E of Baculin, Philippines",Philippines,PH,Philippines
 us6000squ4,2026-04-08 04:49:50.670000+00:00,1.4003,127.015,10.0,4.2,"78 km NNW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us7000sb9g,2026-04-08 03:27:15.074000+00:00,-19.0837,-177.5292,568.333,4.1,Fiji region,Fiji region,TO,Tonga
 us6000squ0,2026-04-08 03:07:31.785000+00:00,0.9254,125.9948,35.0,4.1,"112 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
@@ -97077,7 +97092,7 @@ us6000smax,2026-04-03 08:22:08.870000+00:00,52.2934,176.3173,10.0,5.0,"221 km ES
 us6000smaw,2026-04-03 08:19:50.717000+00:00,13.4272,-90.7813,35.0,4.3,"55 km S of Puerto San José, Guatemala",Guatemala,GT,Guatemala
 us6000spp8,2026-04-03 07:59:28.063000+00:00,0.9435,126.2686,35.0,4.2,"125 km W of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000smas,2026-04-03 07:06:45.197000+00:00,53.0814,159.9988,56.564,4.5,"91 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
-us6000smak,2026-04-03 06:51:16.261000+00:00,39.6131,20.7263,10.0,4.2,"9 km WSW of Stavráki, Greece",Greece,GR,Greece
+us6000smak,2026-04-03 06:51:16.155000+00:00,39.5691,20.6402,10.0,4.2,"15 km NE of Paramythiá, Greece",Greece,GR,Greece
 us6000spp7,2026-04-03 06:47:44.706000+00:00,-4.5892,-105.993,10.0,4.3,central East Pacific Rise,central East Pacific Rise,EC,Ecuador
 us6000spp6,2026-04-03 05:42:48.428000+00:00,1.1557,126.4053,35.0,4.4,"116 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000spqz,2026-04-03 05:41:39.397000+00:00,0.9756,126.0009,35.0,4.3,"109 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
@@ -97151,13 +97166,13 @@ us6000sm1u,2026-04-02 14:06:08.500000+00:00,1.3295,126.3817,35.0,4.5,"126 km WNW
 us6000sm08,2026-04-02 13:33:26.098000+00:00,1.2467,126.1109,35.0,4.4,"111 km E of Bitung, Indonesia",Indonesia,ID,Indonesia
 us6000sp36,2026-04-02 13:27:24.917000+00:00,1.0238,126.2706,35.0,4.2,"126 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000slzz,2026-04-02 13:03:04.640000+00:00,1.2357,126.238,35.0,4.8,"125 km E of Bitung, Indonesia",Indonesia,ID,Indonesia
-us6000sp5d,2026-04-02 12:56:12.367000+00:00,1.2371,127.047,35.0,4.4,"62 km NW of Ternate, Indonesia",Indonesia,ID,Indonesia
+us6000sp5d,2026-04-02 12:56:17.096000+00:00,1.2038,126.9697,80.514,4.3,"64 km NW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000slzy,2026-04-02 12:46:15.454000+00:00,1.2782,126.5318,35.0,4.5,"109 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000sp30,2026-04-02 12:37:11.425000+00:00,15.6808,-94.7889,39.688,4.2,"62 km SSE of San Mateo del Mar, Mexico",Mexico,MX,Mexico
 us6000slzv,2026-04-02 12:33:16.155000+00:00,1.2586,126.5161,35.0,4.7,"109 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
 pr2026092000,2026-04-02 12:09:32.530000+00:00,19.2548,-64.8401,32.0,4.27,"101 km N of Charlotte Amalie, U.S. Virgin Islands",U.S. Virgin Islands,VG,"Virgin Islands, British"
 us6000slzh,2026-04-02 11:35:34.977000+00:00,1.4173,126.1937,35.0,5.2,"118 km E of Bitung, Indonesia",Indonesia,ID,Indonesia
-us6000sp2w,2026-04-02 11:23:23.679000+00:00,1.0307,126.1552,35.0,4.1,"122 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
+us6000sp2w,2026-04-02 11:23:23.575000+00:00,1.033,126.1502,35.0,4.1,"122 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
 us6000slzg,2026-04-02 11:18:42.486000+00:00,1.1724,126.224,35.0,4.8,"125 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
 us6000sp2u,2026-04-02 10:45:04.766000+00:00,1.0886,126.2717,35.0,4.4,"128 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000sp0i,2026-04-02 10:44:22.918000+00:00,39.4661,143.2103,33.7,4.2,"108 km E of Yamada, Japan",Japan,JP,Japan
@@ -97168,7 +97183,7 @@ us6000slza,2026-04-02 10:21:24.046000+00:00,58.0674,146.5871,10.0,4.8,"242 km SE
 us6000sp57,2026-04-02 10:14:22.814000+00:00,1.1866,125.9907,35.0,4.5,"100 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
 us6000sp2r,2026-04-02 10:13:33.124000+00:00,1.2445,126.5214,35.0,4.4,"108 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000slz4,2026-04-02 10:10:21.905000+00:00,1.3837,126.227,35.0,4.9,"122 km E of Bitung, Indonesia",Indonesia,ID,Indonesia
-us6000sp2q,2026-04-02 10:09:17.909000+00:00,27.6625,56.0842,37.722,4.1,"56 km NNW of Bandar Abbas, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000sp2q,2026-04-02 10:09:17.934000+00:00,27.664,56.0539,36.883,4.0,"57 km NNW of Bandar Abbas, Iran",Iran,IR,"Iran, Islamic Republic of"
 us6000sp2p,2026-04-02 09:30:26.796000+00:00,1.0653,126.0068,35.0,4.2,"106 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
 us6000sp2n,2026-04-02 09:12:47.692000+00:00,1.1163,126.2956,35.0,4.4,"126 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000slz0,2026-04-02 09:05:54.460000+00:00,1.1479,126.3689,35.0,4.6,"119 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
