@@ -1,9 +1,10 @@
 """
 Machine Learning module for predicting earthquake frequency trends.
 
-This module uses a Moving Average baseline to forecast earthquake frequency
-trends over time. The Moving Average is simple, robust to noise, and
-interpretable for monthly earthquake counts.
+This module uses a Hybrid Model (Exponential Smoothing + Random Forest) to
+forecast earthquake frequency trends. This approach combines a classical time
+series model for trend with a machine learning model to capture non-linear
+patterns and residuals, making it robust for noisy data like earthquake counts.
 """
 
 import numpy as np
@@ -96,37 +97,6 @@ def prepare_time_series_data(data, period="M"):
     frequency_data = frequency_data.sort_values("time").reset_index(drop=True)
 
     return frequency_data
-
-
-def convert_dates_to_numeric(dates):
-    """
-    Convert datetime values to numeric values for ML model.
-
-    This converts dates to 'days since the earliest date' so the model
-    can learn the relationship between time and earthquake frequency.
-
-    Parameters:
-    -----------
-    dates : pd.Series or np.ndarray
-        Datetime values to convert
-
-    Returns:
-    --------
-    np.ndarray
-        Numeric representation of dates (days since minimum date)
-    float
-        The minimum date timestamp (for reference)
-    """
-    # Convert to datetime if not already
-    dates = pd.to_datetime(dates)
-
-    # Get the minimum date as reference
-    min_date = dates.min()
-
-    # Convert to days since minimum date
-    numeric_dates = (dates - min_date).dt.total_seconds() / (24 * 3600)
-
-    return numeric_dates.values, min_date.timestamp()
 
 
 def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
@@ -261,14 +231,8 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
     test_mape = np.mean(np.abs((y_test - y_test_pred) / np.maximum(y_test, 1))) * 100
     test_max_error = np.max(np.abs(y_test - y_test_pred))
 
-    # Dummy poly/scaler kept for API compatibility
-    poly = type("obj", (object,), {"transform": lambda x: x})()
-    scaler = type("obj", (object,), {"transform": lambda x: x})()
-
     results = {
         "model": model,
-        "poly": poly,
-        "scaler": scaler,
         "X_train": X_train,
         "X_test": X_test,
         "y_train": y_train,
@@ -295,7 +259,7 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
 
 def plot_actual_vs_predicted(results):
     """
-    Create a matplotlib figure showing actual vs predicted earthquake frequency.
+    Create a Plotly figure showing actual vs predicted earthquake frequency.
 
     Shows two views:
     1. Time series comparison: How well the model follows the actual trend
@@ -308,8 +272,8 @@ def plot_actual_vs_predicted(results):
 
     Returns:
     --------
-    matplotlib.figure.Figure
-        Figure object with actual vs predicted comparison
+    plotly.graph_objects.Figure
+        Plotly figure object with actual vs predicted comparison
     """
     fig = make_subplots(
         rows=1,

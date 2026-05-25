@@ -181,6 +181,445 @@ def show_metric_cards(data):
     col6.metric("📍 Max Depth (km)", f"{max_depth:.1f}")
 
 
+def render_charts_tab(filtered_data):
+    """Renders the 'Charts' tab with various statistical plots."""
+    st.subheader("Statistical Analysis")
+    left_col, right_col = st.columns(2)
+    with left_col:
+        st.plotly_chart(plot_magnitude_distribution(filtered_data), use_container_width=True)
+        st.plotly_chart(plot_depth_vs_magnitude(filtered_data), use_container_width=True)
+    with right_col:
+        st.plotly_chart(plot_correlation_heatmap(filtered_data), use_container_width=True)
+        st.plotly_chart(
+            plot_top_countries_bar_chart(filtered_data), use_container_width=True
+        )
+
+    # Full-width trend chart
+    st.plotly_chart(plot_earthquake_trend(filtered_data), use_container_width=True)
+    st.markdown("---")
+    st.subheader("🚨 Top 10 Largest Earthquakes in View")
+    top_10 = filtered_data.nlargest(10, "mag")[
+        ["time", "place", "mag", "depth", "country"]
+    ]
+    top_10["time"] = (
+        pd.to_datetime(top_10["time"])
+        .dt.tz_convert(None)
+        .dt.strftime("%Y-%m-%d %H:%M")
+    )
+    top_10.columns = [
+        "Time (UTC)",
+        "Location",
+        "Magnitude",
+        "Depth (km)",
+        "Country",
+    ]
+    st.dataframe(top_10, use_container_width=True)
+
+
+def render_maps_tab(display_data, map_options):
+    """Renders the 'Maps' tab with various Folium maps."""
+    st.subheader("🔥 Earthquake Heatmap")
+    st.caption(
+        "Dense earthquake locations are highlighted. Zoom in to explore specific areas."
+    )
+    if map_options["show_heatmap"]:
+        try:
+            with st.spinner("Rendering heatmap..."):
+                # To robustly display a Folium map in a non-default tab, we render its
+                # HTML and embed it in an iframe. This prevents rendering glitches.
+                m = create_folium_heatmap(display_data)
+                map_html = m._repr_html_()
+                map_html_b64 = base64.b64encode(map_html.encode()).decode()
+                st.iframe(f"data:text/html;base64,{map_html_b64}", height=610)
+        except Exception as exc:
+            st.error(f"Could not render the heatmap: {exc}")
+    else:
+        st.info("Enable heatmap in the sidebar filters to view this map.")
+
+    col_map1, col_map2 = st.columns(2)
+
+    with col_map1:
+        st.subheader("📍 Magnitude-based Map")
+        st.caption("Circle size and color represent earthquake magnitude.")
+        if map_options["show_magnitude_map"]:
+            try:
+                with st.spinner("Rendering magnitude map..."):
+                    st_folium(
+                        create_magnitude_based_map(display_data),
+                        use_container_width=True,
+                        height=500,
+                        returned_objects=[],
+                    )
+            except Exception as exc:
+                st.error(f"Could not render the magnitude map: {exc}")
+        else:
+            st.info("Enable magnitude map in sidebar to view.")
+
+    with col_map2:
+        st.subheader("🌊 Depth-based Map")
+        st.caption("Circle color represents depth (shallow to deep).")
+        if map_options["show_depth_map"]:
+            try:
+                with st.spinner("Rendering depth map..."):
+                    st_folium(
+                        create_depth_based_map(display_data),
+                        use_container_width=True,
+                        height=500,
+                        returned_objects=[],
+                    )
+            except Exception as exc:
+                st.error(f"Could not render the depth map: {exc}")
+        else:
+            st.info("Enable depth map in sidebar to view.")
+
+    st.subheader("🎯 Interactive Marker Cluster Map")
+    st.caption(
+        "Click clusters to zoom in. Individual markers appear at higher zoom levels."
+    )
+    if map_options["show_cluster_map"]:
+        try:
+            with st.spinner("Rendering cluster map..."):
+                st_folium(
+                    create_marker_cluster_map(display_data),
+                    use_container_width=True,
+                    height=600,
+                    returned_objects=[],
+                )
+        except Exception as exc:
+            st.error(f"Could not render the cluster map: {exc}")
+    else:
+        st.info("Enable marker clusters in the sidebar filters to view this map.")
+
+    st.subheader("🌍 Country Overview Map")
+    st.caption(
+        "Heatmap showing earthquake density across regions with country markers."
+    )
+    if map_options["show_country_map"]:
+        try:
+            with st.spinner("Rendering country overview map..."):
+                st_folium(
+                    create_country_region_map(display_data),
+                    use_container_width=True,
+                    height=600,
+                    returned_objects=[],
+                )
+        except Exception as exc:
+            st.error(f"Could not render the country map: {exc}")
+    else:
+        st.info("Enable country overview map in sidebar to view.")
+
+
+def render_advanced_tab(filtered_data):
+    """Renders the 'Advanced' tab with categorical and time-series analysis."""
+    col1, col2 = st.columns([1, 1])
+
+    with col1:
+        st.subheader("📊 Magnitude Categories")
+        mag_categories = pd.cut(
+            filtered_data["mag"],
+            bins=[0, 4, 5, 6, 7, 10],
+            labels=[
+                "Minor (0-4)",
+                "Light (4-5)",
+                "Moderate (5-6)",
+                "Strong (6-7)",
+                "Major (7+)",
+            ],
+        )
+        mag_dist = mag_categories.value_counts().sort_index()
+        st.bar_chart(mag_dist)
+
+    with col2:
+        st.subheader("🔍 Depth Distribution")
+        depth_categories = pd.cut(
+            filtered_data["depth"],
+            bins=[0, 10, 30, 70, 300],
+            labels=[
+                "Shallow (0-10km)",
+                "Moderate (10-30km)",
+                "Deep (30-70km)",
+                "Very Deep (70+km)",
+            ],
+        )
+        depth_dist = depth_categories.value_counts().sort_index()
+        st.bar_chart(depth_dist)
+
+    st.subheader("📈 Time Series Analysis")
+    time_data = filtered_data.copy()
+    # Keep as datetime so Streamlit treats the x-axis as a continuous time scale
+    time_data["date"] = (
+        pd.to_datetime(time_data["time"]).dt.tz_convert(None).dt.normalize()
+    )
+    daily_counts = time_data.groupby("date").size()
+    st.line_chart(daily_counts)
+
+
+def render_animation_tab(filtered_data, timeline_sample_size):
+    """Renders the '3D & Animation' tab."""
+    st.subheader("🎬 Animated Timeline")
+    st.caption(
+        "Animation progresses month by month. Watch earthquake patterns unfold over time!"
+    )
+    try:
+        # Allow the timeline slider to control how many rows are sampled
+        # for the animation by using the filtered dataset (not the display-limited one).
+        timeline_sample_size = min(timeline_sample_size, len(filtered_data))
+        with st.spinner("Rendering animated timeline..."):
+            st.plotly_chart(
+                create_animated_timeline(
+                    filtered_data, sample_size=timeline_sample_size
+                ),
+                use_container_width=True,
+            )
+    except Exception as exc:
+        st.error(f"Could not render the animated timeline: {exc}")
+
+    st.subheader("🧊 3D Earthquake Visualization")
+    st.caption(
+        "3D plot showing longitude, latitude, depth, and magnitude relationships."
+    )
+    try:
+        with st.spinner("Rendering 3D visualization..."):
+            st.plotly_chart(
+                create_3d_earthquake_visualization(
+                    filtered_data, sample_size=timeline_sample_size
+                ),
+                use_container_width=True,
+            )
+    except Exception as exc:
+        st.error(f"Could not render the 3D plot: {exc}")
+
+
+def render_ml_tab(data):
+    """Renders the 'ML Prediction' tab."""
+    st.subheader("🤖 ML Trend Forecasting: Hybrid Model")
+    st.caption(
+        "A Hybrid Model (Exponential Smoothing + Random Forest) analyzes monthly earthquake counts to reveal trends and complex patterns. "
+        "This helps identify general earthquake frequency direction, not exact timing or locations."
+    )
+
+    # Show explanation first
+    with st.expander("ℹ️ How does the Hybrid Model work?"):
+        st.markdown(get_model_explanation())
+
+    try:
+        # Get ML data from full history (last 5 years)
+        with st.spinner("Loading historical earthquake data..."):
+            ml_data = get_ml_data_from_full_history(data, years=5)
+
+        # Prepare time series data (monthly frequency)
+        with st.spinner("Preparing monthly earthquake frequency data..."):
+            frequency_data = prepare_time_series_data(ml_data, period="M")
+
+        # Show model comparison summary
+        with st.expander("🏆 Model Comparison (All Tested Models)"):
+            st.caption(
+                "Comparison of 7 different ML models evaluated on the same earthquake frequency data. "
+                "Ranked by Test R² score (higher is better)."
+            )
+            try:
+                with st.spinner("Comparing models..."):
+                    comparison_df = compare_models(frequency_data)
+                if not comparison_df.empty:
+                    # Format the dataframe for display
+                    display_df = comparison_df.copy()
+                    for col in ["Train R²", "Test R²", "Train RMSE", "Test RMSE", "Train MAE", "Test MAE"]:
+                        display_df[col] = display_df[col].apply(lambda x: f"{x:.4f}")
+                    # Reset index to show ranking 1-7
+                    display_df.index = list(range(1, len(display_df) + 1))
+                    display_df.index.name = "Rank"
+                    st.table(display_df)
+
+                else:
+                    st.warning("Could not run model comparison.")
+            except Exception as e:
+                st.info(f"Model comparison not available: {e}")
+
+        # Check if we have enough data
+        if len(frequency_data) < 15:
+            st.warning(
+                "Not enough data for ML model training. Need at least 15 months."
+            )
+        else:
+            # Train the model
+            with st.spinner("Training Hybrid Model..."):
+                ml_results = train_ml_model(frequency_data, test_size=0.2)
+
+            # Display data summary
+            st.markdown("### 📊 Data Summary")
+            summary_cols = st.columns(4)
+            summary_cols[0].metric(
+                "Total Samples",
+                ml_results["n_total_samples"],
+                help="Total months of data used",
+            )
+            summary_cols[1].metric(
+                "Training Samples",
+                ml_results["n_train_samples"],
+                help="80% of total data",
+            )
+            summary_cols[2].metric(
+                "Testing Samples",
+                ml_results["n_test_samples"],
+                help="20% of total data",
+            )
+            summary_cols[3].metric(
+                "Data Period",
+                "Last 5 Years",
+                help="Global historical earthquake data",
+            )
+
+            # Display model performance metrics
+            st.markdown("### 📊 Model Performance Metrics")
+            metric_col1, metric_col2, metric_col3 = st.columns(3)
+            metric_col1.metric(
+                "Test R² Score",
+                f"{ml_results['test_r2']:.3f}",
+                help="How well model predicts test data (0-1, higher is better)",
+            )
+            metric_col2.metric(
+                "Test RMSE",
+                f"{ml_results['test_rmse']:.2f}",
+                help="Root Mean Squared Error (lower is better)",
+            )
+            metric_col3.metric(
+                "Test MAE",
+                f"{ml_results['test_mae']:.2f}",
+                help="Mean Absolute Error (Average earthquakes off by per month)",
+            )
+
+            metric_col4, metric_col5, metric_col6 = st.columns(3)
+            metric_col4.metric(
+                "Train R² Score",
+                f"{ml_results['train_r2']:.3f}",
+                help="How well model fits training data (0-1, higher is better)",
+            )
+            metric_col5.metric(
+                "Test MAPE",
+                f"{ml_results['test_mape']:.1f}%",
+                help="Mean Absolute Percentage Error (Average % error)",
+            )
+            metric_col6.metric(
+                "Max Error",
+                f"{ml_results['test_max_error']:.1f}",
+                help="The largest single error in the test period",
+            )
+
+            # Display actual vs predicted visualization
+            st.markdown("### 📊 Actual vs Predicted Earthquake Frequency")
+            st.caption(
+                "Left: How the trend line compares to actual monthly data | Right: Prediction accuracy"
+            )
+            st.plotly_chart(plot_actual_vs_predicted(ml_results), use_container_width=True)
+
+            # Display Error/Residual Analysis
+            st.markdown("### 🔬 Error Analysis (Residuals)")
+            st.caption(
+                "Since this is a Regression model predicting continuous counts (not a Classification model sorting into categories), "
+                "we use Residual Analysis instead of a Confusion Matrix. This plots where and how the model makes errors."
+            )
+            st.plotly_chart(plot_residuals(ml_results), use_container_width=True)
+
+            # Display Categorized Confusion Matrix & Classification Report
+            st.markdown(
+                "### 🗂️ Categorized Confusion Matrix & Classification Report"
+            )
+            st.caption(
+                "To evaluate this regression model categorically, we converted the continuous monthly "
+                "earthquake counts into 'Low', 'Medium', and 'High' activity categories based on historical averages."
+            )
+
+            cm_col, cr_col = st.columns(2)
+            with cm_col:
+                st.plotly_chart(plot_confusion_matrix(ml_results), use_container_width=True)
+            with cr_col:
+                st.dataframe(
+                    get_classification_report_df(ml_results), use_container_width=True
+                )
+
+            # Display trend forecast
+            st.markdown("### 🔮 12-Month Trend Forecast")
+            st.caption(
+                "Gray dots = raw monthly data (noisy) | Teal line = Hybrid Model trend | Pink dotted line = future forecast"
+            )
+            st.plotly_chart(
+                create_prediction_plotly(ml_results, future_periods=12),
+                use_container_width=True,
+            )
+
+            # Display important limitations
+            st.markdown("### ⚠️ Important Limitations")
+            st.warning("""
+                **Earthquake activity is highly chaotic and difficult to predict accurately.**
+                
+                - This model only estimates **general trends**, not specific earthquakes
+                - It captures patterns in historical data, but earthquakes are largely random
+                - Regional data quality varies - some areas have more records than others
+                - External factors (tectonic shifts, instrumentation changes) are not included
+                - Earthquake frequency changes may be too irregular to predict with a simple model
+                
+                **Use this model to understand trends, NOT to predict when earthquakes will occur.**
+                """)
+
+    except Exception as exc:
+        st.error(f"Could not train ML model: {exc}")
+        # For debugging, you can uncomment the following lines:
+        # import traceback
+        # st.error(traceback.format_exc())
+
+
+def render_about_tab():
+    """Renders the 'About' tab with markdown information."""
+    st.markdown("""
+        ## About This Dashboard
+
+        This dashboard uses the processed earthquake dataset from `data/historical_processed.csv`.
+
+        ### Key Features
+        - 🔍 **Advanced Filtering**: Filter by country, region, magnitude range, depth, and date
+        - 🗺️ **Interactive Maps**: Heatmaps, magnitude-based, depth-based, and country overview maps
+        - 📊 **Statistical Charts**: Distribution analysis, correlations, trends, and more
+        - 🎬 **Animated Views**: Watch earthquakes unfold over time in 2D and 3D
+        - 📈 **Real-time Analysis**: Instant calculations of statistics and categories
+
+        ### Dataset Columns
+        - `time`: When the earthquake occurred
+        - `country`: Country where the earthquake occurred
+        - `region`: Geographic region
+        - `mag`: Magnitude (strength) of the earthquake
+        - `depth`: Depth of the epicenter in kilometers
+        - `latitude`/`longitude`: Geographic coordinates
+        - `place`: Named location description
+        """)
+
+    with st.expander("How the filters work"):
+        st.markdown("""
+        - **Country**: Select a specific country or view all earthquakes worldwide
+        - **Region**: Choose a specific region within a country (only available after selecting a country)
+        - **Magnitude Range**: Focus on earthquakes within a specific strength range
+        - **Depth Range**: Filter by how deep the earthquakes were
+        - **Date Range**: Select a time period of interest
+        """)
+
+    with st.expander("What the visualizations show"):
+        st.markdown("""
+        - **Heatmap**: Shows density of earthquakes - brighter areas have more activity
+        - **Magnitude Map**: Circle size and color intensity correspond to earthquake strength
+        - **Depth Map**: Color gradient from light (shallow) to dark (very deep)
+        - **Marker Clusters**: Clickable clusters that expand as you zoom in
+        - **3D Visualization**: Shows how magnitude, location, and depth interact
+        - **Animated Timeline**: Tracks how earthquake activity changes month by month
+        - **Statistical Charts**: Distribution, correlations, and temporal trends
+        """)
+
+    with st.expander("Map Layer Information"):
+        st.markdown("""
+        - **CartoDB positron**: Light, clean map style
+        - **CartoDB voyager**: Satellite-like imagery
+        - **OpenStreetMap**: Classic street map view
+        """)
+
+
 def main():
     """Run the Streamlit dashboard."""
 
@@ -377,7 +816,7 @@ def main():
         f"**Date span:** {min_time.strftime('%Y-%m-%d')} to {max_time.strftime('%Y-%m-%d')}"
     )
 
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(
+    charts_tab, maps_tab, advanced_tab, animation_tab, ml_tab, about_tab = st.tabs(
         [
             "📊 Charts",
             "🗺️ Maps",
@@ -388,452 +827,30 @@ def main():
         ]
     )
 
-    with tab1:
-        st.subheader("Statistical Analysis")
-        left_col, right_col = st.columns(2)
-        with left_col:
-            st.plotly_chart(plot_magnitude_distribution(filtered_data), width="stretch")
-            st.plotly_chart(plot_depth_vs_magnitude(filtered_data), width="stretch")
-        with right_col:
-            st.plotly_chart(plot_correlation_heatmap(filtered_data), width="stretch")
-            st.plotly_chart(
-                plot_top_countries_bar_chart(filtered_data), width="stretch"
-            )
+    with charts_tab:
+        render_charts_tab(filtered_data)
 
-        # Full-width trend chart
-        st.plotly_chart(plot_earthquake_trend(filtered_data), width="stretch")
-        st.markdown("---")
-        st.subheader("🚨 Top 10 Largest Earthquakes in View")
-        top_10 = filtered_data.nlargest(10, "mag")[
-            ["time", "place", "mag", "depth", "country"]
-        ]
-        top_10["time"] = (
-            pd.to_datetime(top_10["time"])
-            .dt.tz_convert(None)
-            .dt.strftime("%Y-%m-%d %H:%M")
-        )
-        top_10.columns = [
-            "Time (UTC)",
-            "Location",
-            "Magnitude",
-            "Depth (km)",
-            "Country",
-        ]
-        st.dataframe(top_10, width="stretch")
+    with maps_tab:
+        map_options = {
+            "show_heatmap": show_heatmap,
+            "show_magnitude_map": show_magnitude_map,
+            "show_depth_map": show_depth_map,
+            "show_cluster_map": show_cluster_map,
+            "show_country_map": show_country_map,
+        }
+        render_maps_tab(display_data, map_options)
 
-    with tab2:
-        st.subheader("🔥 Earthquake Heatmap")
-        st.caption(
-            "Dense earthquake locations are highlighted. Zoom in to explore specific areas."
-        )
-        if show_heatmap:
-            try:
-                with st.spinner("Rendering heatmap..."):
-                    # To robustly display a Folium map in a non-default tab, we render its
-                    # HTML and embed it in an iframe. This prevents rendering glitches.
-                    m = create_folium_heatmap(display_data)
-                    map_html = m._repr_html_()
-                    map_html_b64 = base64.b64encode(map_html.encode()).decode()
-                    st.iframe(f"data:text/html;base64,{map_html_b64}", height=610)
-            except Exception as exc:
-                st.error(f"Could not render the heatmap: {exc}")
-        else:
-            st.info("Enable heatmap in the sidebar filters to view this map.")
+    with advanced_tab:
+        render_advanced_tab(filtered_data)
 
-        col_map1, col_map2 = st.columns(2)
+    with animation_tab:
+        render_animation_tab(filtered_data, timeline_sample_size)
 
-        with col_map1:
-            st.subheader("📍 Magnitude-based Map")
-            st.caption("Circle size and color represent earthquake magnitude.")
-            if show_magnitude_map:
-                try:
-                    with st.spinner("Rendering magnitude map..."):
-                        st_folium(
-                            create_magnitude_based_map(display_data),
-                            width="stretch",
-                            height=500,
-                            returned_objects=[],
-                        )
-                except Exception as exc:
-                    st.error(f"Could not render the magnitude map: {exc}")
-            else:
-                st.info("Enable magnitude map in sidebar to view.")
+    with ml_tab:
+        render_ml_tab(data)
 
-        with col_map2:
-            st.subheader("🌊 Depth-based Map")
-            st.caption("Circle color represents depth (shallow to deep).")
-            if show_depth_map:
-                try:
-                    with st.spinner("Rendering depth map..."):
-                        st_folium(
-                            create_depth_based_map(display_data),
-                            width="stretch",
-                            height=500,
-                            returned_objects=[],
-                        )
-                except Exception as exc:
-                    st.error(f"Could not render the depth map: {exc}")
-            else:
-                st.info("Enable depth map in sidebar to view.")
-
-        st.subheader("🎯 Interactive Marker Cluster Map")
-        st.caption(
-            "Click clusters to zoom in. Individual markers appear at higher zoom levels."
-        )
-        if show_cluster_map:
-            try:
-                with st.spinner("Rendering cluster map..."):
-                    st_folium(
-                        create_marker_cluster_map(display_data),
-                        width="stretch",
-                        height=600,
-                        returned_objects=[],
-                    )
-            except Exception as exc:
-                st.error(f"Could not render the cluster map: {exc}")
-        else:
-            st.info("Enable marker clusters in the sidebar filters to view this map.")
-
-        st.subheader("🌍 Country Overview Map")
-        st.caption(
-            "Heatmap showing earthquake density across regions with country markers."
-        )
-        if show_country_map:
-            try:
-                with st.spinner("Rendering country overview map..."):
-                    st_folium(
-                        create_country_region_map(display_data),
-                        width="stretch",
-                        height=600,
-                        returned_objects=[],
-                    )
-            except Exception as exc:
-                st.error(f"Could not render the country map: {exc}")
-        else:
-            st.info("Enable country overview map in sidebar to view.")
-
-    with tab3:
-        col1, col2 = st.columns([1, 1])
-
-        with col1:
-            st.subheader("📊 Magnitude Categories")
-            mag_categories = pd.cut(
-                filtered_data["mag"],
-                bins=[0, 4, 5, 6, 7, 10],
-                labels=[
-                    "Minor (0-4)",
-                    "Light (4-5)",
-                    "Moderate (5-6)",
-                    "Strong (6-7)",
-                    "Major (7+)",
-                ],
-            )
-            mag_dist = mag_categories.value_counts().sort_index()
-            st.bar_chart(mag_dist)
-
-        with col2:
-            st.subheader("🔍 Depth Distribution")
-            depth_categories = pd.cut(
-                filtered_data["depth"],
-                bins=[0, 10, 30, 70, 300],
-                labels=[
-                    "Shallow (0-10km)",
-                    "Moderate (10-30km)",
-                    "Deep (30-70km)",
-                    "Very Deep (70+km)",
-                ],
-            )
-            depth_dist = depth_categories.value_counts().sort_index()
-            st.bar_chart(depth_dist)
-
-        st.subheader("📈 Time Series Analysis")
-        time_data = filtered_data.copy()
-        # Keep as datetime so Streamlit treats the x-axis as a continuous time scale
-        time_data["date"] = (
-            pd.to_datetime(time_data["time"]).dt.tz_convert(None).dt.normalize()
-        )
-        daily_counts = time_data.groupby("date").size()
-        st.line_chart(daily_counts)
-
-    with tab4:
-        st.subheader("🎬 Animated Timeline")
-        st.caption(
-            "Animation progresses month by month. Watch earthquake patterns unfold over time!"
-        )
-        try:
-            # Allow the timeline slider to control how many rows are sampled
-            # for the animation by using the filtered dataset (not the display-limited one).
-            timeline_sample_size = min(timeline_sample_size, len(filtered_data))
-            with st.spinner("Rendering animated timeline..."):
-                st.plotly_chart(
-                    create_animated_timeline(
-                        filtered_data, sample_size=timeline_sample_size
-                    ),
-                    width="stretch",
-                )
-        except Exception as exc:
-            st.error(f"Could not render the animated timeline: {exc}")
-
-        st.subheader("🧊 3D Earthquake Visualization")
-        st.caption(
-            "3D plot showing longitude, latitude, depth, and magnitude relationships."
-        )
-        try:
-            with st.spinner("Rendering 3D visualization..."):
-                st.plotly_chart(
-                    create_3d_earthquake_visualization(
-                        filtered_data, sample_size=timeline_sample_size
-                    ),
-                    width="stretch",
-                )
-        except Exception as exc:
-            st.error(f"Could not render the 3D plot: {exc}")
-
-    with tab5:
-        st.subheader("🤖 ML Trend Forecasting: Hybrid Model")
-        st.caption(
-            "A Hybrid Model (Exponential Smoothing + Random Forest) analyzes monthly earthquake counts to reveal trends and complex patterns. "
-            "This helps identify general earthquake frequency direction, not exact timing or locations."
-        )
-
-        # Show explanation first
-        with st.expander("ℹ️ How does the Hybrid Model work?"):
-            st.markdown(get_model_explanation())
-
-        try:
-            # Get ML data from full history (last 5 years)
-            with st.spinner("Loading historical earthquake data..."):
-                ml_data = get_ml_data_from_full_history(data, years=5)
-
-            # Prepare time series data (monthly frequency)
-            with st.spinner("Preparing monthly earthquake frequency data..."):
-                frequency_data = prepare_time_series_data(ml_data, period="M")
-
-            # Show model comparison summary
-            with st.expander("🏆 Model Comparison (All Tested Models)"):
-                st.caption(
-                    "Comparison of 7 different ML models evaluated on the same earthquake frequency data. "
-                    "Ranked by Test R² score (higher is better)."
-                )
-                try:
-                    with st.spinner("Comparing models..."):
-                        comparison_df = compare_models(frequency_data)
-                    if not comparison_df.empty:
-                        # Format the dataframe for display
-                        display_df = comparison_df.copy()
-                        display_df["Train R²"] = display_df["Train R²"].apply(
-                            lambda x: f"{x:.4f}"
-                        )
-                        display_df["Test R²"] = display_df["Test R²"].apply(
-                            lambda x: f"{x:.4f}"
-                        )
-                        display_df["Train RMSE"] = display_df["Train RMSE"].apply(
-                            lambda x: f"{x:.4f}"
-                        )
-                        display_df["Test RMSE"] = display_df["Test RMSE"].apply(
-                            lambda x: f"{x:.4f}"
-                        )
-                        display_df["Train MAE"] = display_df["Train MAE"].apply(
-                            lambda x: f"{x:.4f}"
-                        )
-                        display_df["Test MAE"] = display_df["Test MAE"].apply(
-                            lambda x: f"{x:.4f}"
-                        )
-                        # Reset index to show ranking 1-7
-                        display_df.index = list(range(1, len(display_df) + 1))
-                        display_df.index.name = "Rank"
-                        st.table(display_df)
-
-                        # st.markdown(
-                        #     f"**Selected Model:** {comparison_df.iloc[0]['Model']} "
-                        #     f"(Test R² = {comparison_df.iloc[0]['Test R²']:.4f})"
-                        # )
-                    else:
-                        st.warning("Could not run model comparison.")
-                except Exception as e:
-                    st.info(f"Model comparison not available: {e}")
-
-            # Check if we have enough data
-            if len(frequency_data) < 15:
-                st.warning(
-                    "Not enough data for ML model training. Need at least 15 months."
-                )
-            else:
-                # Train the model
-                with st.spinner("Training Hybrid Model..."):
-                    ml_results = train_ml_model(frequency_data, test_size=0.2)
-
-                # Display data summary
-                st.markdown("### 📊 Data Summary")
-                summary_cols = st.columns(4)
-                summary_cols[0].metric(
-                    "Total Samples",
-                    ml_results["n_total_samples"],
-                    help="Total months of data used",
-                )
-                summary_cols[1].metric(
-                    "Training Samples",
-                    ml_results["n_train_samples"],
-                    help="80% of total data",
-                )
-                summary_cols[2].metric(
-                    "Testing Samples",
-                    ml_results["n_test_samples"],
-                    help="20% of total data",
-                )
-                summary_cols[3].metric(
-                    "Data Period",
-                    "Last 5 Years",
-                    help="Global historical earthquake data",
-                )
-
-                # Display model performance metrics
-                st.markdown("### 📊 Model Performance Metrics")
-                metric_col1, metric_col2, metric_col3 = st.columns(3)
-                metric_col1.metric(
-                    "Test R² Score",
-                    f"{ml_results['test_r2']:.3f}",
-                    help="How well model predicts test data (0-1, higher is better)",
-                )
-                metric_col2.metric(
-                    "Test RMSE",
-                    f"{ml_results['test_rmse']:.2f}",
-                    help="Root Mean Squared Error (lower is better)",
-                )
-                metric_col3.metric(
-                    "Test MAE",
-                    f"{ml_results['test_mae']:.2f}",
-                    help="Mean Absolute Error (Average earthquakes off by per month)",
-                )
-
-                metric_col4, metric_col5, metric_col6 = st.columns(3)
-                metric_col4.metric(
-                    "Train R² Score",
-                    f"{ml_results['train_r2']:.3f}",
-                    help="How well model fits training data (0-1, higher is better)",
-                )
-                metric_col5.metric(
-                    "Test MAPE",
-                    f"{ml_results['test_mape']:.1f}%",
-                    help="Mean Absolute Percentage Error (Average % error)",
-                )
-                metric_col6.metric(
-                    "Max Error",
-                    f"{ml_results['test_max_error']:.1f}",
-                    help="The largest single error in the test period",
-                )
-
-                # Display actual vs predicted visualization
-                st.markdown("### 📊 Actual vs Predicted Earthquake Frequency")
-                st.caption(
-                    "Left: How the trend line compares to actual monthly data | Right: Prediction accuracy"
-                )
-                st.plotly_chart(plot_actual_vs_predicted(ml_results), width="stretch")
-
-                # Display Error/Residual Analysis instead of Confusion Matrix
-                st.markdown("### 🔬 Error Analysis (Residuals)")
-                st.caption(
-                    "Since this is a Regression model predicting continuous counts (not a Classification model sorting into categories), "
-                    "we use Residual Analysis instead of a Confusion Matrix. This plots where and how the model makes errors."
-                )
-                st.plotly_chart(plot_residuals(ml_results), width="stretch")
-
-                # Display Categorized Confusion Matrix & Classification Report
-                st.markdown(
-                    "### 🗂️ Categorized Confusion Matrix & Classification Report"
-                )
-                st.caption(
-                    "To evaluate this regression model categorically, we converted the continuous monthly "
-                    "earthquake counts into 'Low', 'Medium', and 'High' activity categories based on historical averages."
-                )
-
-                cm_col, cr_col = st.columns(2)
-                with cm_col:
-                    st.plotly_chart(plot_confusion_matrix(ml_results), width="stretch")
-                with cr_col:
-                    st.dataframe(
-                        get_classification_report_df(ml_results), width="stretch"
-                    )
-
-                # Display trend forecast
-                st.markdown("### 🔮 12-Month Trend Forecast")
-                st.caption(
-                    "Gray dots = raw monthly data (noisy) | Teal line = Hybrid Model trend | Pink dotted line = future forecast"
-                )
-                st.plotly_chart(
-                    create_prediction_plotly(ml_results, future_periods=12),
-                    width="stretch",
-                )
-
-                # Display important limitations
-                st.markdown("### ⚠️ Important Limitations")
-                st.warning("""
-                    **Earthquake activity is highly chaotic and difficult to predict accurately.**
-                    
-                    - This model only estimates **general trends**, not specific earthquakes
-                    - It captures patterns in historical data, but earthquakes are largely random
-                    - Regional data quality varies - some areas have better records than others
-                    - External factors (tectonic shifts, instrumentation changes) are not included
-                    - Earthquake frequency changes may be too irregular to predict with a simple model
-                    
-                    **Use this model to understand trends, NOT to predict when earthquakes will occur.**
-                    """)
-
-        except Exception as exc:
-            st.error(f"Could not train ML model: {exc}")
-            import traceback
-
-            st.error(traceback.format_exc())
-
-    with tab6:
-        st.markdown("""
-            ## About This Dashboard
-
-            This dashboard uses the processed earthquake dataset from `data/historical_processed.csv`.
-
-            ### Key Features
-            - 🔍 **Advanced Filtering**: Filter by country, region, magnitude range, depth, and date
-            - 🗺️ **Interactive Maps**: Heatmaps, magnitude-based, depth-based, and country overview maps
-            - 📊 **Statistical Charts**: Distribution analysis, correlations, trends, and more
-            - 🎬 **Animated Views**: Watch earthquakes unfold over time in 2D and 3D
-            - 📈 **Real-time Analysis**: Instant calculations of statistics and categories
-
-            ### Dataset Columns
-            - `time`: When the earthquake occurred
-            - `country`: Country where the earthquake occurred
-            - `region`: Geographic region
-            - `mag`: Magnitude (strength) of the earthquake
-            - `depth`: Depth of the epicenter in kilometers
-            - `latitude`/`longitude`: Geographic coordinates
-            - `place`: Named location description
-            """)
-
-        with st.expander("How the filters work"):
-            st.markdown("""
-            - **Country**: Select a specific country or view all earthquakes worldwide
-            - **Region**: Choose a specific region within a country (only available after selecting a country)
-            - **Magnitude Range**: Focus on earthquakes within a specific strength range
-            - **Depth Range**: Filter by how deep the earthquakes were
-            - **Date Range**: Select a time period of interest
-            """)
-
-        with st.expander("What the visualizations show"):
-            st.markdown("""
-            - **Heatmap**: Shows density of earthquakes - brighter areas have more activity
-            - **Magnitude Map**: Circle size and color intensity correspond to earthquake strength
-            - **Depth Map**: Color gradient from light (shallow) to dark (very deep)
-            - **Marker Clusters**: Clickable clusters that expand as you zoom in
-            - **3D Visualization**: Shows how magnitude, location, and depth interact
-            - **Animated Timeline**: Tracks how earthquake activity changes month by month
-            - **Statistical Charts**: Distribution, correlations, and temporal trends
-            """)
-
-        with st.expander("Map Layer Information"):
-            st.markdown("""
-            - **CartoDB positron**: Light, clean map style
-            - **CartoDB voyager**: Satellite-like imagery
-            - **OpenStreetMap**: Classic street map view
-            """)
+    with about_tab:
+        render_about_tab()
 
 
 if __name__ == "__main__":

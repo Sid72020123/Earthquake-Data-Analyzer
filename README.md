@@ -45,7 +45,6 @@ Earthquake Data Analyzer/
 ├── load_data.py
 ├── main.py
 ├── ml_prediction.py
-├── plot.py
 ├── visualization.py
 └── README.md
 ```
