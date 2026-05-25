@@ -12,7 +12,13 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import warnings
 import seaborn as sns
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+from sklearn.metrics import (
+    mean_squared_error,
+    r2_score,
+    mean_absolute_error,
+    confusion_matrix,
+    classification_report,
+)
 
 
 def get_ml_data_from_full_history(data, years=5):
@@ -251,6 +257,10 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
     train_mae = mean_absolute_error(y_train, y_train_pred)
     test_mae = mean_absolute_error(y_test, y_test_pred)
 
+    # Additional error metrics
+    test_mape = np.mean(np.abs((y_test - y_test_pred) / np.maximum(y_test, 1))) * 100
+    test_max_error = np.max(np.abs(y_test - y_test_pred))
+
     # Dummy poly/scaler kept for API compatibility
     poly = type("obj", (object,), {"transform": lambda x: x})()
     scaler = type("obj", (object,), {"transform": lambda x: x})()
@@ -271,6 +281,8 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
         "test_rmse": test_rmse,
         "train_mae": train_mae,
         "test_mae": test_mae,
+        "test_mape": test_mape,
+        "test_max_error": test_max_error,
         "frequency_data": frequency_data,
         "min_date_timestamp": dates.min().timestamp(),
         "n_train_samples": len(y_train),
@@ -489,6 +501,91 @@ def plot_residuals(results):
 
     plt.tight_layout()
     return fig
+
+
+def plot_confusion_matrix(results):
+    """
+    Create a Confusion Matrix by categorizing the continuous predictions
+    into 'Low', 'Medium', and 'High' activity levels based on training data quantiles.
+    """
+    y_train = results["y_train"]
+    y_test = results["y_test"]
+    y_pred = results["y_test_pred"]
+
+    # Define bins based on training data (33.3% and 66.6% percentiles)
+    p33 = np.percentile(y_train, 33.33)
+    p67 = np.percentile(y_train, 66.67)
+
+    def categorize(arr):
+        categories = []
+        for val in arr:
+            if val <= p33:
+                categories.append("Low")
+            elif val <= p67:
+                categories.append("Medium")
+            else:
+                categories.append("High")
+        return np.array(categories)
+
+    # Categorize the test and predicted values
+    y_test_cat = categorize(y_test)
+    y_pred_cat = categorize(y_pred)
+
+    labels = ["Low", "Medium", "High"]
+    cm = confusion_matrix(y_test_cat, y_pred_cat, labels=labels)
+
+    fig, ax = plt.subplots(figsize=(5, 4))
+    sns.heatmap(
+        cm,
+        annot=True,
+        fmt="d",
+        cmap="Blues",
+        xticklabels=labels,
+        yticklabels=labels,
+        ax=ax,
+    )
+    ax.set_xlabel("Predicted Activity Level", fontsize=11)
+    ax.set_ylabel("Actual Activity Level", fontsize=11)
+    ax.set_title(
+        "Confusion Matrix (Categorized Activity Levels)", fontsize=12, fontweight="bold"
+    )
+
+    plt.tight_layout()
+    return fig
+
+
+def get_classification_report_df(results):
+    """
+    Generate a Classification Report DataFrame corresponding to the
+    categorized activity levels ('Low', 'Medium', 'High').
+    """
+    y_train = results["y_train"]
+    y_test = results["y_test"]
+    y_pred = results["y_test_pred"]
+
+    p33 = np.percentile(y_train, 33.33)
+    p67 = np.percentile(y_train, 66.67)
+
+    def categorize(arr):
+        categories = []
+        for val in arr:
+            if val <= p33:
+                categories.append("Low")
+            elif val <= p67:
+                categories.append("Medium")
+            else:
+                categories.append("High")
+        return np.array(categories)
+
+    labels = ["Low", "Medium", "High"]
+    report = classification_report(
+        categorize(y_test),
+        categorize(y_pred),
+        labels=labels,
+        output_dict=True,
+        zero_division=0,
+    )
+    return pd.DataFrame(report).transpose()
 
 
 def get_model_explanation():

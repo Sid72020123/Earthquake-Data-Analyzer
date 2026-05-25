@@ -177,8 +177,10 @@ def create_folium_heatmap(df):
     if df.empty:
         return m
 
-    heat_data = df[["latitude", "longitude", "mag"]].dropna().values.tolist()
-    HeatMap(heat_data, radius=8, blur=12, max_zoom=5).add_to(m)
+    heat_data = (
+        df[["latitude", "longitude", "mag"]].dropna().astype(float).values.tolist()
+    )
+    HeatMap(heat_data, radius=15, blur=20, max_zoom=2, min_opacity=0.5).add_to(m)
     return m
 
 

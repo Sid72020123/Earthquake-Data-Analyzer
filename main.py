@@ -26,6 +26,8 @@ from ml_prediction import (
     plot_actual_vs_predicted,
     create_prediction_plotly,
     plot_residuals,
+    plot_confusion_matrix,
+    get_classification_report_df,
     get_model_explanation,
     get_ml_data_from_full_history,
     compare_models,
@@ -262,14 +264,30 @@ def main():
             max_value=max_date,
         )
 
+        if isinstance(selected_dates, (tuple, list)) and len(selected_dates) == 2:
+            date_range = tuple(selected_dates)
+        else:
+            date_range = (selected_dates, selected_dates)
+
+        # Pre-calculate filtered data to dynamically adjust slider limits
+        filtered_data = filter_data(
+            data,
+            country_choice,
+            magnitude_range,
+            date_range,
+            depth_range,
+            region_choice,
+        )
+
+        current_max = len(filtered_data)
+        max_slider_val = max(100, current_max)
+
         # Limit how many records to use for heavy visuals (maps, large charts)
-        # Start by showing 1000 records in visuals to keep the app responsive while providing insights
-        max_records_default = 1000
         max_records = st.slider(
             "Max records used for visuals",
-            min_value=100,
-            max_value=max(100, len(data)),
-            value=max_records_default,
+            min_value=min(100, max_slider_val),
+            max_value=max_slider_val,
+            value=min(1000, max_slider_val),
             step=100,
             help="Limits the sampled rows used by maps and large charts to keep the UI responsive.",
         )
@@ -286,24 +304,14 @@ def main():
         st.divider()
         st.subheader("Chart Options")
 
-        # Keep timeline sampling small by default (100) and allow up to dataset size
-        timeline_sample_limit = max(100, min(10000, len(data)))
+        timeline_sample_limit = max(100, min(10000, current_max))
         timeline_sample_size = st.slider(
             "Animated Timeline Sample Size",
-            min_value=100,
+            min_value=min(100, timeline_sample_limit),
             max_value=timeline_sample_limit,
             value=min(100, timeline_sample_limit),
             step=100,
         )
-
-    if isinstance(selected_dates, (tuple, list)) and len(selected_dates) == 2:
-        date_range = tuple(selected_dates)
-    else:
-        date_range = (selected_dates, selected_dates)
-
-    filtered_data = filter_data(
-        data, country_choice, magnitude_range, date_range, depth_range, region_choice
-    )
 
     if filtered_data.empty:
         st.warning(
@@ -527,7 +535,10 @@ def main():
 
         st.subheader("📈 Time Series Analysis")
         time_data = filtered_data.copy()
-        time_data["date"] = pd.to_datetime(time_data["time"]).dt.date
+        # Keep as datetime so Streamlit treats the x-axis as a continuous time scale
+        time_data["date"] = (
+            pd.to_datetime(time_data["time"]).dt.tz_convert(None).dt.normalize()
+        )
         daily_counts = time_data.groupby("date").size()
         st.line_chart(daily_counts)
 
@@ -665,7 +676,7 @@ def main():
 
                 # Display model performance metrics
                 st.markdown("### 📊 Model Performance Metrics")
-                metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
+                metric_col1, metric_col2, metric_col3 = st.columns(3)
                 metric_col1.metric(
                     "Test R² Score",
                     f"{ml_results['test_r2']:.3f}",
@@ -681,10 +692,22 @@ def main():
                     f"{ml_results['test_mae']:.2f}",
                     help="Mean Absolute Error (Average earthquakes off by per month)",
                 )
+
+                metric_col4, metric_col5, metric_col6 = st.columns(3)
                 metric_col4.metric(
                     "Train R² Score",
                     f"{ml_results['train_r2']:.3f}",
                     help="How well model fits training data (0-1, higher is better)",
+                )
+                metric_col5.metric(
+                    "Test MAPE",
+                    f"{ml_results['test_mape']:.1f}%",
+                    help="Mean Absolute Percentage Error (Average % error)",
+                )
+                metric_col6.metric(
+                    "Max Error",
+                    f"{ml_results['test_max_error']:.1f}",
+                    help="The largest single error in the test period",
                 )
 
                 # Display actual vs predicted visualization
@@ -701,6 +724,23 @@ def main():
                     "we use Residual Analysis instead of a Confusion Matrix. This plots where and how the model makes errors."
                 )
                 st.pyplot(plot_residuals(ml_results), width="stretch")
+
+                # Display Categorized Confusion Matrix & Classification Report
+                st.markdown(
+                    "### 🗂️ Categorized Confusion Matrix & Classification Report"
+                )
+                st.caption(
+                    "To evaluate this regression model categorically, we converted the continuous monthly "
+                    "earthquake counts into 'Low', 'Medium', and 'High' activity categories based on historical averages."
+                )
+
+                cm_col, cr_col = st.columns(2)
+                with cm_col:
+                    st.pyplot(plot_confusion_matrix(ml_results), width="content")
+                with cr_col:
+                    st.dataframe(
+                        get_classification_report_df(ml_results), width="stretch"
+                    )
 
                 # Display trend forecast
                 st.markdown("### 🔮 12-Month Trend Forecast")
