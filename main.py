@@ -410,7 +410,7 @@ def main():
                 with st.spinner("Rendering heatmap..."):
                     st_folium(
                         create_folium_heatmap(display_data),
-                        width=1200,
+                        width="stretch",
                         height=600,
                         returned_objects=[],
                     )
@@ -429,7 +429,7 @@ def main():
                     with st.spinner("Rendering magnitude map..."):
                         st_folium(
                             create_magnitude_based_map(display_data),
-                            width=600,
+                            width="stretch",
                             height=500,
                             returned_objects=[],
                         )
@@ -446,7 +446,7 @@ def main():
                     with st.spinner("Rendering depth map..."):
                         st_folium(
                             create_depth_based_map(display_data),
-                            width=600,
+                            width="stretch",
                             height=500,
                             returned_objects=[],
                         )
@@ -464,7 +464,7 @@ def main():
                 with st.spinner("Rendering cluster map..."):
                     st_folium(
                         create_marker_cluster_map(display_data),
-                        width=1200,
+                        width="stretch",
                         height=600,
                         returned_objects=[],
                     )
@@ -482,7 +482,7 @@ def main():
                 with st.spinner("Rendering country overview map..."):
                     st_folium(
                         create_country_region_map(display_data),
-                        width=1200,
+                        width="stretch",
                         height=600,
                         returned_objects=[],
                     )
