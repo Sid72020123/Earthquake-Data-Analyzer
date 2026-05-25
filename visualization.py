@@ -6,46 +6,24 @@ from branca.colormap import LinearColormap
 
 from folium.plugins import HeatMap, MarkerCluster
 
-# Apply plotting theme based on Streamlit theme (light/dark) when available.
-try:
-    theme_base = st.get_option("theme.base")
-except Exception:
-    theme_base = "light"
 
-if theme_base == "dark":
-    sns.set_style("darkgrid")
-    plt.rcParams.update(
-        {
-            "figure.facecolor": "#0b1220",
-            "axes.facecolor": "#0b1220",
-            "savefig.facecolor": "#0b1220",
-            "text.color": "#e6eef8",
-            "axes.labelcolor": "#e6eef8",
-            "xtick.color": "#e6eef8",
-            "ytick.color": "#e6eef8",
-        }
-    )
-else:
-    sns.set_style("whitegrid")
-    plt.rcParams.update(
-        {
-            "figure.facecolor": "none",
-            "axes.facecolor": "none",
-            "savefig.facecolor": "none",
-            "text.color": "#0f172a",
-            "axes.labelcolor": "#0f172a",
-            "xtick.color": "#0f172a",
-            "ytick.color": "#0f172a",
-        }
-    )
-
-
-def _empty_matplotlib_figure(message):
+def _empty_plotly_figure(message):
     """Create a small figure that explains why no chart is shown."""
-
-    fig, ax = plt.subplots(figsize=(8, 4))
-    ax.axis("off")
-    ax.text(0.5, 0.5, message, ha="center", va="center", fontsize=12)
+    fig = px.scatter(title=message)
+    fig.update_layout(
+        xaxis={"visible": False},
+        yaxis={"visible": False},
+        annotations=[
+            {
+                "text": message,
+                "xref": "paper",
+                "yref": "paper",
+                "showarrow": False,
+                "font": {"size": 16},
+            }
+        ],
+        height=300,
+    )
     return fig
 
 
@@ -67,8 +45,13 @@ def plot_magnitude_distribution(df):
         return _empty_plotly_figure("No data available for the histogram.")
 
     fig = px.histogram(
-        df, x="mag", nbins=30, opacity=0.8, color_discrete_sequence=["#c2410c"],
-        title="Magnitude Distribution", marginal="box"
+        df,
+        x="mag",
+        nbins=30,
+        opacity=0.8,
+        color_discrete_sequence=["#c2410c"],
+        title="Magnitude Distribution",
+        marginal="box",
     )
     fig.update_layout(xaxis_title="Magnitude", yaxis_title="Frequency", height=400)
     return fig
@@ -81,8 +64,13 @@ def plot_depth_vs_magnitude(df):
         return _empty_plotly_figure("No data available for the scatter plot.")
 
     fig = px.scatter(
-        df, x="depth", y="mag", opacity=0.5, color_discrete_sequence=["#0369a1"],
-        title="Depth vs Magnitude", hover_data=["country", "place"]
+        df,
+        x="depth",
+        y="mag",
+        opacity=0.5,
+        color_discrete_sequence=["#0369a1"],
+        title="Depth vs Magnitude",
+        hover_data=["country", "place"],
     )
     fig.update_layout(xaxis_title="Depth (km)", yaxis_title="Magnitude", height=400)
     return fig
@@ -96,8 +84,13 @@ def plot_correlation_heatmap(df):
 
     corr = df[["mag", "depth", "latitude", "longitude"]].corr()
     fig = px.imshow(
-        corr, text_auto=".2f", aspect="auto", color_continuous_scale="RdBu_r",
-        zmin=-1, zmax=1, title="Correlation Heatmap"
+        corr,
+        text_auto=".2f",
+        aspect="auto",
+        color_continuous_scale="RdBu_r",
+        zmin=-1,
+        zmax=1,
+        title="Correlation Heatmap",
     )
     fig.update_layout(height=400)
     return fig
@@ -113,8 +106,11 @@ def plot_top_countries_bar_chart(df, top_n=10):
     top_countries.columns = ["country", "count"]
 
     fig = px.bar(
-        top_countries, x="country", y="count", color_discrete_sequence=["#0f766e"],
-        title=f"Top {top_n} Earthquake Countries"
+        top_countries,
+        x="country",
+        y="count",
+        color_discrete_sequence=["#0f766e"],
+        title=f"Top {top_n} Earthquake Countries",
     )
     fig.update_layout(xaxis_title="Country", yaxis_title="Earthquake Count", height=400)
     fig.update_xaxes(tickangle=45)
@@ -127,12 +123,15 @@ def plot_top_countries_pie_chart(df, top_n=5):
     if df.empty:
         return _empty_plotly_figure("No data available for the pie chart.")
 
-    top_countries = df["country"].value_counts().head(top_n)
+    top_countries = df["country"].value_counts().head(top_n).reset_index()
     top_countries.columns = ["country", "count"]
-    
+
     fig = px.pie(
-        top_countries, names="country", values="count", hole=0.3,
-        title=f"Top {top_n} Earthquake Countries"
+        top_countries,
+        names="country",
+        values="count",
+        hole=0.3,
+        title=f"Top {top_n} Earthquake Countries",
     )
     fig.update_layout(height=400)
     return fig
@@ -153,8 +152,12 @@ def plot_earthquake_trend(df):
     monthly_counts = time_df.groupby("month").size().reset_index(name="count")
 
     fig = px.line(
-        monthly_counts, x="month", y="count", markers=True, 
-        color_discrete_sequence=["#7c2d12"], title="Earthquake Trend Over Time"
+        monthly_counts,
+        x="month",
+        y="count",
+        markers=True,
+        color_discrete_sequence=["#7c2d12"],
+        title="Earthquake Trend Over Time",
     )
     fig.update_layout(xaxis_title="Month", yaxis_title="Earthquake Count", height=400)
     return fig
