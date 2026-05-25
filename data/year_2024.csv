@@ -7427,7 +7427,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-06-07T17:03:31.054Z,-54.0569,-2.4625,10.0,5.4,mb,127.0,33.0,17.682,0.48,us,us7000mr1a,2024-08-16T21:59:24.040Z,southern Mid-Atlantic Ridge,earthquake,10.53,1.718,0.057,110.0,reviewed,us,us
 2024-06-07T16:57:14.486Z,-54.0047,-2.5375,10.0,5.2,mww,126.0,24.0,17.734,0.55,us,us7000mr18,2024-08-16T21:59:24.040Z,southern Mid-Atlantic Ridge,earthquake,10.79,1.742,0.103,9.0,reviewed,us,us
 2024-06-07T16:31:04.714Z,-2.994,139.2269,39.22,5.3,mww,201.0,17.0,1.549,0.64,us,us7000mr12,2024-10-09T07:03:56.099Z,"162 km WSW of Abepura, Indonesia",earthquake,6.77,4.165,0.083,14.0,reviewed,us,us
-2024-06-07T16:26:33.450Z,40.930833333333,-124.91633333333,10.0,4.26,mw,131.0,214.0,0.5722,0.24,nc,nc75017417,2025-06-07T16:36:45.032Z,"64 km WNW of Bayview, CA",earthquake,0.76,31.61,,12.0,reviewed,nc,nc
+2024-06-07T16:26:33.450Z,40.930833333333,-124.91633333333,10.0,4.26,mw,131.0,214.0,0.5722,0.24,nc,nc75017417,2026-05-23T20:48:59.462Z,"64 km WNW of Bayview, CA",earthquake,0.76,31.61,,12.0,reviewed,nc,nc
 2024-06-07T16:12:40.069Z,-55.4244,-29.1752,10.0,4.5,mb,12.0,185.0,4.378,0.71,us,us7000mscw,2024-08-16T21:59:24.040Z,South Sandwich Islands region,earthquake,15.65,1.984,0.163,11.0,reviewed,us,us
 2024-06-07T16:09:33.111Z,22.102,143.1065,10.0,4.3,mb,20.0,85.0,5.042,0.53,us,us7000msd3,2024-08-16T21:59:26.040Z,"Volcano Islands, Japan region",earthquake,8.15,1.865,0.161,11.0,reviewed,us,us
 2024-06-07T15:27:42.762Z,2.946,-79.319,10.0,4.0,mb,19.0,139.0,1.709,0.74,us,us7000mr0t,2024-08-16T21:59:24.040Z,"107 km WNW of Mosquera, Colombia",earthquake,6.49,1.933,0.232,7.0,reviewed,us,us
@@ -12413,7 +12413,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-02-09T20:50:00.649Z,2.3189,128.386,236.027,4.2,mb,27.0,110.0,1.844,0.64,us,us7000lz7b,2024-04-20T19:34:49.040Z,"77 km NNE of Tobelo, Indonesia",earthquake,11.27,8.194,0.124,22.0,reviewed,us,us
 2024-02-09T20:41:59.445Z,19.8664,-105.649,41.869,4.9,mww,165.0,112.0,0.918,0.7,us,us7000ly3e,2024-04-20T19:34:49.040Z,"25 km SW of La Cruz de Loreto, Mexico",earthquake,8.2,6.079,0.117,7.0,reviewed,us,us
 2024-02-09T20:18:52.376Z,37.5326,137.4675,6.705,4.3,mb,23.0,98.0,0.805,0.69,us,us7000lz7a,2024-04-20T19:34:47.040Z,"60 km ENE of Anamizu, Japan",earthquake,3.61,5.055,0.178,11.0,reviewed,us,us
-2024-02-09T20:06:31.660Z,19.186833333333,-155.49316666667,36.97,5.88,ml,62.0,73.0,0.04288,0.11,hv,hv74103036,2024-10-08T02:53:09.610Z,"2 km SW of Pāhala, Hawaii",earthquake,0.38,0.51,0.31216609430118,40.0,reviewed,hv,hv
+2024-02-09T20:06:31.660Z,19.186833333333,-155.49316666667,36.97,5.88,ml,62.0,73.0,0.04288,0.11,hv,hv74103036,2026-05-23T08:18:16.426Z,"2 km SW of Pāhala, Hawaii",earthquake,0.38,0.51,0.31216609430118,40.0,reviewed,hv,hv
 2024-02-09T20:05:29.564Z,25.856,-110.7076,10.0,4.6,mww,77.0,167.0,1.526,0.75,us,us7000ly2s,2024-04-20T19:34:45.040Z,"66 km ESE of Loreto, Mexico",earthquake,9.23,1.953,0.078,16.0,reviewed,us,us
 2024-02-09T19:50:05.834Z,-11.9945,166.7115,151.62,4.4,mb,28.0,149.0,7.115,0.96,us,us7000lz79,2024-04-20T19:34:45.040Z,"172 km SE of Lata, Solomon Islands",earthquake,15.46,10.042,0.127,19.0,reviewed,us,us
 2024-02-09T19:29:01.378Z,-3.8031,153.6808,384.728,4.2,mb,28.0,150.0,1.562,0.49,us,us7000lz7d,2024-04-20T19:34:45.040Z,"167 km ENE of Kokopo, Papua New Guinea",earthquake,15.7,8.032,0.121,19.0,reviewed,us,us
