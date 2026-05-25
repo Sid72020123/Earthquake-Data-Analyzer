@@ -3064,7 +3064,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2022-10-14T19:33:20.358Z,49.7642,89.9239,10.0,4.6,mb,93.0,39.0,5.249,0.72,us,us6000itqz,2022-12-17T22:54:13.040Z,"31 km S of Kyzyl-Khaya, Russia",earthquake,8.77,1.877,0.061,87.0,reviewed,us,us
 2022-10-14T19:16:44.900Z,19.122833333333,-155.50416666667,11.18,4.01,ml,44.0,228.0,,0.13,hv,hv73178797,2022-12-17T22:54:12.040Z,"9 km SSW of P?hala, Hawaii",earthquake,0.55,0.36,0.18433771477031,38.0,reviewed,hv,hv
 2022-10-14T19:07:29.020Z,19.14,-155.494,8.99,5.02,ml,51.0,159.0,,0.15,hv,hv72000488,2022-12-17T22:54:12.040Z,"7 km SSW of P?hala, Hawaii",earthquake,0.35,0.4,0.080145464705057,23.0,reviewed,hv,hv
-2022-10-14T19:07:05.080Z,19.1285,-155.48266666667,11.37,4.6,ml,56.0,166.0,,0.18,hv,hv73178772,2022-12-17T22:54:12.040Z,"8 km S of P?hala, Hawaii",earthquake,0.58,0.36,0.19803341515849,43.0,reviewed,hv,hv
+2022-10-14T19:07:05.080Z,19.1285,-155.48266666667,11.37,4.6,ml,56.0,166.0,,0.18,hv,hv73178772,2026-05-23T08:16:50.562Z,"8 km S of P?hala, Hawaii",earthquake,0.58,0.36,0.19803341515849,43.0,reviewed,hv,hv
 2022-10-14T18:43:08.900Z,-7.6426,127.7239,126.725,4.0,mb,21.0,95.0,3.558,0.28,us,us6000itq7,2022-12-17T22:54:11.040Z,"125 km NE of Lospalos, Timor Leste",earthquake,6.84,7.982,0.144,16.0,reviewed,us,us
 2022-10-14T18:41:42.025Z,-22.321,170.4433,10.0,4.4,mb,13.0,172.0,2.787,0.75,us,us6000iv5f,2022-12-17T22:54:24.040Z,"278 km ESE of Tadine, New Caledonia",earthquake,9.41,1.912,0.22,6.0,reviewed,us,us
 2022-10-14T17:53:46.419Z,6.3534,126.2005,94.788,4.6,mb,89.0,56.0,0.942,0.76,us,us6000itpv,2022-12-17T22:54:11.040Z,"2 km ESE of Pondaguitan, Philippines",earthquake,7.66,5.725,0.066,76.0,reviewed,us,us
