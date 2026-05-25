@@ -51,6 +51,17 @@ def _empty_matplotlib_figure(message):
     return fig
 
 
+def _format_time(value):
+    """Safely format a datetime-like value for popups; return 'N/A' if invalid."""
+    try:
+        ts = pd.to_datetime(value)
+        if pd.isna(ts):
+            return "N/A"
+        return ts.strftime("%Y-%m-%d %H:%M UTC")
+    except Exception:
+        return "N/A"
+
+
 def plot_magnitude_distribution(df):
     """Show how earthquake magnitudes are spread across the dataset."""
 
@@ -185,13 +196,14 @@ def create_marker_cluster_map(df, sample_size=1000):
     marker_cluster = MarkerCluster().add_to(m)
 
     for _, row in map_data.iterrows():
+        time_str = _format_time(row.get("time"))
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
             radius=max(float(row["mag"]), 1.5),
             color="#b91c1c",
             fill=True,
             fill_opacity=0.6,
-            popup=f"Country: {row['country']}<br>Magnitude: {row['mag']}<br>Depth: {row['depth']}<br>Time: {pd.to_datetime(row.get('time')).strftime('%Y-%m-%d %H:%M UTC')}",
+            popup=f"Country: {row['country']}<br>Magnitude: {row['mag']}<br>Depth: {row['depth']}<br>Time: {time_str}",
         ).add_to(marker_cluster)
 
     return m
@@ -227,11 +239,12 @@ def create_magnitude_based_map(df, sample_size=2000):
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
             radius=radius,
+            time_str=_format_time(row.get("time")),
             popup=folium.Popup(
                 f"""<b>{row['country']}</b><br>
                 Magnitude: {row['mag']}<br>
                 Depth: {row['depth']} km<br>
-                Time: {pd.to_datetime(row['time']).strftime('%Y-%m-%d %H:%M UTC')}<br>
+                Time: {_format_time(row.get('time'))}<br>
                 Region: {row.get('region', 'N/A')}""",
                 max_width=250,
             ),
@@ -278,11 +291,12 @@ def create_depth_based_map(df, sample_size=2000):
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
             radius=radius,
+            time_str=_format_time(row.get("time")),
             popup=folium.Popup(
                 f"""<b>{row['country']}</b><br>
                 Depth: {row['depth']} km<br>
                 Magnitude: {mag}<br>
-                Time: {pd.to_datetime(row['time']).strftime('%Y-%m-%d %H:%M UTC')}<br>
+                Time: {_format_time(row.get('time'))}<br>
                 Region: {row.get('region', 'N/A')}""",
                 max_width=250,
             ),

@@ -346,7 +346,7 @@ def main():
         .dt.tz_convert(None)
         .dt.strftime("%Y-%m-%d %H:%M UTC")
     )
-    st.dataframe(preview_df.head(20), width="stretch")
+    st.dataframe(preview_df.head(20), use_container_width=True)
 
     st.markdown("### 📊 Quick Summary")
     summary_col1, summary_col2, summary_col3 = st.columns(3)
@@ -373,13 +373,13 @@ def main():
         st.subheader("Statistical Analysis")
         left_col, right_col = st.columns(2)
         with left_col:
-            st.pyplot(plot_magnitude_distribution(display_data), width="stretch")
-            st.pyplot(plot_depth_vs_magnitude(display_data), width="stretch")
-            st.pyplot(plot_earthquake_trend(display_data), width="stretch")
+            st.pyplot(plot_magnitude_distribution(display_data), use_container_width=True)
+            st.pyplot(plot_depth_vs_magnitude(display_data), use_container_width=True)
+            st.pyplot(plot_earthquake_trend(display_data), use_container_width=True)
         with right_col:
-            st.pyplot(plot_correlation_heatmap(display_data), width="stretch")
-            st.pyplot(plot_top_countries_bar_chart(display_data), width="stretch")
-            st.pyplot(plot_top_countries_pie_chart(display_data), width="stretch")
+            st.pyplot(plot_correlation_heatmap(display_data), use_container_width=True)
+            st.pyplot(plot_top_countries_bar_chart(display_data), use_container_width=True)
+            st.pyplot(plot_top_countries_pie_chart(display_data), use_container_width=True)
 
     with tab2:
         st.subheader("🔥 Folium Earthquake Heatmap")
@@ -390,7 +390,10 @@ def main():
             try:
                 with st.spinner("Rendering heatmap..."):
                     st_folium(
-                        create_folium_heatmap(display_data), width=1200, height=600
+                        create_folium_heatmap(display_data),
+                        width=1200,
+                        height=600,
+                        returned_objects=[],
                     )
             except Exception as exc:
                 st.error(f"Could not render the heatmap: {exc}")
@@ -409,6 +412,7 @@ def main():
                             create_magnitude_based_map(display_data),
                             width=600,
                             height=500,
+                            returned_objects=[],
                         )
                 except Exception as exc:
                     st.error(f"Could not render the magnitude map: {exc}")
@@ -422,7 +426,10 @@ def main():
                 try:
                     with st.spinner("Rendering depth map..."):
                         st_folium(
-                            create_depth_based_map(display_data), width=600, height=500
+                            create_depth_based_map(display_data),
+                            width=600,
+                            height=500,
+                            returned_objects=[],
                         )
                 except Exception as exc:
                     st.error(f"Could not render the depth map: {exc}")
@@ -437,7 +444,10 @@ def main():
             try:
                 with st.spinner("Rendering cluster map..."):
                     st_folium(
-                        create_marker_cluster_map(display_data), width=1200, height=600
+                        create_marker_cluster_map(display_data),
+                        width=1200,
+                        height=600,
+                        returned_objects=[],
                     )
             except Exception as exc:
                 st.error(f"Could not render the cluster map: {exc}")
@@ -452,7 +462,10 @@ def main():
             try:
                 with st.spinner("Rendering country overview map..."):
                     st_folium(
-                        create_country_region_map(display_data), width=1200, height=600
+                        create_country_region_map(display_data),
+                        width=1200,
+                        height=600,
+                        returned_objects=[],
                     )
             except Exception as exc:
                 st.error(f"Could not render the country map: {exc}")
@@ -513,7 +526,7 @@ def main():
                     create_animated_timeline(
                         filtered_data, sample_size=timeline_sample_size
                     ),
-                    width="stretch",
+                    use_container_width=True,
                 )
         except Exception as exc:
             st.error(f"Could not render the animated timeline: {exc}")
@@ -528,7 +541,7 @@ def main():
                     create_3d_earthquake_visualization(
                         filtered_data, sample_size=timeline_sample_size
                     ),
-                    width="stretch",
+                    use_container_width=True,
                 )
         except Exception as exc:
             st.error(f"Could not render the 3D plot: {exc}")
@@ -655,12 +668,12 @@ def main():
                 st.caption(
                     "Left: How the trend line compares to actual monthly data | Right: Prediction accuracy"
                 )
-                st.pyplot(plot_actual_vs_predicted(ml_results), width="stretch")
+                st.pyplot(plot_actual_vs_predicted(ml_results), use_container_width=True)
 
                 # Display feature importance
                 st.markdown("### 🎯 Feature Importance")
                 st.caption("How important time is for the model's predictions")
-                st.pyplot(create_feature_importance_plot(ml_results), width="stretch")
+                st.pyplot(create_feature_importance_plot(ml_results), use_container_width=True)
 
                 # Display trend forecast
                 st.markdown("### 🔮 12-Month Trend Forecast")
@@ -669,7 +682,7 @@ def main():
                 )
                 st.plotly_chart(
                     create_prediction_plotly(ml_results, future_periods=12),
-                    width="stretch",
+                    use_container_width=True,
                 )
 
                 # Display important limitations

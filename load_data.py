@@ -66,7 +66,8 @@ def process_historical_data():
         return df
 
     df = df.copy()
-    df["time"] = pd.to_datetime(df["time"], format="mixed", utc=True, errors="coerce")
+    # Let pandas infer datetime format; avoid invalid 'format' argument
+    df["time"] = pd.to_datetime(df["time"], utc=True, errors="coerce")
     df = df.dropna(subset=["time", "latitude", "longitude", "mag", "depth"])
 
     df = df[["id", "time", "latitude", "longitude", "depth", "mag", "place"]]
@@ -76,14 +77,22 @@ def process_historical_data():
     coordinates = list(zip(df["latitude"], df["longitude"]))
     results = rg.search(coordinates) if coordinates else []
 
-    # ISO country codes
-    df["country_iso"] = [result["cc"] for result in results] if results else []
+    # ISO country codes: ensure resulting list matches dataframe length
+    if results and len(results) == len(coordinates):
+        country_iso = [res.get("cc", "") for res in results]
+    else:
+        country_iso = [""] * len(df)
+
+    df["country_iso"] = country_iso
 
     # Convert ISO codes to country names
     countries = []
     for code in df["country_iso"]:
-        country_obj = pycountry.countries.get(alpha_2=code)
-        countries.append(country_obj.name if country_obj else "Unknown")
+        if code:
+            country_obj = pycountry.countries.get(alpha_2=code)
+            countries.append(country_obj.name if country_obj else "Unknown")
+        else:
+            countries.append("Unknown")
 
     df["country"] = countries
 
