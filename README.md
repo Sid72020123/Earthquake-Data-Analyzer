@@ -57,7 +57,7 @@ Earthquake Data Analyzer/
 - Magnitude distribution and statistics
 - Depth vs. magnitude correlation analysis
 - Earthquake trends over time
-- Top countries by frequency (bar and pie charts)
+- Top countries by frequency (bar chart)
 - Correlation heatmap of earthquake attributes
 
 ### 🗺️ Maps Tab

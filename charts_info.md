@@ -9,7 +9,6 @@ Here is a breakdown of all the charts and visualizations used in the Earthquake 
 - **Earthquake Trend Over Time**: Plotly Express (`px.line`)
 - **Correlation Heatmap**: Plotly Express (`px.imshow`)
 - **Top Countries Bar Chart**: Plotly Express (`px.bar`)
-- **Top Countries Pie Chart**: Plotly Express (`px.pie`)
 
 ## 🗺️ Tab 2: Maps
 

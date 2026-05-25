@@ -18,7 +18,6 @@ from visualization import (
     plot_earthquake_trend,
     plot_magnitude_distribution,
     plot_top_countries_bar_chart,
-    plot_top_countries_pie_chart,
 )
 
 from ml_prediction import (
@@ -246,6 +245,7 @@ def main():
             min_value=min_magnitude,
             max_value=max_magnitude,
             value=(min_magnitude, max_magnitude),
+            key="magnitude_slider",
         )
 
         # Add depth filter
@@ -256,6 +256,7 @@ def main():
             min_value=min_depth,
             max_value=max_depth,
             value=(min_depth, max_depth),
+            key="depth_slider",
         )
 
         selected_dates = st.date_input(
@@ -292,6 +293,7 @@ def main():
                 value=min(1000, current_max),
                 step=100,
                 help="Limits the sampled rows used by maps and large charts to keep the UI responsive.",
+                key="max_records_slider",
             )
         else:
             max_records = current_max
@@ -317,6 +319,7 @@ def main():
                 max_value=timeline_sample_limit,
                 value=100,
                 step=100,
+                key="timeline_sample_slider",
             )
         else:
             timeline_sample_size = current_max
@@ -391,16 +394,14 @@ def main():
         with left_col:
             st.plotly_chart(plot_magnitude_distribution(filtered_data), width="stretch")
             st.plotly_chart(plot_depth_vs_magnitude(filtered_data), width="stretch")
-            st.plotly_chart(plot_earthquake_trend(filtered_data), width="stretch")
         with right_col:
             st.plotly_chart(plot_correlation_heatmap(filtered_data), width="stretch")
             st.plotly_chart(
                 plot_top_countries_bar_chart(filtered_data), width="stretch"
             )
-            st.plotly_chart(
-                plot_top_countries_pie_chart(filtered_data), width="stretch"
-            )
 
+        # Full-width trend chart
+        st.plotly_chart(plot_earthquake_trend(filtered_data), width="stretch")
         st.markdown("---")
         st.subheader("🚨 Top 10 Largest Earthquakes in View")
         top_10 = filtered_data.nlargest(10, "mag")[

@@ -117,26 +117,6 @@ def plot_top_countries_bar_chart(df, top_n=10):
     return fig
 
 
-def plot_top_countries_pie_chart(df, top_n=5):
-    """Show the top countries as a simple pie chart."""
-
-    if df.empty:
-        return _empty_plotly_figure("No data available for the pie chart.")
-
-    top_countries = df["country"].value_counts().head(top_n).reset_index()
-    top_countries.columns = ["country", "count"]
-
-    fig = px.pie(
-        top_countries,
-        names="country",
-        values="count",
-        hole=0.3,
-        title=f"Top {top_n} Earthquake Countries",
-    )
-    fig.update_layout(height=400)
-    return fig
-
-
 def plot_earthquake_trend(df):
     """Plot earthquake counts over time using monthly counts."""
 
