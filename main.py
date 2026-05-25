@@ -2,6 +2,7 @@
 
 import pandas as pd
 import streamlit as st
+import base64
 from streamlit_folium import st_folium
 
 from visualization import (
@@ -280,17 +281,20 @@ def main():
         )
 
         current_max = len(filtered_data)
-        max_slider_val = max(100, current_max)
 
         # Limit how many records to use for heavy visuals (maps, large charts)
-        max_records = st.slider(
-            "Max records used for visuals",
-            min_value=min(100, max_slider_val),
-            max_value=max_slider_val,
-            value=min(1000, max_slider_val),
-            step=100,
-            help="Limits the sampled rows used by maps and large charts to keep the UI responsive.",
-        )
+        # Conditionally display slider to prevent min_value == max_value error
+        if current_max > 100:
+            max_records = st.slider(
+                "Max records used for visuals",
+                min_value=100,
+                max_value=current_max,
+                value=min(1000, current_max),
+                step=100,
+                help="Limits the sampled rows used by maps and large charts to keep the UI responsive.",
+            )
+        else:
+            max_records = current_max
 
         st.divider()
         st.subheader("Map Options")
@@ -304,14 +308,18 @@ def main():
         st.divider()
         st.subheader("Chart Options")
 
-        timeline_sample_limit = max(100, min(10000, current_max))
-        timeline_sample_size = st.slider(
-            "Animated Timeline Sample Size",
-            min_value=min(100, timeline_sample_limit),
-            max_value=timeline_sample_limit,
-            value=min(100, timeline_sample_limit),
-            step=100,
-        )
+        # Conditionally display slider to prevent min_value == max_value error
+        if current_max > 100:
+            timeline_sample_limit = min(10000, current_max)
+            timeline_sample_size = st.slider(
+                "Animated Timeline Sample Size",
+                min_value=100,
+                max_value=timeline_sample_limit,
+                value=100,
+                step=100,
+            )
+        else:
+            timeline_sample_size = current_max
 
     if filtered_data.empty:
         st.warning(
@@ -413,17 +421,19 @@ def main():
         st.dataframe(top_10, width="stretch")
 
     with tab2:
-        st.subheader("🔥 Folium Earthquake Heatmap")
+        st.subheader("🔥 Earthquake Heatmap")
         st.caption(
             "Dense earthquake locations are highlighted. Zoom in to explore specific areas."
         )
         if show_heatmap:
             try:
                 with st.spinner("Rendering heatmap..."):
-                    # Using st.html is a more robust way to display a static Folium map in a non-default tab.
+                    # To robustly display a Folium map in a non-default tab, we render its
+                    # HTML and embed it in an iframe. This prevents rendering glitches.
                     m = create_folium_heatmap(display_data)
                     map_html = m._repr_html_()
-                    st.html(map_html, height=600, scrolling=False)
+                    map_html_b64 = base64.b64encode(map_html.encode()).decode()
+                    st.iframe(f"data:text/html;base64,{map_html_b64}", height=610)
             except Exception as exc:
                 st.error(f"Could not render the heatmap: {exc}")
         else:
@@ -545,7 +555,7 @@ def main():
         st.line_chart(daily_counts)
 
     with tab4:
-        st.subheader("🎬 Plotly Animated Timeline")
+        st.subheader("🎬 Animated Timeline")
         st.caption(
             "Animation progresses month by month. Watch earthquake patterns unfold over time!"
         )
@@ -563,7 +573,7 @@ def main():
         except Exception as exc:
             st.error(f"Could not render the animated timeline: {exc}")
 
-        st.subheader("🧊 Plotly 3D Earthquake Visualization")
+        st.subheader("🧊 3D Earthquake Visualization")
         st.caption(
             "3D plot showing longitude, latitude, depth, and magnitude relationships."
         )
