@@ -296,8 +296,8 @@ def main():
             step=100,
         )
 
-    if isinstance(selected_dates, tuple):
-        date_range = selected_dates
+    if isinstance(selected_dates, (tuple, list)) and len(selected_dates) == 2:
+        date_range = tuple(selected_dates)
     else:
         date_range = (selected_dates, selected_dates)
 
@@ -346,7 +346,7 @@ def main():
         .dt.tz_convert(None)
         .dt.strftime("%Y-%m-%d %H:%M UTC")
     )
-    st.dataframe(preview_df.head(20), use_container_width=True)
+    st.dataframe(preview_df.head(20), width="stretch")
 
     st.markdown("### 📊 Quick Summary")
     summary_col1, summary_col2, summary_col3 = st.columns(3)
@@ -373,13 +373,13 @@ def main():
         st.subheader("Statistical Analysis")
         left_col, right_col = st.columns(2)
         with left_col:
-            st.pyplot(plot_magnitude_distribution(display_data), use_container_width=True)
-            st.pyplot(plot_depth_vs_magnitude(display_data), use_container_width=True)
-            st.pyplot(plot_earthquake_trend(display_data), use_container_width=True)
+            st.pyplot(plot_magnitude_distribution(display_data), width="stretch")
+            st.pyplot(plot_depth_vs_magnitude(display_data), width="stretch")
+            st.pyplot(plot_earthquake_trend(display_data), width="stretch")
         with right_col:
-            st.pyplot(plot_correlation_heatmap(display_data), use_container_width=True)
-            st.pyplot(plot_top_countries_bar_chart(display_data), use_container_width=True)
-            st.pyplot(plot_top_countries_pie_chart(display_data), use_container_width=True)
+            st.pyplot(plot_correlation_heatmap(display_data), width="stretch")
+            st.pyplot(plot_top_countries_bar_chart(display_data), width="stretch")
+            st.pyplot(plot_top_countries_pie_chart(display_data), width="stretch")
 
     with tab2:
         st.subheader("🔥 Folium Earthquake Heatmap")
@@ -526,7 +526,7 @@ def main():
                     create_animated_timeline(
                         filtered_data, sample_size=timeline_sample_size
                     ),
-                    use_container_width=True,
+                    width="stretch",
                 )
         except Exception as exc:
             st.error(f"Could not render the animated timeline: {exc}")
@@ -541,7 +541,7 @@ def main():
                     create_3d_earthquake_visualization(
                         filtered_data, sample_size=timeline_sample_size
                     ),
-                    use_container_width=True,
+                    width="stretch",
                 )
         except Exception as exc:
             st.error(f"Could not render the 3D plot: {exc}")
@@ -668,12 +668,12 @@ def main():
                 st.caption(
                     "Left: How the trend line compares to actual monthly data | Right: Prediction accuracy"
                 )
-                st.pyplot(plot_actual_vs_predicted(ml_results), use_container_width=True)
+                st.pyplot(plot_actual_vs_predicted(ml_results), width="stretch")
 
                 # Display feature importance
                 st.markdown("### 🎯 Feature Importance")
                 st.caption("How important time is for the model's predictions")
-                st.pyplot(create_feature_importance_plot(ml_results), use_container_width=True)
+                st.pyplot(create_feature_importance_plot(ml_results), width="stretch")
 
                 # Display trend forecast
                 st.markdown("### 🔮 12-Month Trend Forecast")
@@ -682,7 +682,7 @@ def main():
                 )
                 st.plotly_chart(
                     create_prediction_plotly(ml_results, future_periods=12),
-                    use_container_width=True,
+                    width="stretch",
                 )
 
                 # Display important limitations

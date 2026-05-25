@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+import warnings
 from sklearn.metrics import mean_squared_error, r2_score
 
 
@@ -720,7 +721,13 @@ def compare_models(frequency_data):
 
     # 5. ARIMA
     try:
-        arima_model = ARIMA(y_train, order=(1, 1, 1)).fit()
+        with warnings.catch_warnings():
+            warnings.filterwarnings(
+                "ignore",
+                message="Non-invertible starting MA parameters found.*",
+                category=UserWarning,
+            )
+            arima_model = ARIMA(y_train, order=(1, 1, 1)).fit()
         arima_train_pred = arima_model.fittedvalues
         arima_test_pred = arima_model.get_forecast(steps=len(y_test)).predicted_mean
         arima_train_r2 = r2_score(y_train, arima_train_pred)
