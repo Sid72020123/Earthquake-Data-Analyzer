@@ -562,9 +562,6 @@ def render_ml_tab(data):
 
     except Exception as exc:
         st.error(f"Could not train ML model: {exc}")
-        # For debugging, you can uncomment the following lines:
-        # import traceback
-        # st.error(traceback.format_exc())
 
 
 def render_about_tab():

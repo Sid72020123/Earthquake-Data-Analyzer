@@ -22,6 +22,26 @@ from sklearn.metrics import (
 )
 
 
+def _categorize_activity(arr, p33, p67):
+    """Helper function to categorize continuous values into activity levels."""
+    return np.array(
+        ["Low" if val <= p33 else "Medium" if val <= p67 else "High" for val in arr]
+    )
+
+
+def _get_empty_metrics(model_name):
+    """Helper function to return zeroed metrics if a model fails to train."""
+    return {
+        "Model": model_name,
+        "Train R²": 0.0,
+        "Test R²": 0.0,
+        "Train RMSE": 0.0,
+        "Test RMSE": 0.0,
+        "Train MAE": 0.0,
+        "Test MAE": 0.0,
+    }
+
+
 def get_ml_data_from_full_history(data, years=5):
     """
     Extract ML training data from full earthquake history (last N years).
@@ -517,20 +537,9 @@ def plot_confusion_matrix(results):
     p33 = np.percentile(y_train, 33.33)
     p67 = np.percentile(y_train, 66.67)
 
-    def categorize(arr):
-        categories = []
-        for val in arr:
-            if val <= p33:
-                categories.append("Low")
-            elif val <= p67:
-                categories.append("Medium")
-            else:
-                categories.append("High")
-        return np.array(categories)
-
     # Categorize the test and predicted values
-    y_test_cat = categorize(y_test)
-    y_pred_cat = categorize(y_pred)
+    y_test_cat = _categorize_activity(y_test, p33, p67)
+    y_pred_cat = _categorize_activity(y_pred, p33, p67)
 
     labels = ["Low", "Medium", "High"]
     cm = confusion_matrix(y_test_cat, y_pred_cat, labels=labels)
@@ -565,21 +574,10 @@ def get_classification_report_df(results):
     p33 = np.percentile(y_train, 33.33)
     p67 = np.percentile(y_train, 66.67)
 
-    def categorize(arr):
-        categories = []
-        for val in arr:
-            if val <= p33:
-                categories.append("Low")
-            elif val <= p67:
-                categories.append("Medium")
-            else:
-                categories.append("High")
-        return np.array(categories)
-
     labels = ["Low", "Medium", "High"]
     report = classification_report(
-        categorize(y_test),
-        categorize(y_pred),
+        _categorize_activity(y_test, p33, p67),
+        _categorize_activity(y_pred, p33, p67),
         labels=labels,
         output_dict=True,
         zero_division=0,
@@ -691,17 +689,7 @@ def compare_models(frequency_data):
             }
         )
     except Exception:
-        results_list.append(
-            {
-                "Model": "Hybrid (Exp. Smoothing + RF)",
-                "Train R²": 0.0,
-                "Test R²": 0.0,
-                "Train RMSE": 0.0,
-                "Test RMSE": 0.0,
-                "Train MAE": 0.0,
-                "Test MAE": 0.0,
-            }
-        )
+        results_list.append(_get_empty_metrics("Hybrid (Exp. Smoothing + RF)"))
 
     # 2. Exponential Smoothing
     try:
@@ -729,17 +717,7 @@ def compare_models(frequency_data):
             }
         )
     except Exception:
-        results_list.append(
-            {
-                "Model": "Exponential Smoothing",
-                "Train R²": 0.0,
-                "Test R²": 0.0,
-                "Train RMSE": 0.0,
-                "Test RMSE": 0.0,
-                "Train MAE": 0.0,
-                "Test MAE": 0.0,
-            }
-        )
+        results_list.append(_get_empty_metrics("Exponential Smoothing"))
 
     # 3. Moving Average (simple implementation for comparison)
     try:
@@ -767,17 +745,7 @@ def compare_models(frequency_data):
             }
         )
     except Exception:
-        results_list.append(
-            {
-                "Model": "Moving Average",
-                "Train R²": 0.0,
-                "Test R²": 0.0,
-                "Train RMSE": 0.0,
-                "Test RMSE": 0.0,
-                "Train MAE": 0.0,
-                "Test MAE": 0.0,
-            }
-        )
+        results_list.append(_get_empty_metrics("Moving Average"))
 
     # 4. Ridge Regression
     try:
@@ -805,17 +773,7 @@ def compare_models(frequency_data):
             }
         )
     except Exception:
-        results_list.append(
-            {
-                "Model": "Ridge Regression",
-                "Train R²": 0.0,
-                "Test R²": 0.0,
-                "Train RMSE": 0.0,
-                "Test RMSE": 0.0,
-                "Train MAE": 0.0,
-                "Test MAE": 0.0,
-            }
-        )
+        results_list.append(_get_empty_metrics("Ridge Regression"))
 
     # 5. ARIMA
     try:
@@ -846,17 +804,7 @@ def compare_models(frequency_data):
             }
         )
     except Exception:
-        results_list.append(
-            {
-                "Model": "ARIMA",
-                "Train R²": 0.0,
-                "Test R²": 0.0,
-                "Train RMSE": 0.0,
-                "Test RMSE": 0.0,
-                "Train MAE": 0.0,
-                "Test MAE": 0.0,
-            }
-        )
+        results_list.append(_get_empty_metrics("ARIMA"))
 
     # 6. Seasonal Naive
     try:
@@ -890,17 +838,7 @@ def compare_models(frequency_data):
             }
         )
     except Exception:
-        results_list.append(
-            {
-                "Model": "Seasonal Naive",
-                "Train R²": 0.0,
-                "Test R²": 0.0,
-                "Train RMSE": 0.0,
-                "Test RMSE": 0.0,
-                "Train MAE": 0.0,
-                "Test MAE": 0.0,
-            }
-        )
+        results_list.append(_get_empty_metrics("Seasonal Naive"))
 
     # 7. Baseline (Mean)
     try:
@@ -924,17 +862,7 @@ def compare_models(frequency_data):
             }
         )
     except Exception:
-        results_list.append(
-            {
-                "Model": "Baseline (Mean)",
-                "Train R²": 0.0,
-                "Test R²": 0.0,
-                "Train RMSE": 0.0,
-                "Test RMSE": 0.0,
-                "Train MAE": 0.0,
-                "Test MAE": 0.0,
-            }
-        )
+        results_list.append(_get_empty_metrics("Baseline (Mean)"))
 
     # Create dataframe and sort by Test R² (highest first)
     df = pd.DataFrame(results_list)

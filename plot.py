@@ -84,3 +84,6 @@ if __name__ == "__main__":
         cluster_map = create_cluster_map(earthquakes)
         cluster_map.save(OUTPUT_PATH)
         print(f"Saved {OUTPUT_PATH}")
+"""
+DEPRECATED: This file has been removed. All plotting functionality has been migrated to visualization.py and main.py.
+"""
