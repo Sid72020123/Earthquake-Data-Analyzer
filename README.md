@@ -81,9 +81,9 @@ Earthquake Data Analyzer/
 - **Animated Timeline**: Month-by-month animation showing earthquake patterns over time
 - **3D Visualization**: Interactive 3D plot showing longitude, latitude, depth, and magnitude relationships
 
--### 🤖 ML Trend Forecasting Tab
+### 🤖 ML Trend Forecasting Tab
 
-- **Machine Learning Model**: Moving Average for earthquake frequency trend prediction
+- **Machine Learning Model**: Hybrid Model (Exponential Smoothing + Random Forest) for earthquake frequency trend prediction
 - **Data Source**: Last 5 years of complete historical earthquake data (~60 months)
 - **Monthly Aggregation**: Earthquake counts grouped by month for stable trends
 - **Performance Metrics**: Train/Test R² scores and RMSE
@@ -95,30 +95,29 @@ Earthquake Data Analyzer/
 
 ### What It Does
 
-The ML module uses **Moving Average** to forecast earthquake **frequency trends** over time using the last **5 years of global historical earthquake data**. It helps identify whether earthquake activity is increasing or decreasing globally.
+The ML module uses a **Hybrid Model (Exponential Smoothing + Random Forest)** to forecast earthquake **frequency trends** over time using the last **5 years of global historical earthquake data**. It helps identify whether earthquake activity is increasing or decreasing globally.
 
-### Why Moving Average?
+### Why a Hybrid Model?
 
-Moving Average is chosen because:
+A Hybrid approach is chosen because:
 
-- **Simple and Robust**: Smooths short-term noise and reveals local direction
-- **Weights Recent Data**: Short-window MA emphasizes recent observations
-- **Handles Noise**: Works well with noisy, chaotic earthquake frequency data
-- **No Overfitting**: Avoids fitting to random fluctuations
-- **Beginner-Friendly**: Intuitive and easy to explain
+- **Handles Noise**: Earthquake frequency is highly chaotic and noisy
+- **Captures Trend**: Exponential Smoothing identifies the underlying baseline trend
+- **Learns Patterns**: Random Forest predicts the residuals (errors) of the base model, finding hidden correlations or seasonality
+- **Better Accuracy**: Combining them typically outperforms a single model
 
 ### How It Works (Simplified)
 
 1. **Data Selection**: Load last 5 years (~60 months) from complete historical earthquake dataset
 2. **Data Grouping**: Count earthquakes by month for stability
 3. **Train/Test Split**: 80% for training (~48 months), 20% for testing (~12 months)
-4. **Model Training**: Compute Moving Average using a short window
-5. **Forecast**: Extend trends 12 months into the future
+4. **Model Training**: Train Exponential Smoothing on the data, then train Random Forest on the residuals
+5. **Forecast**: Extend trends 12 months into the future using the combined model
 
 ### Model Details
 
-- **Algorithm**: Moving Average (short-window smoothing)
-- **Features**: Monthly earthquake frequency counts (no feature engineering)
+- **Algorithm**: Hybrid (Exponential Smoothing + Random Forest)
+- **Features**: Monthly earthquake frequency counts, time index, month
 - **Scaling**: None needed (uses raw monthly counts)
 - **Training Data**: 80% of ~60 months = ~48 months
 - **Testing Data**: 20% of ~60 months = ~12 months

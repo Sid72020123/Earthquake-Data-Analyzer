@@ -263,8 +263,8 @@ def main():
         )
 
         # Limit how many records to use for heavy visuals (maps, large charts)
-        # Start by showing only 100 records in visuals to keep the app responsive
-        max_records_default = 100
+        # Start by showing 1000 records in visuals to keep the app responsive while providing insights
+        max_records_default = 1000
         max_records = st.slider(
             "Max records used for visuals",
             min_value=100,
@@ -373,13 +373,32 @@ def main():
         st.subheader("Statistical Analysis")
         left_col, right_col = st.columns(2)
         with left_col:
-            st.pyplot(plot_magnitude_distribution(display_data), width="stretch")
-            st.pyplot(plot_depth_vs_magnitude(display_data), width="stretch")
-            st.pyplot(plot_earthquake_trend(display_data), width="stretch")
+            st.pyplot(plot_magnitude_distribution(filtered_data), width="stretch")
+            st.pyplot(plot_depth_vs_magnitude(filtered_data), width="stretch")
+            st.pyplot(plot_earthquake_trend(filtered_data), width="stretch")
         with right_col:
-            st.pyplot(plot_correlation_heatmap(display_data), width="stretch")
-            st.pyplot(plot_top_countries_bar_chart(display_data), width="stretch")
-            st.pyplot(plot_top_countries_pie_chart(display_data), width="stretch")
+            st.pyplot(plot_correlation_heatmap(filtered_data), width="stretch")
+            st.pyplot(plot_top_countries_bar_chart(filtered_data), width="stretch")
+            st.pyplot(plot_top_countries_pie_chart(filtered_data), width="stretch")
+
+        st.markdown("---")
+        st.subheader("🚨 Top 10 Largest Earthquakes in View")
+        top_10 = filtered_data.nlargest(10, "mag")[
+            ["time", "place", "mag", "depth", "country"]
+        ]
+        top_10["time"] = (
+            pd.to_datetime(top_10["time"])
+            .dt.tz_convert(None)
+            .dt.strftime("%Y-%m-%d %H:%M")
+        )
+        top_10.columns = [
+            "Time (UTC)",
+            "Location",
+            "Magnitude",
+            "Depth (km)",
+            "Country",
+        ]
+        st.dataframe(top_10, width="stretch")
 
     with tab2:
         st.subheader("🔥 Folium Earthquake Heatmap")
@@ -547,14 +566,14 @@ def main():
             st.error(f"Could not render the 3D plot: {exc}")
 
     with tab5:
-        st.subheader("🤖 ML Trend Forecasting: Moving Average Model")
+        st.subheader("🤖 ML Trend Forecasting: Hybrid Model")
         st.caption(
-            "A Moving Average model smooths recent monthly earthquake counts to reveal short-term trends. "
+            "A Hybrid Model (Exponential Smoothing + Random Forest) analyzes monthly earthquake counts to reveal trends and complex patterns. "
             "This helps identify general earthquake frequency direction, not exact timing or locations."
         )
 
         # Show explanation first
-        with st.expander("ℹ️ How does the Moving Average model work?"):
+        with st.expander("ℹ️ How does the Hybrid Model work?"):
             st.markdown(get_model_explanation())
 
         try:
@@ -611,7 +630,7 @@ def main():
                 )
             else:
                 # Train the model
-                with st.spinner("Training Moving Average model..."):
+                with st.spinner("Training Hybrid Model..."):
                     ml_results = train_ml_model(frequency_data, test_size=0.2)
 
                 # Display data summary
@@ -678,7 +697,7 @@ def main():
                 # Display trend forecast
                 st.markdown("### 🔮 12-Month Trend Forecast")
                 st.caption(
-                    "Gray dots = raw monthly data (noisy) | Teal line = Moving Average trend | Pink dotted line = future forecast"
+                    "Gray dots = raw monthly data (noisy) | Teal line = Hybrid Model trend | Pink dotted line = future forecast"
                 )
                 st.plotly_chart(
                     create_prediction_plotly(ml_results, future_periods=12),

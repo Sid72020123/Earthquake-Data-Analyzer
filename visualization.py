@@ -239,7 +239,6 @@ def create_magnitude_based_map(df, sample_size=2000):
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
             radius=radius,
-            time_str=_format_time(row.get("time")),
             popup=folium.Popup(
                 f"""<b>{row['country']}</b><br>
                 Magnitude: {row['mag']}<br>
@@ -291,7 +290,6 @@ def create_depth_based_map(df, sample_size=2000):
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
             radius=radius,
-            time_str=_format_time(row.get("time")),
             popup=folium.Popup(
                 f"""<b>{row['country']}</b><br>
                 Depth: {row['depth']} km<br>
@@ -367,8 +365,6 @@ def create_animated_timeline(df, sample_size=5000):
 
     # Decide on an appropriate animation frame granularity.
     # For short ranges (<= 90 days) animate by day; otherwise animate by month.
-    timeline_df["time"] = pd.to_datetime(timeline_df["time"], errors="coerce", utc=True)
-    timeline_df = timeline_df.dropna(subset=["time"])  # ensure times exist
     span_days = (
         timeline_df["time"].dt.tz_convert(None).max()
         - timeline_df["time"].dt.tz_convert(None).min()

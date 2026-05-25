@@ -32,8 +32,8 @@ print("=" * 60)
 print("📊 COMPARING MODELS FOR EARTHQUAKE FREQUENCY PREDICTION")
 print("=" * 60)
 
-# 1. Current Linear Regression Model
-print("\n1️⃣  LINEAR REGRESSION (Current Model)")
+# 1. Current Hybrid Model
+print("\n1️⃣  HYBRID MODEL (Exp. Smoothing + RF) (Current Model)")
 print("-" * 60)
 ml_results = train_ml_model(frequency_data, test_size=0.2)
 print(f"Train R²: {ml_results['train_r2']:.4f}")
@@ -203,7 +203,7 @@ print("\n" + "=" * 60)
 print("🏆 COMPARISON SUMMARY:")
 print("=" * 60)
 models_summary = [
-    ("Linear Regression", ml_results["test_r2"]),
+    ("Hybrid (Exp. Smoothing + RF)", ml_results["test_r2"]),
     ("Exponential Smoothing", exp_test_r2),
     ("Moving Average", ma_test_r2),
     ("Ridge Regression", ridge_test_r2),

@@ -124,10 +124,10 @@ def convert_dates_to_numeric(dates):
 
 def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
     """
-    Train a simple Moving Average model to predict earthquake frequency.
+    Train a Hybrid Model (Exponential Smoothing + Random Forest) to predict earthquake frequency.
 
-    The Moving Average is a robust baseline for noisy time series like
-    earthquake monthly counts. It avoids overfitting and is easy to explain.
+    The Hybrid Model is robust for noisy time series like earthquake monthly counts.
+    It combines a base trend model with a machine learning model to predict residuals.
 
     Parameters:
     -----------
@@ -143,6 +143,9 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
     dict
         Dictionary containing model, data, and performance metrics
     """
+    from sklearn.ensemble import RandomForestRegressor
+    from statsmodels.tsa.holtwinters import ExponentialSmoothing
+
     # Prepare arrays
     dates = pd.to_datetime(frequency_data["time"])
     y = frequency_data["count"].values
@@ -161,53 +164,92 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
         X_train = np.arange(len(y_train)).reshape(-1, 1)
         X_test = np.arange(len(y_train), len(y_train) + len(y_test)).reshape(-1, 1)
 
-    # Compute moving average predictions for training (use past values only)
-    train_series = pd.Series(y_train)
-    # Prediction at t is mean of previous `window` actuals (no lookahead)
-    y_train_pred = (
-        train_series.shift(1)
-        .rolling(window=window, min_periods=1)
-        .mean()
-        .fillna(train_series.mean())
-        .values
+    # Base Model: Exponential Smoothing
+    try:
+        base_model = ExponentialSmoothing(
+            y_train, trend="add", seasonal=None, initialization_method="estimated"
+        ).fit(optimized=True)
+        base_train_pred = base_model.fittedvalues
+        base_test_pred = base_model.forecast(steps=len(y_test))
+    except Exception:
+        # Fallback to mean if ES fails
+        base_model = None
+        base_train_pred = np.full(len(y_train), np.mean(y_train))
+        base_test_pred = np.full(len(y_test), np.mean(y_train))
+
+    # Calculate residuals
+    residuals_train = y_train - base_train_pred
+
+    # Features for ML Model (Random Forest)
+    # Using time index and month to capture any non-linear trend or seasonality
+    X_train_ml = pd.DataFrame(
+        {"time_idx": X_train.flatten(), "month": dates.iloc[:split_index].dt.month}
     )
 
-    # Forecasting for test: iterative forecast using last `window` values (use predictions for future steps)
-    history = list(y_train)
-    y_test_pred = []
-    for _ in range(len(y_test)):
-        pred = (
-            float(np.mean(history[-window:]))
-            if len(history) > 0
-            else float(np.mean(y_train))
-        )
-        y_test_pred.append(pred)
-        # use prediction to extend history (no future leakage)
-        history.append(pred)
-    y_test_pred = np.array(y_test_pred)
+    X_test_ml = pd.DataFrame(
+        {"time_idx": X_test.flatten(), "month": dates.iloc[split_index:].dt.month}
+    )
+
+    # ML Model: Random Forest to predict residuals
+    rf_model = RandomForestRegressor(
+        n_estimators=100, max_depth=5, random_state=random_state
+    )
+    rf_model.fit(X_train_ml, residuals_train)
+
+    rf_train_pred = rf_model.predict(X_train_ml)
+    rf_test_pred = rf_model.predict(X_test_ml)
+
+    # Final Predictions (Base + ML Residuals)
+    y_train_pred = base_train_pred + rf_train_pred
+    y_test_pred = base_test_pred + rf_test_pred
+
+    # Ensure no negative predictions (counts can't be negative)
+    y_train_pred = np.maximum(y_train_pred, 0)
+    y_test_pred = np.maximum(y_test_pred, 0)
 
     # Simple model object with forecast method for compatibility
-    class MovingAverageModel:
-        def __init__(self, window, history):
-            self.window = int(window)
-            self.history = list(history)
+    class HybridModel:
+        def __init__(self, base, rf, last_train_idx, last_date):
+            self.base = base
+            self.rf = rf
+            self.last_train_idx = last_train_idx
+            self.last_date = pd.to_datetime(last_date)
 
         def forecast(self, steps=1):
-            preds = []
-            h = list(self.history)
-            for _ in range(int(steps)):
-                p = float(np.mean(h[-self.window :])) if len(h) > 0 else 0.0
-                preds.append(p)
-                h.append(p)
-            return np.array(preds)
+            try:
+                base_f = self.base.forecast(steps=steps)
+            except Exception:
+                base_f = np.full(steps, np.mean(y_train))
 
-    model = MovingAverageModel(window=window, history=history)
+            future_dates = pd.date_range(
+                start=self.last_date + pd.DateOffset(months=1), periods=steps, freq="MS"
+            )
+
+            X_f_ml = pd.DataFrame(
+                {
+                    "time_idx": np.arange(
+                        self.last_train_idx + 1, self.last_train_idx + 1 + steps
+                    ),
+                    "month": future_dates.month,
+                }
+            )
+
+            rf_f = self.rf.predict(X_f_ml)
+
+            return np.maximum(base_f + rf_f, 0)
+
+    model = HybridModel(
+        base_model, rf_model, len(y_train) + len(y_test) - 1, dates.iloc[-1]
+    )
 
     # Metrics
     train_r2 = r2_score(y_train, y_train_pred)
     test_r2 = r2_score(y_test, y_test_pred)
     train_rmse = np.sqrt(mean_squared_error(y_train, y_train_pred))
     test_rmse = np.sqrt(mean_squared_error(y_test, y_test_pred))
+
+    # Feature importance (time index importance from RF)
+    feat_imp = float(rf_model.feature_importances_[0])
 
     # Dummy poly/scaler kept for API compatibility
     poly = type("obj", (object,), {"transform": lambda x: x})()
@@ -228,7 +270,7 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
         "train_rmse": train_rmse,
         "test_rmse": test_rmse,
         "frequency_data": frequency_data,
-        "feature_importance": 1.0,
+        "feature_importance": feat_imp,
         "min_date_timestamp": dates.min().timestamp(),
         "n_train_samples": len(y_train),
         "n_test_samples": len(y_test),
@@ -284,7 +326,7 @@ def plot_actual_vs_predicted(results):
         X_sorted,
         y_pred_sorted,
         "s--",
-        label="Moving Average Trend",
+        label="Hybrid Model Trend",
         alpha=0.7,
         linewidth=2,
         markersize=6,
@@ -388,7 +430,7 @@ def create_prediction_plotly(results, future_periods=12):
             x=all_dates,
             y=historical_predictions,
             mode="lines",
-            name="Moving Average Trend",
+            name="Hybrid Model Trend",
             line=dict(color="#0ea5a4", width=3),
         )
     )
@@ -509,7 +551,7 @@ def create_feature_importance_plot(results):
 
 def get_model_explanation():
     """
-    Return a beginner-friendly explanation of the Moving Average model.
+    Return a beginner-friendly explanation of the Hybrid model.
 
     Returns:
     --------
@@ -517,10 +559,10 @@ def get_model_explanation():
         Explanation text in markdown format
     """
     explanation = """
-    ### 🤖 About This Moving Average Model
+    ### 🤖 About This Hybrid ML Model
     
     **What it predicts:**
-    Earthquake **frequency trends** over time using short-window smoothing.
+    Earthquake **frequency trends** over time using a Hybrid approach.
     
     **What it does NOT predict:**
     - Exact earthquake locations or times
@@ -529,34 +571,30 @@ def get_model_explanation():
     
     **Key Features:**
     - **Data**: Last 5 years of global earthquake data (~60 months)
-    - **Method**: Moving Average (simple smoothing)
+    - **Method**: Hybrid Model (Exponential Smoothing + Random Forest)
     - **Aggregation**: Monthly earthquake counts for stability
     - **Train/Test Split**: 80% training (~48 months), 20% testing (~12 months)
-    - **Best for**: Noisy time series where short-term smoothing helps
     
-    **Why Moving Average is appropriate:**
-    - Earthquake frequency is **highly chaotic and unpredictable**
-    - Moving Average smooths short-term noise and reveals local direction
-    - Avoids overfitting compared to complex models
-    - Simple and interpretable for beginners
+    **Why a Hybrid Model?**
+    - Earthquake frequency is **highly chaotic and noisy**
+    - **Exponential Smoothing** captures the underlying trend and baseline levels
+    - **Random Forest** learns from the residuals (errors) of the base model to find complex non-linear patterns (like seasonality or hidden correlations)
+    - Combining them yields higher accuracy than a single simple model
     
     **How it works (simplified):**
-    1. Load 5 years (~60 months) of global earthquake data
-    2. Count earthquakes by month for stability
-    3. Split into 80% training (~48 months) and 20% testing (~12 months)
-    4. Compute moving average using a short window (default 3 months)
-    5. Use the moving average as the prediction for the next periods
+    1. Base model calculates the general trend of earthquakes.
+    2. We measure the "errors" (residuals) between actual data and base trend.
+    3. Random Forest tries to predict these errors using time features.
+    4. Final prediction = Base Trend + Random Forest Adjustment.
     
     **What the model shows:**
-    - **Teal line**: The smoothed moving-average trend
-    - **Pink dotted line**: The n-month forecast (repeats recent average)
+    - **Teal line**: The predicted Hybrid trend
+    - **Pink dotted line**: The n-month future forecast
     - **Gray dots**: Raw monthly data (noisy)
     
     **Important Limitations:**
-    - Earthquake patterns are inherently chaotic and unpredictable
-    - Model captures short-term smoothing only, not causal drivers
-    - Historical data quality varies by region and time period
-    - Assumes recent averages are informative for the near future
+    - Earthquake patterns are inherently unpredictable
+    - Model captures statistical patterns only, not physical drivers
     
     **Understanding R² Score:**
     - Ranges from 0 to 1 (higher = better fit)
@@ -600,12 +638,12 @@ def compare_models(frequency_data):
 
     results_list = []
 
-    # 1. Linear Regression (current model from train_ml_model)
+    # 1. Hybrid Model (Current model from train_ml_model)
     try:
         ml_results = train_ml_model(frequency_data, test_size=0.2)
         results_list.append(
             {
-                "Model": "Linear Regression",
+                "Model": "Hybrid (Exp. Smoothing + RF)",
                 "Train R²": ml_results["train_r2"],
                 "Test R²": ml_results["test_r2"],
                 "Train RMSE": ml_results["train_rmse"],
@@ -615,7 +653,7 @@ def compare_models(frequency_data):
     except Exception:
         results_list.append(
             {
-                "Model": "Linear Regression",
+                "Model": "Hybrid (Exp. Smoothing + RF)",
                 "Train R²": 0.0,
                 "Test R²": 0.0,
                 "Train RMSE": 0.0,
