@@ -8,10 +8,10 @@ interpretable for monthly earthquake counts.
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+import plotly.express as px
+from plotly.subplots import make_subplots
 import warnings
-import seaborn as sns
 from sklearn.metrics import (
     mean_squared_error,
     r2_score,
@@ -311,7 +311,11 @@ def plot_actual_vs_predicted(results):
     matplotlib.figure.Figure
         Figure object with actual vs predicted comparison
     """
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+    fig = make_subplots(
+        rows=1,
+        cols=2,
+        subplot_titles=("Trend Analysis: Actual vs Predicted", "Prediction Accuracy"),
+    )
 
     # Combine all data for visualization
     X_all = np.vstack([results["X_train"], results["X_test"]])
@@ -325,53 +329,67 @@ def plot_actual_vs_predicted(results):
     y_pred_sorted = y_pred_all[sorted_idx]
 
     # Plot 1: Time series comparison
-    ax1.plot(
-        X_sorted,
-        y_sorted,
-        "o-",
-        label="Actual Frequency",
-        alpha=0.7,
-        linewidth=2,
-        markersize=6,
-        color="#0ea5a4",
+    fig.add_trace(
+        go.Scatter(
+            x=X_sorted,
+            y=y_sorted,
+            mode="lines+markers",
+            name="Actual Frequency",
+            marker=dict(color="#0ea5a4"),
+        ),
+        row=1,
+        col=1,
     )
-    ax1.plot(
-        X_sorted,
-        y_pred_sorted,
-        "s--",
-        label="Hybrid Model Trend",
-        alpha=0.7,
-        linewidth=2,
-        markersize=6,
-        color="#f97316",
+    fig.add_trace(
+        go.Scatter(
+            x=X_sorted,
+            y=y_pred_sorted,
+            mode="lines+markers",
+            name="Hybrid Model Trend",
+            line=dict(dash="dash", color="#f97316"),
+        ),
+        row=1,
+        col=1,
     )
-    ax1.set_xlabel("Time (days since start)", fontsize=11)
-    ax1.set_ylabel("Earthquake Frequency (count)", fontsize=11)
-    ax1.set_title("Trend Analysis: Actual vs Predicted", fontsize=12, fontweight="bold")
-    ax1.legend()
-    ax1.grid(True, alpha=0.3)
+    fig.update_xaxes(title_text="Time (days since start)", row=1, col=1)
+    fig.update_yaxes(title_text="Earthquake Frequency (count)", row=1, col=1)
 
     # Plot 2: Scatter plot for prediction accuracy
-    ax2.scatter(y_all, y_pred_all, alpha=0.6, s=50, color="#0ea5a4")
+    fig.add_trace(
+        go.Scatter(
+            x=y_all,
+            y=y_pred_all,
+            mode="markers",
+            name="Predictions",
+            marker=dict(color="#0ea5a4", opacity=0.6, size=8),
+        ),
+        row=1,
+        col=2,
+    )
 
     # Add perfect prediction line (for reference)
     min_val = min(y_all.min(), y_pred_all.min())
     max_val = max(y_all.max(), y_pred_all.max())
-    ax2.plot(
-        [min_val, max_val],
-        [min_val, max_val],
-        "r--",
-        label="Perfect Prediction",
-        linewidth=2,
+    fig.add_trace(
+        go.Scatter(
+            x=[min_val, max_val],
+            y=[min_val, max_val],
+            mode="lines",
+            name="Perfect Prediction",
+            line=dict(dash="dash", color="red"),
+        ),
+        row=1,
+        col=2,
     )
+    fig.update_xaxes(title_text="Actual Frequency", row=1, col=2)
+    fig.update_yaxes(title_text="Predicted Frequency", row=1, col=2)
 
-    ax2.set_xlabel("Actual Frequency", fontsize=11)
-    ax2.set_ylabel("Predicted Frequency", fontsize=11)
-    ax2.set_title("Prediction Accuracy", fontsize=12, fontweight="bold")
-    ax2.legend()
-    ax2.grid(True, alpha=0.3)
-
-    plt.tight_layout()
+    fig.update_layout(
+        height=450,
+        showlegend=True,
+        margin=dict(t=50, b=20, l=20, r=20),
+        template="plotly_white",
+    )
     return fig
 
 
@@ -481,25 +499,44 @@ def plot_residuals(results):
     y_pred = results["y_test_pred"]
     residuals = y_test - y_pred
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+    fig = make_subplots(
+        rows=1, cols=2, subplot_titles=("Error Distribution", "Residuals vs Predicted")
+    )
 
     # 1. Residual Distribution
-    sns.histplot(residuals, kde=True, ax=ax1, color="#ef4444")
-    ax1.axvline(x=0, color="black", linestyle="--", alpha=0.7)
-    ax1.set_xlabel("Error (Actual Count - Predicted Count)", fontsize=11)
-    ax1.set_ylabel("Frequency", fontsize=11)
-    ax1.set_title("Error Distribution", fontsize=12, fontweight="bold")
-    ax1.grid(True, alpha=0.3)
+    fig.add_trace(
+        go.Histogram(
+            x=residuals, name="Residuals", marker_color="#ef4444", opacity=0.7
+        ),
+        row=1,
+        col=1,
+    )
+    fig.add_vline(x=0, line_dash="dash", line_color="black", row=1, col=1)
+    fig.update_xaxes(title_text="Error (Actual - Predicted)", row=1, col=1)
+    fig.update_yaxes(title_text="Frequency", row=1, col=1)
 
     # 2. Residuals vs Predicted
-    ax2.scatter(y_pred, residuals, alpha=0.6, s=50, color="#3b82f6")
-    ax2.axhline(y=0, color="black", linestyle="--", alpha=0.7)
-    ax2.set_xlabel("Predicted Earthquake Frequency", fontsize=11)
-    ax2.set_ylabel("Residuals (Error)", fontsize=11)
-    ax2.set_title("Residuals vs Predicted", fontsize=12, fontweight="bold")
-    ax2.grid(True, alpha=0.3)
+    fig.add_trace(
+        go.Scatter(
+            x=y_pred,
+            y=residuals,
+            mode="markers",
+            name="Residuals vs Pred",
+            marker=dict(color="#3b82f6", opacity=0.6, size=8),
+        ),
+        row=1,
+        col=2,
+    )
+    fig.add_hline(y=0, line_dash="dash", line_color="black", row=1, col=2)
+    fig.update_xaxes(title_text="Predicted Earthquake Frequency", row=1, col=2)
+    fig.update_yaxes(title_text="Residuals (Error)", row=1, col=2)
 
-    plt.tight_layout()
+    fig.update_layout(
+        height=450,
+        showlegend=False,
+        margin=dict(t=50, b=20, l=20, r=20),
+        template="plotly_white",
+    )
     return fig
 
 
@@ -534,23 +571,21 @@ def plot_confusion_matrix(results):
     labels = ["Low", "Medium", "High"]
     cm = confusion_matrix(y_test_cat, y_pred_cat, labels=labels)
 
-    fig, ax = plt.subplots(figsize=(5, 4))
-    sns.heatmap(
+    fig = px.imshow(
         cm,
-        annot=True,
-        fmt="d",
-        cmap="Blues",
-        xticklabels=labels,
-        yticklabels=labels,
-        ax=ax,
+        x=labels,
+        y=labels,
+        text_auto=True,
+        color_continuous_scale="Blues",
+        aspect="auto",
+        title="Confusion Matrix (Categorized Activity Levels)",
     )
-    ax.set_xlabel("Predicted Activity Level", fontsize=11)
-    ax.set_ylabel("Actual Activity Level", fontsize=11)
-    ax.set_title(
-        "Confusion Matrix (Categorized Activity Levels)", fontsize=12, fontweight="bold"
+    fig.update_layout(
+        xaxis_title="Predicted Activity Level",
+        yaxis_title="Actual Activity Level",
+        height=400,
+        margin=dict(t=50, b=20, l=20, r=20),
     )
-
-    plt.tight_layout()
     return fig
 
 

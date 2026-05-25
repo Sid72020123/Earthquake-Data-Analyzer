@@ -1,6 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import streamlit as st
 import plotly.express as px
 import folium
@@ -66,14 +64,13 @@ def plot_magnitude_distribution(df):
     """Show how earthquake magnitudes are spread across the dataset."""
 
     if df.empty:
-        return _empty_matplotlib_figure("No data available for the histogram.")
+        return _empty_plotly_figure("No data available for the histogram.")
 
-    fig, ax = plt.subplots(figsize=(10, 5))
-    sns.histplot(df["mag"], bins=30, kde=True, ax=ax, color="#c2410c")
-    ax.set_xlabel("Magnitude")
-    ax.set_ylabel("Frequency")
-    ax.set_title("Magnitude Distribution")
-    plt.tight_layout()
+    fig = px.histogram(
+        df, x="mag", nbins=30, opacity=0.8, color_discrete_sequence=["#c2410c"],
+        title="Magnitude Distribution", marginal="box"
+    )
+    fig.update_layout(xaxis_title="Magnitude", yaxis_title="Frequency", height=400)
     return fig
 
 
@@ -81,14 +78,13 @@ def plot_depth_vs_magnitude(df):
     """Compare earthquake depth and magnitude with a scatter plot."""
 
     if df.empty:
-        return _empty_matplotlib_figure("No data available for the scatter plot.")
+        return _empty_plotly_figure("No data available for the scatter plot.")
 
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.scatterplot(x="depth", y="mag", data=df, alpha=0.5, ax=ax, color="#0369a1")
-    ax.set_title("Depth vs Magnitude")
-    ax.set_xlabel("Depth")
-    ax.set_ylabel("Magnitude")
-    plt.tight_layout()
+    fig = px.scatter(
+        df, x="depth", y="mag", opacity=0.5, color_discrete_sequence=["#0369a1"],
+        title="Depth vs Magnitude", hover_data=["country", "place"]
+    )
+    fig.update_layout(xaxis_title="Depth (km)", yaxis_title="Magnitude", height=400)
     return fig
 
 
@@ -96,19 +92,14 @@ def plot_correlation_heatmap(df):
     """Show a simple correlation heatmap for the numeric columns."""
 
     if df.empty:
-        return _empty_matplotlib_figure("No data available for the heatmap.")
+        return _empty_plotly_figure("No data available for the heatmap.")
 
-    fig, ax = plt.subplots(figsize=(8, 6))
-    sns.heatmap(
-        df[["mag", "depth", "latitude", "longitude"]].corr(),
-        annot=True,
-        cmap="coolwarm",
-        ax=ax,
-        vmin=-1,
-        vmax=1,
+    corr = df[["mag", "depth", "latitude", "longitude"]].corr()
+    fig = px.imshow(
+        corr, text_auto=".2f", aspect="auto", color_continuous_scale="RdBu_r",
+        zmin=-1, zmax=1, title="Correlation Heatmap"
     )
-    ax.set_title("Correlation Heatmap")
-    plt.tight_layout()
+    fig.update_layout(height=400)
     return fig
 
 
@@ -116,18 +107,17 @@ def plot_top_countries_bar_chart(df, top_n=10):
     """Show the countries with the most earthquakes."""
 
     if df.empty:
-        return _empty_matplotlib_figure("No data available for the country chart.")
+        return _empty_plotly_figure("No data available for the country chart.")
 
     top_countries = df["country"].value_counts().head(top_n).reset_index()
     top_countries.columns = ["country", "count"]
 
-    fig, ax = plt.subplots(figsize=(12, 6))
-    sns.barplot(x="country", y="count", data=top_countries, ax=ax, color="#0f766e")
-    ax.set_title(f"Top {top_n} Earthquake Countries")
-    ax.set_xlabel("Country")
-    ax.set_ylabel("Earthquake Count")
-    ax.tick_params(axis="x", rotation=45)
-    plt.tight_layout()
+    fig = px.bar(
+        top_countries, x="country", y="count", color_discrete_sequence=["#0f766e"],
+        title=f"Top {top_n} Earthquake Countries"
+    )
+    fig.update_layout(xaxis_title="Country", yaxis_title="Earthquake Count", height=400)
+    fig.update_xaxes(tickangle=45)
     return fig
 
 
@@ -135,12 +125,16 @@ def plot_top_countries_pie_chart(df, top_n=5):
     """Show the top countries as a simple pie chart."""
 
     if df.empty:
-        return _empty_matplotlib_figure("No data available for the pie chart.")
+        return _empty_plotly_figure("No data available for the pie chart.")
 
     top_countries = df["country"].value_counts().head(top_n)
-    fig, ax = plt.subplots(figsize=(8, 8))
-    ax.pie(top_countries, labels=top_countries.index, autopct="%1.1f%%", startangle=90)
-    ax.set_title(f"Top {top_n} Earthquake Countries")
+    top_countries.columns = ["country", "count"]
+    
+    fig = px.pie(
+        top_countries, names="country", values="count", hole=0.3,
+        title=f"Top {top_n} Earthquake Countries"
+    )
+    fig.update_layout(height=400)
     return fig
 
 
@@ -148,7 +142,7 @@ def plot_earthquake_trend(df):
     """Plot earthquake counts over time using monthly counts."""
 
     if df.empty:
-        return _empty_matplotlib_figure("No data available for the time-series chart.")
+        return _empty_plotly_figure("No data available for the time-series chart.")
 
     time_df = df.copy()
     time_df["time"] = pd.to_datetime(time_df["time"], errors="coerce", utc=True)
@@ -158,14 +152,11 @@ def plot_earthquake_trend(df):
     )
     monthly_counts = time_df.groupby("month").size().reset_index(name="count")
 
-    fig, ax = plt.subplots(figsize=(12, 5))
-    sns.lineplot(
-        data=monthly_counts, x="month", y="count", marker="o", ax=ax, color="#7c2d12"
+    fig = px.line(
+        monthly_counts, x="month", y="count", markers=True, 
+        color_discrete_sequence=["#7c2d12"], title="Earthquake Trend Over Time"
     )
-    ax.set_title("Earthquake Trend Over Time")
-    ax.set_xlabel("Month")
-    ax.set_ylabel("Earthquake Count")
-    plt.tight_layout()
+    fig.update_layout(xaxis_title="Month", yaxis_title="Earthquake Count", height=400)
     return fig
 
 

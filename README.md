@@ -19,8 +19,6 @@ streamlit run main.py
 ## Required libraries
 
 - pandas (≥1.3.0)
-- matplotlib (≥3.4.0)
-- seaborn (≥0.11.0)
 - folium (≥0.12.0)
 - branca (≥0.4.2)
 - streamlit (≥1.0.0)

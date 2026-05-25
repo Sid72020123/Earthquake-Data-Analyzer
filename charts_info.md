@@ -4,12 +4,12 @@ Here is a breakdown of all the charts and visualizations used in the Earthquake 
 
 ## 📊 Tab 1: Charts
 
-- **Magnitude Distribution**: Seaborn & Matplotlib (`sns.histplot`)
-- **Depth vs Magnitude**: Seaborn & Matplotlib (`sns.scatterplot`)
-- **Earthquake Trend Over Time**: Seaborn & Matplotlib (`sns.lineplot`)
-- **Correlation Heatmap**: Seaborn & Matplotlib (`sns.heatmap`)
-- **Top Countries Bar Chart**: Seaborn & Matplotlib (`sns.barplot`)
-- **Top Countries Pie Chart**: Matplotlib (`ax.pie`)
+- **Magnitude Distribution**: Plotly Express (`px.histogram`)
+- **Depth vs Magnitude**: Plotly Express (`px.scatter`)
+- **Earthquake Trend Over Time**: Plotly Express (`px.line`)
+- **Correlation Heatmap**: Plotly Express (`px.imshow`)
+- **Top Countries Bar Chart**: Plotly Express (`px.bar`)
+- **Top Countries Pie Chart**: Plotly Express (`px.pie`)
 
 ## 🗺️ Tab 2: Maps
 
@@ -34,9 +34,9 @@ _(All maps are rendered in the dashboard using the `streamlit-folium` library)_
 
 ## 🤖 Tab 5: ML Prediction
 
-- **Actual vs Predicted Earthquake Frequency**: Matplotlib (`plt.plot` and `plt.scatter`)
-- **Error Analysis (Residuals)**: Seaborn & Matplotlib (`sns.histplot` and `plt.scatter`)
-- **Categorized Confusion Matrix**: Seaborn & Matplotlib (`sns.heatmap`)
+- **Actual vs Predicted Earthquake Frequency**: Plotly Graph Objects (`make_subplots`)
+- **Error Analysis (Residuals)**: Plotly Graph Objects (`make_subplots`)
+- **Categorized Confusion Matrix**: Plotly Express (`px.imshow`)
 - **12-Month Trend Forecast**: Plotly Graph Objects (`go.Figure` and `go.Scatter`)
 
 ## ℹ️ Tab 6: About

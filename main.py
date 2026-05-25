@@ -381,13 +381,17 @@ def main():
         st.subheader("Statistical Analysis")
         left_col, right_col = st.columns(2)
         with left_col:
-            st.pyplot(plot_magnitude_distribution(filtered_data), width="stretch")
-            st.pyplot(plot_depth_vs_magnitude(filtered_data), width="stretch")
-            st.pyplot(plot_earthquake_trend(filtered_data), width="stretch")
+            st.plotly_chart(plot_magnitude_distribution(filtered_data), width="stretch")
+            st.plotly_chart(plot_depth_vs_magnitude(filtered_data), width="stretch")
+            st.plotly_chart(plot_earthquake_trend(filtered_data), width="stretch")
         with right_col:
-            st.pyplot(plot_correlation_heatmap(filtered_data), width="stretch")
-            st.pyplot(plot_top_countries_bar_chart(filtered_data), width="stretch")
-            st.pyplot(plot_top_countries_pie_chart(filtered_data), width="stretch")
+            st.plotly_chart(plot_correlation_heatmap(filtered_data), width="stretch")
+            st.plotly_chart(
+                plot_top_countries_bar_chart(filtered_data), width="stretch"
+            )
+            st.plotly_chart(
+                plot_top_countries_pie_chart(filtered_data), width="stretch"
+            )
 
         st.markdown("---")
         st.subheader("🚨 Top 10 Largest Earthquakes in View")
@@ -715,7 +719,7 @@ def main():
                 st.caption(
                     "Left: How the trend line compares to actual monthly data | Right: Prediction accuracy"
                 )
-                st.pyplot(plot_actual_vs_predicted(ml_results), width="stretch")
+                st.plotly_chart(plot_actual_vs_predicted(ml_results), width="stretch")
 
                 # Display Error/Residual Analysis instead of Confusion Matrix
                 st.markdown("### 🔬 Error Analysis (Residuals)")
@@ -723,7 +727,7 @@ def main():
                     "Since this is a Regression model predicting continuous counts (not a Classification model sorting into categories), "
                     "we use Residual Analysis instead of a Confusion Matrix. This plots where and how the model makes errors."
                 )
-                st.pyplot(plot_residuals(ml_results), width="stretch")
+                st.plotly_chart(plot_residuals(ml_results), width="stretch")
 
                 # Display Categorized Confusion Matrix & Classification Report
                 st.markdown(
@@ -736,7 +740,7 @@ def main():
 
                 cm_col, cr_col = st.columns(2)
                 with cm_col:
-                    st.pyplot(plot_confusion_matrix(ml_results), width="content")
+                    st.plotly_chart(plot_confusion_matrix(ml_results), width="stretch")
                 with cr_col:
                     st.dataframe(
                         get_classification_report_df(ml_results), width="stretch"
