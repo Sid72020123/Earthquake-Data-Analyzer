@@ -420,12 +420,10 @@ def main():
         if show_heatmap:
             try:
                 with st.spinner("Rendering heatmap..."):
-                    st_folium(
-                        create_folium_heatmap(display_data),
-                        width="stretch",
-                        height=600,
-                        returned_objects=[],
-                    )
+                    # Using st.html is a more robust way to display a static Folium map in a non-default tab.
+                    m = create_folium_heatmap(display_data)
+                    map_html = m._repr_html_()
+                    st.html(map_html, height=600, scrolling=False)
             except Exception as exc:
                 st.error(f"Could not render the heatmap: {exc}")
         else:
