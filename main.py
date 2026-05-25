@@ -186,25 +186,21 @@ def render_charts_tab(filtered_data):
     st.subheader("Statistical Analysis")
     left_col, right_col = st.columns(2)
     with left_col:
-        st.plotly_chart(plot_magnitude_distribution(filtered_data), use_container_width=True)
-        st.plotly_chart(plot_depth_vs_magnitude(filtered_data), use_container_width=True)
+        st.plotly_chart(plot_magnitude_distribution(filtered_data), width="stretch")
+        st.plotly_chart(plot_depth_vs_magnitude(filtered_data), width="stretch")
     with right_col:
-        st.plotly_chart(plot_correlation_heatmap(filtered_data), use_container_width=True)
-        st.plotly_chart(
-            plot_top_countries_bar_chart(filtered_data), use_container_width=True
-        )
+        st.plotly_chart(plot_correlation_heatmap(filtered_data), width="stretch")
+        st.plotly_chart(plot_top_countries_bar_chart(filtered_data), width="stretch")
 
     # Full-width trend chart
-    st.plotly_chart(plot_earthquake_trend(filtered_data), use_container_width=True)
+    st.plotly_chart(plot_earthquake_trend(filtered_data), width="stretch")
     st.markdown("---")
     st.subheader("🚨 Top 10 Largest Earthquakes in View")
     top_10 = filtered_data.nlargest(10, "mag")[
         ["time", "place", "mag", "depth", "country"]
     ]
     top_10["time"] = (
-        pd.to_datetime(top_10["time"])
-        .dt.tz_convert(None)
-        .dt.strftime("%Y-%m-%d %H:%M")
+        pd.to_datetime(top_10["time"]).dt.tz_convert(None).dt.strftime("%Y-%m-%d %H:%M")
     )
     top_10.columns = [
         "Time (UTC)",
@@ -213,7 +209,7 @@ def render_charts_tab(filtered_data):
         "Depth (km)",
         "Country",
     ]
-    st.dataframe(top_10, use_container_width=True)
+    st.dataframe(top_10, width="stretch")
 
 
 def render_maps_tab(display_data, map_options):
@@ -369,7 +365,7 @@ def render_animation_tab(filtered_data, timeline_sample_size):
                 create_animated_timeline(
                     filtered_data, sample_size=timeline_sample_size
                 ),
-                use_container_width=True,
+                width="stretch",
             )
     except Exception as exc:
         st.error(f"Could not render the animated timeline: {exc}")
@@ -384,7 +380,7 @@ def render_animation_tab(filtered_data, timeline_sample_size):
                 create_3d_earthquake_visualization(
                     filtered_data, sample_size=timeline_sample_size
                 ),
-                use_container_width=True,
+                width="stretch",
             )
     except Exception as exc:
         st.error(f"Could not render the 3D plot: {exc}")
@@ -423,7 +419,14 @@ def render_ml_tab(data):
                 if not comparison_df.empty:
                     # Format the dataframe for display
                     display_df = comparison_df.copy()
-                    for col in ["Train R²", "Test R²", "Train RMSE", "Test RMSE", "Train MAE", "Test MAE"]:
+                    for col in [
+                        "Train R²",
+                        "Test R²",
+                        "Train RMSE",
+                        "Test RMSE",
+                        "Train MAE",
+                        "Test MAE",
+                    ]:
                         display_df[col] = display_df[col].apply(lambda x: f"{x:.4f}")
                     # Reset index to show ranking 1-7
                     display_df.index = list(range(1, len(display_df) + 1))
@@ -510,7 +513,7 @@ def render_ml_tab(data):
             st.caption(
                 "Left: How the trend line compares to actual monthly data | Right: Prediction accuracy"
             )
-            st.plotly_chart(plot_actual_vs_predicted(ml_results), use_container_width=True)
+            st.plotly_chart(plot_actual_vs_predicted(ml_results), width="stretch")
 
             # Display Error/Residual Analysis
             st.markdown("### 🔬 Error Analysis (Residuals)")
@@ -518,12 +521,10 @@ def render_ml_tab(data):
                 "Since this is a Regression model predicting continuous counts (not a Classification model sorting into categories), "
                 "we use Residual Analysis instead of a Confusion Matrix. This plots where and how the model makes errors."
             )
-            st.plotly_chart(plot_residuals(ml_results), use_container_width=True)
+            st.plotly_chart(plot_residuals(ml_results), width="stretch")
 
             # Display Categorized Confusion Matrix & Classification Report
-            st.markdown(
-                "### 🗂️ Categorized Confusion Matrix & Classification Report"
-            )
+            st.markdown("### 🗂️ Categorized Confusion Matrix & Classification Report")
             st.caption(
                 "To evaluate this regression model categorically, we converted the continuous monthly "
                 "earthquake counts into 'Low', 'Medium', and 'High' activity categories based on historical averages."
@@ -531,11 +532,9 @@ def render_ml_tab(data):
 
             cm_col, cr_col = st.columns(2)
             with cm_col:
-                st.plotly_chart(plot_confusion_matrix(ml_results), use_container_width=True)
+                st.plotly_chart(plot_confusion_matrix(ml_results), width="stretch")
             with cr_col:
-                st.dataframe(
-                    get_classification_report_df(ml_results), use_container_width=True
-                )
+                st.dataframe(get_classification_report_df(ml_results), width="stretch")
 
             # Display trend forecast
             st.markdown("### 🔮 12-Month Trend Forecast")
@@ -544,7 +543,7 @@ def render_ml_tab(data):
             )
             st.plotly_chart(
                 create_prediction_plotly(ml_results, future_periods=12),
-                use_container_width=True,
+                width="stretch",
             )
 
             # Display important limitations
