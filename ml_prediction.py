@@ -11,7 +11,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import warnings
-from sklearn.metrics import mean_squared_error, r2_score
+import seaborn as sns
+from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 
 
 def get_ml_data_from_full_history(data, years=5):
@@ -247,9 +248,8 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
     test_r2 = r2_score(y_test, y_test_pred)
     train_rmse = np.sqrt(mean_squared_error(y_train, y_train_pred))
     test_rmse = np.sqrt(mean_squared_error(y_test, y_test_pred))
-
-    # Feature importance (time index importance from RF)
-    feat_imp = float(rf_model.feature_importances_[0])
+    train_mae = mean_absolute_error(y_train, y_train_pred)
+    test_mae = mean_absolute_error(y_test, y_test_pred)
 
     # Dummy poly/scaler kept for API compatibility
     poly = type("obj", (object,), {"transform": lambda x: x})()
@@ -269,8 +269,9 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
         "test_r2": test_r2,
         "train_rmse": train_rmse,
         "test_rmse": test_rmse,
+        "train_mae": train_mae,
+        "test_mae": test_mae,
         "frequency_data": frequency_data,
-        "feature_importance": feat_imp,
         "min_date_timestamp": dates.min().timestamp(),
         "n_train_samples": len(y_train),
         "n_test_samples": len(y_test),
@@ -459,91 +460,32 @@ def create_prediction_plotly(results, future_periods=12):
     return fig
 
 
-def create_feature_importance_plot(results):
+def plot_residuals(results):
     """
-    Create a simple visualization of feature importance.
-
-    A simple plot showing the importance of the time feature (only feature used).
-
-    Parameters:
-    -----------
-    results : dict
-        Results dictionary from train_ml_model()
-
-    Returns:
-    --------
-    matplotlib.figure.Figure
-        Figure object with feature importance
+    Create a Residuals Analysis plot to act as a regression alternative
+    to a classification Confusion Matrix. Shows where the model makes errors.
     """
-    # More useful feature-summary visualization for a single-feature time series.
-    # Left: scatter of time vs counts with simple linear fit and Pearson r
-    # Right: average counts by calendar month (seasonality check)
-    freq = results.get("frequency_data")
-    if freq is None:
-        # Fallback to simple bar if data missing
-        fig, ax = plt.subplots(figsize=(8, 3))
-        importance = results.get("feature_importance", 1.0)
-        ax.barh(["Time"], [importance], color="#0ea5a4")
-        ax.set_xlabel("Importance Score", fontsize=11)
-        ax.set_title("Feature Importance (Time)", fontsize=12, fontweight="bold")
-        ax.set_xlim(0, 1.1)
-        ax.text(importance + 0.02, 0, f"{importance:.3f}", va="center", fontsize=11)
-        plt.tight_layout()
-        return fig
-
-    df = freq.copy()
-    df["time"] = pd.to_datetime(df["time"])
-    df = df.sort_values("time").reset_index(drop=True)
-
-    # Numeric time for regression (days since start)
-    t0 = df["time"].min()
-    numeric_time = (df["time"] - t0).dt.total_seconds() / (24 * 3600)
-    counts = df["count"].values
-
-    # Linear fit (simple trend) for visualization
-    try:
-        coef = np.polyfit(numeric_time, counts, 1)
-        fit_line = np.polyval(coef, numeric_time)
-        # Pearson-like measure (correlation)
-        if np.std(counts) > 0 and np.std(numeric_time) > 0:
-            corr = np.corrcoef(numeric_time, counts)[0, 1]
-        else:
-            corr = 0.0
-    except Exception:
-        fit_line = np.full_like(counts, np.mean(counts))
-        corr = 0.0
-
-    # Monthly seasonality: average by calendar month (1..12)
-    df["month"] = df["time"].dt.month
-    month_avg = df.groupby("month")["count"].mean().reindex(range(1, 13), fill_value=0)
+    y_test = results["y_test"]
+    y_pred = results["y_test_pred"]
+    residuals = y_test - y_pred
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
 
-    # Scatter + trend
-    ax1.scatter(df["time"], counts, alpha=0.6, s=30, color="#0ea5a4")
-    ax1.plot(df["time"], fit_line, color="#f97316", linewidth=2, label="Linear trend")
-    ax1.set_xlabel("Date", fontsize=10)
-    ax1.set_ylabel("Earthquake Count", fontsize=10)
-    ax1.set_title("Time vs Count (trend + correlation)")
-    ax1.grid(True, alpha=0.25)
-    ax1.legend()
-    ax1.text(
-        0.02,
-        0.95,
-        f"corr(time,count) = {corr:.3f}",
-        transform=ax1.transAxes,
-        fontsize=10,
-        verticalalignment="top",
-        bbox=dict(boxstyle="round", facecolor="white", alpha=0.6),
-    )
+    # 1. Residual Distribution
+    sns.histplot(residuals, kde=True, ax=ax1, color="#ef4444")
+    ax1.axvline(x=0, color="black", linestyle="--", alpha=0.7)
+    ax1.set_xlabel("Error (Actual Count - Predicted Count)", fontsize=11)
+    ax1.set_ylabel("Frequency", fontsize=11)
+    ax1.set_title("Error Distribution", fontsize=12, fontweight="bold")
+    ax1.grid(True, alpha=0.3)
 
-    # Month averages
-    ax2.bar(month_avg.index, month_avg.values, color="#60a5fa")
-    ax2.set_xlabel("Month", fontsize=10)
-    ax2.set_ylabel("Avg Earthquake Count", fontsize=10)
-    ax2.set_title("Average Count by Calendar Month")
-    ax2.set_xticks(range(1, 13))
-    ax2.grid(axis="y", alpha=0.2)
+    # 2. Residuals vs Predicted
+    ax2.scatter(y_pred, residuals, alpha=0.6, s=50, color="#3b82f6")
+    ax2.axhline(y=0, color="black", linestyle="--", alpha=0.7)
+    ax2.set_xlabel("Predicted Earthquake Frequency", fontsize=11)
+    ax2.set_ylabel("Residuals (Error)", fontsize=11)
+    ax2.set_title("Residuals vs Predicted", fontsize=12, fontweight="bold")
+    ax2.grid(True, alpha=0.3)
 
     plt.tight_layout()
     return fig
@@ -648,6 +590,8 @@ def compare_models(frequency_data):
                 "Test R²": ml_results["test_r2"],
                 "Train RMSE": ml_results["train_rmse"],
                 "Test RMSE": ml_results["test_rmse"],
+                "Train MAE": ml_results["train_mae"],
+                "Test MAE": ml_results["test_mae"],
             }
         )
     except Exception:
@@ -658,6 +602,8 @@ def compare_models(frequency_data):
                 "Test R²": 0.0,
                 "Train RMSE": 0.0,
                 "Test RMSE": 0.0,
+                "Train MAE": 0.0,
+                "Test MAE": 0.0,
             }
         )
 
@@ -673,6 +619,8 @@ def compare_models(frequency_data):
         exp_test_r2 = r2_score(y_test, exp_test_pred)
         exp_train_rmse = np.sqrt(mean_squared_error(y_train, exp_train_pred))
         exp_test_rmse = np.sqrt(mean_squared_error(y_test, exp_test_pred))
+        exp_train_mae = mean_absolute_error(y_train, exp_train_pred)
+        exp_test_mae = mean_absolute_error(y_test, exp_test_pred)
         results_list.append(
             {
                 "Model": "Exponential Smoothing",
@@ -680,6 +628,8 @@ def compare_models(frequency_data):
                 "Test R²": exp_test_r2,
                 "Train RMSE": exp_train_rmse,
                 "Test RMSE": exp_test_rmse,
+                "Train MAE": exp_train_mae,
+                "Test MAE": exp_test_mae,
             }
         )
     except Exception:
@@ -690,6 +640,8 @@ def compare_models(frequency_data):
                 "Test R²": 0.0,
                 "Train RMSE": 0.0,
                 "Test RMSE": 0.0,
+                "Train MAE": 0.0,
+                "Test MAE": 0.0,
             }
         )
 
@@ -705,6 +657,8 @@ def compare_models(frequency_data):
         ma_test_r2 = r2_score(y_test, ma_test_pred)
         ma_train_rmse = np.sqrt(mean_squared_error(ma_train_actual, ma_train))
         ma_test_rmse = np.sqrt(mean_squared_error(y_test, ma_test_pred))
+        ma_train_mae = mean_absolute_error(ma_train_actual, ma_train)
+        ma_test_mae = mean_absolute_error(y_test, ma_test_pred)
         results_list.append(
             {
                 "Model": "Moving Average",
@@ -712,6 +666,8 @@ def compare_models(frequency_data):
                 "Test R²": ma_test_r2,
                 "Train RMSE": ma_train_rmse,
                 "Test RMSE": ma_test_rmse,
+                "Train MAE": ma_train_mae,
+                "Test MAE": ma_test_mae,
             }
         )
     except Exception:
@@ -722,6 +678,8 @@ def compare_models(frequency_data):
                 "Test R²": 0.0,
                 "Train RMSE": 0.0,
                 "Test RMSE": 0.0,
+                "Train MAE": 0.0,
+                "Test MAE": 0.0,
             }
         )
 
@@ -737,6 +695,8 @@ def compare_models(frequency_data):
         ridge_test_r2 = r2_score(y_test, ridge_test_pred)
         ridge_train_rmse = np.sqrt(mean_squared_error(y_train, ridge_train_pred))
         ridge_test_rmse = np.sqrt(mean_squared_error(y_test, ridge_test_pred))
+        ridge_train_mae = mean_absolute_error(y_train, ridge_train_pred)
+        ridge_test_mae = mean_absolute_error(y_test, ridge_test_pred)
         results_list.append(
             {
                 "Model": "Ridge Regression",
@@ -744,6 +704,8 @@ def compare_models(frequency_data):
                 "Test R²": ridge_test_r2,
                 "Train RMSE": ridge_train_rmse,
                 "Test RMSE": ridge_test_rmse,
+                "Train MAE": ridge_train_mae,
+                "Test MAE": ridge_test_mae,
             }
         )
     except Exception:
@@ -754,6 +716,8 @@ def compare_models(frequency_data):
                 "Test R²": 0.0,
                 "Train RMSE": 0.0,
                 "Test RMSE": 0.0,
+                "Train MAE": 0.0,
+                "Test MAE": 0.0,
             }
         )
 
@@ -772,6 +736,8 @@ def compare_models(frequency_data):
         arima_test_r2 = r2_score(y_test, arima_test_pred)
         arima_train_rmse = np.sqrt(mean_squared_error(y_train, arima_train_pred))
         arima_test_rmse = np.sqrt(mean_squared_error(y_test, arima_test_pred))
+        arima_train_mae = mean_absolute_error(y_train, arima_train_pred)
+        arima_test_mae = mean_absolute_error(y_test, arima_test_pred)
         results_list.append(
             {
                 "Model": "ARIMA",
@@ -779,6 +745,8 @@ def compare_models(frequency_data):
                 "Test R²": arima_test_r2,
                 "Train RMSE": arima_train_rmse,
                 "Test RMSE": arima_test_rmse,
+                "Train MAE": arima_train_mae,
+                "Test MAE": arima_test_mae,
             }
         )
     except Exception:
@@ -789,6 +757,8 @@ def compare_models(frequency_data):
                 "Test R²": 0.0,
                 "Train RMSE": 0.0,
                 "Test RMSE": 0.0,
+                "Train MAE": 0.0,
+                "Test MAE": 0.0,
             }
         )
 
@@ -806,8 +776,12 @@ def compare_models(frequency_data):
             sn_test_r2 = r2_score(y_test, sn_test_pred)
             sn_train_rmse = np.sqrt(mean_squared_error(sn_train_actual, sn_train_pred))
             sn_test_rmse = np.sqrt(mean_squared_error(y_test, sn_test_pred))
+            sn_train_mae = mean_absolute_error(sn_train_actual, sn_train_pred)
+            sn_test_mae = mean_absolute_error(y_test, sn_test_pred)
         else:
-            sn_train_r2 = sn_test_r2 = sn_train_rmse = sn_test_rmse = 0.0
+            sn_train_r2 = sn_test_r2 = sn_train_rmse = sn_test_rmse = sn_train_mae = (
+                sn_test_mae
+            ) = 0.0
         results_list.append(
             {
                 "Model": "Seasonal Naive",
@@ -815,6 +789,8 @@ def compare_models(frequency_data):
                 "Test R²": sn_test_r2,
                 "Train RMSE": sn_train_rmse,
                 "Test RMSE": sn_test_rmse,
+                "Train MAE": sn_train_mae,
+                "Test MAE": sn_test_mae,
             }
         )
     except Exception:
@@ -825,6 +801,8 @@ def compare_models(frequency_data):
                 "Test R²": 0.0,
                 "Train RMSE": 0.0,
                 "Test RMSE": 0.0,
+                "Train MAE": 0.0,
+                "Test MAE": 0.0,
             }
         )
 
@@ -836,6 +814,8 @@ def compare_models(frequency_data):
         baseline_test_r2 = r2_score(y_test, baseline_pred_test)
         baseline_train_rmse = np.sqrt(mean_squared_error(y_train, baseline_pred_train))
         baseline_test_rmse = np.sqrt(mean_squared_error(y_test, baseline_pred_test))
+        baseline_train_mae = mean_absolute_error(y_train, baseline_pred_train)
+        baseline_test_mae = mean_absolute_error(y_test, baseline_pred_test)
         results_list.append(
             {
                 "Model": "Baseline (Mean)",
@@ -843,6 +823,8 @@ def compare_models(frequency_data):
                 "Test R²": baseline_test_r2,
                 "Train RMSE": baseline_train_rmse,
                 "Test RMSE": baseline_test_rmse,
+                "Train MAE": baseline_train_mae,
+                "Test MAE": baseline_test_mae,
             }
         )
     except Exception:
@@ -853,6 +835,8 @@ def compare_models(frequency_data):
                 "Test R²": 0.0,
                 "Train RMSE": 0.0,
                 "Test RMSE": 0.0,
+                "Train MAE": 0.0,
+                "Test MAE": 0.0,
             }
         )
 

@@ -25,7 +25,7 @@ from ml_prediction import (
     train_ml_model,
     plot_actual_vs_predicted,
     create_prediction_plotly,
-    create_feature_importance_plot,
+    plot_residuals,
     get_model_explanation,
     get_ml_data_from_full_history,
     compare_models,
@@ -609,6 +609,12 @@ def main():
                         display_df["Test RMSE"] = display_df["Test RMSE"].apply(
                             lambda x: f"{x:.4f}"
                         )
+                        display_df["Train MAE"] = display_df["Train MAE"].apply(
+                            lambda x: f"{x:.4f}"
+                        )
+                        display_df["Test MAE"] = display_df["Test MAE"].apply(
+                            lambda x: f"{x:.4f}"
+                        )
                         # Reset index to show ranking 1-7
                         display_df.index = list(range(1, len(display_df) + 1))
                         display_df.index.name = "Rank"
@@ -659,27 +665,26 @@ def main():
 
                 # Display model performance metrics
                 st.markdown("### 📊 Model Performance Metrics")
-                metric_col1, metric_col2, metric_col3 = st.columns(3)
+                metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
                 metric_col1.metric(
-                    "Train R² Score",
-                    f"{ml_results['train_r2']:.3f}",
-                    help="How well model fits training data (0-1, higher is better)",
-                )
-                metric_col2.metric(
                     "Test R² Score",
                     f"{ml_results['test_r2']:.3f}",
                     help="How well model predicts test data (0-1, higher is better)",
                 )
-                metric_col3.metric(
+                metric_col2.metric(
                     "Test RMSE",
-                    f"{ml_results['test_rmse']:.4f}",
-                    help="Average prediction error (lower is better)",
+                    f"{ml_results['test_rmse']:.2f}",
+                    help="Root Mean Squared Error (lower is better)",
                 )
-
-                # Display train RMSE as well
-                st.markdown("### 📈 Training RMSE")
-                st.write(
-                    f"**Train RMSE:** {ml_results['train_rmse']:.4f} - Average error on training data"
+                metric_col3.metric(
+                    "Test MAE",
+                    f"{ml_results['test_mae']:.2f}",
+                    help="Mean Absolute Error (Average earthquakes off by per month)",
+                )
+                metric_col4.metric(
+                    "Train R² Score",
+                    f"{ml_results['train_r2']:.3f}",
+                    help="How well model fits training data (0-1, higher is better)",
                 )
 
                 # Display actual vs predicted visualization
@@ -689,10 +694,13 @@ def main():
                 )
                 st.pyplot(plot_actual_vs_predicted(ml_results), width="stretch")
 
-                # Display feature importance
-                st.markdown("### 🎯 Feature Importance")
-                st.caption("How important time is for the model's predictions")
-                st.pyplot(create_feature_importance_plot(ml_results), width="stretch")
+                # Display Error/Residual Analysis instead of Confusion Matrix
+                st.markdown("### 🔬 Error Analysis (Residuals)")
+                st.caption(
+                    "Since this is a Regression model predicting continuous counts (not a Classification model sorting into categories), "
+                    "we use Residual Analysis instead of a Confusion Matrix. This plots where and how the model makes errors."
+                )
+                st.pyplot(plot_residuals(ml_results), width="stretch")
 
                 # Display trend forecast
                 st.markdown("### 🔮 12-Month Trend Forecast")
