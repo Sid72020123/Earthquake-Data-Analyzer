@@ -19,7 +19,7 @@ data = data.dropna(subset=["time", "latitude", "longitude", "mag", "depth", "cou
 
 # Get prepared data
 ml_data = get_ml_data_from_full_history(data, years=5)
-frequency_data = prepare_time_series_data(ml_data, period="D")
+frequency_data = prepare_time_series_data(ml_data, period="M")
 
 # Split data
 split_index = int(len(frequency_data) * 0.8)
