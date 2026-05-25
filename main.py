@@ -647,8 +647,8 @@ def main():
 
     min_date = data["time"].dt.date.min()
     max_date = data["time"].dt.date.max()
-    # default to the most recent 15 days for the initial view
-    default_start = (pd.to_datetime(max_date) - pd.Timedelta(days=14)).date()
+    # default to the most recent 3 months (90 days) for the initial view
+    default_start = (pd.to_datetime(max_date) - pd.Timedelta(days=90)).date()
     if default_start < min_date:
         default_start = min_date
     country_options = sorted(data["country"].dropna().unique().tolist())
