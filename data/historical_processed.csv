@@ -95500,61 +95500,190 @@ us6000pjqz,2025-01-01 01:46:59.538000+00:00,-3.8682,151.6536,10.0,4.7,"67 km WNW
 us6000pgru,2025-01-01 01:07:10.492000+00:00,-5.9077,128.8869,277.355,4.4,"256 km SSE of Ambon, Indonesia",Indonesia,ID,Indonesia
 us6000pgrt,2025-01-01 01:00:50.839000+00:00,34.6287,16.5823,10.0,4.0,"228 km SE of Marsaskala, Malta",Malta,MT,Malta
 us6000pjr6,2025-01-01 00:13:22.650000+00:00,12.7441,143.6244,35.0,4.2,"127 km WSW of Merizo Village, Guam",Guam,GU,Guam
-us6000synm,2026-05-19 02:29:25.526000+00:00,-18.1598,168.1719,37.376,5.8,"49 km SSW of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
-aka2026jvbbsg,2026-05-19 02:01:25.134000+00:00,51.34,-176.767,22.0,4.2,"60 km S of Adak, Alaska",Alaska,US,United States
+us6000t01i,2026-05-25 11:15:56.134000+00:00,-20.6532,-69.2334,116.276,4.2,"56 km SE of La Tirana, Chile",Chile,CL,Chile
+us6000t019,2026-05-25 10:23:56.038000+00:00,-7.3309,128.6487,139.214,4.9,"224 km NE of Lospalos, Timor Leste",Timor Leste,TL,Timor-Leste
+us6000t015,2026-05-25 09:25:39.358000+00:00,-53.4118,25.0096,10.0,5.0,south of Africa,south of Africa,ZA,South Africa
+nn00919169,2026-05-25 08:52:42.839000+00:00,38.1573,-117.8498,4.0362,4.13,"34 km SE of Mina, Nevada",Nevada,US,United States
+us6000t00y,2026-05-25 08:14:48.144000+00:00,40.2438,142.3871,49.176,4.8,"50 km ENE of Noda, Japan",Japan,JP,Japan
+us6000t00w,2026-05-25 07:57:06.214000+00:00,-10.5608,124.4792,10.0,4.9,"80 km SSE of Soe, Indonesia",Indonesia,ID,Indonesia
+us6000t00s,2026-05-25 07:12:41.271000+00:00,-21.498,-69.8849,35.0,4.0,"73 km NNE of Tocopilla, Chile",Chile,CL,Chile
+us6000t009,2026-05-25 05:18:12.564000+00:00,51.9783,-170.9114,36.336,4.8,"175 km SW of Nikolski, Alaska",Alaska,US,United States
+us6000szzw,2026-05-25 02:32:38.428000+00:00,8.0315,126.9336,35.0,5.0,"54 km E of Santa Maria, Philippines",Philippines,PH,Philippines
+us6000szzp,2026-05-25 00:55:14.344000+00:00,13.5868,-91.2829,10.0,4.4,"60 km SSW of La Gomera, Guatemala",Guatemala,GT,Guatemala
+us6000szzc,2026-05-24 23:25:17.598000+00:00,-30.6137,-71.7357,32.412,4.1,"51 km W of Ovalle, Chile",Chile,CL,Chile
+us6000szxz,2026-05-24 16:48:40.754000+00:00,9.3032,126.3113,34.0,5.5,"13 km E of Cortes, Philippines",Philippines,PH,Philippines
+us6000szxw,2026-05-24 16:16:06.196000+00:00,10.5646,-86.0179,35.0,4.4,"35 km NNW of Tamarindo, Costa Rica",Costa Rica,CR,Costa Rica
+us6000szxs,2026-05-24 15:33:13.581000+00:00,1.0187,126.0524,47.855,4.9,"112 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
+us6000szxn,2026-05-24 14:45:26.107000+00:00,15.5522,-94.6409,35.0,4.3,"75 km S of San Francisco del Mar Viejo, Mexico",Mexico,MX,Mexico
+us6000szxi,2026-05-24 13:19:58.743000+00:00,-22.6892,-176.976,197.348,4.7,"241 km SW of Houma, Tonga",Tonga,TO,Tonga
+us6000szxh,2026-05-24 13:19:06.469000+00:00,9.1087,126.5259,60.122,5.0,"31 km ENE of La Paz, Philippines",Philippines,PH,Philippines
+us6000szxe,2026-05-24 12:52:09.129000+00:00,37.3738,71.837,141.821,4.3,"28 km ESE of Khorugh, Tajikistan",Tajikistan,TJ,Tajikistan
+us6000szwv,2026-05-24 10:11:09.942000+00:00,-18.0407,-178.2796,588.874,4.2,"254 km E of Levuka, Fiji",Fiji,WF,Wallis and Futuna
+us6000szwl,2026-05-24 09:45:22.415000+00:00,51.8635,-170.4872,10.0,4.5,"162 km SW of Nikolski, Alaska",Alaska,US,United States
+us6000szw2,2026-05-24 06:51:36.264000+00:00,43.2687,146.3643,74.54,4.5,"64 km E of Nemuro, Japan",Japan,RU,Russian Federation
+us6000szvv,2026-05-24 06:08:27.919000+00:00,36.5576,140.5175,80.175,4.2,"1 km NW of Hitachi-ota, Japan",Japan,JP,Japan
+us6000szvr,2026-05-24 06:01:24.159000+00:00,-6.404,130.0473,135.848,4.5,Banda Sea,Banda Sea,ID,Indonesia
+us6000szvg,2026-05-24 04:14:55.904000+00:00,-39.5976,-74.0895,22.083,4.6,"64 km WNW of Corral, Chile",Chile,CL,Chile
+us6000szud,2026-05-24 01:26:53.012000+00:00,37.7964,36.1699,10.0,4.9,"22 km SSE of Saimbeyli, Turkey",Turkey,TR,Türkiye
+us6000szu7,2026-05-24 00:25:53.954000+00:00,27.3645,142.9854,18.014,4.4,"Bonin Islands, Japan region",Japan region,JP,Japan
+us6000szu6,2026-05-24 00:18:48.824000+00:00,31.0734,130.5979,134.702,4.3,"18 km SSW of Ibusuki, Japan",Japan,JP,Japan
+us6000szu1,2026-05-23 23:54:28.139000+00:00,-14.9082,-172.9897,10.0,4.9,"141 km SSW of Gataivai, Samoa",Samoa,WS,Samoa
+us6000sztv,2026-05-23 22:51:59.231000+00:00,-17.501,-176.7721,337.318,4.0,Fiji region,Fiji region,TO,Tonga
+us6000sztk,2026-05-23 22:15:51.786000+00:00,-22.6755,-68.7548,107.606,4.3,"29 km SE of Calama, Chile",Chile,CL,Chile
+us6000szt5,2026-05-23 21:49:16.864000+00:00,51.7344,-170.3491,7.153,5.3,"168 km SW of Nikolski, Alaska",Alaska,US,United States
+us6000szsz,2026-05-23 21:26:04.865000+00:00,6.7327,-72.9101,163.592,4.3,"7 km ESE of Cepitá, Colombia",Colombia,CO,Colombia
+us6000szx2,2026-05-23 19:19:06.642000+00:00,-35.7131,-104.9788,10.0,5.3,southeast of Easter Island,southeast of Easter Island,CL,Chile
+us6000szs3,2026-05-23 18:08:19.341000+00:00,-5.1303,102.6529,37.255,4.2,"138 km SSW of Pagar Alam, Indonesia",Indonesia,ID,Indonesia
+us6000szs1,2026-05-23 18:08:17.191000+00:00,36.5285,71.0465,222.487,4.0,"41 km SSE of Jurm, Afghanistan",Afghanistan,AF,Afghanistan
+us6000szrw,2026-05-23 17:39:51.903000+00:00,-20.4968,-178.6775,603.601,4.4,Fiji region,Fiji region,TO,Tonga
+us6000szrb,2026-05-23 15:50:15.072000+00:00,-19.4597,-177.7149,569.746,4.5,Fiji region,Fiji region,TO,Tonga
+us6000szr3,2026-05-23 15:25:37.208000+00:00,-38.0567,179.3578,10.0,4.6,"106 km ESE of Hicks Bay, New Zealand",New Zealand,NZ,New Zealand
+us6000szr9,2026-05-23 15:07:59.419000+00:00,-20.045,169.5855,117.274,4.9,"64 km SSE of Isangel, Vanuatu",Vanuatu,VU,Vanuatu
+us6000szqx,2026-05-23 14:40:58.031000+00:00,35.3674,26.598,13.151,4.1,"30 km W of Fry, Greece",Greece,GR,Greece
+us6000szqs,2026-05-23 14:11:16.177000+00:00,1.5788,127.3672,143.03,4.8,"73 km WSW of Tobelo, Indonesia",Indonesia,ID,Indonesia
+us6000szqj,2026-05-23 13:34:13.720000+00:00,35.4916,26.5678,10.0,4.6,"33 km WNW of Fry, Greece",Greece,GR,Greece
+us6000szq3,2026-05-23 12:40:25.493000+00:00,-4.6647,102.5556,47.721,5.2,"100 km SSE of Bengkulu, Indonesia",Indonesia,ID,Indonesia
+us6000szp8,2026-05-23 09:03:09.674000+00:00,52.4311,-169.4789,29.608,4.9,"70 km SW of Nikolski, Alaska",Alaska,US,United States
+us6000szp0,2026-05-23 08:44:52.286000+00:00,-2.6369,-77.5345,114.619,4.5,"73 km ESE of Sucúa, Ecuador",Ecuador,EC,Ecuador
+hv74966427,2026-05-23 07:46:01.480000+00:00,19.340333333333,-155.8425,22.64,5.96,"13 km S of Honaunau-Napoopoo, Hawaii",Hawaii,US,United States
+us6000szmu,2026-05-23 05:41:34.889000+00:00,-47.488,99.9967,10.0,5.7,southeast Indian Ridge,southeast Indian Ridge,AU,Australia
+us6000szm4,2026-05-23 01:42:19.527000+00:00,-23.0154,-66.4641,242.241,4.2,"83 km WNW of El Aguilar, Argentina",Argentina,AR,Argentina
+us6000szmj,2026-05-23 00:13:33.769000+00:00,42.9918,13.1886,10.0,4.2,"3 km W of Bolognola, Italy",Italy,IT,Italy
+us6000sznd,2026-05-22 23:39:09.408000+00:00,17.1707,-46.5003,10.0,4.5,northern Mid-Atlantic Ridge,northern Mid-Atlantic Ridge,GF,French Guiana
+us6000szkp,2026-05-22 20:10:52.101000+00:00,52.3894,-171.7239,10.292,4.2,"170 km E of Atka, Alaska",Alaska,US,United States
+us6000szk6,2026-05-22 19:32:14.976000+00:00,-6.6762,147.4047,70.06,4.8,"45 km E of Lae, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000szk5,2026-05-22 19:30:38.517000+00:00,-10.7482,164.3652,10.0,5.3,"156 km W of Lata, Solomon Islands",Solomon Islands,SB,Solomon Islands
+us6000szjs,2026-05-22 17:16:27.912000+00:00,33.6084,90.147,10.0,5.1,"296 km NW of Nagqu, China",China,CN,China
+us6000szjp,2026-05-22 16:53:58.546000+00:00,40.3053,142.2201,61.454,4.6,"40 km ENE of Kuji, Japan",Japan,JP,Japan
+us6000szjk,2026-05-22 16:25:18.916000+00:00,49.2545,155.1606,82.544,4.4,"172 km SSW of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
+us6000szgr,2026-05-22 12:46:12.868000+00:00,52.3981,-171.8188,10.0,4.5,"164 km E of Atka, Alaska",Alaska,US,United States
+us6000szgm,2026-05-22 12:16:14.095000+00:00,52.5074,-171.7064,14.926,5.6,"173 km E of Atka, Alaska",Alaska,US,United States
+us6000szgb,2026-05-22 10:08:19.139000+00:00,-2.857,147.713,10.0,5.7,"103 km SSE of Lorengau, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000szg7,2026-05-22 09:20:03.617000+00:00,8.8755,-83.3957,38.248,4.5,"17 km SE of Puerto Cortés, Costa Rica",Costa Rica,CR,Costa Rica
+us6000szfp,2026-05-22 08:04:21.659000+00:00,-61.6801,154.2037,10.0,4.9,Balleny Islands region,Balleny Islands region,AU,Australia
+us6000szfd,2026-05-22 06:33:37.455000+00:00,51.9382,-169.1042,10.0,4.7,"112 km S of Nikolski, Alaska",Alaska,US,United States
+us6000szek,2026-05-22 03:15:12.742000+00:00,-22.6221,-67.5857,176.237,4.3,"70 km ENE of San Pedro de Atacama, Chile",Chile,CL,Chile
+us6000sze1,2026-05-22 01:06:52.610000+00:00,16.5273,-46.6299,10.0,5.1,northern Mid-Atlantic Ridge,northern Mid-Atlantic Ridge,GF,French Guiana
+us6000szdy,2026-05-22 01:05:08.540000+00:00,1.0433,126.067,35.0,5.9,"113 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
+us6000szad,2026-05-21 16:45:56.677000+00:00,5.6498,126.7968,132.199,4.7,"104 km SE of Pondaguitan, Philippines",Philippines,PH,Philippines
+us6000sz6i,2026-05-21 09:56:26.003000+00:00,27.2034,55.6594,10.0,4.9,"61 km W of Bandar Abbas, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000sz6d,2026-05-21 08:37:05.075000+00:00,-56.071,-27.6747,127.821,4.7,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
+us6000sz5x,2026-05-21 06:07:48.262000+00:00,51.163,173.7627,10.0,4.4,"191 km SSE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000szn6,2026-05-21 06:06:58.473000+00:00,-10.0758,161.0511,10.0,4.7,"104 km WNW of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
+us6000sz5u,2026-05-21 05:26:35.733000+00:00,-15.5173,-174.7428,276.312,4.4,"112 km WNW of Hihifo, Tonga",Tonga,TO,Tonga
+us6000szn4,2026-05-21 04:11:58.486000+00:00,-33.3927,-109.1318,10.0,4.6,southern East Pacific Rise,southern East Pacific Rise,CL,Chile
+us6000sz5g,2026-05-21 03:50:51.304000+00:00,40.785,14.0677,7.387,4.1,"1 km SSW of Bacoli, Italy",Italy,IT,Italy
+us6000sz4x,2026-05-21 01:06:33.602000+00:00,34.0617,137.3718,328.915,4.1,"58 km ESE of Shima, Japan",Japan,JP,Japan
+us6000sz43,2026-05-20 23:12:56.417000+00:00,-6.1047,130.4649,121.871,4.9,"258 km WSW of Tual, Indonesia",Indonesia,ID,Indonesia
+us6000sz3x,2026-05-20 23:01:01.063000+00:00,-56.1584,-28.1034,137.015,5.7,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
+us6000sz1t,2026-05-20 18:36:39.632000+00:00,-54.7454,-118.6623,10.0,5.0,southern East Pacific Rise,southern East Pacific Rise,CL,Chile
+us6000sz1d,2026-05-20 17:43:01.910000+00:00,-55.984,-122.2988,10.0,6.6,southern East Pacific Rise,southern East Pacific Rise,CL,Chile
+us6000sz0k,2026-05-20 16:53:34.093000+00:00,-19.4154,169.4819,260.004,4.5,"25 km ENE of Isangel, Vanuatu",Vanuatu,VU,Vanuatu
+us6000syyi,2026-05-20 13:51:40.023000+00:00,-20.8027,-178.5997,590.274,4.5,Fiji region,Fiji region,TO,Tonga
+us6000syyd,2026-05-20 12:48:57.091000+00:00,1.2853,126.3051,53.852,4.6,"131 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
+us6000syy7,2026-05-20 12:25:35.650000+00:00,23.2439,121.4465,24.62,4.9,"82 km S of Hualien City, Taiwan",Taiwan,TW,"Taiwan, Province of China"
+us6000syy1,2026-05-20 10:28:49.290000+00:00,-8.2248,119.2187,10.0,5.2,"45 km NE of Sape, Indonesia",Indonesia,ID,Indonesia
+us6000syxz,2026-05-20 09:40:32.226000+00:00,-17.312,175.9863,10.0,5.1,"159 km WNW of Lautoka, Fiji",Fiji,FJ,Fiji
+us6000syxi,2026-05-20 08:06:34.756000+00:00,41.3154,83.5113,10.0,4.5,"65 km SE of Kuqa, China",China,CN,China
+us6000syx6,2026-05-20 06:00:16.653000+00:00,38.2157,38.6061,10.0,5.4,"19 km N of Sincik, Turkey",Turkey,TR,Türkiye
+us6000syw4,2026-05-20 02:46:24.884000+00:00,27.392,128.7336,42.0,5.9,"8 km E of Wadomari, Japan",Japan,JP,Japan
+us6000syx0,2026-05-20 02:46:19.106000+00:00,-41.3229,-89.5644,10.0,5.0,southeast of Easter Island,southeast of Easter Island,CL,Chile
+us6000syvz,2026-05-20 02:34:06.578000+00:00,-28.2623,-66.1482,10.0,4.5,"6 km N of Mutquín, Argentina",Argentina,AR,Argentina
+us6000syw1,2026-05-20 02:32:49.773000+00:00,-16.0035,-176.2457,366.816,4.5,"262 km W of Hihifo, Tonga",Tonga,TO,Tonga
+us6000syw0,2026-05-20 02:26:50.846000+00:00,10.0039,125.8249,79.634,4.7,"19 km ENE of Cagdianao, Philippines",Philippines,PH,Philippines
+us6000syw5,2026-05-20 02:03:24.812000+00:00,2.3041,96.2647,10.0,4.6,"23 km SSW of Sinabang, Indonesia",Indonesia,ID,Indonesia
+us6000syvs,2026-05-20 01:11:57.759000+00:00,23.311,121.4279,24.634,4.3,"75 km SSW of Hualien City, Taiwan",Taiwan,TW,"Taiwan, Province of China"
+us6000syve,2026-05-19 23:40:09.733000+00:00,27.2023,55.8339,10.0,4.7,"44 km W of Bandar Abbas, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000syva,2026-05-19 23:11:56.272000+00:00,36.2858,137.0403,262.435,4.5,"25 km NW of Takayama, Japan",Japan,JP,Japan
+us6000syuh,2026-05-19 21:29:59.439000+00:00,-28.5131,-69.9707,106.056,4.1,"77 km E of Vallenar, Chile",Chile,CL,Chile
+us6000syu7,2026-05-19 20:40:43.474000+00:00,40.2711,63.0858,10.0,5.0,"35 km WNW of Gazli, Uzbekistan",Uzbekistan,UZ,Uzbekistan
+us6000sytr,2026-05-19 19:32:53.646000+00:00,1.9254,128.2184,104.217,4.5,"31 km NE of Tobelo, Indonesia",Indonesia,ID,Indonesia
+us6000syt5,2026-05-19 17:57:54.220000+00:00,-14.2075,-75.5167,56.53,5.8,"20 km ESE of Pampa de Tate, Peru",Peru,PE,Peru
+pr2026139001,2026-05-19 17:47:37.800000+00:00,18.9983,-64.2425,57.0,4.13,"93 km NE of Cruz Bay, U.S. Virgin Islands",U.S. Virgin Islands,VG,"Virgin Islands, British"
+us6000syt3,2026-05-19 17:42:56.204000+00:00,38.1246,68.9833,10.0,4.5,"21 km SSW of Yovon, Tajikistan",Tajikistan,TJ,Tajikistan
+us6000syr2,2026-05-19 14:18:39.445000+00:00,-17.8472,168.2588,62.148,4.8,"13 km SSW of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
+us6000syr1,2026-05-19 14:17:32.447000+00:00,12.6047,-88.1992,64.898,4.7,"67 km SSW of Intipucá, El Salvador",El Salvador,SV,El Salvador
+pr2026139000,2026-05-19 13:34:33.460000+00:00,19.0983,-65.1711,27.0,4.05,"87 km NNW of Charlotte Amalie, U.S. Virgin Islands",U.S. Virgin Islands,VI,"Virgin Islands, U.S."
+us6000syqy,2026-05-19 13:20:24.077000+00:00,-6.1852,150.471,60.428,4.7,"79 km SSE of Kimbe, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000syqi,2026-05-19 11:50:29.210000+00:00,33.9648,47.7538,10.0,4.8,"23 km WSW of Nūrābād, Iran",Iran,IR,"Iran, Islamic Republic of"
+aka2026jvukrx,2026-05-19 11:41:24.324000+00:00,64.743,-156.039,13.5,4.8,"26 km W of Ruby, Alaska",Alaska,US,United States
+us6000syq4,2026-05-19 10:23:35.881000+00:00,40.883,142.4521,70.49,4.5,"91 km ENE of Hachinohe, Japan",Japan,JP,Japan
+us6000sypz,2026-05-19 09:58:03.191000+00:00,-22.0278,-179.4962,589.802,4.6,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
+us6000sypf,2026-05-19 05:04:03.098000+00:00,25.0353,124.483,101.284,4.4,"46 km NNW of Tarama, Japan",Japan,JP,Japan
+us6000syp2,2026-05-19 03:17:03.782000+00:00,-17.7595,-178.7166,564.728,4.6,"211 km E of Levuka, Fiji",Fiji,WF,Wallis and Futuna
+us6000synu,2026-05-19 02:53:53.724000+00:00,-10.2484,161.1887,81.553,4.8,"83 km WNW of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
+us6000synm,2026-05-19 02:29:24.366000+00:00,-18.1511,168.0931,27.0,5.7,"51 km SSW of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
 us6000symk,2026-05-18 22:36:10.893000+00:00,51.7922,173.9433,10.0,4.4,"128 km SSE of Attu Station, Alaska",Alaska,RU,Russian Federation
 us6000sym0,2026-05-18 21:37:20.076000+00:00,52.4994,-171.7719,10.0,4.9,"168 km E of Atka, Alaska",Alaska,US,United States
 us6000sykw,2026-05-18 18:50:00.309000+00:00,-54.2795,-1.2672,10.0,5.3,Bouvet Island region,Bouvet Island region,SH,"Saint Helena, Ascension and Tristan da Cunha"
 us6000sykj,2026-05-18 18:06:04.422000+00:00,6.079,126.9025,54.161,4.5,"86 km ESE of Pondaguitan, Philippines",Philippines,PH,Philippines
 us6000syk9,2026-05-18 17:04:31.928000+00:00,39.801,143.2523,35.0,4.6,"113 km E of Miyako, Japan",Japan,JP,Japan
+us6000syiu,2026-05-18 15:25:18.154000+00:00,-23.5263,179.8774,545.513,4.4,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
 us6000syik,2026-05-18 13:44:26.230000+00:00,24.4799,109.2073,10.0,5.1,"26 km NW of Liuzhou, China",China,CN,China
 pr2026138002,2026-05-18 11:40:50.490000+00:00,19.1051,-65.3303,26.0,4.19,"88 km N of Culebra, Puerto Rico",Puerto Rico,PR,Puerto Rico
 us6000syhk,2026-05-18 08:49:11.158000+00:00,36.1018,70.5982,102.914,4.4,"81 km NNW of Pārūn, Afghanistan",Afghanistan,AF,Afghanistan
 us6000syhg,2026-05-18 08:48:06.071000+00:00,-20.4733,-70.1945,85.183,4.7,"22 km SSW of La Tirana, Chile",Chile,CL,Chile
+us6000syhr,2026-05-18 08:32:24.776000+00:00,43.7756,87.328,10.0,4.4,"22 km W of Ürümqi, China",China,CN,China
 us6000syh2,2026-05-18 07:34:30.448000+00:00,-28.5299,74.2599,10.0,5.2,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
 us6000syh8,2026-05-18 07:34:13.855000+00:00,30.1658,138.6362,443.668,4.1,"Izu Islands, Japan region",Japan region,JP,Japan
 us6000syge,2026-05-18 05:11:19.301000+00:00,35.3683,27.6827,49.831,4.2,"45 km ESE of Karpathos, Greece",Greece,GR,Greece
 us6000sygd,2026-05-18 05:07:21.590000+00:00,40.9349,84.4461,10.0,4.4,"153 km SE of Kuqa, China",China,CN,China
 us6000syg1,2026-05-18 02:10:41.745000+00:00,-43.4009,-82.4593,10.0,5.4,West Chile Rise,West Chile Rise,CL,Chile
 us6000syg0,2026-05-18 02:05:24.327000+00:00,16.4431,96.3164,10.0,5.2,"36 km SSE of Syriam, Burma (Myanmar)",Burma (Myanmar),MM,Myanmar
-us6000syfr,2026-05-17 23:38:30.734000+00:00,-22.4603,-66.2384,259.618,4.6,"62 km WNW of Abra Pampa, Argentina",Argentina,AR,Argentina
-us6000syfn,2026-05-17 23:21:21.028000+00:00,24.4502,123.8586,10.0,4.8,"32 km WNW of Ishigaki, Japan",Japan,JP,Japan
-us6000syfk,2026-05-17 22:58:32.187000+00:00,-6.4496,147.5796,59.771,5.0,"31 km WNW of Finschhafen, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us6000syex,2026-05-17 20:52:01.462000+00:00,-6.3045,151.7008,10.0,4.8,"192 km ESE of Kimbe, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us6000syep,2026-05-17 18:35:59.836000+00:00,44.6335,148.1671,61.655,4.3,"69 km SSE of Kuril’sk, Russia",Russia,JP,Japan
-us6000syej,2026-05-17 18:13:42.792000+00:00,-4.6534,149.5483,572.691,4.3,"118 km NNW of Kimbe, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us6000syeh,2026-05-17 17:58:41.523000+00:00,-3.9179,128.6714,74.089,4.4,"59 km ESE of Ambon, Indonesia",Indonesia,ID,Indonesia
-us6000sye4,2026-05-17 16:21:06.387000+00:00,24.457,109.2182,10.0,5.0,"24 km NW of Liuzhou, China",China,CN,China
-us6000sydv,2026-05-17 15:14:59.792000+00:00,-7.2738,106.6539,50.153,4.5,"33 km SSE of Pelabuhanratu, Indonesia",Indonesia,ID,Indonesia
-us6000sydk,2026-05-17 13:28:25.571000+00:00,-23.4056,-66.693,202.556,4.5,"97 km NNW of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
-us6000sydj,2026-05-17 13:16:28.929000+00:00,-18.4975,-175.8068,286.144,4.5,"193 km W of Neiafu, Tonga",Tonga,TO,Tonga
+us6000szjh,2026-05-17 23:42:48.475000+00:00,30.2323,104.1803,10.0,4.1,"39 km ENE of Meishan, China",China,CN,China
+us6000syfr,2026-05-17 23:38:30.777000+00:00,-22.4843,-66.2438,255.647,4.5,"62 km WNW of Abra Pampa, Argentina",Argentina,AR,Argentina
+us6000szjf,2026-05-17 23:23:57.246000+00:00,24.6105,123.8879,10.0,4.5,"40 km NW of Ishigaki, Japan",Japan,JP,Japan
+us6000syfn,2026-05-17 23:21:20.982000+00:00,24.4759,123.8664,10.0,4.6,"32 km WNW of Ishigaki, Japan",Japan,JP,Japan
+us6000syfk,2026-05-17 22:58:34.065000+00:00,-6.4262,147.5801,77.166,5.0,"32 km WNW of Finschhafen, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000szjd,2026-05-17 22:03:15.246000+00:00,14.4378,-93.814,10.0,4.0,"131 km SSW of La Esperanza (El Zapotal), Mexico",Mexico,MX,Mexico
+us6000szjc,2026-05-17 21:55:58.515000+00:00,-15.9781,-177.3564,439.827,4.2,"201 km SSE of Alo, Wallis and Futuna",Wallis and Futuna,WF,Wallis and Futuna
+us6000szja,2026-05-17 21:11:16.112000+00:00,-25.87,179.4548,526.573,4.2,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
+us6000syex,2026-05-17 20:52:01.831000+00:00,-6.3057,151.6745,10.0,4.8,"189 km ESE of Kimbe, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000syep,2026-05-17 18:35:59.902000+00:00,44.535,148.2314,66.297,4.3,"81 km SSE of Kuril’sk, Russia",Russia,JP,Japan
+us6000syej,2026-05-17 18:13:43.178000+00:00,-4.6812,149.5069,574.536,4.3,"118 km NW of Kimbe, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000syeh,2026-05-17 17:58:40.626000+00:00,-3.8305,128.6317,59.962,4.4,"51 km ESE of Ambon, Indonesia",Indonesia,ID,Indonesia
+us6000sye4,2026-05-17 16:21:06.222000+00:00,24.4193,109.2487,10.0,5.0,"19 km WNW of Liuzhou, China",China,CN,China
+us6000sye2,2026-05-17 16:10:36.589000+00:00,-19.4708,-69.4473,100.646,4.1,"17 km S of Camiña, Chile",Chile,CL,Chile
+us6000szj5,2026-05-17 15:19:47.495000+00:00,-5.5158,147.268,175.582,4.4,"131 km NNW of Finschhafen, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000sydv,2026-05-17 15:15:00.795000+00:00,-7.2307,106.6987,60.27,4.4,"31 km SSE of Pelabuhanratu, Indonesia",Indonesia,ID,Indonesia
+us6000sydk,2026-05-17 13:28:25.625000+00:00,-23.357,-66.6786,200.885,4.5,"102 km NNW of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
+us6000sydj,2026-05-17 13:16:27.182000+00:00,-18.5858,-175.6317,275.124,4.5,"174 km W of Neiafu, Tonga",Tonga,TO,Tonga
 us6000syd2,2026-05-17 09:38:20.685000+00:00,11.0493,95.1108,10.0,4.6,"266 km ESE of Port Blair, India",India,IN,India
 us6000syd0,2026-05-17 09:36:58.058000+00:00,-21.1961,-68.5782,140.578,4.2,"33 km W of Ollagüe, Chile",Chile,CL,Chile
 us6000syc2,2026-05-17 08:04:17.461000+00:00,50.8582,157.2919,44.0,5.4,"84 km ENE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000syby,2026-05-17 07:51:56.627000+00:00,-2.8876,147.7681,10.0,5.1,"109 km SSE of Lorengau, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000szir,2026-05-17 06:52:20.916000+00:00,-34.6179,-179.1435,10.0,4.3,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
+us6000szim,2026-05-17 05:01:48.056000+00:00,50.3838,156.707,62.783,4.1,"52 km SE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000sybb,2026-05-17 03:20:37.916000+00:00,-39.6956,178.891,10.0,4.5,"132 km SSE of Wainui, New Zealand",New Zealand,NZ,New Zealand
+us6000szik,2026-05-17 02:42:13.555000+00:00,38.762,142.4021,38.687,4.4,"68 km ESE of Ōfunato, Japan",Japan,JP,Japan
 us6000syb7,2026-05-17 02:41:41.290000+00:00,-31.6854,-71.4663,51.397,4.2,"28 km WSW of Illapel, Chile",Chile,CL,Chile
+us6000szij,2026-05-17 02:09:19.721000+00:00,-2.9487,147.6828,10.0,4.4,"110 km SSE of Lorengau, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000syb1,2026-05-17 01:35:32.854000+00:00,-23.6354,-67.7526,144.148,4.5,"92 km SSE of San Pedro de Atacama, Chile",Chile,CL,Chile
+us6000szii,2026-05-17 01:24:12.891000+00:00,0.5602,126.2707,35.0,4.3,"126 km WSW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000syaw,2026-05-17 00:46:13.678000+00:00,24.0222,120.9539,10.0,4.4,"6 km NNW of Puli, Taiwan",Taiwan,TW,"Taiwan, Province of China"
 us6000syap,2026-05-17 00:13:49.828000+00:00,-18.4664,-175.5818,186.461,4.4,"169 km W of Neiafu, Tonga",Tonga,TO,Tonga
 us6000syak,2026-05-17 00:07:28.770000+00:00,39.9621,142.9476,35.0,4.7,"93 km ENE of Miyako, Japan",Japan,JP,Japan
 us6000sycy,2026-05-16 22:30:01.757000+00:00,-2.887,148.0014,10.0,4.3,"124 km SE of Lorengau, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000sy9z,2026-05-16 21:16:17.475000+00:00,13.0317,93.7365,105.224,4.7,"184 km NE of Bamboo Flat, India",India,IN,India
-us6000sy9c,2026-05-16 17:59:00.090000+00:00,-22.5537,-70.2765,40.075,4.4,"51 km S of Tocopilla, Chile",Chile,CL,Chile
+us6000szhv,2026-05-16 20:08:54.880000+00:00,-15.2103,-173.5973,10.0,4.2,"85 km NNE of Hihifo, Tonga",Tonga,TO,Tonga
+us6000sy9c,2026-05-16 17:59:00.096000+00:00,-22.5246,-70.284,39.208,4.4,"48 km S of Tocopilla, Chile",Chile,CL,Chile
 us6000sy95,2026-05-16 16:49:18.847000+00:00,36.8493,53.8076,10.0,4.4,"28 km NE of Behshahr, Iran",Iran,IR,"Iran, Islamic Republic of"
-us6000sy90,2026-05-16 15:58:04.288000+00:00,-17.8726,169.1752,10.0,5.4,"92 km E of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
+us6000syh3,2026-05-16 15:59:41.340000+00:00,2.202,-101.0566,10.0,4.6,Galapagos Triple Junction region,Galapagos Triple Junction region,EC,Ecuador
+us6000sy90,2026-05-16 15:58:04.517000+00:00,-17.9035,169.0942,10.0,5.5,"84 km ESE of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
 us6000sy8w,2026-05-16 15:48:22.607000+00:00,-37.027,177.0065,293.053,4.4,"95 km NNE of Maketu, New Zealand",New Zealand,NZ,New Zealand
 us6000sy8y,2026-05-16 15:47:21.251000+00:00,-18.31,-175.3186,210.799,4.7,"145 km WNW of Neiafu, Tonga",Tonga,TO,Tonga
 us6000sy8u,2026-05-16 15:35:20.974000+00:00,-17.8828,168.8619,10.0,4.9,"60 km ESE of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
-us6000sy8k,2026-05-16 15:17:56.098000+00:00,-8.5526,160.9161,23.374,5.7,"33 km NE of Auki, Solomon Islands",Solomon Islands,SB,Solomon Islands
-us6000sy84,2026-05-16 14:50:03.503000+00:00,17.5127,-61.1771,30.038,6.0,"70 km ESE of Codrington, Antigua and Barbuda",Antigua and Barbuda,AG,Antigua and Barbuda
+us6000sy8k,2026-05-16 15:17:58.214000+00:00,-8.5885,160.8774,37.762,5.7,"27 km NE of Auki, Solomon Islands",Solomon Islands,SB,Solomon Islands
+us6000sy84,2026-05-16 14:50:05.948000+00:00,17.4295,-61.2938,51.245,6.0,"60 km ESE of Codrington, Antigua and Barbuda",Antigua and Barbuda,AG,Antigua and Barbuda
 us6000sy7x,2026-05-16 14:12:25.202000+00:00,39.9428,77.9256,10.0,4.4,"97 km W of Tumxuk, China",China,CN,China
-us6000sy7u,2026-05-16 14:07:54.649000+00:00,-17.7708,169.2036,10.0,5.2,"94 km E of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
+us6000sy7u,2026-05-16 14:07:54.607000+00:00,-17.7886,169.1976,10.0,5.2,"93 km E of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
 us6000sy7l,2026-05-16 12:59:30.959000+00:00,-17.8503,169.1937,10.0,5.3,"94 km E of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
-us6000sy76,2026-05-16 11:25:43.857000+00:00,6.8241,124.6816,10.0,5.0,"5 km WSW of Badak, Philippines",Philippines,PH,Philippines
+us6000szhj,2026-05-16 12:49:53.817000+00:00,-17.8721,169.1056,10.0,4.5,"85 km E of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
+us6000szhi,2026-05-16 11:57:10.966000+00:00,-41.7889,-83.7856,10.0,4.5,West Chile Rise,West Chile Rise,CL,Chile
+us6000sy76,2026-05-16 11:25:44.044000+00:00,6.8189,124.695,10.0,5.0,"4 km SW of Badak, Philippines",Philippines,PH,Philippines
 us6000sy6x,2026-05-16 10:59:47.078000+00:00,-22.985,-66.294,244.83,4.7,"67 km WNW of El Aguilar, Argentina",Argentina,AR,Argentina
 us6000sy6v,2026-05-16 10:49:52.788000+00:00,-24.3191,-67.3824,202.207,4.4,"108 km W of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
-aka2026jqejkz,2026-05-16 10:42:00.686000+00:00,51.889,176.108,20.0,4.3,"225 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000syan,2026-05-16 10:41:59.759000+00:00,52.0812,176.2414,10.0,4.2,"224 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
 us6000sycw,2026-05-16 08:54:02.463000+00:00,-53.432,25.1395,10.0,4.7,south of Africa,south of Africa,ZA,South Africa
 us6000sy5y,2026-05-16 07:19:59.319000+00:00,-17.7445,-66.7592,310.947,4.3,"47 km S of Colchani, Bolivia",Bolivia,BO,"Bolivia, Plurinational State of"
 us6000sy5u,2026-05-16 06:49:35.528000+00:00,-24.142,-66.8656,191.035,4.3,"56 km W of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
@@ -95571,8 +95700,10 @@ us6000sy4p,2026-05-15 23:47:13.113000+00:00,38.5186,89.3531,10.0,4.3,"89 km SSE 
 us6000sy4k,2026-05-15 23:21:36.859000+00:00,10.5469,-72.4724,10.0,4.4,"30 km NW of La Villa del Rosario, Venezuela",Venezuela,VE,"Venezuela, Bolivarian Republic of"
 us6000sy49,2026-05-15 22:20:25.566000+00:00,-17.8368,-178.6924,568.345,4.5,"212 km E of Levuka, Fiji",Fiji,WF,Wallis and Futuna
 us6000sy3u,2026-05-15 21:15:25.536000+00:00,-17.8372,-178.6268,556.283,4.7,"219 km E of Levuka, Fiji",Fiji,WF,Wallis and Futuna
-us6000sy5n,2026-05-15 18:28:04.147000+00:00,-17.9867,169.176,10.0,4.6,"95 km ESE of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
-us6000sxz1,2026-05-15 15:45:18.856000+00:00,-17.732,-70.0593,135.386,4.9,"11 km WNW of Palca, Peru",Peru,PE,Peru
+us6000szb1,2026-05-15 18:47:19.463000+00:00,43.6594,143.3616,168.973,4.0,"18 km W of Oketo, Japan",Japan,JP,Japan
+us6000sy5n,2026-05-15 18:28:03.617000+00:00,-17.9669,169.2681,10.0,4.6,"104 km ESE of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
+us6000sxz1,2026-05-15 15:45:18.684000+00:00,-17.685,-70.0413,132.957,4.9,"13 km NW of Palca, Peru",Peru,PE,Peru
+us6000szay,2026-05-15 14:27:31.257000+00:00,-0.2431,-18.7444,10.0,4.9,central Mid-Atlantic Ridge,central Mid-Atlantic Ridge,SH,"Saint Helena, Ascension and Tristan da Cunha"
 us6000sxwq,2026-05-15 11:22:01.649000+00:00,38.9127,142.2498,43.592,6.7,"49 km ESE of Ōfunato, Japan",Japan,JP,Japan
 us6000sxx0,2026-05-15 11:20:54.030000+00:00,27.9065,142.15,35.954,4.8,"Bonin Islands, Japan region",Japan region,JP,Japan
 us6000sxwg,2026-05-15 10:06:55.794000+00:00,14.3367,-93.0073,35.0,4.3,"76 km SW of Puerto Madero, Mexico",Mexico,MX,Mexico
@@ -95580,22 +95711,30 @@ us6000sxu9,2026-05-15 01:13:58.659000+00:00,-2.9915,147.7607,10.0,5.4,"119 km SS
 us6000sxu3,2026-05-14 23:51:39.761000+00:00,-4.0617,152.4304,160.554,4.4,"33 km ENE of Rabaul, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000sxty,2026-05-14 23:46:01.569000+00:00,-20.2209,-178.5266,608.515,4.3,Fiji region,Fiji region,TO,Tonga
 us6000sxx5,2026-05-14 23:09:28.238000+00:00,-40.5826,-16.7257,10.0,4.5,southern Mid-Atlantic Ridge,southern Mid-Atlantic Ridge,SH,"Saint Helena, Ascension and Tristan da Cunha"
-us6000sxtg,2026-05-14 22:14:05.512000+00:00,-55.4449,-26.8022,10.0,4.8,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
-us6000sxt8,2026-05-14 22:06:26.877000+00:00,-20.0584,-71.0707,10.0,4.1,"97 km W of Puerto, Chile",Chile,CL,Chile
+us6000sxtg,2026-05-14 22:14:05.848000+00:00,-55.4381,-26.8968,10.0,4.8,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
+us6000sxt8,2026-05-14 22:06:27.164000+00:00,-20.0949,-71.0786,10.0,4.2,"97 km W of Puerto, Chile",Chile,CL,Chile
+us6000sz9t,2026-05-14 22:04:51.574000+00:00,5.4133,126.1368,123.554,4.0,"74 km E of Sarangani, Philippines",Philippines,PH,Philippines
 us6000sxqf,2026-05-14 17:53:14.710000+00:00,-6.198,130.3702,146.066,6.2,"271 km WSW of Tual, Indonesia",Indonesia,ID,Indonesia
-us6000sxnw,2026-05-14 15:34:06.382000+00:00,25.1362,141.443,157.426,5.2,"Volcano Islands, Japan region",Japan region,JP,Japan
+us6000sxnw,2026-05-14 15:34:04.551000+00:00,25.1294,141.4667,139.505,5.2,"Volcano Islands, Japan region",Japan region,JP,Japan
 aka2026jmrcur,2026-05-14 13:06:19.516000+00:00,59.533,-152.581,93.5,4.0,"42 km WNW of Nanwalek, Alaska",Alaska,US,United States
 us6000sxn9,2026-05-14 12:48:22.202000+00:00,4.0895,-76.7348,117.101,5.3,"32 km WNW of Darien, Colombia",Colombia,CO,Colombia
+us6000sz9e,2026-05-14 10:47:26.883000+00:00,39.73,143.1787,35.0,4.2,"106 km E of Miyako, Japan",Japan,JP,Japan
 us6000sxmm,2026-05-14 09:55:47.289000+00:00,-58.3477,-25.63,52.398,5.1,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
-us6000sxm9,2026-05-14 07:47:44.952000+00:00,30.176,56.4998,10.0,4.7,"28 km NNW of Bardsīr, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000sz9b,2026-05-14 09:16:13.916000+00:00,36.5969,21.6155,40.609,4.2,"25 km SSW of Methóni, Greece",Greece,GR,Greece
+us6000sxm9,2026-05-14 07:47:44.884000+00:00,30.1632,56.5035,10.0,4.7,"27 km NNW of Bardsīr, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000sz94,2026-05-14 05:38:29.693000+00:00,-55.7713,-27.4247,49.489,4.3,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
+us6000sxlp,2026-05-14 05:06:03.561000+00:00,0.9985,-85.4514,10.0,4.4,off the coast of Ecuador,off the coast of Ecuador,EC,Ecuador
 us6000sxne,2026-05-14 03:36:57.699000+00:00,9.5876,-84.5871,10.0,4.4,"5 km ESE of Jacó, Costa Rica",Costa Rica,CR,Costa Rica
 us6000sxky,2026-05-14 02:59:47.627000+00:00,0.5784,126.2296,35.0,4.7,"130 km W of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000sxkn,2026-05-14 02:53:43.509000+00:00,54.2286,-162.4686,50.302,4.2,"92 km SE of False Pass, Alaska",Alaska,US,United States
 us6000sxkm,2026-05-14 02:46:38.356000+00:00,-24.2997,-66.9979,182.694,4.7,"69 km W of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
 us6000sxke,2026-05-14 01:33:25.558000+00:00,51.9997,-30.7976,10.0,4.5,northern Mid-Atlantic Ridge,northern Mid-Atlantic Ridge,PT,Portugal
 us6000sxka,2026-05-14 00:14:01.393000+00:00,5.0578,36.842,10.0,4.7,"41 km ENE of Turmi, Ethiopia",Ethiopia,ET,Ethiopia
-us6000sxk3,2026-05-13 22:10:17.110000+00:00,19.0278,121.2171,35.0,4.6,"46 km N of Namuac, Philippines",Philippines,PH,Philippines
-us6000sxk1,2026-05-13 22:01:06.478000+00:00,19.0659,121.2754,35.0,5.3,"51 km NNE of Namuac, Philippines",Philippines,PH,Philippines
+us6000sz8e,2026-05-13 23:45:39.140000+00:00,-12.0763,65.6898,10.0,4.2,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
+us6000sz8c,2026-05-13 22:59:23.831000+00:00,-17.2825,-174.6191,168.446,4.4,"165 km NNW of Neiafu, Tonga",Tonga,TO,Tonga
+us6000sxk3,2026-05-13 22:10:16.879000+00:00,18.9922,121.2286,35.0,4.6,"42 km N of Namuac, Philippines",Philippines,PH,Philippines
+us6000sxk1,2026-05-13 22:01:06.678000+00:00,19.0959,121.2247,35.0,5.3,"54 km N of Namuac, Philippines",Philippines,PH,Philippines
+us6000sz8b,2026-05-13 21:48:17.796000+00:00,-43.3876,91.8016,10.0,4.5,southeast Indian Ridge,southeast Indian Ridge,TF,French Southern Territories
 us6000sxvm,2026-05-13 20:48:01.461000+00:00,79.1495,2.1053,10.0,4.4,Greenland Sea,Greenland Sea,SJ,Svalbard and Jan Mayen
 us6000sxjk,2026-05-13 20:37:19.036000+00:00,41.2905,84.0645,10.0,4.4,"105 km ESE of Kuqa, China",China,CN,China
 us6000sxjd,2026-05-13 20:18:42.034000+00:00,-5.9901,130.9,123.533,4.0,"208 km W of Tual, Indonesia",Indonesia,ID,Indonesia
@@ -95614,12 +95753,20 @@ us6000sxd9,2026-05-13 07:29:39.992000+00:00,-30.153,-179.4729,348.072,4.6,Kermad
 us6000sxd4,2026-05-13 06:36:37.861000+00:00,-55.3734,-28.3706,10.0,5.0,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
 us6000sxcz,2026-05-13 05:39:54.585000+00:00,51.4073,158.4693,56.534,4.6,"137 km E of Ozernovskiy, Russia",Russia,RU,Russian Federation
 us6000sxwc,2026-05-13 05:22:28.769000+00:00,-2.8372,147.7243,10.0,4.6,"102 km SSE of Lorengau, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000sz7l,2026-05-13 04:39:18.216000+00:00,-3.7108,128.7516,107.474,4.1,"45 km SSW of Amahai, Indonesia",Indonesia,ID,Indonesia
 us6000sxc7,2026-05-13 03:45:21.331000+00:00,11.5397,-86.7186,67.914,4.5,"35 km SW of Masachapa, Nicaragua",Nicaragua,NI,Nicaragua
 us6000sxc0,2026-05-13 03:08:33.276000+00:00,30.3722,138.4279,457.16,5.1,"Izu Islands, Japan region",Japan region,JP,Japan
-us6000sxbv,2026-05-13 02:24:36.823000+00:00,41.6624,145.9025,10.0,4.9,"175 km SSE of Akkeshi, Japan",Japan,JP,Japan
-us6000sxbe,2026-05-13 00:30:52.498000+00:00,-23.6515,179.8852,545.037,4.4,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
-us6000sxaj,2026-05-12 21:53:44.573000+00:00,-21.1489,-174.4653,10.0,5.1,"55 km ENE of ‘Ohonua, Tonga",Tonga,TO,Tonga
-us6000sx9x,2026-05-12 21:19:36.870000+00:00,-23.2041,-176.8485,154.0,5.7,"275 km SW of Houma, Tonga",Tonga,TO,Tonga
+us6000sxbv,2026-05-13 02:24:36.564000+00:00,41.6233,145.8788,10.0,4.9,"178 km SSE of Akkeshi, Japan",Japan,JP,Japan
+us6000sz7j,2026-05-13 02:02:55.165000+00:00,-32.3413,-178.385,10.0,4.4,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
+us6000sxcv,2026-05-13 01:31:22.129000+00:00,-20.2029,67.6558,10.0,4.6,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
+us6000sz7h,2026-05-13 00:42:41.365000+00:00,51.2649,174.5363,10.0,4.2,"198 km SSE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000sxbe,2026-05-13 00:30:51.840000+00:00,-23.6318,179.9236,538.724,4.4,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
+us6000sxw5,2026-05-12 23:56:47.184000+00:00,-55.595,-124.2617,10.0,4.4,southern East Pacific Rise,southern East Pacific Rise,PN,Pitcairn
+us6000sz13,2026-05-12 23:10:11.464000+00:00,4.7477,126.5495,78.896,4.2,"140 km ESE of Sarangani, Philippines",Philippines,ID,Indonesia
+us6000sz12,2026-05-12 22:33:33.844000+00:00,0.2679,126.3006,35.0,4.4,"133 km WSW of Ternate, Indonesia",Indonesia,ID,Indonesia
+us6000sxaj,2026-05-12 21:53:43.461000+00:00,-21.5221,-174.3272,10.0,5.1,"68 km ESE of ‘Ohonua, Tonga",Tonga,TO,Tonga
+us6000sz10,2026-05-12 21:46:21.190000+00:00,-19.7965,168.2447,10.0,4.3,"112 km WSW of Isangel, Vanuatu",Vanuatu,VU,Vanuatu
+us6000sx9x,2026-05-12 21:19:36.793000+00:00,-23.2993,-176.8758,154.0,5.7,"286 km SW of Houma, Tonga",Tonga,TO,Tonga
 us6000sx99,2026-05-12 20:16:09.353000+00:00,35.7363,52.0695,10.0,4.3,"1 km N of Damāvand, Iran",Iran,IR,"Iran, Islamic Republic of"
 us6000sx82,2026-05-12 18:32:39.115000+00:00,-16.8629,-69.7192,178.19,4.2,"13 km S of Mazo Cruz, Peru",Peru,PE,Peru
 us6000sx7r,2026-05-12 18:10:22.469000+00:00,2.8835,127.9058,72.578,4.7,"128 km N of Tobelo, Indonesia",Indonesia,ID,Indonesia
@@ -95636,67 +95783,90 @@ us6000sx3b,2026-05-12 06:03:08.618000+00:00,-16.4438,-73.8547,35.0,4.1,"35 km SW
 us6000sx36,2026-05-12 05:18:57.588000+00:00,7.0489,92.4295,10.0,4.9,"Nicobar Islands, India region",India region,ID,Indonesia
 us6000sx2w,2026-05-12 04:08:24.653000+00:00,52.1738,160.8367,10.0,4.5,"179 km SE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us6000sx2s,2026-05-12 03:45:42.646000+00:00,-10.2288,161.21,60.837,5.0,"81 km WNW of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
-us6000sx29,2026-05-12 00:02:38.856000+00:00,36.312,139.6875,68.855,4.3,"7 km NNE of Fujioka, Japan",Japan,JP,Japan
-us6000sx1u,2026-05-11 23:16:35.604000+00:00,-25.6176,-71.3511,10.0,4.5,"90 km WSW of Taltal, Chile",Chile,CL,Chile
-us6000sx06,2026-05-11 20:18:48.528000+00:00,13.0978,145.9155,10.0,4.8,"121 km ESE of Yigo Village, Guam",Guam,GU,Guam
-us6000sx3a,2026-05-11 20:04:58.901000+00:00,-15.5851,-177.6163,10.0,4.9,"150 km SSE of Alo, Wallis and Futuna",Wallis and Futuna,WF,Wallis and Futuna
-us6000swyt,2026-05-11 18:09:28.697000+00:00,-17.8079,125.6214,14.801,4.2,"43 km N of Fitzroy Crossing, Australia",Australia,AU,Australia
-us6000swyj,2026-05-11 17:14:44.573000+00:00,-31.7052,-70.5124,9.018,4.8,"43 km E of Salamanca, Chile",Chile,CL,Chile
+us6000sz08,2026-05-12 00:24:47.468000+00:00,24.4203,141.6693,10.0,4.4,"Volcano Islands, Japan region",Japan region,MP,Northern Mariana Islands
+us6000sx29,2026-05-12 00:02:38.699000+00:00,36.2696,139.8045,72.177,4.3,"3 km S of Oyama, Japan",Japan,JP,Japan
+us6000sx1u,2026-05-11 23:16:35.534000+00:00,-25.6171,-71.3766,10.0,4.4,"92 km WSW of Taltal, Chile",Chile,CL,Chile
+us6000sz01,2026-05-11 22:36:09.303000+00:00,38.4115,142.6879,35.0,4.2,"108 km E of Onagawa Chō, Japan",Japan,JP,Japan
+us6000sz00,2026-05-11 22:08:39.367000+00:00,12.3029,144.4392,10.0,4.6,"109 km SSW of Merizo Village, Guam",Guam,GU,Guam
+us6000syzz,2026-05-11 21:59:30.948000+00:00,-5.3577,145.8157,98.32,4.4,"15 km SSE of Madang, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000sz04,2026-05-11 21:17:44.696000+00:00,14.302,51.3898,10.0,4.2,"227 km SSW of Al Ghayz̧ah, Yemen",Yemen,YE,Yemen
+us6000sx06,2026-05-11 20:18:48.707000+00:00,13.179,145.994,10.0,4.8,"126 km ESE of Yigo Village, Guam",Guam,GU,Guam
+us6000sx3a,2026-05-11 20:04:59.129000+00:00,-15.4991,-177.5257,10.0,4.8,"145 km SSE of Alo, Wallis and Futuna",Wallis and Futuna,WF,Wallis and Futuna
+us6000swyt,2026-05-11 18:09:29.149000+00:00,-17.821,125.6625,15.935,4.2,"42 km NNE of Fitzroy Crossing, Australia",Australia,AU,Australia
+us6000swyj,2026-05-11 17:14:43.805000+00:00,-31.7023,-70.4867,3.138,4.4,"46 km E of Salamanca, Chile",Chile,CL,Chile
+us6000syzs,2026-05-11 15:39:02.596000+00:00,53.2098,159.8535,68.164,4.2,"83 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us6000swvm,2026-05-11 09:48:51.604000+00:00,-9.2967,159.1915,10.0,5.2,"72 km NW of Malango, Solomon Islands",Solomon Islands,SB,Solomon Islands
 us6000swuu,2026-05-11 05:35:52.128000+00:00,-23.046,-68.633,112.298,4.6,"46 km WSW of San Pedro de Atacama, Chile",Chile,CL,Chile
 us6000swui,2026-05-11 04:30:47.904000+00:00,36.352,69.5369,166.597,4.3,"37 km SW of Farkhār, Afghanistan",Afghanistan,AF,Afghanistan
-us6000swu3,2026-05-11 02:27:44.485000+00:00,41.146,142.3161,51.556,4.3,"89 km E of Yokohama, Japan",Japan,JP,Japan
-us6000swtz,2026-05-11 01:41:17.815000+00:00,27.3989,129.4593,10.0,5.0,"60 km ESE of Isen, Japan",Japan,JP,Japan
-us6000swtm,2026-05-11 00:21:40.314000+00:00,39.8116,143.6317,10.0,4.9,"146 km E of Miyako, Japan",Japan,JP,Japan
-us6000swte,2026-05-10 23:20:55.111000+00:00,-23.4697,-179.8206,542.202,5.0,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
-us6000swtd,2026-05-10 23:15:43.825000+00:00,-23.3618,-179.9969,562.91,5.1,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
-us6000swvu,2026-05-10 22:51:05.005000+00:00,-25.3841,179.7289,517.37,4.5,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
-us6000sxcp,2026-05-10 22:44:41.230000+00:00,51.3128,173.2194,10.0,4.4,"170 km S of Attu Station, Alaska",Alaska,RU,Russian Federation
-us6000swt4,2026-05-10 22:01:16.116000+00:00,9.3613,40.0258,10.0,4.3,"44 km NNW of Āwash, Ethiopia",Ethiopia,ET,Ethiopia
-us6000swsy,2026-05-10 21:55:02.495000+00:00,-19.9819,-71.1494,10.0,4.2,"107 km WNW of Puerto, Chile",Chile,CL,Chile
-us6000swss,2026-05-10 21:08:18.305000+00:00,17.8567,145.6782,174.768,4.6,"292 km N of Saipan, Northern Mariana Islands",Northern Mariana Islands,MP,Northern Mariana Islands
-us6000swsn,2026-05-10 21:00:19.896000+00:00,49.5113,154.4044,129.388,4.2,"178 km SW of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
-us6000swsg,2026-05-10 20:29:54.713000+00:00,36.7079,26.7078,158.504,4.7,"22 km W of Kéfalos, Greece",Greece,GR,Greece
-us6000swv6,2026-05-10 20:16:45.329000+00:00,-8.8937,157.997,10.0,4.9,"154 km SE of Gizo, Solomon Islands",Solomon Islands,SB,Solomon Islands
-us6000sws5,2026-05-10 19:36:36.864000+00:00,20.495,94.1576,58.752,5.0,"74 km W of Yenangyaung, Burma (Myanmar)",Burma (Myanmar),MM,Myanmar
+us6000swu3,2026-05-11 02:27:44.648000+00:00,41.1548,142.3508,54.665,4.3,"92 km E of Yokohama, Japan",Japan,JP,Japan
+us6000swtz,2026-05-11 01:41:17.618000+00:00,27.3848,129.5696,10.0,5.0,"70 km ESE of Isen, Japan",Japan,JP,Japan
+us6000swtm,2026-05-11 00:21:40.350000+00:00,39.7894,143.5843,10.0,4.9,"141 km E of Miyako, Japan",Japan,JP,Japan
+us6000syz6,2026-05-11 00:10:02.549000+00:00,39.8176,143.1799,35.0,4.2,"107 km E of Miyako, Japan",Japan,JP,Japan
+us6000sysg,2026-05-10 23:55:15.235000+00:00,-0.4584,98.7333,35.0,4.2,"154 km SE of Teluk Dalam, Indonesia",Indonesia,ID,Indonesia
+us6000swte,2026-05-10 23:20:54.500000+00:00,-23.4663,-179.8301,534.64,5.0,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
+us6000swtd,2026-05-10 23:15:43.934000+00:00,-23.3823,179.9389,562.321,5.1,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
+us6000swvu,2026-05-10 22:51:05.221000+00:00,-25.3692,179.7053,519.083,4.5,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
+us6000sxcp,2026-05-10 22:44:40.540000+00:00,51.2957,173.1264,10.0,4.2,"172 km S of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000swt4,2026-05-10 22:01:15.188000+00:00,9.2396,39.9505,10.0,4.3,"36 km NW of Āwash, Ethiopia",Ethiopia,ET,Ethiopia
+us6000swsy,2026-05-10 21:55:02.621000+00:00,-19.9756,-71.1341,10.0,4.3,"105 km WNW of Puerto, Chile",Chile,CL,Chile
+us6000sysd,2026-05-10 21:20:19.042000+00:00,13.1888,143.2628,186.843,4.2,"152 km W of Umatac Village, Guam",Guam,GU,Guam
+us6000swss,2026-05-10 21:08:23.187000+00:00,17.9018,145.7075,230.178,4.5,"297 km N of Saipan, Northern Mariana Islands",Northern Mariana Islands,MP,Northern Mariana Islands
+us6000swsn,2026-05-10 21:00:17.341000+00:00,49.3035,154.5219,115.463,4.2,"191 km SW of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
+us6000swsg,2026-05-10 20:29:54.575000+00:00,36.674,26.6993,160.147,4.6,"24 km WSW of Kéfalos, Greece",Greece,GR,Greece
+us6000swv6,2026-05-10 20:16:45.381000+00:00,-8.9108,157.9947,10.0,4.9,"155 km SE of Gizo, Solomon Islands",Solomon Islands,SB,Solomon Islands
+us6000sws5,2026-05-10 19:36:36.401000+00:00,20.5004,94.0661,54.234,5.0,"84 km W of Yenangyaung, Burma (Myanmar)",Burma (Myanmar),MM,Myanmar
 aka2026jfsvox,2026-05-10 18:59:49.577000+00:00,59.731,-152.397,94.9,4.1,"32 km W of Anchor Point, Alaska",Alaska,US,United States
 nn00918221,2026-05-10 18:22:13.799000+00:00,39.277,-119.0956,6.0,4.05,"18 km SE of Silver Springs, Nevada",Nevada,US,United States
-us6000swrg,2026-05-10 17:23:24.727000+00:00,18.7188,120.0451,10.0,4.2,"62 km WNW of Davila, Philippines",Philippines,PH,Philippines
-us6000swr8,2026-05-10 16:41:43.464000+00:00,-16.8014,-173.4234,10.0,5.3,"101 km SSE of Hihifo, Tonga",Tonga,TO,Tonga
-us6000swr6,2026-05-10 16:34:33.326000+00:00,-5.3168,145.5539,91.215,5.2,"27 km WSW of Madang, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us6000swr0,2026-05-10 15:53:24.021000+00:00,0.6495,126.0166,35.0,4.5,"132 km SE of Bitung, Indonesia",Indonesia,ID,Indonesia
-us6000sxf1,2026-05-10 14:57:42.026000+00:00,7.4857,-36.1427,10.0,4.4,central Mid-Atlantic Ridge,central Mid-Atlantic Ridge,BR,Brazil
+us6000swrg,2026-05-10 17:23:24.712000+00:00,18.7136,120.1471,10.0,4.2,"52 km WNW of Davila, Philippines",Philippines,PH,Philippines
+us6000swr8,2026-05-10 16:41:43.270000+00:00,-16.8739,-173.3414,10.0,5.3,"112 km SSE of Hihifo, Tonga",Tonga,TO,Tonga
+us6000swr6,2026-05-10 16:34:33.201000+00:00,-5.285,145.648,93.275,5.3,"16 km WSW of Madang, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000swr0,2026-05-10 15:53:23.571000+00:00,0.5505,126.1854,35.0,4.5,"136 km WSW of Ternate, Indonesia",Indonesia,ID,Indonesia
+us6000sxf1,2026-05-10 14:57:42.044000+00:00,7.4558,-36.1161,10.0,4.4,central Mid-Atlantic Ridge,central Mid-Atlantic Ridge,BR,Brazil
 us6000swq8,2026-05-10 12:24:34.277000+00:00,1.2342,120.5431,35.0,4.7,"248 km NNE of Palu, Indonesia",Indonesia,ID,Indonesia
 us6000swq9,2026-05-10 12:21:22.589000+00:00,38.5344,-27.5038,10.0,4.6,"22 km SW of Santa Bárbara, Portugal",Portugal,PT,Portugal
 us6000swq2,2026-05-10 11:59:24.565000+00:00,-24.0095,-67.0041,208.663,4.2,"73 km WNW of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
-us6000swni,2026-05-10 08:03:57.027000+00:00,-37.7665,-73.3233,30.633,4.7,"7 km ENE of Cañete, Chile",Chile,CL,Chile
-us6000swn9,2026-05-10 07:28:10.179000+00:00,51.0462,179.3272,28.049,4.2,"295 km WSW of Adak, Alaska",Alaska,RU,Russian Federation
+us6000swni,2026-05-10 08:03:57.211000+00:00,-37.7326,-73.2791,28.181,4.7,"12 km NE of Cañete, Chile",Chile,CL,Chile
+us6000swn9,2026-05-10 07:28:09.905000+00:00,51.0411,179.3439,24.745,4.3,"294 km WSW of Adak, Alaska",Alaska,RU,Russian Federation
 ci41461608,2026-05-10 07:10:21.250000+00:00,32.971333333333,-115.56233333333,14.53,4.6648691912206,"3 km WSW of Brawley, CA",CA,US,United States
-us6000swmi,2026-05-10 06:36:44.604000+00:00,36.4642,70.0578,217.198,4.1,"21 km SE of Farkhār, Afghanistan",Afghanistan,AF,Afghanistan
+us6000swmi,2026-05-10 06:36:44.763000+00:00,36.4826,70.0865,220.244,4.1,"22 km ESE of Farkhār, Afghanistan",Afghanistan,AF,Afghanistan
+us6000syrw,2026-05-10 06:35:57.533000+00:00,-20.5719,-178.187,535.438,4.1,Fiji region,Fiji region,TO,Tonga
+us6000syrv,2026-05-10 05:28:10.664000+00:00,-5.5824,148.3456,205.664,4.0,"121 km NNE of Finschhafen, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000swvx,2026-05-10 04:14:32.651000+00:00,34.5577,24.0351,10.0,4.0,"31 km S of Kastrí, Greece",Greece,GR,Greece
+us6000swvy,2026-05-10 04:11:55.487000+00:00,34.6241,24.1288,10.0,4.1,"23 km S of Kastrí, Greece",Greece,GR,Greece
 ci41460512,2026-05-10 03:39:29.810000+00:00,32.977833333333,-115.54983333333,15.9,4.4811285884881,"2 km W of Brawley, CA",CA,US,United States
 us6000swkj,2026-05-10 03:03:39.921000+00:00,37.3662,144.4869,10.0,4.4,"292 km ESE of Onagawa Chō, Japan",Japan,JP,Japan
 us6000swk8,2026-05-10 02:42:23.775000+00:00,-7.0242,132.0136,10.0,5.0,"174 km SSW of Tual, Indonesia",Indonesia,ID,Indonesia
 us6000swk0,2026-05-10 02:34:07.249000+00:00,-37.7219,-73.1062,34.251,5.5,"27 km ENE of Cañete, Chile",Chile,CL,Chile
 ci41460112,2026-05-10 02:22:08.170000+00:00,32.969333333333,-115.55916666667,15.05,4.3782298205275,"3 km WSW of Brawley, CA",CA,US,United States
 us6000swjc,2026-05-10 01:50:13.905000+00:00,5.6691,126.3518,98.708,4.6,"78 km SSE of Pondaguitan, Philippines",Philippines,PH,Philippines
-us6000swj1,2026-05-10 00:44:25.818000+00:00,-40.2185,176.4794,27.388,4.2,"32 km E of Dannevirke, New Zealand",New Zealand,NZ,New Zealand
-us6000swj8,2026-05-09 23:11:14.273000+00:00,-17.5199,-173.3122,35.0,4.8,"143 km NNE of Neiafu, Tonga",Tonga,TO,Tonga
-us6000swi4,2026-05-09 21:52:46.536000+00:00,-38.8053,175.1941,225.129,4.9,"57 km WNW of Turangi, New Zealand",New Zealand,NZ,New Zealand
-us6000swi3,2026-05-09 21:33:16.842000+00:00,-5.6297,154.3353,121.199,4.3,"148 km WNW of Panguna, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us6000swhy,2026-05-09 20:39:49.843000+00:00,-26.8393,-176.7692,10.0,5.3,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
-us6000swhx,2026-05-09 20:26:12.892000+00:00,8.5964,-82.8661,29.933,4.5,"5 km NW of Paso Canoas Arriba, Panama",Panama,CR,Costa Rica
-us6000swhi,2026-05-09 17:10:51.168000+00:00,14.1041,57.34,10.0,4.4,Owen Fracture Zone region,Owen Fracture Zone region,YE,Yemen
+us6000swj1,2026-05-10 00:44:25.807000+00:00,-40.2185,176.4776,26.987,4.2,"32 km E of Dannevirke, New Zealand",New Zealand,NZ,New Zealand
+us6000swj8,2026-05-09 23:11:13.933000+00:00,-17.6072,-173.4572,35.0,4.8,"128 km NNE of Neiafu, Tonga",Tonga,TO,Tonga
+us6000syju,2026-05-09 22:09:55.494000+00:00,-9.2706,111.9865,43.453,4.1,"127 km S of Boyolangu, Indonesia",Indonesia,ID,Indonesia
+us6000swi4,2026-05-09 21:52:46.392000+00:00,-38.7898,175.1351,227.178,4.9,"62 km WNW of Turangi, New Zealand",New Zealand,NZ,New Zealand
+us6000swi3,2026-05-09 21:33:16.656000+00:00,-5.6475,154.4132,121.688,4.3,"139 km WNW of Panguna, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000swhy,2026-05-09 20:39:49.486000+00:00,-26.868,-176.6645,10.0,5.3,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
+us6000swhx,2026-05-09 20:26:10.588000+00:00,8.8156,-82.5942,10.0,4.5,"4 km SSW of Cerro Punta, Panama",Panama,PA,Panama
+us6000syjr,2026-05-09 20:11:25.269000+00:00,-16.8986,-172.5951,10.0,4.4,"165 km SE of Hihifo, Tonga",Tonga,TO,Tonga
+us6000syjm,2026-05-09 17:35:07.012000+00:00,0.5711,126.3385,45.47,4.4,"118 km WSW of Ternate, Indonesia",Indonesia,ID,Indonesia
+us6000swhi,2026-05-09 17:10:51.233000+00:00,14.0875,57.2847,10.0,4.4,Owen Fracture Zone region,Owen Fracture Zone region,YE,Yemen
 us6000swhc,2026-05-09 16:18:52.053000+00:00,24.5387,123.7707,35.445,4.6,"44 km WNW of Ishigaki, Japan",Japan,JP,Japan
 us6000swh4,2026-05-09 15:05:05.444000+00:00,54.009,-112.6217,9.614,4.3,"15 km SW of Smoky Lake, Canada",Canada,CA,Canada
 us6000swh0,2026-05-09 14:22:52.509000+00:00,-58.024,-25.6886,97.443,5.1,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
-us6000swg6,2026-05-09 09:12:13.117000+00:00,-2.9287,147.7678,10.0,5.0,"113 km SSE of Lorengau, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us6000swg5,2026-05-09 09:10:06.428000+00:00,26.2477,90.2191,10.0,4.4,"2 km NW of Bilāsipāra, India",India,IN,India
+us6000syjj,2026-05-09 12:43:08.505000+00:00,-21.9573,169.6006,10.0,4.4,"183 km ESE of Tadine, New Caledonia",New Caledonia,NC,New Caledonia
+us6000syjg,2026-05-09 11:19:33.819000+00:00,-30.7419,-177.842,35.0,4.3,"Kermadec Islands, New Zealand",New Zealand,TO,Tonga
+us6000syjd,2026-05-09 09:19:48.858000+00:00,39.1902,142.1299,55.551,4.1,"24 km ESE of Kamaishi, Japan",Japan,JP,Japan
+us6000swg6,2026-05-09 09:12:13.223000+00:00,-2.8697,147.7405,10.0,5.0,"106 km SSE of Lorengau, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000swg5,2026-05-09 09:10:05.675000+00:00,26.0613,89.8969,10.0,4.4,"6 km WSW of Gauripur, India",India,IN,India
 aka2026jczfvx,2026-05-09 07:12:45.552000+00:00,51.005,179.336,10.0,4.2,"296 km WSW of Adak, Alaska",Alaska,RU,Russian Federation
 nc75357576,2026-05-09 04:58:02.120000+00:00,41.502666666667,-125.218,26.13,4.8,"89 km WSW of Crescent City, CA",CA,US,United States
 us6000swf4,2026-05-09 04:42:23.298000+00:00,51.0818,179.349,26.482,5.8,"292 km WSW of Adak, Alaska",Alaska,RU,Russian Federation
 aka2026jcufoy,2026-05-09 04:42:21.975000+00:00,50.981,179.214,16.3,6.1,"Rat Islands, Aleutian Islands, Alaska",Alaska,RU,Russian Federation
+us6000swvb,2026-05-09 04:13:38.231000+00:00,33.3432,47.426,10.0,4.2,"22 km N of Darreh Shahr, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000syj7,2026-05-09 04:07:13.764000+00:00,30.0485,131.3189,10.0,4.2,"74 km ESE of Koseda, Japan",Japan,JP,Japan
+us6000syj6,2026-05-09 03:57:23.252000+00:00,-21.9232,169.9215,35.0,4.2,"215 km E of Tadine, New Caledonia",New Caledonia,NC,New Caledonia
 us6000swe6,2026-05-09 01:26:56.595000+00:00,24.1702,125.2755,35.0,4.4,"68 km S of Miyakojima, Japan",Japan,JP,Japan
-us6000swe0,2026-05-09 00:10:26.670000+00:00,-2.1622,139.0989,10.0,4.6,"177 km WNW of Abepura, Indonesia",Indonesia,ID,Indonesia
+us6000syj0,2026-05-09 00:49:27.234000+00:00,-2.8873,147.8977,10.0,4.2,"117 km SE of Lorengau, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000swe0,2026-05-09 00:10:26.707000+00:00,-2.1824,139.0923,10.0,4.6,"177 km WNW of Abepura, Indonesia",Indonesia,ID,Indonesia
 us6000swdw,2026-05-08 23:51:48.670000+00:00,-7.6944,117.2145,316.261,4.2,"84 km NNW of Pototano, Indonesia",Indonesia,ID,Indonesia
 us6000sy18,2026-05-08 22:00:06.297000+00:00,53.1845,161.5977,10.0,4.1,"199 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us6000swce,2026-05-08 21:19:34.903000+00:00,-22.7233,-70.4465,38.724,4.4,"41 km N of Mejillones, Chile",Chile,CL,Chile
@@ -95707,7 +95877,7 @@ us6000swbu,2026-05-08 20:03:25.803000+00:00,51.0534,179.4162,37.027,4.7,"289 km 
 us6000swbi,2026-05-08 19:26:39.259000+00:00,24.6405,122.0113,70.384,4.2,"29 km ESE of Yilan, Taiwan",Taiwan,TW,"Taiwan, Province of China"
 us6000sway,2026-05-08 18:37:11.620000+00:00,54.4729,-164.8291,110.498,4.3,"72 km ENE of Akutan, Alaska",Alaska,US,United States
 us6000sy10,2026-05-08 18:23:21.626000+00:00,50.16,159.8144,10.0,4.0,"268 km ESE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
-us6000sxeq,2026-05-08 17:54:47.691000+00:00,-36.6479,176.935,10.0,4.7,"103 km ENE of Pauanui, New Zealand",New Zealand,NZ,New Zealand
+us6000sxeq,2026-05-08 17:54:47.906000+00:00,-36.6979,176.9745,10.0,4.6,"104 km ENE of Pauanui, New Zealand",New Zealand,NZ,New Zealand
 us6000swaq,2026-05-08 17:50:13.308000+00:00,-4.6359,-77.8258,31.401,4.4,"122 km N of Yambrasbamba, Peru",Peru,PE,Peru
 us6000swan,2026-05-08 17:44:04.466000+00:00,17.0415,-94.7423,80.743,4.4,"16 km NNW of Santa María Chimalapa, Mexico",Mexico,MX,Mexico
 us6000swai,2026-05-08 17:14:40.531000+00:00,-14.9705,-75.699,21.108,4.8,"61 km WSW of Changuillo, Peru",Peru,PE,Peru
@@ -95737,8 +95907,10 @@ us6000sw3f,2026-05-08 01:29:17.864000+00:00,-23.7788,-66.5836,197.525,4.8,"55 km
 us6000sw2r,2026-05-07 23:31:15.306000+00:00,37.5815,141.427,55.925,4.7,"39 km ENE of Namie, Japan",Japan,JP,Japan
 us6000sw1q,2026-05-07 20:57:34.420000+00:00,24.1692,121.8825,28.824,4.3,"35 km NE of Hualien City, Taiwan",Taiwan,TW,"Taiwan, Province of China"
 us6000sw1m,2026-05-07 20:45:27.927000+00:00,6.1472,126.9958,209.203,4.3,"93 km ESE of Pondaguitan, Philippines",Philippines,PH,Philippines
-us6000sw0d,2026-05-07 18:50:02.354000+00:00,36.3135,140.047,78.805,4.6,"5 km E of Chikusei, Japan",Japan,JP,Japan
-us6000svzn,2026-05-07 17:44:24.086000+00:00,36.9854,-104.9295,8.696,4.0,"17 km SSW of Weston, Colorado",Colorado,US,United States
+us6000sw0d,2026-05-07 18:50:02.316000+00:00,36.3491,140.0689,78.873,4.4,"2 km W of Iwase, Japan",Japan,JP,Japan
+us6000sxy6,2026-05-07 18:19:23.465000+00:00,-17.9952,-178.0089,639.858,4.0,"283 km E of Levuka, Fiji",Fiji,WF,Wallis and Futuna
+us6000svzn,2026-05-07 17:44:22.766000+00:00,36.9854,-104.9526,1.965,4.1,"18 km SSW of Weston, Colorado",Colorado,US,United States
+us6000sxy5,2026-05-07 17:00:19.831000+00:00,14.2792,-93.0613,37.76,4.2,"84 km SW of Puerto Madero, Mexico",Mexico,MX,Mexico
 us6000svzd,2026-05-07 16:54:03.761000+00:00,7.4632,-34.6257,10.0,4.7,central Mid-Atlantic Ridge,central Mid-Atlantic Ridge,BR,Brazil
 us6000sxdv,2026-05-07 13:57:40.198000+00:00,-13.775,174.9824,10.0,4.6,Fiji region,Fiji region,FJ,Fiji
 us6000svx6,2026-05-07 13:45:54.915000+00:00,-24.2872,-67.3112,195.981,4.0,"101 km W of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
@@ -95754,17 +95926,22 @@ us6000svup,2026-05-07 03:48:23.147000+00:00,-5.9976,105.586,107.097,4.4,"50 km N
 us6000sxdj,2026-05-07 02:30:11.629000+00:00,-27.4584,82.1869,10.0,4.6,South Indian Ocean,South Indian Ocean,MU,Mauritius
 us6000svu7,2026-05-07 01:23:05.220000+00:00,-5.7445,154.2368,142.299,5.1,"151 km WNW of Panguna, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000svu2,2026-05-07 01:06:57.489000+00:00,-18.7721,-175.4188,217.623,4.5,"151 km W of Neiafu, Tonga",Tonga,TO,Tonga
-us6000svti,2026-05-06 23:02:20.933000+00:00,-21.1542,-68.9134,124.772,4.3,"68 km W of Ollagüe, Chile",Chile,CL,Chile
+us6000svti,2026-05-06 23:02:21.867000+00:00,-21.1675,-68.9254,116.878,4.3,"70 km W of Ollagüe, Chile",Chile,CL,Chile
 us6000svsx,2026-05-06 22:06:49.650000+00:00,-2.285,-79.1567,95.279,4.6,"25 km NE of La Troncal, Ecuador",Ecuador,EC,Ecuador
 us6000sxq3,2026-05-06 21:17:07.426000+00:00,-17.4137,-178.9805,576.541,4.6,"194 km ENE of Levuka, Fiji",Fiji,WF,Wallis and Futuna
 us6000sxq2,2026-05-06 21:00:40.856000+00:00,52.2365,176.2824,10.0,4.1,"220 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
 us6000svrl,2026-05-06 19:19:18.002000+00:00,-59.5458,-24.0937,10.0,4.9,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
 us6000svrf,2026-05-06 19:10:12.813000+00:00,15.6249,-95.3854,35.0,4.4,"48 km S of Santa Gertrudis Miramar, Mexico",Mexico,MX,Mexico
-us6000svp9,2026-05-06 15:35:46.736000+00:00,7.6333,126.7818,10.0,5.5,"25 km ENE of Baganga, Philippines",Philippines,PH,Philippines
-us6000svp7,2026-05-06 15:17:34.286000+00:00,28.9344,95.9538,10.0,4.5,"111 km NNW of Hayuliang, India",India,CN,China
-us6000svp1,2026-05-06 14:56:40.722000+00:00,2.4921,127.5616,83.991,4.4,"98 km NNW of Tobelo, Indonesia",Indonesia,ID,Indonesia
-us6000svnr,2026-05-06 14:15:32.254000+00:00,52.2595,176.518,10.0,5.8,"235 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
-us6000svnp,2026-05-06 14:06:37.123000+00:00,52.2398,176.4365,10.0,4.3,"230 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000sxpw,2026-05-06 16:56:25.287000+00:00,-43.5674,91.9234,10.0,4.6,southeast Indian Ridge,southeast Indian Ridge,TF,French Southern Territories
+us6000svp9,2026-05-06 15:35:49.132000+00:00,7.5271,126.7728,29.0,5.5,"22 km ENE of Baculin, Philippines",Philippines,PH,Philippines
+us6000svp7,2026-05-06 15:17:33.655000+00:00,28.8263,95.9696,10.0,4.6,"100 km NW of Hayuliang, India",India,CN,China
+us6000sxpu,2026-05-06 15:12:20.747000+00:00,51.4582,159.8184,10.0,4.5,"190 km SSE of Vilyuchinsk, Russia",Russia,RU,Russian Federation
+us6000svp1,2026-05-06 14:56:41.340000+00:00,2.5039,127.6047,91.49,4.4,"96 km NNW of Tobelo, Indonesia",Indonesia,ID,Indonesia
+us6000svnr,2026-05-06 14:15:32.308000+00:00,52.3404,176.5321,10.0,5.8,"233 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000sxps,2026-05-06 14:07:56.125000+00:00,51.7494,176.1538,10.0,4.1,"236 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000svnp,2026-05-06 14:06:37.489000+00:00,52.2323,176.5504,10.0,4.3,"238 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000sxpr,2026-05-06 13:46:37.732000+00:00,17.7037,-82.6495,10.0,4.2,"220 km SW of George Town, Cayman Islands",Cayman Islands,KY,Cayman Islands
+us6000sxpq,2026-05-06 13:33:01.123000+00:00,-32.2521,-178.1353,10.0,4.3,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us6000svnc,2026-05-06 12:55:50.757000+00:00,-17.8553,167.2462,10.0,4.8,"113 km W of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
 us6000svmz,2026-05-06 11:46:48.851000+00:00,-32.1671,-177.9339,10.0,5.6,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us6000svmu,2026-05-06 11:31:43.685000+00:00,-30.1791,-72.2383,10.0,4.7,"90 km WSW of Coquimbo, Chile",Chile,CL,Chile
@@ -95775,11 +95952,13 @@ us6000svm7,2026-05-06 10:06:27.876000+00:00,35.3695,139.4261,112.951,4.4,"4 km N
 us6000svma,2026-05-06 10:04:22.519000+00:00,28.0501,56.7912,10.0,4.6,"91 km ESE of Ḩājjīābād, Iran",Iran,IR,"Iran, Islamic Republic of"
 us6000svm3,2026-05-06 09:43:13.683000+00:00,-5.7284,154.4199,103.644,5.2,"134 km WNW of Panguna, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000svl1,2026-05-06 09:09:05.609000+00:00,-37.0527,177.7551,157.524,4.3,"77 km NW of Hicks Bay, New Zealand",New Zealand,NZ,New Zealand
-us6000svkt,2026-05-06 08:19:31.360000+00:00,-30.1311,-72.0835,10.0,4.6,"74 km WSW of Coquimbo, Chile",Chile,CL,Chile
-us6000svia,2026-05-06 04:41:41.951000+00:00,-33.4716,179.6745,140.823,4.5,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
-us6000svi6,2026-05-06 04:06:08.205000+00:00,29.8578,70.0991,10.0,4.9,"42 km NW of Dajal, Pakistan",Pakistan,PK,Pakistan
+us6000svkt,2026-05-06 08:19:31.063000+00:00,-30.1407,-72.1338,10.0,4.6,"79 km WSW of Coquimbo, Chile",Chile,CL,Chile
+us6000svsj,2026-05-06 05:52:27.488000+00:00,48.9704,155.8529,35.0,4.3,"190 km S of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
+us6000svix,2026-05-06 05:37:05.782000+00:00,28.3289,52.9169,10.0,4.1,"66 km SSE of Fīrūzābād, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000svia,2026-05-06 04:41:44.534000+00:00,-33.6701,179.5039,159.457,4.4,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
+us6000svi6,2026-05-06 04:06:07.673000+00:00,29.8059,70.0624,10.0,5.0,"40 km NW of Dajal, Pakistan",Pakistan,PK,Pakistan
 us6000sxp8,2026-05-06 03:20:59.068000+00:00,-54.2044,-134.0364,10.0,4.4,Pacific-Antarctic Ridge,Pacific-Antarctic Ridge,PN,Pitcairn
-us6000svhx,2026-05-06 03:03:49.136000+00:00,29.2625,142.5455,10.0,4.8,"Izu Islands, Japan region",Japan region,JP,Japan
+us6000svhx,2026-05-06 03:03:48.959000+00:00,29.2443,142.5269,10.0,4.8,"Izu Islands, Japan region",Japan region,JP,Japan
 us6000sxp7,2026-05-06 02:42:43.144000+00:00,-10.3999,161.1647,35.0,4.3,"82 km W of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
 us6000sxp4,2026-05-06 01:12:37.075000+00:00,-16.7902,167.7527,32.878,4.4,"84 km SSE of Lakatoro, Vanuatu",Vanuatu,VU,Vanuatu
 us6000svh0,2026-05-06 00:08:38.308000+00:00,-4.5476,153.6755,105.758,4.5,"157 km E of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
@@ -95874,7 +96053,7 @@ us7000shxd,2026-05-03 06:57:42.701000+00:00,1.4364,126.2841,35.0,4.8,"128 km E o
 us7000shxa,2026-05-03 06:38:11.164000+00:00,-31.6865,-72.0969,11.784,4.4,"88 km W of Illapel, Chile",Chile,CL,Chile
 us6000sx5s,2026-05-03 06:04:41.166000+00:00,-17.4621,-174.2899,138.01,4.1,"135 km NNW of Neiafu, Tonga",Tonga,TO,Tonga
 us7000shx6,2026-05-03 05:38:52.890000+00:00,47.3854,152.4625,101.173,4.2,Kuril Islands,Kuril Islands,RU,Russian Federation
-us7000shwv,2026-05-03 04:40:23.019000+00:00,-4.794,152.3696,10.0,4.9,"51 km SSE of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us7000shwv,2026-05-03 04:40:18.713000+00:00,-4.6701,152.8769,10.0,4.6,"76 km ESE of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000sx5q,2026-05-03 03:36:22.650000+00:00,9.0346,126.0569,10.0,4.2,"12 km WNW of Gamut, Philippines",Philippines,PH,Philippines
 us6000sx5m,2026-05-03 00:58:43.776000+00:00,-5.9862,152.2224,10.0,4.5,"181 km S of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000svjx,2026-05-03 00:13:54.659000+00:00,-27.6736,-176.8638,27.904,4.5,Kermadec Islands region,Kermadec Islands region,TO,Tonga
@@ -95901,14 +96080,16 @@ us7000shs2,2026-05-02 09:28:41.537000+00:00,34.1145,135.5533,64.0,5.7,"12 km SSW
 us7000shrs,2026-05-02 08:36:33.795000+00:00,31.117,138.502,396.223,4.6,"Izu Islands, Japan region",Japan region,JP,Japan
 us7000shr3,2026-05-02 07:09:41.207000+00:00,-15.7554,-174.9239,234.042,4.3,"122 km W of Hihifo, Tonga",Tonga,TO,Tonga
 us7000shqp,2026-05-02 06:22:42.852000+00:00,-21.7539,-68.7738,115.882,4.6,"79 km N of Calama, Chile",Chile,CL,Chile
-us7000shps,2026-05-02 05:04:56.485000+00:00,-30.0095,-66.5123,10.0,5.0,"43 km NNW of Chamical, Argentina",Argentina,AR,Argentina
+us6000swxg,2026-05-02 05:48:47.521000+00:00,-19.1475,-177.5726,577.534,4.4,Fiji region,Fiji region,TO,Tonga
+us6000swxf,2026-05-02 05:33:28.274000+00:00,16.6987,95.4164,10.0,4.5,"25 km W of Maubin, Burma (Myanmar)",Burma (Myanmar),MM,Myanmar
+us7000shps,2026-05-02 05:04:56.472000+00:00,-30.0132,-66.5086,10.0,4.2,"42 km NNW of Chamical, Argentina",Argentina,AR,Argentina
 us6000swxd,2026-05-02 04:07:22.924000+00:00,58.0764,157.8865,10.0,4.1,"58 km NW of Tigil’, Russia",Russia,RU,Russian Federation
-us7000shpb,2026-05-02 03:57:00.734000+00:00,-24.3288,-67.4096,211.368,4.5,"111 km W of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
+us7000shpb,2026-05-02 03:57:00.513000+00:00,-24.358,-67.2256,173.505,4.4,"93 km W of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
 us6000swxa,2026-05-02 03:45:47.278000+00:00,28.1215,105.1044,10.0,4.4,"21 km SSE of Bowangshan, China",China,CN,China
 us6000swx6,2026-05-02 03:15:38.457000+00:00,28.9109,142.5698,10.0,4.5,"Bonin Islands, Japan region",Japan region,JP,Japan
 us6000swx5,2026-05-02 02:25:12.870000+00:00,13.8186,144.8387,142.747,4.4,"31 km N of Yigo Village, Guam",Guam,GU,Guam
-us7000shnl,2026-05-02 02:06:36.139000+00:00,-24.4373,178.8233,532.819,5.1,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
-us7000shnf,2026-05-02 01:14:54.168000+00:00,41.3576,83.9345,10.0,4.4,"92 km ESE of Kuqa, China",China,CN,China
+us7000shnl,2026-05-02 02:06:37.019000+00:00,-24.4445,178.839,546.153,5.1,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
+us7000shnf,2026-05-02 01:14:53.776000+00:00,41.3488,83.9841,10.0,4.4,"96 km ESE of Kuqa, China",China,CN,China
 us6000swx2,2026-05-02 00:27:54.071000+00:00,47.2482,152.7758,71.995,4.3,Kuril Islands,Kuril Islands,RU,Russian Federation
 us7000shn0,2026-05-01 22:17:56.737000+00:00,41.299,83.965,10.0,4.4,"98 km ESE of Kuqa, China",China,CN,China
 us6000sw9g,2026-05-01 21:53:09.518000+00:00,50.6152,156.54,85.535,4.3,"29 km ESE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
@@ -95916,17 +96097,19 @@ us7000shmg,2026-05-01 21:13:35.747000+00:00,32.4099,137.7944,356.979,4.2,"222 km
 us7000shlt,2026-05-01 19:16:27.856000+00:00,-30.529,-178.5514,142.158,4.3,"Kermadec Islands, New Zealand",New Zealand,TO,Tonga
 us7000shll,2026-05-01 18:52:47.348000+00:00,-7.3476,128.3598,170.024,4.8,"198 km NE of Lospalos, Timor Leste",Timor Leste,TL,Timor-Leste
 us7000shl7,2026-05-01 17:19:26.191000+00:00,42.9912,145.4493,48.703,4.8,"38 km SSW of Nemuro, Japan",Japan,JP,Japan
-us7000shks,2026-05-01 16:27:49.714000+00:00,52.0804,176.4094,10.0,4.5,"235 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us7000shks,2026-05-01 16:27:49.684000+00:00,52.0841,176.3939,10.0,4.5,"233 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
 us6000sw96,2026-05-01 14:40:45.676000+00:00,26.3823,142.5994,10.0,4.5,"Bonin Islands, Japan region",Japan region,JP,Japan
 us6000sw93,2026-05-01 13:36:23.235000+00:00,20.1767,121.3157,10.0,4.5,"74 km WSW of Basco, Philippines",Philippines,PH,Philippines
 us7000shjt,2026-05-01 13:00:41.190000+00:00,35.9582,141.6879,35.0,4.9,"81 km ENE of Hasaki, Japan",Japan,JP,Japan
 us7000shjp,2026-05-01 12:39:55.578000+00:00,24.8748,122.02,97.333,5.8,"29 km ENE of Yilan, Taiwan",Taiwan,TW,"Taiwan, Province of China"
+us6000sw91,2026-05-01 12:14:08.329000+00:00,-8.6895,119.4815,166.747,4.3,"11 km S of Komodo, Indonesia",Indonesia,ID,Indonesia
 us7000shj5,2026-05-01 11:04:39.548000+00:00,-57.7679,-25.3328,10.0,5.1,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
 us7000shiq,2026-05-01 09:24:24.221000+00:00,-1.5344,134.2944,10.0,4.9,"14 km ESE of Ransiki, Indonesia",Indonesia,ID,Indonesia
 nn00916980,2026-05-01 08:17:19.870000+00:00,39.3066,-119.0467,5.0,5.17,"19 km SE of Silver Springs, Nevada",Nevada,US,United States
 nn00916977,2026-05-01 08:15:55.842000+00:00,39.3035,-119.0377,7.0,4.28,"20 km SE of Silver Springs, Nevada",Nevada,US,United States
 us6000sw8x,2026-05-01 07:20:40.044000+00:00,-3.8136,154.3107,10.0,4.4,"234 km ENE of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us7000shhi,2026-05-01 05:17:26.022000+00:00,-0.8358,101.3895,197.729,4.5,"48 km ESE of Sijunjung, Indonesia",Indonesia,ID,Indonesia
+us6000sw8w,2026-05-01 06:58:57.320000+00:00,43.0172,147.0031,35.0,4.3,"89 km SSE of Shikotan, Russia",Russia,RU,Russian Federation
+us7000shhi,2026-05-01 05:17:26.485000+00:00,-0.874,101.3766,205.953,4.5,"48 km ESE of Sijunjung, Indonesia",Indonesia,ID,Indonesia
 us7000shh1,2026-05-01 04:03:16.561000+00:00,50.859,157.0891,76.017,5.1,"70 km ENE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us7000shgw,2026-05-01 03:36:28.247000+00:00,-23.4254,-179.9758,558.08,4.4,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
 us7000shgu,2026-05-01 03:12:50.562000+00:00,8.0204,91.7969,10.0,4.8,"Nicobar Islands, India region",India region,IN,India
@@ -95948,14 +96131,26 @@ us7000sh7j,2026-04-30 08:43:19.582000+00:00,40.515,142.8124,44.657,4.5,"95 km EN
 us7000sh70,2026-04-30 06:40:48.483000+00:00,-32.1137,-178.1186,10.0,4.9,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us7000sh6y,2026-04-30 05:40:53.111000+00:00,49.4265,155.3174,77.175,4.4,"150 km SSW of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000sw7c,2026-04-30 05:14:05.537000+00:00,40.4445,142.5098,35.096,4.2,"69 km ENE of Kuji, Japan",Japan,JP,Japan
-us7000sh6d,2026-04-30 03:41:24.183000+00:00,35.9872,69.5968,69.826,4.2,"42 km ESE of Nahrīn, Afghanistan",Afghanistan,AF,Afghanistan
-us7000sh5x,2026-04-30 01:10:38.125000+00:00,-4.2638,125.9116,383.784,4.4,"243 km S of Sanana, Indonesia",Indonesia,ID,Indonesia
+us7000sh6d,2026-04-30 03:41:20.987000+00:00,35.7017,69.7336,66.63,4.2,"47 km NNE of Bāzārak, Afghanistan",Afghanistan,AF,Afghanistan
+us6000sw76,2026-04-30 02:18:45.766000+00:00,33.8156,142.4712,10.0,4.2,"246 km SE of Shinmachi, Japan",Japan,JP,Japan
+us6000sw77,2026-04-30 02:09:34.585000+00:00,0.0225,123.2523,131.734,4.1,"60 km SSE of Gorontalo, Indonesia",Indonesia,ID,Indonesia
+us7000sh5x,2026-04-30 01:10:38.756000+00:00,-4.2874,125.8918,388.262,4.4,"246 km S of Sanana, Indonesia",Indonesia,ID,Indonesia
+us7000sh5w,2026-04-30 01:05:39.123000+00:00,60.4967,-139.6426,5.0,4.1,"105 km N of Yakutat, Alaska",Alaska,CA,Canada
 us7000sh5l,2026-04-29 23:54:10.871000+00:00,-17.6399,-178.8386,534.762,4.3,"201 km ENE of Levuka, Fiji",Fiji,WF,Wallis and Futuna
 us6000svz0,2026-04-29 22:46:57.497000+00:00,-5.7683,130.9243,75.216,4.0,"203 km W of Tual, Indonesia",Indonesia,ID,Indonesia
 us7000sh59,2026-04-29 22:24:50.925000+00:00,36.8655,74.3474,62.973,4.1,"67 km NNW of Barishal, Pakistan",Pakistan,PK,Pakistan
 us6000svyy,2026-04-29 22:24:02.289000+00:00,-5.5934,149.9587,135.659,4.3,"20 km WSW of Kimbe, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us7000sh55,2026-04-29 22:04:41.352000+00:00,8.943,126.4611,35.0,4.9,"17 km ENE of Aras-asan, Philippines",Philippines,PH,Philippines
-us7000sh4s,2026-04-29 20:38:48.633000+00:00,-27.7124,64.0345,10.0,4.6,Southwest Indian Ridge,Southwest Indian Ridge,MU,Mauritius
+us6000svyw,2026-04-29 20:45:01.594000+00:00,-5.8959,148.578,119.287,4.3,"109 km NE of Finschhafen, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us7000sh4s,2026-04-29 20:38:48.742000+00:00,-27.7502,64.0508,10.0,4.7,Southwest Indian Ridge,Southwest Indian Ridge,MU,Mauritius
+us6000svyt,2026-04-29 19:58:29.070000+00:00,-19.1007,-174.6176,10.0,4.6,"78 km NNW of Fangale’ounga, Tonga",Tonga,TO,Tonga
+us6000svys,2026-04-29 19:29:53.616000+00:00,-35.1656,-108.3538,10.0,4.5,southern East Pacific Rise,southern East Pacific Rise,CL,Chile
+us7000sh4c,2026-04-29 19:29:05.905000+00:00,1.0931,126.1413,35.0,4.4,"119 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
+us6000svyr,2026-04-29 19:20:57.224000+00:00,28.3397,100.6875,10.0,4.4,"56 km N of Yongning, China",China,CN,China
+us6000svyp,2026-04-29 19:19:46.904000+00:00,29.559,100.2456,10.0,4.2,"57 km N of Daocheng, China",China,CN,China
+us7000sh46,2026-04-29 19:11:11.726000+00:00,28.4911,100.8041,10.0,4.7,"74 km N of Yongning, China",China,CN,China
+us6000svyn,2026-04-29 19:01:17.866000+00:00,-23.0135,-179.3007,486.51,4.2,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
+us7000sh3y,2026-04-29 17:58:44.741000+00:00,38.9246,110.192,10.0,4.2,"80 km NNE of Yulinshi, China",China,CN,China
 us7000sh1g,2026-04-29 16:41:44.936000+00:00,-44.624,37.2938,10.0,5.2,Prince Edward Islands region,Prince Edward Islands region,ZA,South Africa
 us6000svye,2026-04-29 16:34:22.319000+00:00,-44.5327,37.4822,10.0,4.4,Prince Edward Islands region,Prince Edward Islands region,ZA,South Africa
 us6000svyf,2026-04-29 16:33:06.765000+00:00,-2.2612,100.54,61.917,4.5,"97 km WSW of Sungai Penuh, Indonesia",Indonesia,ID,Indonesia
@@ -95968,12 +96163,18 @@ nn00916724,2026-04-29 15:06:13.025000+00:00,37.1132,-115.3011,4.0,4.41,"30 km SS
 us6000svy5,2026-04-29 14:56:07.076000+00:00,-17.9908,-177.9884,574.032,4.1,"285 km E of Levuka, Fiji",Fiji,WF,Wallis and Futuna
 us7000sh0n,2026-04-29 14:51:26.271000+00:00,-18.1063,-177.9939,587.116,4.5,"284 km E of Levuka, Fiji",Fiji,WF,Wallis and Futuna
 us6000svy3,2026-04-29 13:08:05.066000+00:00,-18.4723,-175.5153,205.18,4.1,"162 km W of Neiafu, Tonga",Tonga,TO,Tonga
-us7000sgxr,2026-04-29 12:35:29.925000+00:00,-36.3183,-98.7783,10.0,4.7,southeast of Easter Island,southeast of Easter Island,CL,Chile
-us7000sgwq,2026-04-29 09:28:48.213000+00:00,-24.2444,179.7163,539.018,4.4,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
-us7000sgwj,2026-04-29 08:42:21.562000+00:00,-19.9846,-71.0682,10.0,4.7,"98 km WNW of Puerto, Chile",Chile,CL,Chile
-us7000sgvx,2026-04-29 06:34:18.672000+00:00,-47.8113,115.8857,10.0,4.5,western Indian-Antarctic Ridge,western Indian-Antarctic Ridge,AU,Australia
-us7000sgvv,2026-04-29 06:29:41.617000+00:00,33.5412,81.9551,10.0,4.8,western Xizang,western Xizang,CN,China
-us7000sgvu,2026-04-29 06:12:17.005000+00:00,-5.5896,-79.0082,59.866,4.8,"10 km WNW of Huabal, Peru",Peru,PE,Peru
+us7000sgxr,2026-04-29 12:35:29.482000+00:00,-36.3393,-98.8358,10.0,4.6,southeast of Easter Island,southeast of Easter Island,CL,Chile
+us6000svy1,2026-04-29 12:32:16.602000+00:00,-11.3229,162.9117,10.0,4.5,"144 km SE of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
+us6000svy0,2026-04-29 11:36:31.704000+00:00,11.5207,125.2794,77.649,4.5,"16 km NE of Mabini, Philippines",Philippines,PH,Philippines
+us6000svxy,2026-04-29 10:53:27.423000+00:00,51.5764,159.4617,35.0,4.2,"167 km SSE of Vilyuchinsk, Russia",Russia,RU,Russian Federation
+us6000svxx,2026-04-29 10:09:03.629000+00:00,-2.5451,121.445,10.0,4.3,"124 km E of Masamba, Indonesia",Indonesia,ID,Indonesia
+us6000svxv,2026-04-29 09:36:31.082000+00:00,39.6782,143.4096,35.0,4.4,"126 km E of Miyako, Japan",Japan,JP,Japan
+us7000sgwq,2026-04-29 09:28:47.867000+00:00,-24.2516,179.7635,536.235,4.3,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
+us7000sgwj,2026-04-29 08:42:21.419000+00:00,-19.9645,-71.1119,10.0,4.7,"103 km WNW of Puerto, Chile",Chile,CL,Chile
+us6000svxu,2026-04-29 08:14:13.241000+00:00,-9.1854,118.179,89.231,4.1,"78 km SSW of Dompu, Indonesia",Indonesia,ID,Indonesia
+us7000sgvx,2026-04-29 06:34:18.403000+00:00,-47.7909,115.8383,10.0,4.6,western Indian-Antarctic Ridge,western Indian-Antarctic Ridge,AU,Australia
+us7000sgvv,2026-04-29 06:29:41.738000+00:00,33.5224,81.7327,10.0,4.8,western Xizang,western Xizang,CN,China
+us7000sgvu,2026-04-29 06:12:17.360000+00:00,-5.6077,-79.0543,64.152,4.8,"15 km W of Huabal, Peru",Peru,PE,Peru
 us7000sgv4,2026-04-29 03:19:23.672000+00:00,-17.328,-173.7698,127.224,4.5,"148 km N of Neiafu, Tonga",Tonga,TO,Tonga
 aka2026iiuvdi,2026-04-29 02:36:25.744000+00:00,57.409,-152.432,47.5,4.2,"24 km SSW of Chiniak, Alaska",Alaska,US,United States
 us7000sgup,2026-04-29 02:31:14.099000+00:00,-18.0327,-174.8976,189.958,4.8,"118 km NW of Neiafu, Tonga",Tonga,TO,Tonga
@@ -95988,27 +96189,34 @@ us7000sgsp,2026-04-28 20:22:21.329000+00:00,39.2675,71.8893,4.157,4.0,"31 km E o
 us7000sgs6,2026-04-28 19:59:06.785000+00:00,2.5138,128.2913,199.944,4.4,"92 km NNE of Tobelo, Indonesia",Indonesia,ID,Indonesia
 us7000sgrs,2026-04-28 19:16:05.527000+00:00,41.2677,83.9694,10.0,4.6,"100 km ESE of Kuqa, China",China,CN,China
 us7000sgrr,2026-04-28 19:13:13.357000+00:00,-18.5096,-175.4194,220.602,4.6,"152 km W of Neiafu, Tonga",Tonga,TO,Tonga
-us7000sgqz,2026-04-28 16:32:06.338000+00:00,-5.9905,146.5918,43.834,4.7,"86 km ENE of Kainantu, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us7000sgqy,2026-04-28 16:18:24.175000+00:00,-23.1275,-175.2728,10.0,4.9,"200 km S of ‘Ohonua, Tonga",Tonga,TO,Tonga
+us7000sgqz,2026-04-28 16:32:06.522000+00:00,-5.997,146.5781,45.861,4.7,"85 km ENE of Kainantu, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us7000sgqy,2026-04-28 16:18:24.077000+00:00,-23.1233,-175.3058,10.0,4.9,"200 km S of ‘Ohonua, Tonga",Tonga,TO,Tonga
 us7000sgp4,2026-04-28 15:28:11.539000+00:00,-18.6197,-177.6086,361.072,5.2,Fiji region,Fiji region,TO,Tonga
-us7000sgnz,2026-04-28 14:55:23.220000+00:00,-33.9441,-72.2494,20.229,4.7,"70 km WSW of San Antonio, Chile",Chile,CL,Chile
-us7000sgng,2026-04-28 13:20:55.608000+00:00,36.3909,71.4497,107.277,4.5,"33 km SSW of Ashkāsham, Afghanistan",Afghanistan,AF,Afghanistan
-us7000sgnb,2026-04-28 13:07:46.327000+00:00,39.1704,23.3922,9.832,4.8,"8 km W of Skiáthos, Greece",Greece,GR,Greece
-us7000sgn7,2026-04-28 12:54:45.864000+00:00,-33.965,-72.2263,25.213,4.0,"70 km SW of San Antonio, Chile",Chile,CL,Chile
-us7000sgn2,2026-04-28 12:02:39.251000+00:00,41.0113,43.1214,10.0,4.0,"25 km NW of Arpaçay, Turkey",Turkey,TR,Türkiye
-us7000sgmz,2026-04-28 11:12:23.330000+00:00,39.267,23.3291,10.0,4.7,"10 km ENE of Argalastí, Greece",Greece,GR,Greece
-us7000sgms,2026-04-28 10:27:27.022000+00:00,-4.7006,153.5953,113.339,4.8,"152 km ESE of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us7000sgmq,2026-04-28 10:14:57.686000+00:00,40.3625,142.5804,43.981,4.5,"70 km ENE of Noda, Japan",Japan,JP,Japan
-us7000sgmr,2026-04-28 10:07:09.901000+00:00,-32.0894,-178.8476,94.088,4.8,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
-us7000sgmp,2026-04-28 10:06:22.747000+00:00,-33.9947,-72.166,22.0,4.1,"68 km SW of San Antonio, Chile",Chile,CL,Chile
-us7000sgmn,2026-04-28 10:04:20.263000+00:00,-33.9607,-72.2184,24.254,4.2,"69 km SW of San Antonio, Chile",Chile,CL,Chile
-us7000sgm7,2026-04-28 07:24:43.298000+00:00,40.2442,142.6908,10.0,4.9,"75 km ENE of Noda, Japan",Japan,JP,Japan
-us7000sglz,2026-04-28 06:23:52.879000+00:00,51.3448,159.2004,35.0,4.7,"184 km SSE of Vilyuchinsk, Russia",Russia,RU,Russian Federation
-us7000shqe,2026-04-28 05:37:29.910000+00:00,-15.8894,-172.8462,10.0,4.5,"101 km E of Hihifo, Tonga",Tonga,TO,Tonga
+us7000sgnz,2026-04-28 14:55:23.352000+00:00,-33.9504,-72.2546,21.836,4.7,"71 km WSW of San Antonio, Chile",Chile,CL,Chile
+us7000sgng,2026-04-28 13:20:55.616000+00:00,36.3942,71.4506,106.656,4.5,"32 km SSW of Ashkāsham, Afghanistan",Afghanistan,AF,Afghanistan
+us7000sgnb,2026-04-28 13:07:45.838000+00:00,39.2009,23.4413,5.768,4.8,"6 km NW of Skiáthos, Greece",Greece,GR,Greece
+us7000sgn7,2026-04-28 12:54:45.829000+00:00,-33.9694,-72.2122,24.37,4.0,"69 km SW of San Antonio, Chile",Chile,CL,Chile
+us6000svq7,2026-04-28 12:21:28.463000+00:00,-30.0389,-177.6119,35.0,4.4,"Kermadec Islands, New Zealand",New Zealand,TO,Tonga
+us7000sgn2,2026-04-28 12:02:39.202000+00:00,41.0003,43.0992,10.0,4.0,"24 km N of Susuz, Turkey",Turkey,TR,Türkiye
+us7000sgmz,2026-04-28 11:12:24.126000+00:00,39.2156,23.4364,10.0,4.7,"7 km NW of Skiáthos, Greece",Greece,GR,Greece
+us6000svq6,2026-04-28 10:54:11.682000+00:00,51.5249,158.9842,35.0,4.1,"161 km SSE of Vilyuchinsk, Russia",Russia,RU,Russian Federation
+us7000sgms,2026-04-28 10:27:26.603000+00:00,-4.6477,153.5956,110.92,4.8,"151 km ESE of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us7000sgmq,2026-04-28 10:14:57.269000+00:00,40.3438,142.6004,41.493,4.5,"71 km ENE of Noda, Japan",Japan,JP,Japan
+us7000sgmr,2026-04-28 10:07:04.514000+00:00,-31.9657,-179.457,10.0,4.9,Kermadec Islands region,Kermadec Islands region,TO,Tonga
+us7000sgmp,2026-04-28 10:06:22.559000+00:00,-34.0211,-72.1684,22.0,4.1,"70 km SW of San Antonio, Chile",Chile,CL,Chile
+us7000sgmn,2026-04-28 10:04:20.251000+00:00,-33.9796,-72.1684,21.706,4.2,"67 km SW of San Antonio, Chile",Chile,CL,Chile
+us6000svq4,2026-04-28 09:16:56.826000+00:00,-5.9691,146.669,45.05,4.4,"90 km NNW of Lae, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000svq5,2026-04-28 09:09:38.755000+00:00,-55.3157,-125.2023,10.0,4.4,southern East Pacific Rise,southern East Pacific Rise,PN,Pitcairn
+us6000svq1,2026-04-28 07:54:16.425000+00:00,-13.4856,-74.6876,104.822,4.3,"21 km NW of Vilcanchos, Peru",Peru,PE,Peru
+us7000sgm7,2026-04-28 07:24:42.799000+00:00,40.1505,142.7847,10.0,4.9,"82 km E of Noda, Japan",Japan,JP,Japan
+us7000sglz,2026-04-28 06:23:52.276000+00:00,51.3149,159.5312,28.942,4.7,"195 km SSE of Vilyuchinsk, Russia",Russia,RU,Russian Federation
+us6000svpy,2026-04-28 05:55:09.462000+00:00,-14.9445,167.2568,116.504,4.3,"22 km ENE of Port-Olry, Vanuatu",Vanuatu,VU,Vanuatu
+us7000shqe,2026-04-28 05:37:30.089000+00:00,-15.8953,-172.8047,10.0,4.5,"106 km E of Hihifo, Tonga",Tonga,TO,Tonga
 us7000sglj,2026-04-28 04:26:05.624000+00:00,-8.9588,127.1672,10.0,4.6,"51 km SSE of Lospalos, Timor Leste",Timor Leste,TL,Timor-Leste
-us7000sglc,2026-04-28 03:49:47.824000+00:00,9.7939,-84.155,62.849,4.8,"0 km SE of San Ignacio, Costa Rica",Costa Rica,CR,Costa Rica
+us7000sglc,2026-04-28 03:49:47.959000+00:00,9.8635,-84.1985,70.8,5.0,"2 km NNE of Palmichal, Costa Rica",Costa Rica,CR,Costa Rica
 aka2026ihbayw,2026-04-28 03:33:31.166000+00:00,63.066,-149.833,92.1,4.3,"57 km SW of Cantwell, Alaska",Alaska,US,United States
-us7000sgkx,2026-04-28 02:00:25.197000+00:00,-20.1341,-177.6526,526.977,4.3,"270 km WNW of Houma, Tonga",Tonga,TO,Tonga
+us7000sgkx,2026-04-28 02:00:25.592000+00:00,-20.1728,-177.625,533.497,4.1,"266 km WNW of Houma, Tonga",Tonga,TO,Tonga
+us7000sgkv,2026-04-28 01:48:03.257000+00:00,-21.9315,-179.6407,595.708,4.2,Fiji region,Fiji region,TO,Tonga
 us6000svm0,2026-04-27 23:59:19.206000+00:00,-33.0402,-179.9219,144.197,4.0,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
 us6000svlz,2026-04-27 23:05:48.470000+00:00,52.4015,160.6173,10.0,4.3,"153 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us7000sgke,2026-04-27 23:05:01.751000+00:00,41.2337,83.9115,10.0,4.5,"97 km ESE of Kuqa, China",China,CN,China
@@ -96018,16 +96226,24 @@ us6000svlv,2026-04-27 17:11:57.966000+00:00,-6.9491,-72.7358,10.0,4.4,"75 km N o
 us6000svlu,2026-04-27 15:24:01.306000+00:00,12.1331,143.7761,10.0,4.4,"158 km SW of Merizo Village, Guam",Guam,GU,Guam
 us6000st4x,2026-04-27 14:01:48.237000+00:00,52.197,176.4529,10.0,4.3,"233 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
 us6000svlr,2026-04-27 13:53:00.300000+00:00,-7.9617,130.2034,10.0,4.3,"Pulau Pulau Tanimbar, Indonesia",Indonesia,TL,Timor-Leste
-us6000st4v,2026-04-27 12:42:41.441000+00:00,38.3047,38.6633,10.0,4.0,"30 km N of Sincik, Turkey",Turkey,TR,Türkiye
-us6000st4k,2026-04-27 11:44:09.762000+00:00,30.4434,100.0452,10.0,4.3,"157 km N of Daocheng, China",China,CN,China
+us6000st4v,2026-04-27 12:42:41.127000+00:00,38.3189,38.6405,10.0,4.0,"28 km E of Malatya, Turkey",Turkey,TR,Türkiye
+us6000st4k,2026-04-27 11:44:09.607000+00:00,30.3529,99.8814,10.0,4.3,"151 km NNW of Daocheng, China",China,CN,China
 us6000st4g,2026-04-27 11:37:40.930000+00:00,-21.1392,-69.1609,108.536,4.3,"94 km W of Ollagüe, Chile",Chile,CL,Chile
-us6000st3z,2026-04-27 08:17:21.658000+00:00,-0.1764,123.7457,135.571,4.6,"103 km SW of Modisi, Indonesia",Indonesia,ID,Indonesia
-us6000st3y,2026-04-27 08:06:41.693000+00:00,35.1342,26.0359,10.0,4.3,"10 km SW of Sitia, Greece",Greece,GR,Greece
-us6000st3w,2026-04-27 07:45:02.318000+00:00,34.8322,26.1257,10.0,4.9,"40 km ESE of Ierápetra, Greece",Greece,GR,Greece
-us6000st3s,2026-04-27 06:46:08.014000+00:00,37.3466,71.3121,105.112,5.1,"26 km SW of Khorugh, Tajikistan",Tajikistan,TJ,Tajikistan
-us6000st3m,2026-04-27 06:13:00.421000+00:00,34.9749,25.906,10.0,4.1,"15 km ESE of Kentrí, Greece",Greece,GR,Greece
-us6000st3h,2026-04-27 06:09:44.287000+00:00,-25.6551,-70.9693,25.404,4.3,"55 km WSW of Taltal, Chile",Chile,CL,Chile
-us6000st2z,2026-04-27 03:18:05.340000+00:00,13.9941,-92.0889,35.0,4.1,"38 km SSW of Champerico, Guatemala",Guatemala,GT,Guatemala
+us6000svln,2026-04-27 11:21:13.015000+00:00,-7.1787,154.9607,10.0,4.6,"111 km SSW of Panguna, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000svll,2026-04-27 11:16:59.477000+00:00,8.7449,126.2026,92.605,4.3,"3 km N of Salvacion, Philippines",Philippines,PH,Philippines
+us6000svlk,2026-04-27 10:54:21.722000+00:00,-19.0849,169.5112,266.515,4.3,"56 km NNE of Isangel, Vanuatu",Vanuatu,VU,Vanuatu
+us6000st3z,2026-04-27 08:17:21.682000+00:00,-0.1556,123.742,135.283,4.6,"102 km SW of Modisi, Indonesia",Indonesia,ID,Indonesia
+us6000st3y,2026-04-27 08:06:40.794000+00:00,35.0408,26.0316,10.0,4.3,"19 km SSW of Sitia, Greece",Greece,GR,Greece
+us6000st3w,2026-04-27 07:45:02.076000+00:00,34.8118,26.115,10.0,4.9,"40 km ESE of Ierápetra, Greece",Greece,GR,Greece
+us6000st3s,2026-04-27 06:46:07.265000+00:00,37.2924,71.3498,98.951,5.1,"28 km SW of Khorugh, Tajikistan",Tajikistan,TJ,Tajikistan
+us6000svlf,2026-04-27 06:17:28.273000+00:00,0.9732,126.3888,49.868,4.6,"112 km W of Ternate, Indonesia",Indonesia,ID,Indonesia
+us6000st3m,2026-04-27 06:13:00.373000+00:00,34.998,25.8989,10.0,4.1,"13 km ESE of Kentrí, Greece",Greece,GR,Greece
+us6000st3h,2026-04-27 06:09:44.239000+00:00,-25.6528,-70.9762,25.384,4.3,"56 km WSW of Taltal, Chile",Chile,CL,Chile
+us6000svle,2026-04-27 06:00:13.133000+00:00,-18.4069,168.4646,122.377,4.4,"75 km SSE of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
+us6000svld,2026-04-27 05:27:35.767000+00:00,30.2584,60.7637,10.0,4.3,"85 km N of Zahedan, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000svlb,2026-04-27 04:40:43.644000+00:00,39.8246,143.2157,25.466,4.3,"111 km E of Miyako, Japan",Japan,JP,Japan
+us6000svla,2026-04-27 04:33:22.583000+00:00,-30.2224,-179.1297,226.659,4.1,Kermadec Islands region,Kermadec Islands region,TO,Tonga
+us6000st2z,2026-04-27 03:18:03.214000+00:00,13.773,-92.2402,32.611,4.1,"67 km SSW of Champerico, Guatemala",Guatemala,GT,Guatemala
 us6000svl6,2026-04-27 01:42:16.027000+00:00,-16.2429,178.3423,10.0,4.6,"111 km W of Labasa, Fiji",Fiji,FJ,Fiji
 us6000svl5,2026-04-27 01:28:12.756000+00:00,30.6575,141.2291,35.0,4.4,"Izu Islands, Japan region",Japan region,JP,Japan
 us6000svl3,2026-04-27 00:31:04.069000+00:00,6.6546,127.4369,10.0,4.4,"116 km ESE of San Ignacio, Philippines",Philippines,PH,Philippines
@@ -96047,13 +96263,18 @@ us6000svd8,2026-04-26 15:52:35.660000+00:00,3.0165,126.4939,48.217,4.3,"220 km N
 us6000st0n,2026-04-26 15:14:14.675000+00:00,62.6068,-25.67,10.0,4.4,"212 km SW of Grindavík, Iceland",Iceland,IS,Iceland
 us6000st0e,2026-04-26 14:15:22.625000+00:00,49.8827,155.667,87.711,4.4,"94 km SSW of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000st08,2026-04-26 13:23:01.754000+00:00,51.5084,153.2634,353.664,4.7,"220 km WNW of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
-us6000sszu,2026-04-26 11:52:25.631000+00:00,2.623,99.2195,183.434,4.6,"31 km E of Parapat, Indonesia",Indonesia,ID,Indonesia
-us6000sszi,2026-04-26 10:36:15.721000+00:00,-22.1384,-66.0705,264.742,4.3,"49 km W of La Quiaca, Argentina",Argentina,AR,Argentina
+us6000svd3,2026-04-26 12:57:23.902000+00:00,62.5802,-25.5231,10.0,4.2,"209 km SW of Grindavík, Iceland",Iceland,IS,Iceland
+us6000sszu,2026-04-26 11:52:25.513000+00:00,2.6708,99.2391,179.901,4.6,"33 km E of Parapat, Indonesia",Indonesia,ID,Indonesia
+us6000svd1,2026-04-26 11:25:11.901000+00:00,1.6772,129.1128,10.0,4.3,"122 km E of Tobelo, Indonesia",Indonesia,ID,Indonesia
+us6000sszi,2026-04-26 10:36:15.864000+00:00,-22.0773,-66.0641,264.747,4.3,"48 km W of Villazón, Bolivia",Bolivia,AR,Argentina
+us6000svd0,2026-04-26 10:27:07.008000+00:00,4.9549,127.5383,113.216,4.1,"216 km SE of Pondaguitan, Philippines",Philippines,ID,Indonesia
+us6000svcz,2026-04-26 10:18:53.594000+00:00,-34.2292,-178.7504,10.0,4.5,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
 us6000svcx,2026-04-26 08:10:19.615000+00:00,6.728,-72.967,168.894,4.2,"3 km SSE of Cepitá, Colombia",Colombia,CO,Colombia
 us6000ssym,2026-04-26 07:34:13.682000+00:00,-7.3803,129.056,131.994,4.2,"259 km ENE of Lospalos, Timor Leste",Timor Leste,TL,Timor-Leste
 us6000svcw,2026-04-26 07:22:21.144000+00:00,-22.1181,-179.6022,585.562,4.1,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
 us6000ssyk,2026-04-26 07:20:42.702000+00:00,2.3613,127.0606,51.068,4.6,"126 km WNW of Tobelo, Indonesia",Indonesia,ID,Indonesia
 us6000ssyh,2026-04-26 06:43:53.103000+00:00,40.085,142.7447,35.0,4.7,"79 km E of Noda, Japan",Japan,JP,Japan
+us6000ssyg,2026-04-26 06:39:30.488000+00:00,-35.0247,-179.544,10.0,4.6,east of the North Island of New Zealand,east of the North Island of New Zealand,NZ,New Zealand
 us6000ssxz,2026-04-26 05:01:56.470000+00:00,39.3991,40.4646,10.0,4.2,"7 km WSW of Yedisu, Turkey",Turkey,TR,Türkiye
 us6000svcr,2026-04-26 04:35:24.453000+00:00,19.2257,120.5644,10.0,4.6,"77 km NNW of Pagudpud, Philippines",Philippines,PH,Philippines
 us6000ssxr,2026-04-26 04:26:57.367000+00:00,53.6192,-164.7601,28.087,4.6,"87 km SE of Akutan, Alaska",Alaska,US,United States
@@ -96079,18 +96300,31 @@ us6000ssvc,2026-04-25 19:20:38.624000+00:00,44.3611,-129.667,10.0,4.2,off the co
 us7000sgwb,2026-04-25 18:49:12.715000+00:00,-53.994,-2.6671,10.0,4.5,southern Mid-Atlantic Ridge,southern Mid-Atlantic Ridge,SH,"Saint Helena, Ascension and Tristan da Cunha"
 us6000st3q,2026-04-25 18:21:25.263000+00:00,-53.9291,-2.5298,10.0,4.9,southern Mid-Atlantic Ridge,southern Mid-Atlantic Ridge,SH,"Saint Helena, Ascension and Tristan da Cunha"
 us6000ssuz,2026-04-25 17:40:25.434000+00:00,0.2005,125.9536,35.0,4.6,"165 km SE of Bitung, Indonesia",Indonesia,ID,Indonesia
-us6000ssy1,2026-04-25 15:41:12.281000+00:00,52.2963,176.4679,13.5,4.0,"230 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
-us6000ssum,2026-04-25 15:15:12.107000+00:00,21.3783,94.8216,108.0,4.3,"27 km W of Pakokku, Burma (Myanmar)",Burma (Myanmar),MM,Myanmar
-us6000ssu2,2026-04-25 13:22:05.912000+00:00,52.9203,160.9454,10.0,4.5,"156 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
+us7000si6u,2026-04-25 15:47:30.973000+00:00,28.896,51.3266,10.0,4.1,"42 km SSE of Borāzjān, Iran",Iran,IR,"Iran, Islamic Republic of"
+us6000ssy1,2026-04-25 15:41:11.202000+00:00,52.2286,176.4452,9.568,4.0,"231 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000ssum,2026-04-25 15:15:12.091000+00:00,21.3618,94.8014,109.0,4.3,"29 km W of Pakokku, Burma (Myanmar)",Burma (Myanmar),MM,Myanmar
+us7000si6t,2026-04-25 14:37:14.498000+00:00,-17.8501,-176.3492,10.0,4.4,"265 km WNW of Neiafu, Tonga",Tonga,TO,Tonga
+us7000si6s,2026-04-25 14:34:49.593000+00:00,64.5165,-17.8282,10.0,4.2,"129 km WNW of Höfn, Iceland",Iceland,IS,Iceland
+us7000si6r,2026-04-25 13:46:10.349000+00:00,55.2865,162.5161,44.507,4.0,"104 km S of Ust’-Kamchatsk Staryy, Russia",Russia,RU,Russian Federation
+us7000si6n,2026-04-25 13:26:29.152000+00:00,15.2557,-92.9366,81.277,4.1,"20 km S of Mapastepec, Mexico",Mexico,MX,Mexico
+us7000si6p,2026-04-25 13:23:33.378000+00:00,52.6588,160.9733,23.328,4.3,"164 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
+us6000ssu2,2026-04-25 13:22:07.125000+00:00,52.7077,161.0226,18.89,4.4,"166 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
+us7000si6m,2026-04-25 13:19:54.889000+00:00,8.1581,126.5732,60.302,4.4,"15 km E of Barcelona, Philippines",Philippines,PH,Philippines
+us7000si6k,2026-04-25 12:35:11.637000+00:00,-31.7417,-178.1003,10.0,4.2,Kermadec Islands region,Kermadec Islands region,TO,Tonga
 us6000sstf,2026-04-25 11:43:02.229000+00:00,39.4059,15.4387,272.386,4.0,"41 km WSW of Cittadella del Capo, Italy",Italy,IT,Italy
 us6000sst4,2026-04-25 10:20:20.605000+00:00,52.6012,158.8735,80.156,5.2,"48 km SE of Vilyuchinsk, Russia",Russia,RU,Russian Federation
 us6000sst2,2026-04-25 09:53:40.170000+00:00,-8.957,-74.9197,133.014,4.7,"23 km W of Tournavista, Peru",Peru,PE,Peru
 us6000sssz,2026-04-25 09:40:38.528000+00:00,51.2789,89.8391,10.0,4.6,"39 km NW of Teeli, Russia",Russia,RU,Russian Federation
 us6000ssss,2026-04-25 09:07:06.638000+00:00,-5.0232,130.5286,125.981,4.6,"255 km WNW of Tual, Indonesia",Indonesia,ID,Indonesia
-us6000sssg,2026-04-25 08:05:56.550000+00:00,53.6063,-164.8431,39.41,5.5,"84 km SE of Akutan, Alaska",Alaska,US,United States
+us6000sssg,2026-04-25 08:05:55.586000+00:00,53.5522,-164.8245,31.427,5.5,"90 km SE of Akutan, Alaska",Alaska,US,United States
 nc75351142,2026-04-25 07:38:29.160000+00:00,40.356166666667,-124.919,14.16,4.09,"54 km W of Petrolia, CA",CA,US,United States
-us6000sss5,2026-04-25 07:16:33.996000+00:00,24.7912,121.8472,70.68,4.1,"10 km ENE of Yilan, Taiwan",Taiwan,TW,"Taiwan, Province of China"
-us6000ssrm,2026-04-25 05:18:45.076000+00:00,52.2239,176.5528,10.0,4.5,"238 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000sss5,2026-04-25 07:16:34.149000+00:00,24.7353,121.8432,70.488,4.1,"9 km ESE of Yilan, Taiwan",Taiwan,TW,"Taiwan, Province of China"
+us7000si6e,2026-04-25 07:04:59.277000+00:00,-15.2477,167.3348,131.616,4.6,"35 km NNE of Luganville, Vanuatu",Vanuatu,VU,Vanuatu
+us7000si6c,2026-04-25 06:32:02.503000+00:00,-9.5886,161.1091,119.488,4.5,"101 km SSE of Auki, Solomon Islands",Solomon Islands,SB,Solomon Islands
+us7000si6b,2026-04-25 06:01:46.549000+00:00,-4.6301,153.5925,115.996,4.4,"150 km ESE of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us7000si68,2026-04-25 05:19:08.969000+00:00,34.2336,142.4131,10.0,4.3,"215 km ESE of Shinmachi, Japan",Japan,JP,Japan
+us6000ssrm,2026-04-25 05:18:44.896000+00:00,52.2838,176.4645,10.0,4.4,"230 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us7000si69,2026-04-25 05:06:31.246000+00:00,-8.0358,149.1779,10.0,4.4,"131 km NE of Popondetta, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us7000si66,2026-04-25 04:32:08.996000+00:00,-2.3385,141.4167,10.0,4.5,"40 km NNE of Vanimo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us7000si67,2026-04-25 04:28:35.083000+00:00,1.2273,126.0586,35.0,4.6,"106 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
 us6000ssrc,2026-04-25 04:16:04.823000+00:00,51.971,176.301,10.0,4.3,"233 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
@@ -96119,30 +96353,39 @@ us7000shc6,2026-04-24 16:08:56.854000+00:00,48.2346,153.4369,93.842,4.1,Kuril Is
 us7000shc4,2026-04-24 14:56:59.772000+00:00,24.6219,122.0422,64.033,4.3,"32 km ESE of Yilan, Taiwan",Taiwan,TW,"Taiwan, Province of China"
 us6000ssjn,2026-04-24 14:10:20.702000+00:00,35.1115,25.7884,10.0,4.3,"9 km NNE of Kentrí, Greece",Greece,GR,Greece
 us6000ssjg,2026-04-24 13:49:41.855000+00:00,-27.8923,-70.8673,57.019,4.9,"76 km N of Vallenar, Chile",Chile,CL,Chile
-us6000ssja,2026-04-24 12:49:37.014000+00:00,52.9177,161.0719,10.0,5.1,"164 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
-us6000ssj7,2026-04-24 12:29:23.897000+00:00,34.7467,26.1302,10.0,4.1,"46 km SE of Ierápetra, Greece",Greece,GR,Greece
+us6000ssja,2026-04-24 12:49:36.689000+00:00,52.8549,161.0745,10.0,5.1,"166 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
+us7000shbx,2026-04-24 12:48:49.774000+00:00,-15.1213,167.3151,127.153,4.3,"27 km ESE of Port-Olry, Vanuatu",Vanuatu,VU,Vanuatu
+us6000ssj7,2026-04-24 12:29:24.021000+00:00,34.7753,26.0948,10.0,4.1,"41 km SE of Ierápetra, Greece",Greece,GR,Greece
+us7000shbw,2026-04-24 12:09:54.818000+00:00,34.7616,26.0542,10.0,4.3,"39 km SE of Ierápetra, Greece",Greece,GR,Greece
 us7000shbv,2026-04-24 11:01:15.038000+00:00,54.7617,83.8161,10.0,4.2,"35 km ENE of Iskitim, Russia",Russia,RU,Russian Federation
-us6000ssiy,2026-04-24 10:04:37.607000+00:00,52.9131,160.9481,35.0,5.4,"156 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
-aka2026iaeddr,2026-04-24 09:34:57.276000+00:00,52.173,-169.669,29.3,4.1,"101 km SSW of Nikolski, Alaska",Alaska,US,United States
-us6000ssiq,2026-04-24 09:26:45.744000+00:00,35.0827,25.918,10.0,4.7,"16 km ENE of Kentrí, Greece",Greece,GR,Greece
+us7000shbu,2026-04-24 10:55:17.896000+00:00,-18.533,-175.4931,195.961,4.4,"159 km W of Neiafu, Tonga",Tonga,TO,Tonga
+us6000ssiy,2026-04-24 10:04:36.732000+00:00,52.7415,161.0728,35.0,5.4,"168 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
+us7000shcm,2026-04-24 09:41:02.387000+00:00,35.3729,26.2795,10.0,4.2,"19 km N of Palekastro, Greece",Greece,GR,Greece
+us6000ssn3,2026-04-24 09:34:55.233000+00:00,52.137,-169.5927,21.47,4.1,"102 km SSW of Nikolski, Alaska",Alaska,US,United States
+us6000ssiq,2026-04-24 09:26:45.507000+00:00,35.0639,25.9295,10.0,4.7,"16 km ENE of Kentrí, Greece",Greece,GR,Greece
 us6000ssik,2026-04-24 08:59:27.876000+00:00,52.8076,161.1048,10.0,5.3,"168 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us6000ssij,2026-04-24 08:58:17.375000+00:00,34.9878,26.1103,10.0,5.1,"24 km S of Sitia, Greece",Greece,GR,Greece
+us7000shbm,2026-04-24 08:53:08.969000+00:00,-32.3868,-178.9056,12.889,4.3,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us6000ssil,2026-04-24 08:47:02.343000+00:00,49.9182,155.9381,76.658,4.4,"85 km S of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000ssih,2026-04-24 08:41:39.029000+00:00,1.4495,126.6033,35.0,4.6,"113 km NW of Ternate, Indonesia",Indonesia,ID,Indonesia
 us7000shbk,2026-04-24 08:30:23.571000+00:00,-8.6969,129.7784,10.0,4.2,"Kepulauan Babar, Indonesia",Indonesia,TL,Timor-Leste
 us6000ssib,2026-04-24 07:26:31.777000+00:00,-4.5202,153.295,125.845,4.6,"115 km E of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000ssid,2026-04-24 07:03:03.696000+00:00,15.519,96.3368,10.0,4.4,"110 km SE of Pyapon, Burma (Myanmar)",Burma (Myanmar),MM,Myanmar
-us6000ssi3,2026-04-24 06:37:54.538000+00:00,35.0161,26.0352,10.0,4.2,"22 km SSW of Sitia, Greece",Greece,GR,Greece
-us6000ssi0,2026-04-24 06:32:26.689000+00:00,35.0153,25.8923,10.0,4.2,"12 km E of Kentrí, Greece",Greece,GR,Greece
-us6000ssht,2026-04-24 06:14:31.204000+00:00,34.8712,25.9733,10.0,4.3,"26 km SE of Ierápetra, Greece",Greece,GR,Greece
-us6000sshp,2026-04-24 05:13:10.736000+00:00,40.095,142.8333,35.0,5.0,"86 km E of Noda, Japan",Japan,JP,Japan
-us7000shba,2026-04-24 04:59:22.791000+00:00,34.8554,25.7143,35.0,4.4,"17 km S of Ierápetra, Greece",Greece,GR,Greece
-us6000sshk,2026-04-24 04:45:23.068000+00:00,1.0656,126.2773,55.23,5.3,"126 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
-us7000shb8,2026-04-24 04:11:49.769000+00:00,34.7579,26.0883,21.09,4.3,"42 km SE of Ierápetra, Greece",Greece,GR,Greece
-us6000sshf,2026-04-24 04:08:38.778000+00:00,34.7057,26.0021,35.0,4.3,"41 km SE of Ierápetra, Greece",Greece,GR,Greece
-us7000shb5,2026-04-24 03:42:48.693000+00:00,-4.3036,143.105,69.348,4.3,"33 km ESE of Ambunti, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us7000shb4,2026-04-24 03:41:16.422000+00:00,34.8068,26.0535,10.0,4.1,"36 km SE of Ierápetra, Greece",Greece,GR,Greece
-us6000sshc,2026-04-24 03:18:54.010000+00:00,35.032,25.8606,16.429,5.7,"9 km E of Kentrí, Greece",Greece,GR,Greece
+us6000ssi3,2026-04-24 06:37:54.307000+00:00,34.9733,26.0329,10.0,4.3,"26 km ESE of Kentrí, Greece",Greece,GR,Greece
+us6000ssi0,2026-04-24 06:32:26.256000+00:00,34.9273,25.8818,10.0,4.2,"15 km SE of Ierápetra, Greece",Greece,GR,Greece
+us6000ssht,2026-04-24 06:14:31.605000+00:00,34.965,26.0308,10.0,4.3,"26 km ESE of Kentrí, Greece",Greece,GR,Greece
+us7000shbh,2026-04-24 05:58:13.439000+00:00,24.0357,142.421,10.0,4.4,"Volcano Islands, Japan region",Japan region,MP,Northern Mariana Islands
+us7000shbf,2026-04-24 05:39:31.908000+00:00,-15.0257,-173.6155,23.385,4.5,"104 km N of Hihifo, Tonga",Tonga,TO,Tonga
+us7000shbd,2026-04-24 05:28:06.904000+00:00,34.7138,25.8524,10.0,4.4,"34 km SSE of Ierápetra, Greece",Greece,GR,Greece
+us7000shbg,2026-04-24 05:25:53.769000+00:00,-4.4645,153.6526,110.573,4.4,"154 km E of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000sshp,2026-04-24 05:13:10.983000+00:00,40.1669,142.8141,35.0,5.0,"85 km E of Noda, Japan",Japan,JP,Japan
+us7000shba,2026-04-24 04:59:19.333000+00:00,34.9264,25.9555,10.0,4.2,"21 km ESE of Ierápetra, Greece",Greece,GR,Greece
+us6000sshk,2026-04-24 04:45:21.614000+00:00,1.108,126.3329,40.552,5.1,"122 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
+us7000shb8,2026-04-24 04:11:48.336000+00:00,34.8735,26.139,10.0,4.2,"37 km S of Sitia, Greece",Greece,GR,Greece
+us6000sshf,2026-04-24 04:08:34.982000+00:00,34.6078,26.0528,10.0,4.3,"53 km SSE of Ierápetra, Greece",Greece,GR,Greece
+us7000shb7,2026-04-24 03:55:15.750000+00:00,1.305,126.5563,35.0,4.2,"108 km WNW of Ternate, Indonesia",Indonesia,ID,Indonesia
+us7000shb5,2026-04-24 03:42:51.408000+00:00,-4.257,143.1745,96.751,4.3,"39 km E of Ambunti, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
+us6000sshc,2026-04-24 03:18:53.617000+00:00,35.0303,25.8598,14.725,5.7,"9 km E of Kentrí, Greece",Greece,GR,Greece
 us6000sshb,2026-04-24 03:15:28.052000+00:00,-18.3294,-175.492,204.676,4.8,"163 km WNW of Neiafu, Tonga",Tonga,TO,Tonga
 us6000ssh9,2026-04-24 02:48:20.285000+00:00,-19.7885,-68.9367,108.945,4.2,"64 km SSW of Colchane, Chile",Chile,BO,"Bolivia, Plurinational State of"
 us6000sshu,2026-04-24 02:45:25.545000+00:00,52.2009,-168.5086,26.26,4.0,"85 km SSE of Nikolski, Alaska",Alaska,US,United States
@@ -96170,8 +96413,14 @@ us6000sscv,2026-04-23 14:53:15.020000+00:00,35.6749,140.2081,59.013,4.5,"4 km NE
 us7000sha6,2026-04-23 14:38:05.634000+00:00,-18.6143,-175.8107,278.017,4.2,"192 km W of Neiafu, Tonga",Tonga,TO,Tonga
 us7000sha7,2026-04-23 14:35:42.280000+00:00,-22.2493,-67.4125,183.167,4.3,"109 km NE of San Pedro de Atacama, Chile",Chile,CL,Chile
 us6000ssak,2026-04-23 14:09:26.257000+00:00,13.2351,-89.3328,63.197,4.8,"28 km S of La Libertad, El Salvador",El Salvador,SV,El Salvador
-us6000ss9m,2026-04-23 10:07:48.736000+00:00,-42.2859,-18.4093,10.0,5.2,southern Mid-Atlantic Ridge,southern Mid-Atlantic Ridge,SH,"Saint Helena, Ascension and Tristan da Cunha"
-us6000sszv,2026-04-23 09:08:19.941000+00:00,-56.9946,-30.4484,10.0,4.6,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
+us7000sha2,2026-04-23 12:13:06.602000+00:00,1.3829,126.3189,10.0,4.3,"132 km E of Bitung, Indonesia",Indonesia,ID,Indonesia
+us7000sh9z,2026-04-23 10:23:50.141000+00:00,13.7891,-89.8288,68.454,4.0,"3 km E of Jujutla, El Salvador",El Salvador,SV,El Salvador
+us7000sh9y,2026-04-23 10:21:33.288000+00:00,-27.5729,82.1526,10.0,4.9,South Indian Ocean,South Indian Ocean,MU,Mauritius
+us7000sh9v,2026-04-23 10:13:17.967000+00:00,-20.9151,-173.0841,10.0,4.6,"180 km SE of Pangai, Tonga",Tonga,TO,Tonga
+us7000sh9w,2026-04-23 10:11:42.633000+00:00,48.3987,154.7574,35.0,4.1,"271 km SSW of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
+us6000ss9m,2026-04-23 10:07:48.500000+00:00,-42.2736,-18.399,10.0,5.2,southern Mid-Atlantic Ridge,southern Mid-Atlantic Ridge,SH,"Saint Helena, Ascension and Tristan da Cunha"
+us7000sh9u,2026-04-23 09:40:15.843000+00:00,40.3769,142.2148,53.947,4.1,"43 km ENE of Kuji, Japan",Japan,JP,Japan
+us6000sszv,2026-04-23 09:08:19.668000+00:00,-56.9584,-30.3062,10.0,4.6,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
 us7000sh9t,2026-04-23 08:31:18.287000+00:00,-5.6019,147.2253,210.558,4.2,"126 km NNW of Finschhafen, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us7000sh9q,2026-04-23 07:20:32.675000+00:00,39.5876,143.5325,29.112,4.2,"136 km E of Yamada, Japan",Japan,JP,Japan
 aka2026hydrzg,2026-04-23 07:12:55.378000+00:00,57.275,-153.26,39.3,4.2,"8 km NNE of Old Harbor, Alaska",Alaska,US,United States
@@ -96189,7 +96438,7 @@ us6000ss7p,2026-04-23 00:07:59.613000+00:00,39.768,143.3362,34.43,4.8,"120 km E 
 pr2026112000,2026-04-22 23:47:31.930000+00:00,18.5105,-68.8471,157.0,4.06,"16 km NE of La Romana, Dominican Republic",Dominican Republic,DO,Dominican Republic
 us7000sh35,2026-04-22 23:13:02.127000+00:00,24.9929,128.0462,10.0,4.4,"131 km SSE of Itoman, Japan",Japan,JP,Japan
 us6000ss74,2026-04-22 22:04:05.302000+00:00,18.0674,145.3427,341.948,4.5,"Pagan region, Northern Mariana Islands",Northern Mariana Islands,MP,Northern Mariana Islands
-us7000si0s,2026-04-22 21:34:45.212000+00:00,-8.3687,115.0297,10.0,4.2,"12 km SSW of Munduk, Indonesia",Indonesia,ID,Indonesia
+us7000si0s,2026-04-22 21:34:45.320000+00:00,-8.3766,115.0221,10.0,4.0,"13 km SSW of Munduk, Indonesia",Indonesia,ID,Indonesia
 us7000sh31,2026-04-22 21:08:32.982000+00:00,-18.9102,-177.3589,377.808,4.3,Fiji region,Fiji region,TO,Tonga
 us6000ss6d,2026-04-22 20:58:06.625000+00:00,50.9076,156.9338,74.706,4.7,"62 km ENE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000ss6c,2026-04-22 20:43:28.406000+00:00,23.9497,123.2024,45.755,4.4,"60 km SSE of Yonakuni, Japan",Japan,JP,Japan
@@ -96201,8 +96450,8 @@ us7000sh29,2026-04-22 17:26:12.367000+00:00,23.954,121.6814,22.078,4.6,"8 km ESE
 nn00916046,2026-04-22 17:23:37.085000+00:00,39.2758,-119.0955,3.0,4.78,"19 km SE of Silver Springs, Nevada",Nevada,US,United States
 us6000ss2b,2026-04-22 14:26:20.504000+00:00,39.9412,143.0482,35.0,4.6,"100 km ENE of Miyako, Japan",Japan,JP,Japan
 us7000sh22,2026-04-22 14:19:41.185000+00:00,-34.3805,-179.1561,10.0,4.1,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
-us6000ss29,2026-04-22 14:17:03.094000+00:00,39.0031,42.8438,10.219,4.3,"24 km NNE of Adilcevaz, Turkey",Turkey,TR,Türkiye
-us6000ss24,2026-04-22 13:35:22.752000+00:00,39.6726,143.1768,10.0,4.9,"106 km E of Miyako, Japan",Japan,JP,Japan
+us6000ss29,2026-04-22 14:17:01.717000+00:00,38.9778,42.8168,2.296,4.3,"21 km NNE of Adilcevaz, Turkey",Turkey,TR,Türkiye
+us6000ss24,2026-04-22 13:35:26.503000+00:00,39.6957,143.129,35.0,4.9,"102 km E of Miyako, Japan",Japan,JP,Japan
 us6000ss20,2026-04-22 13:20:45.876000+00:00,-15.4452,167.4535,119.208,5.0,"32 km ENE of Luganville, Vanuatu",Vanuatu,VU,Vanuatu
 us6000ss1u,2026-04-22 12:18:35.650000+00:00,40.034,143.0366,35.0,5.1,"103 km ENE of Miyako, Japan",Japan,JP,Japan
 us6000ss1s,2026-04-22 12:06:22.766000+00:00,40.1924,142.4476,35.0,4.5,"54 km E of Noda, Japan",Japan,JP,Japan
@@ -96219,7 +96468,7 @@ us7000sh1u,2026-04-22 07:15:20.680000+00:00,29.747,104.3123,10.0,4.5,"48 km NE o
 us7000sh1v,2026-04-22 07:02:45.088000+00:00,-23.0267,-179.8252,553.672,4.3,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
 us7000sh1s,2026-04-22 05:17:57.234000+00:00,-4.7159,101.9873,40.338,4.6,"105 km SSW of Bengkulu, Indonesia",Indonesia,ID,Indonesia
 us7000sh1r,2026-04-22 04:28:21.248000+00:00,51.2425,174.3338,10.0,4.0,"195 km SSE of Attu Station, Alaska",Alaska,RU,Russian Federation
-us7000sh1q,2026-04-22 04:09:55.410000+00:00,67.8867,10.1063,10.0,4.0,"112 km WNW of Sørland, Norway",Norway,NO,Norway
+us7000sh1q,2026-04-22 04:09:55.258000+00:00,67.8361,10.1429,10.0,4.0,"109 km W of Sørland, Norway",Norway,NO,Norway
 us7000sh1l,2026-04-22 02:11:42.871000+00:00,39.6587,143.5154,10.0,4.2,"135 km E of Miyako, Japan",Japan,JP,Japan
 us7000sh1m,2026-04-22 02:10:44.007000+00:00,-34.104,-179.4774,10.0,4.3,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
 us7000sh1j,2026-04-22 01:33:11.478000+00:00,6.0528,127.3627,10.0,4.2,"135 km ESE of Pondaguitan, Philippines",Philippines,PH,Philippines
@@ -96228,9 +96477,9 @@ us7000sh3l,2026-04-21 23:31:12.127000+00:00,-5.1347,151.9097,61.906,4.4,"96 km S
 us7000sh2x,2026-04-21 23:30:39.846000+00:00,50.7955,156.9544,80.775,4.0,"59 km ENE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000srxi,2026-04-21 22:00:31.003000+00:00,-20.3057,-70.9954,12.255,4.3,"88 km W of Puerto, Chile",Chile,CL,Chile
 us7000sh3k,2026-04-21 21:01:53.616000+00:00,-33.7576,-178.7597,10.0,4.7,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
-us7000sh3h,2026-04-21 18:52:17.311000+00:00,40.1984,143.2706,10.0,4.4,"124 km E of Noda, Japan",Japan,JP,Japan
+us7000sh3h,2026-04-21 18:52:21.177000+00:00,40.2033,143.1157,35.0,4.3,"111 km E of Noda, Japan",Japan,JP,Japan
 us6000srvu,2026-04-21 18:44:09.772000+00:00,40.1359,143.2482,16.0,5.5,"121 km E of Noda, Japan",Japan,JP,Japan
-us6000srvw,2026-04-21 18:42:56.970000+00:00,40.0887,143.3728,10.0,4.5,"131 km ENE of Miyako, Japan",Japan,JP,Japan
+us6000srvw,2026-04-21 18:43:01.648000+00:00,40.2309,143.2001,36.083,4.4,"118 km E of Noda, Japan",Japan,JP,Japan
 us7000sh2r,2026-04-21 17:03:19.441000+00:00,8.652,127.1324,9.309,4.4,"93 km ENE of Hinatuan, Philippines",Philippines,PH,Philippines
 us6000srv3,2026-04-21 16:18:54.929000+00:00,-12.4366,-75.4908,96.384,4.5,"27 km SW of Chicche, Peru",Peru,PE,Peru
 us6000srv5,2026-04-21 16:18:12.602000+00:00,40.0841,142.2022,69.559,4.3,"32 km E of Noda, Japan",Japan,JP,Japan
@@ -96261,12 +96510,13 @@ us7000sh2c,2026-04-21 01:44:15.976000+00:00,39.6525,143.2173,39.415,4.2,"109 km 
 us6000srqn,2026-04-21 00:59:07.499000+00:00,33.6503,137.8153,322.886,4.0,"112 km SSW of Ōyama, Japan",Japan,JP,Japan
 us7000sh2a,2026-04-21 00:54:32.096000+00:00,39.9582,143.258,35.0,4.1,"117 km ENE of Miyako, Japan",Japan,JP,Japan
 us6000srqj,2026-04-21 00:29:35.307000+00:00,24.6319,94.6985,95.116,5.0,"64 km E of Wāngjing, India",India,IN,India
-us6000srqi,2026-04-21 00:17:49.880000+00:00,-3.5108,127.2456,120.328,4.5,"106 km W of Ambon, Indonesia",Indonesia,ID,Indonesia
-us6000ssyz,2026-04-21 00:14:57.159000+00:00,-16.3683,67.6413,10.0,4.5,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
+us6000srqi,2026-04-21 00:17:48.387000+00:00,-3.4958,127.2195,103.642,4.5,"109 km WNW of Ambon, Indonesia",Indonesia,ID,Indonesia
+us6000ssyz,2026-04-21 00:14:56.270000+00:00,-16.402,67.2864,10.0,4.5,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
 us6000srqg,2026-04-21 00:08:27.448000+00:00,23.241,94.7793,104.22,4.7,"58 km SE of Mawlaik, Burma (Myanmar)",Burma (Myanmar),MM,Myanmar
 us7000sh00,2026-04-20 23:36:51.297000+00:00,39.4083,143.1245,35.0,4.1,"101 km E of Yamada, Japan",Japan,JP,Japan
 us6000srq4,2026-04-20 23:26:41.569000+00:00,-14.4394,-76.6817,10.0,4.3,"77 km SW of Paracas, Peru",Peru,PE,Peru
 us7000sgzy,2026-04-20 22:54:08.973000+00:00,-33.9497,-179.7278,10.0,4.2,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
+us6000srpu,2026-04-20 22:42:51.271000+00:00,44.4008,-129.8875,10.0,4.0,off the coast of Oregon,off the coast of Oregon,US,United States
 us7000sgzw,2026-04-20 22:11:43.417000+00:00,-32.4217,-178.4655,10.0,4.9,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us7000sgzx,2026-04-20 22:06:08.630000+00:00,39.7301,143.7164,10.0,4.1,"152 km E of Miyako, Japan",Japan,JP,Japan
 us6000srpn,2026-04-20 21:59:56.765000+00:00,1.1604,-85.349,10.0,4.5,off the coast of Ecuador,off the coast of Ecuador,EC,Ecuador
@@ -96277,20 +96527,20 @@ us6000srpc,2026-04-20 21:16:10.589000+00:00,2.6873,122.9414,487.377,4.4,"238 km 
 us7000sgzg,2026-04-20 21:13:04.323000+00:00,39.9897,142.6002,35.0,4.2,"68 km E of Noda, Japan",Japan,JP,Japan
 us6000srph,2026-04-20 21:07:20.774000+00:00,16.046,121.8164,10.0,4.5,"29 km SE of Nagtipunan, Philippines",Philippines,PH,Philippines
 us6000ssyw,2026-04-20 19:10:21.080000+00:00,49.9434,157.1263,35.0,4.4,"108 km SE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
-us6000srn6,2026-04-20 18:47:05.941000+00:00,-2.234,139.1211,10.0,5.3,"172 km WNW of Abepura, Indonesia",Indonesia,ID,Indonesia
+us6000srn6,2026-04-20 18:47:08.044000+00:00,-2.2226,139.1158,23.134,5.3,"173 km WNW of Abepura, Indonesia",Indonesia,ID,Indonesia
 us7000sgzh,2026-04-20 17:02:35.448000+00:00,29.9971,140.6569,10.0,4.1,"Izu Islands, Japan region",Japan region,JP,Japan
 us7000sgze,2026-04-20 16:15:26.884000+00:00,39.7788,143.5985,10.0,4.4,"142 km E of Miyako, Japan",Japan,JP,Japan
 us6000srkt,2026-04-20 16:13:12.668000+00:00,39.4055,143.5303,10.0,4.5,"136 km E of Yamada, Japan",Japan,JP,Japan
 us6000srkj,2026-04-20 15:44:52.620000+00:00,52.2337,176.3767,10.0,4.4,"226 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
 us7000sgzd,2026-04-20 15:28:32.197000+00:00,11.0288,125.3357,10.0,4.2,"10 km SSW of Balangiga, Philippines",Philippines,PH,Philippines
 us7000sgzc,2026-04-20 15:27:31.224000+00:00,-13.7066,166.5069,10.0,4.5,"114 km W of Sola, Vanuatu",Vanuatu,VU,Vanuatu
-us7000sgzb,2026-04-20 15:16:16.894000+00:00,0.0834,98.5702,64.009,4.0,"101 km ESE of Teluk Dalam, Indonesia",Indonesia,ID,Indonesia
+us7000sgzb,2026-04-20 15:16:13.595000+00:00,-0.0566,98.417,35.0,4.0,"97 km SE of Teluk Dalam, Indonesia",Indonesia,ID,Indonesia
 us6000srka,2026-04-20 14:15:28.170000+00:00,39.8675,143.3029,29.516,4.7,"119 km ENE of Miyako, Japan",Japan,JP,Japan
 us7000sgz6,2026-04-20 13:03:26.103000+00:00,39.6599,143.3781,33.949,4.4,"123 km E of Miyako, Japan",Japan,JP,Japan
 us6000srjx,2026-04-20 12:56:47.362000+00:00,39.5466,143.3282,25.586,5.1,"118 km E of Yamada, Japan",Japan,JP,Japan
 us7000sgz5,2026-04-20 12:44:28.447000+00:00,39.5747,143.1592,35.0,4.2,"104 km E of Yamada, Japan",Japan,JP,Japan
-us6000srjn,2026-04-20 11:44:37.863000+00:00,10.8514,125.9453,35.0,4.6,"16 km SE of Sulangan, Philippines",Philippines,PH,Philippines
-us7000sgz4,2026-04-20 11:29:07.815000+00:00,-29.8488,-177.5462,58.773,4.3,"Kermadec Islands, New Zealand",New Zealand,TO,Tonga
+us6000srjn,2026-04-20 11:44:43.946000+00:00,10.8328,125.8802,91.434,4.5,"12 km SSE of Sulangan, Philippines",Philippines,PH,Philippines
+us7000sgz4,2026-04-20 11:29:08.761000+00:00,-29.9386,-177.9056,49.493,4.3,"Kermadec Islands, New Zealand",New Zealand,TO,Tonga
 us6000srjl,2026-04-20 11:28:59.393000+00:00,39.6678,143.0908,31.595,4.5,"98 km E of Miyako, Japan",Japan,JP,Japan
 us7000sgz3,2026-04-20 11:09:36.384000+00:00,1.457,117.8868,10.0,4.1,"153 km NNE of Bontang, Indonesia",Indonesia,ID,Indonesia
 us7000sgz1,2026-04-20 10:53:18.851000+00:00,39.5135,143.2631,45.406,4.2,"113 km E of Yamada, Japan",Japan,JP,Japan
@@ -96334,11 +96584,12 @@ us7000sgy0,2026-04-20 01:10:40.107000+00:00,-49.6663,117.2989,10.0,4.5,western I
 us6000srg8,2026-04-20 00:19:20.598000+00:00,-32.6135,-177.5522,10.0,4.9,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
 us6000srg6,2026-04-19 23:52:29.815000+00:00,-32.317,-177.9136,10.0,5.1,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us7000sgqs,2026-04-19 23:16:00.607000+00:00,-23.5776,179.7995,546.165,4.5,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
-us7000sgqr,2026-04-19 22:39:36.852000+00:00,-7.5429,157.9479,10.0,4.5,"136 km ENE of Gizo, Solomon Islands",Solomon Islands,SB,Solomon Islands
+us7000sgqr,2026-04-19 22:39:37.508000+00:00,-7.6061,157.8726,10.0,4.6,"126 km ENE of Gizo, Solomon Islands",Solomon Islands,SB,Solomon Islands
 us6000srft,2026-04-19 22:33:45.040000+00:00,-5.4685,127.3422,402.477,4.4,"217 km SSW of Ambon, Indonesia",Indonesia,ID,Indonesia
 us7000sgqq,2026-04-19 22:04:09.731000+00:00,-6.9706,147.0156,129.201,4.2,"27 km S of Lae, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us7000sgqp,2026-04-19 21:49:17.910000+00:00,52.379,176.4065,10.0,4.0,"224 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
-us7000sgqm,2026-04-19 21:46:05.507000+00:00,52.11,176.3263,12.857,4.2,"228 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us7000sgqp,2026-04-19 21:49:17.737000+00:00,52.3378,176.3773,10.0,4.0,"223 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us7000sgqm,2026-04-19 21:46:05.435000+00:00,52.1169,176.3328,12.224,4.2,"228 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000srfi,2026-04-19 21:08:53.354000+00:00,24.9974,123.3372,94.299,4.2,"67 km NNE of Yonakuni, Japan",Japan,JP,Japan
 us7000sgql,2026-04-19 21:05:04.786000+00:00,-1.2423,123.6907,10.0,4.1,"105 km ESE of Luwuk, Indonesia",Indonesia,ID,Indonesia
 us6000srf6,2026-04-19 19:55:37.997000+00:00,-32.4085,-178.088,10.0,4.9,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us7000sgqg,2026-04-19 19:54:07.952000+00:00,-32.3786,-178.1302,10.0,4.8,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
@@ -96353,20 +96604,20 @@ us6000srea,2026-04-19 17:17:57.449000+00:00,-32.3215,-178.254,10.0,4.3,south of 
 us7000sgq8,2026-04-19 16:48:44.590000+00:00,-5.5575,147.1142,186.065,4.5,"129 km N of Lae, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000srd5,2026-04-19 15:18:02.574000+00:00,52.8093,161.0022,10.0,4.9,"162 km E of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us6000srcw,2026-04-19 14:59:58.881000+00:00,-7.2438,155.8964,92.88,4.8,"112 km SSE of Panguna, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us6000srkh,2026-04-19 14:42:45.143000+00:00,39.2692,-119.1178,10.0,4.1,"18 km SSE of Silver Springs, Nevada",Nevada,US,United States
+us6000srkh,2026-04-19 14:42:44.029000+00:00,39.2854,-119.1049,10.0,4.1,"17 km SE of Silver Springs, Nevada",Nevada,US,United States
 nn00915543,2026-04-19 14:39:16.331000+00:00,39.2685,-119.0857,6.0,4.73,"20 km SE of Silver Springs, Nevada",Nevada,US,United States
 us7000sgq6,2026-04-19 14:26:06.864000+00:00,0.7346,125.777,45.224,4.4,"106 km SE of Bitung, Indonesia",Indonesia,ID,Indonesia
-us7000sgq5,2026-04-19 14:20:43.463000+00:00,14.1586,-91.7607,46.643,4.0,"22 km SE of Champerico, Guatemala",Guatemala,GT,Guatemala
-us6000srbm,2026-04-19 13:00:04.467000+00:00,52.6768,161.094,10.0,4.6,"171 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
+us7000sgq5,2026-04-19 14:20:40.569000+00:00,13.8226,-92.0752,35.0,4.0,"54 km SSW of Champerico, Guatemala",Guatemala,GT,Guatemala
+us6000srbm,2026-04-19 13:00:04.425000+00:00,52.6755,161.1143,10.0,4.7,"172 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 nn00915459,2026-04-19 12:43:31.056000+00:00,39.2754,-119.0985,3.0,4.15,"18 km SE of Silver Springs, Nevada",Nevada,US,United States
 us7000sgq3,2026-04-19 12:40:48.682000+00:00,-32.4066,-178.4064,10.0,4.4,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us6000srb1,2026-04-19 12:03:42.956000+00:00,-5.1363,151.3649,162.335,4.3,"133 km SW of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
-us7000sgq0,2026-04-19 11:57:17.348000+00:00,52.1205,176.381,10.0,4.1,"231 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
-us7000sgpz,2026-04-19 11:26:07.553000+00:00,-32.454,-178.6374,35.0,4.4,south of the Kermadec Islands,south of the Kermadec Islands,NZ,New Zealand
+us7000sgq0,2026-04-19 11:57:17.407000+00:00,52.1266,176.3844,10.0,4.1,"231 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us7000sgpz,2026-04-19 11:26:01.737000+00:00,-32.3083,-178.2747,10.0,4.3,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us6000srak,2026-04-19 10:45:01.162000+00:00,34.7615,92.9004,10.0,4.5,"Southern Qinghai, China",China,CN,China
 us6000srai,2026-04-19 10:41:56.308000+00:00,-6.1378,127.6334,393.966,4.4,"272 km NNE of Lospalos, Timor Leste",Timor Leste,TL,Timor-Leste
 us7000sgpy,2026-04-19 10:22:59.515000+00:00,57.3142,120.9586,10.0,4.2,"169 km ENE of Chara, Russia",Russia,RU,Russian Federation
-us6000srab,2026-04-19 09:03:20.486000+00:00,45.2219,151.1843,10.0,4.7,"259 km E of Kuril’sk, Russia",Russia,JP,Japan
+us6000srab,2026-04-19 09:03:24.236000+00:00,45.2707,151.0851,35.196,4.7,"251 km E of Kuril’sk, Russia",Russia,JP,Japan
 us6000sra9,2026-04-19 08:55:44.310000+00:00,8.0655,-83.1698,10.0,4.4,"33 km W of Burica, Panama",Panama,PA,Panama
 us7000sgpu,2026-04-19 08:51:12.246000+00:00,-15.2422,-173.039,10.0,4.3,"113 km NE of Hihifo, Tonga",Tonga,TO,Tonga
 us6000sra6,2026-04-19 08:07:33.770000+00:00,-21.7953,68.7455,10.0,4.8,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
@@ -96380,17 +96631,17 @@ us6000sr9c,2026-04-19 05:35:16.256000+00:00,-32.2134,-178.226,10.0,5.1,south of 
 us6000sr99,2026-04-19 05:13:53.052000+00:00,-25.063,-179.2923,402.237,4.2,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
 us7000sgpj,2026-04-19 05:07:19.781000+00:00,52.8587,159.6371,73.495,4.2,"71 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us7000sgph,2026-04-19 04:56:53.654000+00:00,53.5147,159.9403,75.209,4.3,"100 km ENE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
-us7000sgpi,2026-04-19 04:50:33.313000+00:00,-31.9911,-177.929,35.0,4.6,Kermadec Islands region,Kermadec Islands region,TO,Tonga
+us7000sgpi,2026-04-19 04:50:35.958000+00:00,-31.8687,-178.479,35.0,4.5,Kermadec Islands region,Kermadec Islands region,TO,Tonga
 us7000sgpg,2026-04-19 04:20:04.717000+00:00,2.7742,99.0225,170.684,4.1,"15 km NE of Parapat, Indonesia",Indonesia,ID,Indonesia
 us6000sr8m,2026-04-19 03:40:34.812000+00:00,-22.4163,-177.9378,365.542,4.4,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
 us6000sr8i,2026-04-19 03:12:29.585000+00:00,-32.053,-177.8026,10.0,5.0,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
-us7000sgpe,2026-04-19 02:42:58.896000+00:00,-15.4564,-173.6026,132.737,4.4,"58 km NNE of Hihifo, Tonga",Tonga,TO,Tonga
+us7000sgpe,2026-04-19 02:42:40.676000+00:00,-15.2121,-173.0512,10.0,4.6,"114 km NE of Hihifo, Tonga",Tonga,TO,Tonga
 us6000sr8a,2026-04-19 02:09:08.506000+00:00,-33.4908,-70.1694,109.799,4.2,"38 km E of Villa Presidente Frei, Chile",Chile,CL,Chile
 us7000sgpb,2026-04-19 00:04:20.215000+00:00,1.1806,97.1907,32.68,4.4,"48 km WSW of Gunungsitoli, Indonesia",Indonesia,ID,Indonesia
 us6000sr7y,2026-04-19 00:01:48.623000+00:00,1.1591,96.9344,10.0,4.3,"77 km W of Gunungsitoli, Indonesia",Indonesia,ID,Indonesia
 us6000sr7v,2026-04-18 23:56:48.171000+00:00,-8.0771,-74.4626,150.862,4.2,"34 km NNE of Pucallpa, Peru",Peru,PE,Peru
 us7000sghz,2026-04-18 22:55:58.460000+00:00,52.3894,176.5052,10.0,4.2,"230 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
-us7000sghx,2026-04-18 22:18:52.021000+00:00,36.6284,70.7672,189.355,4.1,"26 km SSW of Jurm, Afghanistan",Afghanistan,AF,Afghanistan
+us7000sghx,2026-04-18 22:18:52.438000+00:00,36.6981,70.7884,191.606,4.1,"18 km SSW of Jurm, Afghanistan",Afghanistan,AF,Afghanistan
 us7000sghy,2026-04-18 22:16:04.020000+00:00,5.621,126.515,112.026,4.2,"89 km SSE of Pondaguitan, Philippines",Philippines,PH,Philippines
 us7000sghw,2026-04-18 21:37:00.117000+00:00,-2.4982,140.1131,27.947,4.4,"58 km W of Abepura, Indonesia",Indonesia,ID,Indonesia
 us7000sghv,2026-04-18 21:27:44.411000+00:00,32.693,90.1828,10.0,4.1,"222 km NW of Nagqu, China",China,CN,China
@@ -96405,12 +96656,12 @@ us7000sgi6,2026-04-18 16:53:02.457000+00:00,-15.3048,-177.616,410.426,4.1,"122 k
 us6000sr4y,2026-04-18 16:03:44.801000+00:00,-32.0016,-178.1123,11.774,5.0,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us7000sghm,2026-04-18 16:01:50.353000+00:00,-4.6081,153.502,115.568,4.3,"139 km ESE of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000sr4r,2026-04-18 15:32:22.026000+00:00,-12.8477,168.7656,611.454,4.4,"173 km NE of Sola, Vanuatu",Vanuatu,VU,Vanuatu
-us7000sghj,2026-04-18 15:24:33.144000+00:00,-37.0796,-97.243,10.0,4.6,southeast of Easter Island,southeast of Easter Island,CL,Chile
+us7000sghj,2026-04-18 15:24:33.121000+00:00,-37.0875,-97.2805,10.0,4.6,southeast of Easter Island,southeast of Easter Island,CL,Chile
 us6000sr4k,2026-04-18 15:03:01.272000+00:00,-10.6593,161.552,58.805,5.8,"46 km WSW of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
 us6000sr4f,2026-04-18 14:26:11.219000+00:00,28.2182,103.5182,10.0,4.5,"85 km WSW of Shuanglong, China",China,CN,China
 us7000sghh,2026-04-18 14:12:46.669000+00:00,-32.0356,-177.8623,10.0,4.9,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us7000sghg,2026-04-18 14:05:01.402000+00:00,7.1007,-75.3286,66.025,4.3,"13 km NNW of Campamento, Colombia",Colombia,CO,Colombia
-us7000sghf,2026-04-18 13:42:29.560000+00:00,-16.1051,-175.9454,109.282,4.6,"230 km W of Hihifo, Tonga",Tonga,TO,Tonga
+us7000sghf,2026-04-18 13:42:36.556000+00:00,-15.5447,-175.3138,237.43,4.1,"168 km WNW of Hihifo, Tonga",Tonga,TO,Tonga
 us7000sgha,2026-04-18 13:27:15.271000+00:00,-4.5157,153.5898,115.332,4.3,"147 km E of Kokopo, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us7000sgh8,2026-04-18 13:26:59.150000+00:00,-32.0511,-177.9414,10.0,4.5,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us7000sghd,2026-04-18 13:23:38.831000+00:00,-32.0241,-178.0387,10.0,4.6,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
@@ -96433,16 +96684,16 @@ us6000sr3h,2026-04-18 10:23:40.919000+00:00,0.2615,125.7654,35.0,4.9,"148 km SSE
 us6000sr3d,2026-04-18 09:32:01.891000+00:00,-15.2282,-173.2611,10.0,4.8,"98 km NE of Hihifo, Tonga",Tonga,TO,Tonga
 us7000sggv,2026-04-18 09:28:16.147000+00:00,-15.2272,-173.005,10.0,4.6,"116 km NE of Hihifo, Tonga",Tonga,TO,Tonga
 us6000sr3c,2026-04-18 09:25:49.773000+00:00,-11.2076,164.1255,10.0,4.5,"190 km WSW of Lata, Solomon Islands",Solomon Islands,SB,Solomon Islands
-us6000sr38,2026-04-18 08:49:29.325000+00:00,24.9665,62.9227,10.0,4.3,"62 km ESE of Gwadar, Pakistan",Pakistan,PK,Pakistan
+us6000sr38,2026-04-18 08:49:26.079000+00:00,24.5105,63.0595,10.0,4.4,"93 km SSW of Pasni, Pakistan",Pakistan,PK,Pakistan
 us7000sggu,2026-04-18 08:45:47.309000+00:00,6.472,125.9238,150.863,4.4,"19 km WSW of Luzon, Philippines",Philippines,PH,Philippines
 us7000sggr,2026-04-18 06:17:45.186000+00:00,6.5146,60.2642,10.0,4.5,Carlsberg Ridge,Carlsberg Ridge,YE,Yemen
 us6000sr2q,2026-04-18 06:04:34.977000+00:00,6.5279,60.2467,10.0,4.9,Carlsberg Ridge,Carlsberg Ridge,YE,Yemen
 us6000sr2n,2026-04-18 05:59:58.529000+00:00,6.4116,60.1996,10.0,5.5,Carlsberg Ridge,Carlsberg Ridge,YE,Yemen
 us7000sggq,2026-04-18 05:58:06.815000+00:00,6.4698,60.1939,10.0,4.6,Carlsberg Ridge,Carlsberg Ridge,YE,Yemen
-us6000sr2i,2026-04-18 05:54:30.884000+00:00,36.5941,137.8377,10.0,4.9,"10 km NNW of Ōmachi, Japan",Japan,JP,Japan
-us7000sggp,2026-04-18 05:14:47.845000+00:00,1.1244,126.2095,62.633,4.2,"125 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
-us6000sr27,2026-04-18 04:40:13.085000+00:00,45.898,151.6669,35.0,5.2,Kuril Islands,Kuril Islands,JP,Japan
-us6000sr22,2026-04-18 04:37:13.155000+00:00,-5.6283,130.0167,211.379,4.5,"280 km SSE of Amahai, Indonesia",Indonesia,ID,Indonesia
+us6000sr2i,2026-04-18 05:54:30.927000+00:00,36.6044,137.8378,10.0,4.9,"10 km SSW of Hakuba, Japan",Japan,JP,Japan
+us7000sggp,2026-04-18 05:14:44.708000+00:00,1.1747,126.1171,35.0,4.3,"113 km ESE of Bitung, Indonesia",Indonesia,ID,Indonesia
+us6000sr27,2026-04-18 04:40:12.842000+00:00,45.8264,151.6591,35.0,5.3,Kuril Islands,Kuril Islands,JP,Japan
+us6000sr22,2026-04-18 04:37:13.335000+00:00,-5.5663,129.846,218.96,4.5,"266 km SSE of Amahai, Indonesia",Indonesia,ID,Indonesia
 us6000sr1y,2026-04-18 04:20:05.394000+00:00,36.5963,137.8008,10.0,4.9,"12 km NNW of Ōmachi, Japan",Japan,JP,Japan
 us6000sr31,2026-04-18 04:06:49.414000+00:00,-31.8517,-178.01,10.0,4.9,Kermadec Islands region,Kermadec Islands region,TO,Tonga
 us6000sr1k,2026-04-18 03:16:13.222000+00:00,36.5948,70.8201,196.578,4.5,"29 km S of Jurm, Afghanistan",Afghanistan,AF,Afghanistan
@@ -96459,17 +96710,17 @@ us6000sqz7,2026-04-17 22:19:20.867000+00:00,-6.2079,131.2785,65.339,4.7,"175 km 
 us6000ssm9,2026-04-17 22:08:33.433000+00:00,30.9265,-41.7287,10.0,4.6,northern Mid-Atlantic Ridge,northern Mid-Atlantic Ridge,PT,Portugal
 us6000sqz1,2026-04-17 21:46:31.206000+00:00,-5.9716,148.5258,97.801,5.0,"99 km NE of Finschhafen, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000sr0y,2026-04-17 21:12:54.601000+00:00,51.8818,176.2776,10.0,4.1,"236 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
-us6000sqyu,2026-04-17 21:07:51.797000+00:00,-20.4017,-68.8073,99.114,4.4,"88 km E of La Tirana, Chile",Chile,CL,Chile
-us6000ssm6,2026-04-17 20:52:26.389000+00:00,-32.1948,-178.0282,10.0,4.7,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
+us6000sqyu,2026-04-17 21:07:51.647000+00:00,-20.4078,-68.7818,98.822,4.4,"91 km E of La Tirana, Chile",Chile,CL,Chile
+us6000ssm6,2026-04-17 20:52:27.373000+00:00,-32.1914,-178.1988,10.0,4.7,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us6000ssm7,2026-04-17 20:51:08.855000+00:00,51.3915,160.178,9.092,4.1,"209 km SE of Vilyuchinsk, Russia",Russia,RU,Russian Federation
-us6000ssm0,2026-04-17 17:10:07.050000+00:00,18.6148,-101.4297,85.232,4.3,"16 km NNW of Aratichanguío, Mexico",Mexico,MX,Mexico
+us6000ssm0,2026-04-17 17:10:04.216000+00:00,18.4446,-101.5795,64.852,4.3,"21 km NE of Coahuayutla de Guerrero, Mexico",Mexico,MX,Mexico
 us6000sslx,2026-04-17 14:49:26.486000+00:00,1.8023,127.3648,123.511,4.2,"72 km W of Tobelo, Indonesia",Indonesia,ID,Indonesia
 us6000sslv,2026-04-17 13:51:15.140000+00:00,32.7365,140.0609,127.576,4.2,"238 km SSE of Shimoda, Japan",Japan,JP,Japan
 us6000sslu,2026-04-17 12:47:22.168000+00:00,34.698,25.8279,10.0,4.1,"35 km SSE of Ierápetra, Greece",Greece,GR,Greece
 us6000sqta,2026-04-17 12:39:26.696000+00:00,13.3223,-44.7899,10.0,5.4,northern Mid-Atlantic Ridge,northern Mid-Atlantic Ridge,GF,French Guiana
 us6000sqtb,2026-04-17 12:37:12.264000+00:00,50.2781,156.5772,70.313,4.6,"54 km SE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
-us6000sslt,2026-04-17 11:51:06.143000+00:00,-31.5796,-178.1957,35.0,4.5,Kermadec Islands region,Kermadec Islands region,TO,Tonga
-us6000sslp,2026-04-17 11:16:33.418000+00:00,11.8458,125.334,67.63,4.3,"10 km WSW of Mantang, Philippines",Philippines,PH,Philippines
+us6000sslt,2026-04-17 11:51:06.520000+00:00,-31.5147,-178.2478,35.0,4.5,Kermadec Islands region,Kermadec Islands region,TO,Tonga
+us6000sslp,2026-04-17 11:16:31.699000+00:00,11.8429,125.3558,52.364,4.3,"8 km WSW of Mantang, Philippines",Philippines,PH,Philippines
 us6000sslq,2026-04-17 11:15:12.283000+00:00,17.8808,-76.6286,10.0,4.3,"6 km SW of Easington, Jamaica",Jamaica,JM,Jamaica
 us6000sqrh,2026-04-17 11:04:06.835000+00:00,-24.144,-67.0703,210.485,4.3,"76 km W of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
 us6000sslm,2026-04-17 10:31:13.432000+00:00,36.7242,74.5216,10.0,4.3,"47 km NNW of Barishal, Pakistan",Pakistan,PK,Pakistan
@@ -96484,22 +96735,23 @@ us6000sqq2,2026-04-17 03:54:26.808000+00:00,-18.3028,-71.3997,38.05,4.1,"72 km S
 us6000sslb,2026-04-17 02:51:24.137000+00:00,-5.1449,154.1545,430.772,4.0,"196 km NW of Panguna, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000sqpv,2026-04-17 02:38:34.244000+00:00,-31.5443,-66.8018,122.574,4.5,"108 km WNW of Candelaria, Argentina",Argentina,AR,Argentina
 us6000ssl9,2026-04-17 01:37:34.675000+00:00,6.7502,-73.0368,162.893,4.1,"6 km NNW of Aratoca, Colombia",Colombia,CO,Colombia
-us6000sqpd,2026-04-17 00:58:02.096000+00:00,16.6908,-95.7614,54.896,4.7,"19 km SSW of Santiago Quiavicuzas, Mexico",Mexico,MX,Mexico
+us6000sqpd,2026-04-17 00:58:01.538000+00:00,16.6238,-95.7079,52.058,4.7,"20 km WSW of Santiago Lachiguiri, Mexico",Mexico,MX,Mexico
 us6000ssl7,2026-04-17 00:26:41.319000+00:00,-20.3071,-177.8488,509.058,4.0,"281 km WNW of Houma, Tonga",Tonga,TO,Tonga
-us6000sqnw,2026-04-16 23:38:49.979000+00:00,-18.6223,-175.3936,235.255,4.5,"148 km W of Neiafu, Tonga",Tonga,TO,Tonga
+us6000sqnw,2026-04-16 23:38:51.953000+00:00,-18.6158,-175.5155,252.863,4.5,"161 km W of Neiafu, Tonga",Tonga,TO,Tonga
 us6000sqnn,2026-04-16 23:17:29.789000+00:00,8.1782,-83.0293,8.202,4.0,"19 km WNW of Limones, Panama",Panama,PA,Panama
 us6000sqnr,2026-04-16 22:56:49.924000+00:00,29.6479,105.1083,10.0,4.3,"8 km NNE of Neijiang, China",China,CN,China
 us6000sqnd,2026-04-16 22:22:35.486000+00:00,29.5977,104.8501,10.0,4.3,"20 km S of Chonglong, China",China,CN,China
-us6000sqn6,2026-04-16 21:46:24.979000+00:00,0.2249,-16.5662,10.0,5.1,north of Ascension Island,north of Ascension Island,LR,Liberia
+us6000sqn6,2026-04-16 21:46:24.951000+00:00,0.2178,-16.6226,10.0,5.1,north of Ascension Island,north of Ascension Island,LR,Liberia
 us6000sqml,2026-04-16 20:36:41.987000+00:00,0.0362,-16.5315,10.0,5.4,north of Ascension Island,north of Ascension Island,SH,"Saint Helena, Ascension and Tristan da Cunha"
-us6000sskq,2026-04-16 20:17:21.376000+00:00,-8.4369,158.7907,66.393,4.3,"94 km WSW of Buala, Solomon Islands",Solomon Islands,SB,Solomon Islands
+us6000sskq,2026-04-16 20:17:21.649000+00:00,-8.4991,158.8965,76.555,4.2,"86 km WSW of Buala, Solomon Islands",Solomon Islands,SB,Solomon Islands
 us6000sqme,2026-04-16 19:51:57.705000+00:00,-31.9725,-177.8931,10.0,4.8,Kermadec Islands region,Kermadec Islands region,TO,Tonga
 us6000sqm3,2026-04-16 19:19:54.542000+00:00,0.7935,126.4196,35.0,4.5,"107 km W of Ternate, Indonesia",Indonesia,ID,Indonesia
+us6000syqw,2026-04-16 18:40:11.829000+00:00,13.0368,-88.886,58.764,4.2,"45 km SW of Jiquilisco, El Salvador",El Salvador,SV,El Salvador
 us6000sqli,2026-04-16 18:07:37.637000+00:00,-23.4951,-179.8914,552.298,4.5,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
 us6000sskm,2026-04-16 18:03:36.542000+00:00,-23.5964,-179.8954,511.395,4.2,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
 us6000sqla,2026-04-16 17:19:16.811000+00:00,24.0836,143.0651,10.0,4.8,"Volcano Islands, Japan region",Japan region,MP,Northern Mariana Islands
 us6000sskf,2026-04-16 16:55:23.821000+00:00,-59.9225,-62.1706,10.0,4.3,Drake Passage,Drake Passage,AR,Argentina
-us6000sqk6,2026-04-16 16:51:55.115000+00:00,-45.7356,-75.814,10.0,4.8,"235 km W of Puerto Chacabuco, Chile",Chile,CL,Chile
+us6000sqk6,2026-04-16 16:51:54.742000+00:00,-45.7739,-75.868,10.0,4.8,"240 km W of Puerto Chacabuco, Chile",Chile,CL,Chile
 us6000sskb,2026-04-16 15:15:11.568000+00:00,-31.9033,-178.0557,10.0,4.4,Kermadec Islands region,Kermadec Islands region,TO,Tonga
 us6000sqjk,2026-04-16 14:43:07.686000+00:00,33.3404,142.4107,10.0,5.0,"278 km SE of Katsuura, Japan",Japan,JP,Japan
 us6000ssk7,2026-04-16 14:41:42.475000+00:00,-32.0223,-177.7708,10.0,4.6,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
@@ -96519,8 +96771,8 @@ us6000sqhk,2026-04-16 06:18:50.757000+00:00,-6.3854,-76.8958,118.718,4.6,"23 km 
 us6000sqhh,2026-04-16 06:10:45.684000+00:00,12.2944,-86.8524,164.386,4.3,"16 km S of León, Nicaragua",Nicaragua,NI,Nicaragua
 us6000sqh2,2026-04-16 05:01:30.732000+00:00,-6.9925,150.3663,10.0,4.9,"125 km SE of Kandrian, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000sqfv,2026-04-16 01:20:19.473000+00:00,50.4284,156.3734,75.483,4.3,"32 km SSE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
-us6000sqfn,2026-04-16 00:19:25.037000+00:00,13.4125,-92.2618,35.0,4.4,"104 km SSW of Champerico, Guatemala",Guatemala,GT,Guatemala
-us6000ssjs,2026-04-16 00:02:35.117000+00:00,7.9341,126.8014,30.638,4.3,"38 km NE of Kinablangan, Philippines",Philippines,PH,Philippines
+us6000sqfn,2026-04-16 00:19:21.421000+00:00,13.3509,-92.4251,10.0,4.4,"118 km SSW of Champerico, Guatemala",Guatemala,GT,Guatemala
+us6000ssjs,2026-04-16 00:02:35.565000+00:00,7.9338,126.7789,35.0,4.3,"36 km NE of Kinablangan, Philippines",Philippines,PH,Philippines
 us6000sqfi,2026-04-15 23:19:31.544000+00:00,21.9956,145.6977,10.0,4.6,Mariana Islands region,Mariana Islands region,MP,Northern Mariana Islands
 us6000ssdr,2026-04-15 23:07:02.617000+00:00,37.6024,141.7413,65.265,4.2,"66 km E of Namie, Japan",Japan,JP,Japan
 us6000ssdq,2026-04-15 22:43:08.054000+00:00,-11.4031,162.895,10.0,4.5,"149 km SE of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
@@ -96541,7 +96793,7 @@ us6000ssd9,2026-04-15 12:44:40.976000+00:00,-19.9979,66.3627,10.0,4.4,Mauritius 
 us6000sq7h,2026-04-15 10:40:06.634000+00:00,14.8818,122.1697,10.0,4.5,"10 km N of Patnanungan, Philippines",Philippines,PH,Philippines
 us6000ssd7,2026-04-15 10:21:53.999000+00:00,-32.2573,-179.9581,251.73,4.4,south of the Kermadec Islands,south of the Kermadec Islands,TO,Tonga
 us6000sq77,2026-04-15 10:13:58.229000+00:00,-23.7911,179.2365,541.167,4.4,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
-us6000ssdu,2026-04-15 08:46:44.109000+00:00,-40.8799,-74.2944,35.0,4.2,"95 km W of Purranque, Chile",Chile,CL,Chile
+us6000ssdu,2026-04-15 08:46:42.693000+00:00,-40.9402,-74.3445,23.037,4.3,"99 km W of Purranque, Chile",Chile,CL,Chile
 us6000sq6d,2026-04-15 07:59:41.786000+00:00,-21.3397,170.3074,174.5,5.4,"226 km SSE of Isangel, Vanuatu",Vanuatu,VU,Vanuatu
 us6000sq66,2026-04-15 07:27:56.374000+00:00,-11.4884,163.2318,10.0,4.9,"183 km SE of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
 us6000sq5z,2026-04-15 06:56:01.643000+00:00,9.8888,-86.3557,17.0,5.7,"72 km SW of Tamarindo, Costa Rica",Costa Rica,CR,Costa Rica
@@ -96612,8 +96864,8 @@ us6000ss3m,2026-04-13 11:23:25.147000+00:00,24.4314,121.7119,48.046,4.4,"36 km S
 us6000ss3l,2026-04-13 11:19:59.953000+00:00,-56.456,-30.9564,10.0,4.3,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
 us6000spm4,2026-04-13 11:02:15.769000+00:00,-7.4993,128.0818,151.982,4.4,"164 km NE of Lospalos, Timor Leste",Timor Leste,TL,Timor-Leste
 us6000ss3j,2026-04-13 09:52:51.386000+00:00,-13.9857,167.5174,10.0,4.5,"12 km SSW of Sola, Vanuatu",Vanuatu,VU,Vanuatu
-us6000spsu,2026-04-13 09:37:53.431000+00:00,51.8394,176.1158,10.522,4.2,"228 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
-us6000splv,2026-04-13 09:04:16.684000+00:00,-24.1088,-67.0822,238.236,4.3,"78 km W of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
+us6000spsu,2026-04-13 09:37:58.506000+00:00,52.0962,176.3102,30.832,4.1,"228 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
+us6000splv,2026-04-13 09:04:18.701000+00:00,-23.9475,-67.0637,223.685,4.1,"81 km WNW of San Antonio de los Cobres, Argentina",Argentina,AR,Argentina
 us6000splu,2026-04-13 08:39:50.933000+00:00,29.6567,104.9833,10.0,4.5,"11 km NW of Neijiang, China",China,CN,China
 us6000ss3i,2026-04-13 07:51:40.287000+00:00,-58.0535,-26.5775,155.893,4.3,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
 us6000ss3h,2026-04-13 07:37:12.671000+00:00,12.7636,143.4997,143.495,4.5,"138 km WSW of Merizo Village, Guam",Guam,GU,Guam
@@ -96782,7 +97034,7 @@ us6000sqwb,2026-04-09 11:24:35.372000+00:00,20.4166,120.1431,10.0,4.0,"186 km SS
 us6000snnr,2026-04-09 10:45:37.379000+00:00,8.8944,126.5462,40.212,4.6,"25 km E of Aras-asan, Philippines",Philippines,PH,Philippines
 us6000snn9,2026-04-09 10:05:02.116000+00:00,57.5361,-142.7634,10.0,4.2,"285 km SW of Yakutat, Alaska",Alaska,US,United States
 us6000sqw7,2026-04-09 09:19:04.303000+00:00,22.3767,145.1383,10.0,4.3,"Volcano Islands, Japan region",Japan region,MP,Northern Mariana Islands
-us6000sqw8,2026-04-09 09:05:13.484000+00:00,2.1059,96.2211,22.383,4.4,"45 km SSW of Sinabang, Indonesia",Indonesia,ID,Indonesia
+us6000sqw8,2026-04-09 09:05:11.782000+00:00,2.1592,96.2938,10.0,4.3,"36 km SSW of Sinabang, Indonesia",Indonesia,ID,Indonesia
 us6000sqw5,2026-04-09 08:59:48.449000+00:00,18.2981,146.257,88.007,4.1,"Pagan region, Northern Mariana Islands",Northern Mariana Islands,MP,Northern Mariana Islands
 us6000sqw3,2026-04-09 07:58:56.638000+00:00,49.8238,155.8666,74.705,4.0,"96 km S of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000sqw4,2026-04-09 07:56:15.163000+00:00,-31.395,58.3266,10.0,4.4,Southwest Indian Ridge,Southwest Indian Ridge,RE,Réunion
@@ -97584,6 +97836,7 @@ us7000s7nl,2026-03-25 23:04:14.199000+00:00,-24.0512,-67.159,192.281,4.2,"87 km 
 us7000s7nc,2026-03-25 22:25:15.458000+00:00,52.3039,160.8873,10.0,5.0,"174 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us7000s7n0,2026-03-25 21:25:20.450000+00:00,-7.4531,155.9975,84.231,4.9,"117 km NW of Gizo, Solomon Islands",Solomon Islands,SB,Solomon Islands
 us7000s7lv,2026-03-25 20:05:47.900000+00:00,-25.3592,179.9265,507.662,4.5,south of the Fiji Islands,south of the Fiji Islands,FJ,Fiji
+us6000sm3m,2026-03-25 19:52:13.105000+00:00,-21.3668,69.2656,10.0,4.6,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
 us7000s7l9,2026-03-25 19:08:24.864000+00:00,40.3446,24.0761,10.0,4.9,"7 km E of Ouranoupolis, Greece",Greece,GR,Greece
 us6000sm3i,2026-03-25 18:29:16.508000+00:00,-29.0105,-176.8786,35.0,4.0,Kermadec Islands region,Kermadec Islands region,TO,Tonga
 us6000sm3h,2026-03-25 18:14:52.637000+00:00,-29.3346,-177.0648,35.0,4.7,"Kermadec Islands, New Zealand",New Zealand,TO,Tonga
@@ -97616,6 +97869,7 @@ us7000s7gp,2026-03-25 07:35:08.984000+00:00,-18.3985,-175.5343,223.652,4.6,"166 
 us7000s7gq,2026-03-25 07:13:43.608000+00:00,44.1397,9.922,10.0,4.1,"1 km S of Santo Stefano di Magra, Italy",Italy,IT,Italy
 us7000s7gf,2026-03-25 05:50:30.656000+00:00,44.9406,146.6103,177.676,4.4,"104 km WSW of Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000sm2n,2026-03-25 05:08:14.252000+00:00,-23.3021,-179.7655,558.755,4.4,south of the Fiji Islands,south of the Fiji Islands,TO,Tonga
+us7000s7g4,2026-03-25 03:57:22.268000+00:00,-21.2124,-68.6245,152.464,4.2,"38 km W of Ollagüe, Chile",Chile,CL,Chile
 us6000sm2g,2026-03-25 03:01:20.596000+00:00,-16.7417,-173.7587,99.661,4.3,"87 km S of Hihifo, Tonga",Tonga,TO,Tonga
 us7000s7fx,2026-03-25 02:24:40.600000+00:00,-18.6098,-175.4868,211.842,5.0,"158 km W of Neiafu, Tonga",Tonga,TO,Tonga
 us6000sm2j,2026-03-25 01:35:18.864000+00:00,-10.1608,161.7997,82.701,4.4,"35 km NNW of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
@@ -97639,6 +97893,7 @@ us7000s7d2,2026-03-24 16:55:58.544000+00:00,51.7671,176.1722,26.946,4.1,"236 km 
 us7000s7cn,2026-03-24 16:43:30.875000+00:00,51.6256,-176.6784,53.938,4.5,"27 km S of Adak, Alaska",Alaska,US,United States
 us6000sm16,2026-03-24 16:16:31.685000+00:00,-14.5753,-75.9803,32.279,4.4,"52 km SW of Santiago, Peru",Peru,PE,Peru
 us7000s7cg,2026-03-24 15:36:43.163000+00:00,-14.9874,-72.6318,82.397,4.5,"10 km NE of Puyca, Peru",Peru,PE,Peru
+us7000s7b6,2026-03-24 15:18:31.795000+00:00,-37.4873,177.666,117.567,4.4,"57 km WNW of Hicks Bay, New Zealand",New Zealand,NZ,New Zealand
 us7000s7b4,2026-03-24 15:05:23.419000+00:00,26.9926,140.3459,489.194,4.0,"Bonin Islands, Japan region",Japan region,JP,Japan
 us6000sm15,2026-03-24 14:04:13.765000+00:00,-17.7128,-178.354,575.903,4.6,"249 km E of Levuka, Fiji",Fiji,WF,Wallis and Futuna
 us6000sm14,2026-03-24 14:03:50.604000+00:00,37.2264,141.3459,53.555,4.2,"31 km ESE of Tomioka, Japan",Japan,JP,Japan
@@ -97675,6 +97930,7 @@ us7000s76u,2026-03-23 23:03:19.200000+00:00,-20.0155,-70.9673,14.442,4.3,"87 km 
 us7000s76q,2026-03-23 22:52:17.090000+00:00,-19.9914,-70.916,16.439,4.9,"83 km WNW of Puerto, Chile",Chile,CL,Chile
 us7000s9gb,2026-03-23 22:44:01.566000+00:00,-21.6616,69.0735,10.0,4.3,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
 us7000s9ga,2026-03-23 22:23:15.862000+00:00,44.5908,148.2036,107.058,4.3,"75 km SSE of Kuril’sk, Russia",Russia,JP,Japan
+us7000s9gd,2026-03-23 22:20:12.600000+00:00,-20.0137,-71.1005,10.0,4.4,"101 km WNW of Puerto, Chile",Chile,CL,Chile
 us7000s76i,2026-03-23 22:19:19.431000+00:00,-20.0312,-71.0124,12.131,4.6,"92 km WNW of Puerto, Chile",Chile,CL,Chile
 us7000s769,2026-03-23 21:18:38.570000+00:00,32.6576,90.316,10.0,4.0,"210 km NW of Nagqu, China",China,CN,China
 us7000s9gg,2026-03-23 21:03:03.523000+00:00,15.4312,-94.4278,35.0,4.0,"86 km SSW of La Gloria, Mexico",Mexico,MX,Mexico
@@ -97731,11 +97987,13 @@ us6000sijy,2026-03-22 19:23:28.600000+00:00,48.7685,-129.6019,10.0,4.0,"272 km S
 us6000siji,2026-03-22 18:09:27.182000+00:00,-17.6633,-178.7528,545.181,4.7,"209 km ENE of Levuka, Fiji",Fiji,WF,Wallis and Futuna
 us7000s9el,2026-03-22 17:52:01.453000+00:00,23.8113,-45.8348,10.0,4.3,northern Mid-Atlantic Ridge,northern Mid-Atlantic Ridge,GP,Guadeloupe
 us6000sij5,2026-03-22 17:06:35.207000+00:00,-35.1046,179.768,61.624,4.9,off the east coast of the North Island of New Zealand,off the east coast of the North Island of New Zealand,NZ,New Zealand
+us7000s9ex,2026-03-22 16:47:08.151000+00:00,51.9207,176.179,35.0,4.0,"228 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
 us6000siis,2026-03-22 16:46:21.238000+00:00,51.8947,176.1848,10.0,4.2,"230 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
 us6000siii,2026-03-22 16:23:11.906000+00:00,-14.9873,-173.0047,10.0,4.8,"136 km NE of Hihifo, Tonga",Tonga,TO,Tonga
 us6000siia,2026-03-22 16:00:18.732000+00:00,-14.9521,-173.0721,10.0,5.6,"135 km NE of Hihifo, Tonga",Tonga,TO,Tonga
 us6000sii1,2026-03-22 15:30:36.570000+00:00,-15.3376,-172.652,12.0,6.3,"140 km ENE of Hihifo, Tonga",Tonga,TO,Tonga
 us6000sii0,2026-03-22 15:27:55.084000+00:00,-15.2757,-172.5991,10.0,6.2,"148 km ENE of Hihifo, Tonga",Tonga,TO,Tonga
+us7000s9eh,2026-03-22 15:15:11.215000+00:00,5.4203,-76.285,104.871,4.2,"14 km E of Bagadó, Colombia",Colombia,CO,Colombia
 us6000sihv,2026-03-22 15:08:58.232000+00:00,-6.8938,129.7117,113.545,4.3,Banda Sea,Banda Sea,TL,Timor-Leste
 us6000siht,2026-03-22 15:06:17.296000+00:00,-15.6728,-71.687,169.009,4.6,"2 km S of Ichupampa, Peru",Peru,PE,Peru
 us6000sih1,2026-03-22 14:08:10.903000+00:00,-15.2921,-172.7435,10.0,4.6,"134 km ENE of Hihifo, Tonga",Tonga,TO,Tonga
@@ -97751,6 +98009,7 @@ us7000s9e7,2026-03-22 08:17:03.501000+00:00,52.3058,160.6105,10.0,4.4,"158 km ES
 us6000siep,2026-03-22 08:14:34.946000+00:00,52.3166,160.5203,30.666,4.8,"152 km SE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us6000siem,2026-03-22 08:07:08.759000+00:00,52.1478,160.5909,10.0,4.7,"167 km SE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us6000sieg,2026-03-22 08:02:54.327000+00:00,-17.7345,-69.5788,138.565,4.8,"40 km E of Palca, Peru",Peru,PE,Peru
+us7000s9du,2026-03-22 07:49:41.469000+00:00,-15.2669,-172.9032,10.0,4.1,"122 km NE of Hihifo, Tonga",Tonga,TO,Tonga
 us6000siec,2026-03-22 07:31:24.665000+00:00,51.9545,176.1557,10.0,4.1,"225 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
 us7000s9e5,2026-03-22 07:23:48.727000+00:00,52.2691,160.825,10.0,4.5,"172 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
 us6000sie4,2026-03-22 07:19:58.989000+00:00,52.32,160.8444,10.0,5.1,"171 km ESE of Petropavlovsk-Kamchatsky, Russia",Russia,RU,Russian Federation
@@ -97808,19 +98067,22 @@ us6000si2t,2026-03-21 05:56:05.860000+00:00,-21.8996,-178.8162,498.581,4.8,Fiji 
 us6000si2s,2026-03-21 05:51:30.587000+00:00,38.1553,20.3059,10.0,4.3,"12 km WSW of Lixoúri, Greece",Greece,GR,Greece
 us7000s93y,2026-03-21 05:14:43.783000+00:00,49.9401,159.6013,10.0,4.1,"260 km ESE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us7000s93w,2026-03-21 04:52:34.982000+00:00,-30.1805,-177.6368,35.0,4.3,"Kermadec Islands, New Zealand",New Zealand,TO,Tonga
+us6000si9h,2026-03-21 04:51:12.094000+00:00,-50.1791,127.4922,10.0,4.4,western Indian-Antarctic Ridge,western Indian-Antarctic Ridge,AU,Australia
 us6000si1x,2026-03-21 04:27:32.363000+00:00,-45.1796,167.3764,115.863,4.2,"37 km NW of Te Anau, New Zealand",New Zealand,NZ,New Zealand
 us6000si1v,2026-03-21 04:15:27.500000+00:00,-16.0026,166.8422,32.059,4.5,"59 km W of Norsup, Vanuatu",Vanuatu,VU,Vanuatu
 us6000si17,2026-03-21 03:20:59.404000+00:00,-15.9932,166.9204,28.0,5.7,"51 km W of Norsup, Vanuatu",Vanuatu,VU,Vanuatu
+us7000s93v,2026-03-21 02:42:15.937000+00:00,-8.4702,128.3491,10.0,4.2,"148 km E of Lospalos, Timor Leste",Timor Leste,TL,Timor-Leste
 us7000s93u,2026-03-21 02:19:56.154000+00:00,-9.0339,112.4858,53.014,4.3,"95 km SSW of Dampit, Indonesia",Indonesia,ID,Indonesia
 us7000s93t,2026-03-21 02:15:34.923000+00:00,-10.1818,160.8623,35.0,4.2,"119 km WNW of Kirakira, Solomon Islands",Solomon Islands,SB,Solomon Islands
 us6000si0t,2026-03-21 02:01:51.302000+00:00,35.104,69.9964,93.404,4.5,"42 km NE of Tagāb, Afghanistan",Afghanistan,AF,Afghanistan
 us7000s93s,2026-03-21 01:49:10.169000+00:00,38.5003,14.3653,10.0,4.3,"40 km W of Leni, Italy",Italy,IT,Italy
 us6000si0l,2026-03-21 01:46:05.398000+00:00,38.5156,14.2846,10.0,4.8,"47 km W of Leni, Italy",Italy,IT,Italy
 us6000si0j,2026-03-21 01:28:20.241000+00:00,51.7836,160.1543,10.0,4.6,"174 km SE of Vilyuchinsk, Russia",Russia,RU,Russian Federation
-us6000si0c,2026-03-21 00:31:30.321000+00:00,13.8633,51.5446,10.0,4.5,"200 km NNW of Kilmia, Yemen",Yemen,YE,Yemen
+us6000si0c,2026-03-21 00:31:30.263000+00:00,13.8495,51.5141,10.0,4.5,"199 km NNW of Kilmia, Yemen",Yemen,YE,Yemen
 us6000shzt,2026-03-20 23:31:21.094000+00:00,38.2166,20.2528,10.0,4.5,"16 km W of Lixoúri, Greece",Greece,GR,Greece
 us6000shz5,2026-03-20 22:17:06.754000+00:00,-22.7766,-177.3031,248.881,4.4,"272 km SW of Houma, Tonga",Tonga,TO,Tonga
 us6000si96,2026-03-20 22:16:52.836000+00:00,49.4931,155.7041,56.647,4.3,"134 km SSW of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
+us7000s8u2,2026-03-20 21:39:32.798000+00:00,-19.4805,168.2624,10.0,4.0,"107 km W of Isangel, Vanuatu",Vanuatu,VU,Vanuatu
 us6000shyj,2026-03-20 21:19:21.404000+00:00,28.411,129.2947,58.732,4.6,"13 km NNE of Uken, Japan",Japan,JP,Japan
 us6000shy8,2026-03-20 20:38:52.407000+00:00,-20.0162,-70.8045,29.093,4.1,"71 km WNW of Puerto, Chile",Chile,CL,Chile
 us7000s8u1,2026-03-20 20:32:26.889000+00:00,30.4891,101.4764,10.0,4.1,"71 km NW of Kangding, China",China,CN,China
@@ -97830,7 +98092,7 @@ us6000shx5,2026-03-20 18:32:08.768000+00:00,-4.9055,145.1764,112.576,4.7,"76 km 
 us7000s8u0,2026-03-20 18:26:47.364000+00:00,-14.9811,166.9394,43.188,4.6,"15 km WNW of Port-Olry, Vanuatu",Vanuatu,VU,Vanuatu
 us7000s8tz,2026-03-20 17:13:44.283000+00:00,1.2839,127.5313,10.0,4.2,"56 km NNE of Ternate, Indonesia",Indonesia,ID,Indonesia
 us6000shvq,2026-03-20 16:17:50.508000+00:00,-15.5243,-174.7407,282.634,4.3,"111 km WNW of Hihifo, Tonga",Tonga,TO,Tonga
-us7000s8tx,2026-03-20 16:16:30.952000+00:00,-61.0585,-55.8934,10.0,4.5,South Shetland Islands,South Shetland Islands,FK,Falkland Islands (Malvinas)
+us7000s8tx,2026-03-20 16:16:31.007000+00:00,-61.0938,-55.8865,10.0,4.5,South Shetland Islands,South Shetland Islands,FK,Falkland Islands (Malvinas)
 us6000shvi,2026-03-20 15:30:45.182000+00:00,-32.1984,-71.7088,54.369,4.7,"53 km WNW of La Ligua, Chile",Chile,CL,Chile
 us6000shus,2026-03-20 14:45:23.714000+00:00,-20.6704,-178.4172,574.643,4.8,Fiji region,Fiji region,TO,Tonga
 us7000s8tw,2026-03-20 14:12:01.069000+00:00,-19.3628,168.2336,10.0,4.3,"111 km W of Isangel, Vanuatu",Vanuatu,VU,Vanuatu
@@ -97873,6 +98135,7 @@ us6000shlp,2026-03-20 00:22:04.661000+00:00,-61.1875,-56.4033,21.0,6.5,South She
 us6000shlj,2026-03-19 23:57:45.962000+00:00,13.9173,-90.7885,94.902,4.4,"3 km ESE of Puerto San José, Guatemala",Guatemala,GT,Guatemala
 us6000shll,2026-03-19 23:57:24.599000+00:00,-18.4105,-178.0651,538.689,4.6,"279 km E of Levuka, Fiji",Fiji,TO,Tonga
 us6000shlm,2026-03-19 23:41:41.244000+00:00,6.7497,-73.041,170.548,4.5,"6 km ENE of Jordán, Colombia",Colombia,CO,Colombia
+us6000shkq,2026-03-19 22:56:50.223000+00:00,18.86,-62.4986,22.726,4.1,"92 km NE of The Valley, Anguilla",Anguilla,AI,Anguilla
 us6000shkh,2026-03-19 22:46:47.570000+00:00,18.892,-62.5449,10.0,5.2,"92 km NE of The Valley, Anguilla",Anguilla,AI,Anguilla
 us7000s872,2026-03-19 22:06:27.645000+00:00,-13.8042,167.233,211.432,4.3,"35 km WNW of Sola, Vanuatu",Vanuatu,VU,Vanuatu
 us7000s871,2026-03-19 21:26:38.452000+00:00,13.3514,-45.4875,10.0,4.5,northern Mid-Atlantic Ridge,northern Mid-Atlantic Ridge,GF,French Guiana
@@ -97896,12 +98159,14 @@ us6000shcv,2026-03-19 08:55:30.692000+00:00,32.5286,48.253,10.0,4.4,"28 km NW of
 us7000s86e,2026-03-19 08:46:24.572000+00:00,28.1163,142.0203,33.208,4.0,"Bonin Islands, Japan region",Japan region,JP,Japan
 us7000s86d,2026-03-19 08:41:59.462000+00:00,49.4572,155.8494,51.168,4.2,"136 km S of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us6000shc9,2026-03-19 07:43:29.161000+00:00,49.1909,156.2389,16.0,5.6,"165 km S of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
+us7000s868,2026-03-19 06:53:13.729000+00:00,-21.5039,68.9757,10.0,4.2,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
 us7000s85y,2026-03-19 06:47:58.283000+00:00,-21.6634,68.6359,10.0,4.2,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
 us7000s869,2026-03-19 06:41:26.965000+00:00,-17.1029,168.4687,10.0,4.5,"72 km NNE of Port-Vila, Vanuatu",Vanuatu,VU,Vanuatu
 us7000s864,2026-03-19 06:36:10.212000+00:00,-21.6443,68.8358,10.0,4.6,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
 us7000s863,2026-03-19 06:32:08.475000+00:00,-21.66,68.7682,10.0,4.7,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
 us6000shc0,2026-03-19 06:26:36.601000+00:00,-21.4447,68.8693,10.0,5.0,Mid-Indian Ridge,Mid-Indian Ridge,MU,Mauritius
 us7000s865,2026-03-19 06:23:22.711000+00:00,-44.796,-15.4734,10.0,4.7,southern Mid-Atlantic Ridge,southern Mid-Atlantic Ridge,SH,"Saint Helena, Ascension and Tristan da Cunha"
+us7000s875,2026-03-19 05:48:59.975000+00:00,-45.203,-15.6756,10.0,4.6,southern Mid-Atlantic Ridge,southern Mid-Atlantic Ridge,SH,"Saint Helena, Ascension and Tristan da Cunha"
 us7000s85z,2026-03-19 04:40:52.161000+00:00,-20.825,-178.795,590.151,4.0,Fiji region,Fiji region,TO,Tonga
 us7000s85u,2026-03-19 02:13:20.396000+00:00,-20.1767,-177.793,553.208,4.1,"281 km WNW of Houma, Tonga",Tonga,TO,Tonga
 us6000shar,2026-03-19 02:07:33.068000+00:00,-59.3438,-25.9965,69.178,5.1,South Sandwich Islands region,South Sandwich Islands region,GS,South Georgia and the South Sandwich Islands
@@ -98043,6 +98308,7 @@ us7000s7tb,2026-03-16 11:43:32.073000+00:00,-10.3718,161.5203,60.829,4.6,"44 km 
 us6000sgkr,2026-03-16 11:41:58.450000+00:00,-9.2449,118.1446,77.814,4.9,"85 km SSW of Dompu, Indonesia",Indonesia,ID,Indonesia
 us6000sgkn,2026-03-16 11:37:51.538000+00:00,34.8208,139.152,143.097,4.5,"17 km SSE of Itō, Japan",Japan,JP,Japan
 us6000sgkq,2026-03-16 11:33:00.723000+00:00,-2.2054,139.1208,10.0,4.4,"173 km WNW of Abepura, Indonesia",Indonesia,ID,Indonesia
+us7000s7t8,2026-03-16 09:38:49.098000+00:00,50.9706,159.7243,10.0,4.2,"232 km ESE of Ozernovskiy, Russia",Russia,RU,Russian Federation
 us6000sgkc,2026-03-16 09:19:11.181000+00:00,-10.3808,-74.9099,24.281,4.6,"55 km NE of Villa Rica, Peru",Peru,PE,Peru
 us6000sgk5,2026-03-16 08:36:14.138000+00:00,33.8395,25.2297,35.0,4.5,"129 km S of Pýrgos, Greece",Greece,GR,Greece
 us6000sgk0,2026-03-16 07:44:30.591000+00:00,43.6893,-128.3096,10.0,4.3,off the coast of Oregon,off the coast of Oregon,US,United States
@@ -98188,7 +98454,7 @@ us7000s7bt,2026-03-12 12:27:16.344000+00:00,1.9951,126.7925,35.0,4.4,"138 km WNW
 us6000sftk,2026-03-12 12:14:13.809000+00:00,23.7234,121.5932,30.33,5.1,"28 km S of Hualien City, Taiwan",Taiwan,TW,"Taiwan, Province of China"
 us6000sfth,2026-03-12 12:05:19.786000+00:00,2.9406,123.233,466.903,4.2,"241 km NW of Manado, Indonesia",Indonesia,ID,Indonesia
 us6000sfta,2026-03-12 10:36:09.458000+00:00,18.0868,-106.2977,10.0,4.3,"201 km SW of Emiliano Zapata, Mexico",Mexico,MX,Mexico
-us6000sft6,2026-03-12 10:14:17.940000+00:00,39.2745,21.6137,10.0,4.6,"14 km SW of Morfovoúni, Greece",Greece,GR,Greece
+us6000sft6,2026-03-12 10:14:17.883000+00:00,39.2888,21.6101,10.0,4.6,"13 km WSW of Morfovoúni, Greece",Greece,GR,Greece
 us6000shdx,2026-03-12 09:51:54.684000+00:00,18.7405,-106.1025,10.0,4.2,"139 km WSW of Emiliano Zapata, Mexico",Mexico,MX,Mexico
 us6000sfsn,2026-03-12 07:45:48.786000+00:00,28.9576,86.8579,10.0,4.5,"111 km N of Lobuche, Nepal",Nepal,CN,China
 us6000sfsh,2026-03-12 07:18:19.222000+00:00,75.7006,7.2824,10.0,4.4,Greenland Sea,Greenland Sea,SJ,Svalbard and Jan Mayen
@@ -98498,7 +98764,7 @@ us6000sgwj,2026-03-05 21:48:27.930000+00:00,-32.8633,-178.4392,10.0,4.7,south of
 us7000s2cz,2026-03-05 21:20:54.887000+00:00,-15.17,-178.2464,394.886,4.4,"96 km S of Alo, Wallis and Futuna",Wallis and Futuna,WF,Wallis and Futuna
 us7000s2bn,2026-03-05 19:25:07.317000+00:00,52.106,-168.9557,17.0,5.5,"92 km S of Nikolski, Alaska",Alaska,US,United States
 us7000s2bd,2026-03-05 18:09:56.648000+00:00,37.6545,71.882,10.0,4.4,"34 km ENE of Khorugh, Tajikistan",Tajikistan,TJ,Tajikistan
-us7000s29k,2026-03-05 16:37:41.922000+00:00,25.0793,125.072,42.716,4.8,"38 km NW of Hirara, Japan",Japan,JP,Japan
+us7000s29k,2026-03-05 16:37:38.415000+00:00,25.2182,125.0246,10.0,4.8,"53 km NNW of Hirara, Japan",Japan,JP,Japan
 us7000s29i,2026-03-05 16:26:58.117000+00:00,-6.1061,150.9679,10.0,5.0,"110 km ESE of Kimbe, Papua New Guinea",Papua New Guinea,PG,Papua New Guinea
 us6000sgwf,2026-03-05 15:59:32.236000+00:00,49.2549,158.1007,10.0,4.2,"212 km SE of Severo-Kuril’sk, Russia",Russia,RU,Russian Federation
 us7000s2b7,2026-03-05 15:57:50.749000+00:00,52.0275,176.3201,10.0,4.1,"231 km ESE of Attu Station, Alaska",Alaska,RU,Russian Federation
