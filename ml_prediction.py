@@ -42,6 +42,58 @@ def _get_empty_metrics(model_name):
     }
 
 
+def _normalize_period(period):
+    """Validate and normalize a pandas period code."""
+    period = str(period).upper()
+    if period not in {"D", "W", "M"}:
+        raise ValueError("period must be one of 'D', 'W', or 'M'")
+    return period
+
+
+def _build_time_features(dates, period, start_idx=0):
+    """Build time-based features for the residual model."""
+    period = _normalize_period(period)
+    date_series = pd.Series(pd.to_datetime(dates)).reset_index(drop=True)
+
+    features = pd.DataFrame(
+        {
+            "time_idx": np.arange(start_idx, start_idx + len(date_series)),
+            "month": date_series.dt.month,
+            "quarter": date_series.dt.quarter,
+        }
+    )
+
+    if period == "W":
+        features["week_of_year"] = date_series.dt.isocalendar().week.astype(int)
+    elif period == "D":
+        features["day_of_year"] = date_series.dt.dayofyear
+
+    return features
+
+
+def _get_future_dates(last_date, steps, period):
+    """Generate future timestamps that match the selected aggregation period."""
+    period = _normalize_period(period)
+    last_date = pd.to_datetime(last_date)
+
+    if period == "M":
+        start = last_date + pd.offsets.MonthBegin(1)
+        return pd.date_range(start=start, periods=steps, freq="MS")
+
+    if period == "W":
+        start = last_date + pd.Timedelta(weeks=1)
+        return pd.date_range(start=start, periods=steps, freq="7D")
+
+    start = last_date + pd.Timedelta(days=1)
+    return pd.date_range(start=start, periods=steps, freq="D")
+
+
+def _period_label(period):
+    """Return a human-readable label for a period code."""
+    period = _normalize_period(period)
+    return {"D": "daily", "W": "weekly", "M": "monthly"}[period]
+
+
 def get_ml_data_from_full_history(data, years=5):
     """
     Extract ML training data from full earthquake history (last N years).
@@ -53,8 +105,8 @@ def get_ml_data_from_full_history(data, years=5):
     -----------
     data : pd.DataFrame
         Full earthquake data with 'time' column
-    years : int
-        Number of years of historical data to use (default: 5)
+    years : int or None
+        Number of years of historical data to use. Use None for all history.
 
     Returns:
     --------
@@ -68,13 +120,16 @@ def get_ml_data_from_full_history(data, years=5):
     # Get the most recent date in the dataset
     max_date = df["time"].max()
 
-    # Calculate cutoff date (N years ago)
-    cutoff_date = max_date - pd.DateOffset(years=years)
+    if years is None:
+        df_filtered = df.copy()
+    else:
+        # Calculate cutoff date (N years ago)
+        cutoff_date = max_date - pd.DateOffset(years=years)
 
-    # Filter to last N years
-    df_filtered = df[df["time"] >= cutoff_date].copy()
+        # Filter to last N years
+        df_filtered = df[df["time"] >= cutoff_date].copy()
 
-    return df_filtered
+    return df_filtered.sort_values("time").reset_index(drop=True)
 
 
 def prepare_time_series_data(data, period="M"):
@@ -98,6 +153,8 @@ def prepare_time_series_data(data, period="M"):
     pd.DataFrame
         DataFrame with 'time' and 'count' columns
     """
+    period = _normalize_period(period)
+
     # Create a copy to avoid modifying original data
     df = data.copy()
 
@@ -115,11 +172,14 @@ def prepare_time_series_data(data, period="M"):
     # Convert period to timestamp (start of period)
     frequency_data["time"] = frequency_data["time"].dt.to_timestamp()
     frequency_data = frequency_data.sort_values("time").reset_index(drop=True)
+    frequency_data.attrs["period"] = period
 
     return frequency_data
 
 
-def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
+def train_ml_model(
+    frequency_data, test_size=0.2, window=3, random_state=42, period="M"
+):
     """
     Train a Hybrid Model (Exponential Smoothing + Random Forest) to predict earthquake frequency.
 
@@ -134,6 +194,8 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
         Fraction of data to use for testing (default 0.2)
     window : int
         Window size (months) for the moving average (default 3)
+    period : str
+        Aggregation period used to build the input series ('D', 'W', or 'M')
 
     Returns:
     --------
@@ -142,6 +204,8 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
     """
     from sklearn.ensemble import RandomForestRegressor
     from statsmodels.tsa.holtwinters import ExponentialSmoothing
+
+    period = _normalize_period(frequency_data.attrs.get("period", period))
 
     # Prepare arrays
     dates = pd.to_datetime(frequency_data["time"])
@@ -178,13 +242,10 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
     residuals_train = y_train - base_train_pred
 
     # Features for ML Model (Random Forest)
-    # Using time index and month to capture any non-linear trend or seasonality
-    X_train_ml = pd.DataFrame(
-        {"time_idx": X_train.flatten(), "month": dates.iloc[:split_index].dt.month}
-    )
-
-    X_test_ml = pd.DataFrame(
-        {"time_idx": X_test.flatten(), "month": dates.iloc[split_index:].dt.month}
+    # Time index plus seasonality features help the residual model learn patterns.
+    X_train_ml = _build_time_features(dates.iloc[:split_index], period, start_idx=0)
+    X_test_ml = _build_time_features(
+        dates.iloc[split_index:], period, start_idx=len(y_train)
     )
 
     # ML Model: Random Forest to predict residuals
@@ -206,11 +267,12 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
 
     # Simple model object with forecast method for compatibility
     class HybridModel:
-        def __init__(self, base, rf, last_train_idx, last_date):
+        def __init__(self, base, rf, last_train_idx, last_date, period):
             self.base = base
             self.rf = rf
             self.last_train_idx = last_train_idx
             self.last_date = pd.to_datetime(last_date)
+            self.period = period
 
         def forecast(self, steps=1):
             try:
@@ -218,17 +280,12 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
             except Exception:
                 base_f = np.full(steps, np.mean(y_train))
 
-            future_dates = pd.date_range(
-                start=self.last_date + pd.DateOffset(months=1), periods=steps, freq="MS"
-            )
+            future_dates = _get_future_dates(self.last_date, steps, self.period)
 
-            X_f_ml = pd.DataFrame(
-                {
-                    "time_idx": np.arange(
-                        self.last_train_idx + 1, self.last_train_idx + 1 + steps
-                    ),
-                    "month": future_dates.month,
-                }
+            X_f_ml = _build_time_features(
+                future_dates,
+                self.period,
+                start_idx=self.last_train_idx + 1,
             )
 
             rf_f = self.rf.predict(X_f_ml)
@@ -236,7 +293,11 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
             return np.maximum(base_f + rf_f, 0)
 
     model = HybridModel(
-        base_model, rf_model, len(y_train) + len(y_test) - 1, dates.iloc[-1]
+        base_model,
+        rf_model,
+        len(y_train) + len(y_test) - 1,
+        dates.iloc[-1],
+        period,
     )
 
     # Metrics
@@ -268,6 +329,7 @@ def train_ml_model(frequency_data, test_size=0.2, window=3, random_state=42):
         "test_mape": test_mape,
         "test_max_error": test_max_error,
         "frequency_data": frequency_data,
+        "period": period,
         "min_date_timestamp": dates.min().timestamp(),
         "n_train_samples": len(y_train),
         "n_test_samples": len(y_test),
@@ -400,6 +462,8 @@ def create_prediction_plotly(results, future_periods=12):
     """
     frequency_data = results["frequency_data"].copy()
     model = results["model"]
+    period = results.get("period", frequency_data.attrs.get("period", "M"))
+    period_label = _period_label(period)
     y_train = results["y_train"]
     y_test = results["y_test"]
     y_train_pred = results["y_train_pred"]
@@ -413,13 +477,9 @@ def create_prediction_plotly(results, future_periods=12):
     historical_predictions = np.concatenate([y_train_pred, y_test_pred])
     actual_counts = np.concatenate([y_train, y_test])
 
-    # Generate future predictions using the Moving Average model
+    # Generate future predictions using the selected aggregation step
     last_date = all_dates.iloc[-1]
-    future_dates = pd.date_range(
-        start=last_date + pd.DateOffset(months=1),
-        periods=future_periods,
-        freq="MS",
-    )
+    future_dates = _get_future_dates(last_date, future_periods, period)
 
     # Forecast future values (moving average model provides forecast method)
     future_y_pred = model.forecast(steps=future_periods)
@@ -464,7 +524,7 @@ def create_prediction_plotly(results, future_periods=12):
     fig.update_layout(
         title="Earthquake Frequency Trend Analysis with Future Forecast",
         xaxis_title="Date",
-        yaxis_title="Earthquake Frequency (monthly count)",
+        yaxis_title=f"Earthquake Frequency ({period_label} count)",
         hovermode="x unified",
         height=500,
         template="plotly_white",
@@ -606,10 +666,10 @@ def get_model_explanation():
     - When earthquakes will occur
     
     **Key Features:**
-    - **Data**: Last 5 years of global earthquake data (~60 months)
+    - **Data**: Recent global earthquake history (monthly or weekly counts)
     - **Method**: Hybrid Model (Exponential Smoothing + Random Forest)
-    - **Aggregation**: Monthly earthquake counts for stability
-    - **Train/Test Split**: 80% training (~48 months), 20% testing (~12 months)
+    - **Aggregation**: Monthly counts for stability, weekly counts for finer-grained tests
+    - **Train/Test Split**: 80% training, 20% testing
     
     **Why a Hybrid Model?**
     - Earthquake frequency is **highly chaotic and noisy**
@@ -625,8 +685,8 @@ def get_model_explanation():
     
     **What the model shows:**
     - **Teal line**: The predicted Hybrid trend
-    - **Pink dotted line**: The n-month future forecast
-    - **Gray dots**: Raw monthly data (noisy)
+    - **Pink dotted line**: The n-period future forecast
+    - **Gray dots**: Raw aggregated data (noisy)
     
     **Important Limitations:**
     - Earthquake patterns are inherently unpredictable
@@ -639,7 +699,7 @@ def get_model_explanation():
     return explanation
 
 
-def compare_models(frequency_data):
+def compare_models(frequency_data, period="M"):
     """
     Compare multiple ML models on the same earthquake frequency data.
 
@@ -651,6 +711,8 @@ def compare_models(frequency_data):
     -----------
     frequency_data : pd.DataFrame
         Time series data with 'time' and 'count' columns
+    period : str
+        Aggregation period used to prepare the series ('D', 'W', or 'M')
 
     Returns:
     --------
@@ -666,6 +728,8 @@ def compare_models(frequency_data):
         # Return empty dataframe if statsmodels not available
         return pd.DataFrame()
 
+    period = _normalize_period(frequency_data.attrs.get("period", period))
+
     # Prepare data
     y = frequency_data["count"].values
     split_index = int(len(y) * 0.8)
@@ -676,7 +740,7 @@ def compare_models(frequency_data):
 
     # 1. Hybrid Model (Current model from train_ml_model)
     try:
-        ml_results = train_ml_model(frequency_data, test_size=0.2)
+        ml_results = train_ml_model(frequency_data, test_size=0.2, period=period)
         results_list.append(
             {
                 "Model": "Hybrid (Exp. Smoothing + RF)",
@@ -721,7 +785,7 @@ def compare_models(frequency_data):
 
     # 3. Moving Average (simple implementation for comparison)
     try:
-        window_size = 3
+        window_size = 4 if period == "W" else 3
         ma_train = np.convolve(
             y_train, np.ones(window_size) / window_size, mode="valid"
         )
@@ -808,7 +872,7 @@ def compare_models(frequency_data):
 
     # 6. Seasonal Naive
     try:
-        season = 12
+        season = 52 if period == "W" else 12 if period == "M" else 7
         if len(y_train) >= season:
             sn_train_pred = y_train[season:]
             sn_train_actual = y_train[season:]

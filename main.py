@@ -399,13 +399,34 @@ def render_ml_tab(data):
         st.markdown(get_model_explanation())
 
     try:
-        # Get ML data from full history (last 5 years)
-        with st.spinner("Loading historical earthquake data..."):
-            ml_data = get_ml_data_from_full_history(data, years=5)
+        available_years = max(
+            1,
+            data["time"].dt.year.max() - data["time"].dt.year.min() + 1,
+        )
+        history_years = st.slider(
+            "📆 Years of history to train on",
+            min_value=1,
+            max_value=available_years,
+            value=available_years,
+            help="Using more history usually improves stability. With your 2012+ data, the model can learn longer-term patterns.",
+        )
+        aggregation_label = st.radio(
+            "Aggregation period",
+            ["Monthly", "Weekly"],
+            horizontal=True,
+            help="Weekly data gives more samples, but monthly data is usually smoother and easier to predict.",
+        )
+        period = "M" if aggregation_label == "Monthly" else "W"
 
-        # Prepare time series data (monthly frequency)
-        with st.spinner("Preparing monthly earthquake frequency data..."):
-            frequency_data = prepare_time_series_data(ml_data, period="M")
+        # Get ML data from full history
+        with st.spinner("Loading historical earthquake data..."):
+            ml_data = get_ml_data_from_full_history(data, years=history_years)
+
+        # Prepare time series data with the selected aggregation
+        with st.spinner(
+            f"Preparing {aggregation_label.lower()} earthquake frequency data..."
+        ):
+            frequency_data = prepare_time_series_data(ml_data, period=period)
 
         # Show model comparison summary
         with st.expander("🏆 Model Comparison (All Tested Models)"):
@@ -415,7 +436,7 @@ def render_ml_tab(data):
             )
             try:
                 with st.spinner("Comparing models..."):
-                    comparison_df = compare_models(frequency_data)
+                    comparison_df = compare_models(frequency_data, period=period)
                 if not comparison_df.empty:
                     # Format the dataframe for display
                     display_df = comparison_df.copy()
@@ -441,12 +462,14 @@ def render_ml_tab(data):
         # Check if we have enough data
         if len(frequency_data) < 15:
             st.warning(
-                "Not enough data for ML model training. Need at least 15 months."
+                "Not enough data for ML model training. Need at least 15 time periods."
             )
         else:
             # Train the model
             with st.spinner("Training Hybrid Model..."):
-                ml_results = train_ml_model(frequency_data, test_size=0.2)
+                ml_results = train_ml_model(
+                    frequency_data, test_size=0.2, period=period
+                )
 
             # Display data summary
             st.markdown("### 📊 Data Summary")
@@ -468,8 +491,8 @@ def render_ml_tab(data):
             )
             summary_cols[3].metric(
                 "Data Period",
-                "Last 5 Years",
-                help="Global historical earthquake data",
+                f"{aggregation_label} | Last {history_years} Years",
+                help="Global historical earthquake data used for training",
             )
 
             # Display model performance metrics
@@ -511,7 +534,7 @@ def render_ml_tab(data):
             # Display actual vs predicted visualization
             st.markdown("### 📊 Actual vs Predicted Earthquake Frequency")
             st.caption(
-                "Left: How the trend line compares to actual monthly data | Right: Prediction accuracy"
+                f"Left: How the trend line compares to actual {aggregation_label.lower()} data | Right: Prediction accuracy"
             )
             st.plotly_chart(plot_actual_vs_predicted(ml_results), width="stretch")
 
@@ -526,7 +549,7 @@ def render_ml_tab(data):
             # Display Categorized Confusion Matrix & Classification Report
             st.markdown("### 🗂️ Categorized Confusion Matrix & Classification Report")
             st.caption(
-                "To evaluate this regression model categorically, we converted the continuous monthly "
+                f"To evaluate this regression model categorically, we converted the continuous {aggregation_label.lower()} "
                 "earthquake counts into 'Low', 'Medium', and 'High' activity categories based on historical averages."
             )
 
@@ -537,12 +560,15 @@ def render_ml_tab(data):
                 st.dataframe(get_classification_report_df(ml_results), width="stretch")
 
             # Display trend forecast
-            st.markdown("### 🔮 12-Month Trend Forecast")
+            forecast_label = "12-Month" if period == "M" else "26-Week"
+            st.markdown(f"### 🔮 {forecast_label} Trend Forecast")
             st.caption(
-                "Gray dots = raw monthly data (noisy) | Teal line = Hybrid Model trend | Pink dotted line = future forecast"
+                f"Gray dots = raw {aggregation_label.lower()} data (noisy) | Teal line = Hybrid Model trend | Pink dotted line = future forecast"
             )
             st.plotly_chart(
-                create_prediction_plotly(ml_results, future_periods=12),
+                create_prediction_plotly(
+                    ml_results, future_periods=12 if period == "M" else 26
+                ),
                 width="stretch",
             )
 
