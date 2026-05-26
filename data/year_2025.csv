@@ -10879,7 +10879,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2025-06-24T03:08:35.023Z,-20.6853,-174.1519,10.0,4.6,mb,22.0,135.0,7.109,0.47,us,us7000qavx,2025-09-02T21:23:46.040Z,"98 km SSE of Pangai, Tonga",earthquake,13.65,1.659,0.141,15.0,reviewed,us,us
 2025-06-24T03:04:54.278Z,41.4194,19.5601,10.0,4.2,mb,51.0,56.0,0.239,0.9,us,us7000q8c1,2025-09-02T21:23:42.040Z,"8 km N of Shijak, Albania",earthquake,2.47,1.888,0.094,32.0,reviewed,us,us
 2025-06-24T02:58:26.850Z,-29.2958,-71.7148,32.778,4.2,mb,23.0,150.0,0.747,0.65,us,us7000q8bz,2025-09-02T21:23:42.040Z,"81 km NNW of La Serena, Chile",earthquake,4.37,8.025,0.373,2.0,reviewed,us,us
-2025-06-24T02:45:43.620Z,19.2245,-68.1103,68.0,5.7,mw,26.0,189.0,0.7606,0.62,pr,pr2025175000,2026-05-19T02:55:54.554Z,"77 km NNE of Punta Cana, Dominican Republic",earthquake,2.52,5.97,0.02,8.0,reviewed,pr,pr
+2025-06-24T02:45:43.620Z,19.2245,-68.1103,68.0,5.7,mw,26.0,189.0,0.7606,0.62,pr,pr2025175000,2026-05-26T02:55:51.825Z,"77 km NNE of Punta Cana, Dominican Republic",earthquake,2.52,5.97,0.02,8.0,reviewed,pr,pr
 2025-06-24T01:58:41.616Z,-10.9655,162.6253,39.859,5.5,mww,162.0,40.0,3.041,0.57,us,us7000q8be,2025-09-02T21:23:42.040Z,"95 km SE of Kirakira, Solomon Islands",earthquake,6.9,5.052,0.098,10.0,reviewed,us,us
 2025-06-24T01:58:06.248Z,7.9765,129.9606,10.0,6.2,mww,238.0,15.0,4.436,0.67,us,us7000q8bd,2025-09-02T21:23:42.040Z,east of the Philippine Islands,earthquake,7.27,1.721,0.055,32.0,reviewed,us,us
 2025-06-24T01:53:16.206Z,-29.2746,-68.3171,51.587,4.8,mww,101.0,28.0,1.698,0.46,us,us7000q8bc,2025-09-02T21:23:42.040Z,"58 km S of Vinchina, Argentina",earthquake,6.64,5.558,0.098,10.0,reviewed,us,us
