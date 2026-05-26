@@ -102,6 +102,6 @@ def process_historical_data():
 
 
 if __name__ == "__main__":
-    # load_historical_data(2020, 2026)
-    # process_historical_data()
-    ...
+    load_historical_data(2020, 2026)
+    process_historical_data()
+    # ...
