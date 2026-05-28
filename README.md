@@ -27,6 +27,7 @@ streamlit run main.py
 - reverse_geocoder (≥1.5.1)
 - pycountry (≥22.3.5)
 - scikit-learn (≥1.0.0) - for ML predictions
+- statsmodels (≥0.13.0) - for Exponential Smoothing and ARIMA models
 
 ## Folder structure
 
@@ -35,6 +36,14 @@ Earthquake Data Analyzer/
 ├── data/
 │   ├── historical.csv
 │   ├── historical_processed.csv
+│   ├── year_2012.csv
+│   ├── year_2013.csv
+│   ├── year_2014.csv
+│   ├── year_2015.csv
+│   ├── year_2016.csv
+│   ├── year_2017.csv
+│   ├── year_2018.csv
+│   ├── year_2019.csv
 │   ├── year_2020.csv
 │   ├── year_2021.csv
 │   ├── year_2022.csv
@@ -46,6 +55,7 @@ Earthquake Data Analyzer/
 ├── main.py
 ├── ml_prediction.py
 ├── visualization.py
+├── plot.py
 └── README.md
 ```
 
@@ -80,7 +90,7 @@ Earthquake Data Analyzer/
 
 ### 🤖 ML Trend Forecasting Tab
 
-- **Machine Learning Model**: Hybrid Model (Exponential Smoothing + Random Forest) for earthquake frequency trend prediction
+- **Machine Learning Model**: Hybrid Model (Exponential Smoothing + Gradient Boosting) for earthquake frequency trend prediction
 - **Data Source**: Last 5 years of complete historical earthquake data (~60 months)
 - **Monthly Aggregation**: Earthquake counts grouped by month for stable trends
 - **Performance Metrics**: Train/Test R² scores and RMSE
@@ -92,7 +102,7 @@ Earthquake Data Analyzer/
 
 ### What It Does
 
-The ML module uses a **Hybrid Model (Exponential Smoothing + Random Forest)** to forecast earthquake **frequency trends** over time using the last **5 years of global historical earthquake data**. It helps identify whether earthquake activity is increasing or decreasing globally.
+The ML module uses a **Hybrid Model (Exponential Smoothing + Gradient Boosting)** to forecast earthquake **frequency trends** over time using up to **5 years of global historical earthquake data** (configurable). It helps identify whether earthquake activity is increasing or decreasing globally.
 
 ### Why a Hybrid Model?
 
@@ -100,25 +110,25 @@ A Hybrid approach is chosen because:
 
 - **Handles Noise**: Earthquake frequency is highly chaotic and noisy
 - **Captures Trend**: Exponential Smoothing identifies the underlying baseline trend
-- **Learns Patterns**: Random Forest predicts the residuals (errors) of the base model, finding hidden correlations or seasonality
+- **Learns Patterns**: Gradient Boosting predicts the residuals (errors) of the base model, finding hidden correlations or seasonality
 - **Better Accuracy**: Combining them typically outperforms a single model
 
 ### How It Works (Simplified)
 
-1. **Data Selection**: Load last 5 years (~60 months) from complete historical earthquake dataset
-2. **Data Grouping**: Count earthquakes by month for stability
-3. **Train/Test Split**: 80% for training (~48 months), 20% for testing (~12 months)
-4. **Model Training**: Train Exponential Smoothing on the data, then train Random Forest on the residuals
-5. **Forecast**: Extend trends 12 months into the future using the combined model
+1. **Data Selection**: Load up to 5 years of complete historical earthquake data (configurable via slider)
+2. **Data Grouping**: Count earthquakes by month (or week) for stability
+3. **Train/Test Split**: 80% for training, 20% for testing
+4. **Model Training**: Train Exponential Smoothing on the data, then train Gradient Boosting on the residuals
+5. **Forecast**: Extend trends 12 months (or 26 weeks) into the future using the combined model
 
 ### Model Details
 
-- **Algorithm**: Hybrid (Exponential Smoothing + Random Forest)
-- **Features**: Monthly earthquake frequency counts, time index, month
+- **Algorithm**: Hybrid (Exponential Smoothing + Gradient Boosting)
+- **Features**: Monthly earthquake frequency counts, time index, month, quarter
 - **Scaling**: None needed (uses raw monthly counts)
-- **Training Data**: 80% of ~60 months = ~48 months
-- **Testing Data**: 20% of ~60 months = ~12 months
-- **Forecast Horizon**: 12 months into the future
+- **Training Data**: 80% of available time periods
+- **Testing Data**: 20% of available time periods
+- **Forecast Horizon**: 12 months (or 26 weeks) into the future
 
 ### What It DOES NOT Do
 
@@ -143,48 +153,50 @@ For the trained model, the dashboard shows:
 
 | Metric                 | Explanation                                                  |
 | ---------------------- | ------------------------------------------------------------ |
-| **Total Samples**      | Number of months used (usually ~36)                          |
+| **Total Samples**      | Number of time periods used (months or weeks)                |
 | **Training Samples**   | 80% of total (used to train the model)                       |
 | **Testing Samples**    | 20% of total (used to evaluate model)                        |
 | **Train R² Score**     | How well the model fits training data (0-1, higher = better) |
 | **Test R² Score**      | How well the model predicts new data (0-1, higher = better)  |
 | **Train RMSE**         | Average error on training data                               |
 | **Test RMSE**          | Average prediction error on test data (lower = better)       |
-| **Feature Importance** | How important "time" is for predictions (0-1)                |
+| **Test MAPE**          | Mean absolute percentage error on test data                  |
+| **Max Error**          | Largest single prediction error in the test period           |
 
 ### Visualizations
 
 1. **Actual vs Predicted Trends**: Shows how well the model follows real earthquake patterns
 2. **Prediction Accuracy Scatter Plot**: Points near diagonal line = accurate predictions
-3. **Feature Importance Chart**: Shows the "Time" feature importance in the model
-4. **12-Month Forecast**: Raw data (dots), model trend (line), and future forecast (dotted line)
+3. **Categorized Confusion Matrix**: Low/Medium/High activity classification accuracy
+4. **12-Month Forecast**: Raw data (dots), model trend (teal line), and future forecast (pink dotted line)
 
 ### Usage
 
 1. Navigate to the **🤖 ML Trend Forecasting** tab
-2. The model automatically trains on the last 3 years of global historical data
-3. Review all performance metrics
-4. Examine the trend analysis and prediction graphs
-5. Check the forecast for the next 12 months
-6. Read the explanations and limitations honestly stated
+2. Adjust the history slider (1 to all available years) and aggregation period (Monthly/Weekly)
+3. The model automatically trains on the selected global historical data
+4. Review all performance metrics
+5. Examine the trend analysis and prediction graphs
+6. Check the forecast for the next 12 months (or 26 weeks)
+7. Read the explanations and limitations honestly stated
 
-## Data Strategy: Why Last 3 Years?
+## Data Strategy: Why Up to 5 Years?
 
-The model uses the **last 3 years** of complete historical data for these reasons:
+The model uses up to **5 years** of complete historical data by default, configurable via the dashboard slider:
 
 | Timeframe          | Monthly Points | Pros                                                           | Cons                                                 |
 | ------------------ | -------------- | -------------------------------------------------------------- | ---------------------------------------------------- |
-| **3 Years (Used)** | ~36 months     | ✅ Recent patterns, good sample size, avoids outdated behavior | Recent trends only                                   |
-| 5 Years            | ~60 months     | ✅ More data points                                            | ❌ Includes older patterns that may be less relevant |
+| **5 Years (Default)** | ~60 months  | ✅ More data points, better trend stability                    | May include older patterns that differ from present  |
+| 3 Years            | ~36 months     | ✅ Recent patterns, good sample size                           | Less data for model training                         |
 | 1 Year             | ~12 months     | ✅ Very recent                                                 | ❌ Too few points, high volatility, poor trends      |
 
-**Best Practice**: 3 years balances data volume with relevance, capturing current seismic behavior without stale historical noise.
+**Best Practice**: More history generally yields more stable trend estimates. Use the slider in the dashboard to experiment.
 
 ## 📝 Files Description
 
 - **main.py**: Main Streamlit application with dashboard interface and ML section
-- **ml_prediction.py**: ML module with Moving Average model for earthquake frequency trend prediction
+- **ml_prediction.py**: ML module with Hybrid Model (Exponential Smoothing + Gradient Boosting) for earthquake frequency trend prediction
 - **visualization.py**: Functions for creating charts and maps
 - **load_data.py**: Functions for fetching and processing earthquake data
-- **plot.py**: Additional plotting utilities
-- **data/**: Earthquake data files by year
+- **plot.py**: Standalone reference script for a simple marker cluster map (kept for reference; functionality is in visualization.py)
+- **data/**: Earthquake data files (historical.csv, historical_processed.csv, and per-year CSVs from 2012 to 2026)

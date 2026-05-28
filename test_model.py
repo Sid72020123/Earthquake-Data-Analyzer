@@ -5,7 +5,6 @@ from statsmodels.tsa.arima.model import ARIMA
 from sklearn.metrics import r2_score, mean_squared_error
 from sklearn.linear_model import Ridge
 from ml_prediction import (
-    get_ml_data_from_full_history,
     prepare_time_series_data,
     train_ml_model,
 )
@@ -17,9 +16,10 @@ data = pd.read_csv(
 data["time"] = pd.to_datetime(data["time"], errors="coerce", utc=True)
 data = data.dropna(subset=["time", "latitude", "longitude", "mag", "depth", "country"])
 
-# Get prepared data
-ml_data = get_ml_data_from_full_history(data, years=5)
-frequency_data = prepare_time_series_data(ml_data, period="M")
+# Use full history (same as dashboard default) with partial-month trimming
+frequency_data = prepare_time_series_data(data, period="M")
+print(f"Using {len(frequency_data)} months of data "
+      f"({frequency_data['time'].iloc[0].date()} → {frequency_data['time'].iloc[-1].date()})")
 
 # Split data
 split_index = int(len(frequency_data) * 0.8)
@@ -28,12 +28,15 @@ test_data = frequency_data.iloc[split_index:]
 y_train = train_data["count"].values
 y_test = test_data["count"].values
 
+print(f"Train: {split_index} months, Test: {len(y_test)} months")
+print(f"Test period: {test_data['time'].iloc[0].date()} → {test_data['time'].iloc[-1].date()}")
+
 print("=" * 60)
 print("📊 COMPARING MODELS FOR EARTHQUAKE FREQUENCY PREDICTION")
 print("=" * 60)
 
-# 1. Current Hybrid Model
-print("\n1️⃣  HYBRID MODEL (Exp. Smoothing + RF) (Current Model)")
+# 1. Current Hybrid Model (ES + GBM)
+print("\n1️⃣  HYBRID MODEL (ES + Gradient Boosting) (Current Model)")
 print("-" * 60)
 ml_results = train_ml_model(frequency_data, test_size=0.2)
 print(f"Train R²: {ml_results['train_r2']:.4f}")
@@ -160,8 +163,8 @@ try:
     season = 12
     # For training, use lagged values
     if len(y_train) >= season:
-        sn_train_pred = y_train[season:]
         sn_train_actual = y_train[season:]
+        sn_train_pred = y_train[:-season]  # lag by one season
 
         # For test, use corresponding value from training (or last available)
         sn_test_pred = np.full(
@@ -203,7 +206,7 @@ print("\n" + "=" * 60)
 print("🏆 COMPARISON SUMMARY:")
 print("=" * 60)
 models_summary = [
-    ("Hybrid (Exp. Smoothing + RF)", ml_results["test_r2"]),
+    ("Hybrid (ES + GBM)", ml_results["test_r2"]),
     ("Exponential Smoothing", exp_test_r2),
     ("Moving Average", ma_test_r2),
     ("Ridge Regression", ridge_test_r2),

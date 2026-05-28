@@ -1,5 +1,7 @@
 import pandas as pd
+# pyrefly: ignore [missing-import]
 import streamlit as st
+# pyrefly: ignore [missing-import]
 import plotly.express as px
 import folium
 from branca.colormap import LinearColormap
@@ -371,7 +373,7 @@ def create_animated_timeline(df, sample_size=5000):
 
     plotly_template = "plotly_dark" if base_theme == "dark" else "plotly_white"
 
-    fig = px.scatter_geo(
+    fig = px.scatter_map(
         timeline_df,
         lat="latitude",
         lon="longitude",
@@ -380,12 +382,12 @@ def create_animated_timeline(df, sample_size=5000):
         hover_name="country",
         hover_data={"time_str": True, "mag": True},
         animation_frame="frame",
-        projection="natural earth",
         title="Animated Earthquake Timeline",
         color_continuous_scale="YlOrRd",
+        zoom=1,
         height=650,
-        template=plotly_template,
         category_orders={"frame": frame_order},
+        map_style="open-street-map",
     )
     fig.update_layout(
         margin=dict(l=0, r=0, t=50, b=0),

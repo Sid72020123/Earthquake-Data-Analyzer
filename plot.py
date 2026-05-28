@@ -1,50 +1,9 @@
-# import folium
-# from folium.plugins import HeatMap
-# import pandas as pd
+"""
+Optional standalone script for exporting a simple earthquake marker cluster map.
 
-# df = pd.read_csv("data/historical_processed.csv")
-
-# print(df.head())
-
-# m = folium.Map(location=[20, 0], zoom_start=2)
-
-# for _, row in df[0:20].iterrows():
-#     folium.CircleMarker(
-#         location=[row["latitude"], row["longitude"]],
-#         radius=row["mag"],
-#         popup=f"""
-#         Country: {row['country']}<br>
-#         Magnitude: {row['mag']}<br>
-#         Depth: {row['depth']}
-#         """,
-#         fill=True,
-#     ).add_to(m)
-
-# m.save("earthquake_map.html")
-
-
-# import folium
-# from folium.plugins import HeatMap
-# import pandas as pd
-
-# df = pd.read_csv("data/historical_processed.csv")
-
-# # Create base map
-# m = folium.Map(location=[20, 0], zoom_start=2)
-
-# # Prepare heatmap data
-# heat_data = df[["latitude", "longitude", "mag"]].values.tolist()
-
-# # Add heatmap
-# # HeatMap(heat_data).add_to(m)
-# # HeatMap(heat_data, radius=10, blur=15, max_zoom=5).add_to(m)
-# HeatMap(heat_data, radius=8, blur=12).add_to(m)
-
-# # Save map
-# m.save("earthquake_heatmap.html")
-
-
-"""Optional standalone script for exporting a simple earthquake marker cluster map."""
+NOTE: This file is kept for reference only. All plotting functionality has been
+migrated to visualization.py and main.py.
+"""
 
 import pandas as pd
 import folium
@@ -84,6 +43,3 @@ if __name__ == "__main__":
         cluster_map = create_cluster_map(earthquakes)
         cluster_map.save(OUTPUT_PATH)
         print(f"Saved {OUTPUT_PATH}")
-"""
-DEPRECATED: This file has been removed. All plotting functionality has been migrated to visualization.py and main.py.
-"""
