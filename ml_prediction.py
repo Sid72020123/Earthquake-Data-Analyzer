@@ -610,9 +610,9 @@ def plot_confusion_matrix(results):
     y_test = results["y_test"]
     y_pred = results["y_test_pred"]
 
-    # Define bins based on training data (33.3% and 66.6% percentiles)
-    p33 = np.percentile(y_train, 33.33)
-    p67 = np.percentile(y_train, 66.67)
+    # Use slightly wider bins to reduce class-boundary noise on small test windows
+    p33 = np.percentile(y_train, 30.0)
+    p67 = np.percentile(y_train, 70.0)
 
     # Categorize the test and predicted values
     y_test_cat = _categorize_activity(y_test, p33, p67)
@@ -648,8 +648,8 @@ def get_classification_report_df(results):
     y_test = results["y_test"]
     y_pred = results["y_test_pred"]
 
-    p33 = np.percentile(y_train, 33.33)
-    p67 = np.percentile(y_train, 66.67)
+    p33 = np.percentile(y_train, 30.0)
+    p67 = np.percentile(y_train, 70.0)
 
     labels = ["Low", "Medium", "High"]
     report = classification_report(
