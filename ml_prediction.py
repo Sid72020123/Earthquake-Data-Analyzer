@@ -300,7 +300,10 @@ def train_ml_model(
     except Exception:
         try:
             base_model = ExponentialSmoothing(
-                y_train, trend="add", damped_trend=True, seasonal=None,
+                y_train,
+                trend="add",
+                damped_trend=True,
+                seasonal=None,
                 initialization_method="estimated",
             ).fit(optimized=True)
         except Exception:
@@ -321,12 +324,18 @@ def train_ml_model(
     # so lags into the training period are always real observed values.
     N_LAGS = 3
     X_train_ml = _build_time_features(
-        dates.iloc[:split_index], period, start_idx=0,
-        y_history=y_train, n_lags=N_LAGS,
+        dates.iloc[:split_index],
+        period,
+        start_idx=0,
+        y_history=y_train,
+        n_lags=N_LAGS,
     )
     X_test_ml = _build_time_features(
-        dates.iloc[split_index:], period, start_idx=split_index,
-        y_history=y, n_lags=N_LAGS,  # full y so test lags see real train values
+        dates.iloc[split_index:],
+        period,
+        start_idx=split_index,
+        y_history=y,
+        n_lags=N_LAGS,  # full y so test lags see real train values
     )
 
     # ── Residual Model: Gradient Boosting (huber loss) ────────────────────────
@@ -341,7 +350,7 @@ def train_ml_model(
         subsample=0.8,
         min_samples_leaf=4,
         loss="huber",
-        alpha=0.9,          # huber quantile — focus on the 90th-percentile boundary
+        alpha=0.9,  # huber quantile — focus on the 90th-percentile boundary
         random_state=random_state,
     )
     gb_model.fit(X_train_ml, residuals_train)
@@ -357,28 +366,30 @@ def train_ml_model(
     # The inner class stores the full y array so future-date lags always
     # resolve to real observed counts rather than zeros or training means.
     class HybridModel:
-        def __init__(self, base, gb, last_date, period, full_y):
+        def __init__(self, base, gb, last_date, period, full_y, y_train_mean):
             self.base = base
             self.gb = gb
             self.last_date = pd.to_datetime(last_date)
             self.period = period
             self._full_y = np.asarray(full_y, dtype=float)
+            self.y_train_mean = y_train_mean
 
         def forecast(self, steps=1):
             if self.base is not None:
                 try:
                     base_f = self.base.forecast(steps=steps)
                 except Exception:
-                    base_f = np.full(steps, float(np.mean(self._full_y)))
+                    base_f = np.full(steps, self.y_train_mean)
             else:
-                base_f = np.full(steps, float(np.mean(self._full_y)))
+                base_f = np.full(steps, self.y_train_mean)
 
             future_dates = _get_future_dates(self.last_date, steps, self.period)
             # For future lags we extend the known history with the base forecast
             extended_y = np.concatenate([self._full_y, base_f])
 
             X_f_ml = _build_time_features(
-                future_dates, self.period,
+                future_dates,
+                self.period,
                 start_idx=len(self._full_y),
                 y_history=extended_y,
                 n_lags=N_LAGS,
@@ -387,7 +398,7 @@ def train_ml_model(
             return np.maximum(base_f + gb_f, 0)
 
     model = HybridModel(
-        base_model, gb_model, dates.iloc[-1], period, y
+        base_model, gb_model, dates.iloc[-1], period, y, np.mean(y_train)
     )
 
     # ── Metrics ───────────────────────────────────────────────────────────────
@@ -418,7 +429,6 @@ def train_ml_model(
         "test_max_error": test_max_error,
         "frequency_data": frequency_data,
         "period": period,
-        "min_date_timestamp": dates.min().timestamp(),
         "n_train_samples": len(y_train),
         "n_test_samples": len(y_test),
         "n_total_samples": len(y_train) + len(y_test),
@@ -472,7 +482,7 @@ def plot_actual_vs_predicted(results):
             line=dict(dash="dash", color="red"),
         )
     )
-    
+
     fig.update_xaxes(title_text="Actual Earthquake Frequency")
     fig.update_yaxes(title_text="Predicted Earthquake Frequency")
 
@@ -566,8 +576,8 @@ def create_prediction_plotly(results, future_periods=12, display_history_periods
     # Add future forecast
     fig.add_trace(
         go.Scatter(
-            x=list(all_dates) + list(future_dates),
-            y=list(historical_predictions) + list(future_y_pred),
+            x=[all_dates.iloc[-1]] + list(future_dates),
+            y=[historical_predictions[-1]] + list(future_y_pred),
             mode="lines",
             name="Future Forecast",
             line=dict(color="#ec4899", width=2, dash="dot"),
@@ -576,8 +586,8 @@ def create_prediction_plotly(results, future_periods=12, display_history_periods
 
     # Fix x-axis formatting for Weekly data so it doesn't show just months
     if period == "W":
-        fig.update_xaxes(tickformat="%Y-%m-%d", dtick=604800000) # 7 days in ms
-        
+        fig.update_xaxes(tickformat="%Y-%m-%d", dtick=604800000)  # 7 days in ms
+
     fig.update_layout(
         title="Earthquake Frequency Trend Analysis with Future Forecast",
         xaxis_title="Date",
@@ -589,9 +599,6 @@ def create_prediction_plotly(results, future_periods=12, display_history_periods
     )
 
     return fig
-
-
-
 
 
 def plot_confusion_matrix(results):
@@ -753,7 +760,10 @@ def compare_models(frequency_data, period="M"):
     results_list = []
 
     def _compute_metrics(name, train_actual, train_pred, test_actual, test_pred):
-        test_mape = np.mean(np.abs((test_actual - test_pred) / np.maximum(test_actual, 1))) * 100
+        test_mape = (
+            np.mean(np.abs((test_actual - test_pred) / np.maximum(test_actual, 1)))
+            * 100
+        )
         test_max_error = float(np.max(np.abs(test_actual - test_pred)))
         return {
             "Model": name,
@@ -770,19 +780,30 @@ def compare_models(frequency_data, period="M"):
 
     def _get_empty_metrics_ext(name):
         return {
-            "Model": name, "Accuracy (%)": 0.0, "Train R²": 0.0, "Test R²": 0.0,
-            "Train RMSE": 0.0, "Test RMSE": 0.0, "Train MAE": 0.0, "Test MAE": 0.0,
-            "Test MAPE": 0.0, "Test Max Error": 0.0
+            "Model": name,
+            "Accuracy (%)": 0.0,
+            "Train R²": 0.0,
+            "Test R²": 0.0,
+            "Train RMSE": 0.0,
+            "Test RMSE": 0.0,
+            "Train MAE": 0.0,
+            "Test MAE": 0.0,
+            "Test MAPE": 0.0,
+            "Test Max Error": 0.0,
         }
 
     # 1. Hybrid Model (current model from train_ml_model)
     try:
         ml_results = train_ml_model(frequency_data, test_size=0.2, period=period)
-        results_list.append(_compute_metrics(
-            "Hybrid (ES + GBM)",
-            ml_results["y_train"], ml_results["y_train_pred"],
-            ml_results["y_test"], ml_results["y_test_pred"]
-        ))
+        results_list.append(
+            _compute_metrics(
+                "Hybrid (ES + GBM)",
+                ml_results["y_train"],
+                ml_results["y_train_pred"],
+                ml_results["y_test"],
+                ml_results["y_test_pred"],
+            )
+        )
     except Exception:
         results_list.append(_get_empty_metrics_ext("Hybrid (ES + GBM)"))
 
@@ -794,17 +815,27 @@ def compare_models(frequency_data, period="M"):
         exp_model = exp_smooth.fit(optimized=True)
         exp_train_pred = exp_model.fittedvalues
         exp_test_pred = exp_model.forecast(steps=len(y_test))
-        results_list.append(_compute_metrics("Exponential Smoothing", y_train, exp_train_pred, y_test, exp_test_pred))
+        results_list.append(
+            _compute_metrics(
+                "Exponential Smoothing", y_train, exp_train_pred, y_test, exp_test_pred
+            )
+        )
     except Exception:
         results_list.append(_get_empty_metrics_ext("Exponential Smoothing"))
 
     # 3. Moving Average (simple implementation for comparison)
     try:
         window_size = 4 if period == "W" else 3
-        ma_train = np.convolve(y_train, np.ones(window_size) / window_size, mode="valid")
+        ma_train = np.convolve(
+            y_train, np.ones(window_size) / window_size, mode="valid"
+        )
         ma_train_actual = y_train[window_size - 1 :]
         ma_test_pred = np.full(len(y_test), np.mean(y_train))
-        results_list.append(_compute_metrics("Moving Average", ma_train_actual, ma_train, y_test, ma_test_pred))
+        results_list.append(
+            _compute_metrics(
+                "Moving Average", ma_train_actual, ma_train, y_test, ma_test_pred
+            )
+        )
     except Exception:
         results_list.append(_get_empty_metrics_ext("Moving Average"))
 
@@ -816,7 +847,11 @@ def compare_models(frequency_data, period="M"):
         ridge_model.fit(X_train_idx, y_train)
         ridge_train_pred = ridge_model.predict(X_train_idx)
         ridge_test_pred = ridge_model.predict(X_test_idx)
-        results_list.append(_compute_metrics("Ridge Regression", y_train, ridge_train_pred, y_test, ridge_test_pred))
+        results_list.append(
+            _compute_metrics(
+                "Ridge Regression", y_train, ridge_train_pred, y_test, ridge_test_pred
+            )
+        )
     except Exception:
         results_list.append(_get_empty_metrics_ext("Ridge Regression"))
 
@@ -825,11 +860,19 @@ def compare_models(frequency_data, period="M"):
         if len(y_train) > 300:
             raise ValueError("Too much data for ARIMA, skipping to prevent hanging.")
         with warnings.catch_warnings():
-            warnings.filterwarnings("ignore", message="Non-invertible starting MA parameters found.*", category=UserWarning)
+            warnings.filterwarnings(
+                "ignore",
+                message="Non-invertible starting MA parameters found.*",
+                category=UserWarning,
+            )
             arima_model = ARIMA(y_train, order=(1, 1, 1)).fit()
         arima_train_pred = arima_model.fittedvalues
         arima_test_pred = arima_model.get_forecast(steps=len(y_test)).predicted_mean
-        results_list.append(_compute_metrics("ARIMA", y_train, arima_train_pred, y_test, arima_test_pred))
+        results_list.append(
+            _compute_metrics(
+                "ARIMA", y_train, arima_train_pred, y_test, arima_test_pred
+            )
+        )
     except Exception:
         results_list.append(_get_empty_metrics_ext("ARIMA"))
 
@@ -839,8 +882,19 @@ def compare_models(frequency_data, period="M"):
         if len(y_train) >= season:
             sn_train_actual = y_train[season:]
             sn_train_pred = y_train[:-season]  # lag by one season
-            sn_test_pred = np.full(len(y_test), y_train[-season] if len(y_train) >= season else np.mean(y_train))
-            results_list.append(_compute_metrics("Seasonal Naive", sn_train_actual, sn_train_pred, y_test, sn_test_pred))
+            sn_test_pred = np.full(
+                len(y_test),
+                y_train[-season] if len(y_train) >= season else np.mean(y_train),
+            )
+            results_list.append(
+                _compute_metrics(
+                    "Seasonal Naive",
+                    sn_train_actual,
+                    sn_train_pred,
+                    y_test,
+                    sn_test_pred,
+                )
+            )
         else:
             results_list.append(_get_empty_metrics_ext("Seasonal Naive"))
     except Exception:
@@ -850,7 +904,15 @@ def compare_models(frequency_data, period="M"):
     try:
         baseline_pred_train = np.full(len(y_train), np.mean(y_train))
         baseline_pred_test = np.full(len(y_test), np.mean(y_train))
-        results_list.append(_compute_metrics("Baseline (Mean)", y_train, baseline_pred_train, y_test, baseline_pred_test))
+        results_list.append(
+            _compute_metrics(
+                "Baseline (Mean)",
+                y_train,
+                baseline_pred_train,
+                y_test,
+                baseline_pred_test,
+            )
+        )
     except Exception:
         results_list.append(_get_empty_metrics_ext("Baseline (Mean)"))
 
@@ -862,7 +924,15 @@ def compare_models(frequency_data, period="M"):
         gbm_model.fit(X_train_idx, y_train)
         gbm_train_pred = gbm_model.predict(X_train_idx)
         gbm_test_pred = gbm_model.predict(X_test_idx)
-        results_list.append(_compute_metrics("Gradient Boosting (Hybrid Base)", y_train, gbm_train_pred, y_test, gbm_test_pred))
+        results_list.append(
+            _compute_metrics(
+                "Gradient Boosting (Hybrid Base)",
+                y_train,
+                gbm_train_pred,
+                y_test,
+                gbm_test_pred,
+            )
+        )
     except Exception:
         results_list.append(_get_empty_metrics_ext("Gradient Boosting (Hybrid Base)"))
 
@@ -872,7 +942,11 @@ def compare_models(frequency_data, period="M"):
         rf_model.fit(X_train_idx, y_train)
         rf_train_pred = rf_model.predict(X_train_idx)
         rf_test_pred = rf_model.predict(X_test_idx)
-        results_list.append(_compute_metrics("Random Forest", y_train, rf_train_pred, y_test, rf_test_pred))
+        results_list.append(
+            _compute_metrics(
+                "Random Forest", y_train, rf_train_pred, y_test, rf_test_pred
+            )
+        )
     except Exception:
         results_list.append(_get_empty_metrics_ext("Random Forest"))
 
@@ -882,7 +956,15 @@ def compare_models(frequency_data, period="M"):
         svr_model.fit(X_train_idx, y_train)
         svr_train_pred = svr_model.predict(X_train_idx)
         svr_test_pred = svr_model.predict(X_test_idx)
-        results_list.append(_compute_metrics("Support Vector Regression", y_train, svr_train_pred, y_test, svr_test_pred))
+        results_list.append(
+            _compute_metrics(
+                "Support Vector Regression",
+                y_train,
+                svr_train_pred,
+                y_test,
+                svr_test_pred,
+            )
+        )
     except Exception:
         results_list.append(_get_empty_metrics_ext("Support Vector Regression"))
 
@@ -935,14 +1017,16 @@ def predict_earthquakes_by_country(data, future_months=12, min_history_months=18
         try:
             if len(y) >= 24:
                 model = ES(
-                    y, trend="add", seasonal="add", seasonal_periods=12,
-                    initialization_method="estimated"
+                    y,
+                    trend="add",
+                    seasonal="add",
+                    seasonal_periods=12,
+                    initialization_method="estimated",
                 ).fit(optimized=True, disp=False)
                 confidence = "High"
             else:
                 model = ES(
-                    y, trend="add", seasonal=None,
-                    initialization_method="estimated"
+                    y, trend="add", seasonal=None, initialization_method="estimated"
                 ).fit(optimized=True, disp=False)
                 confidence = "Medium"
             forecast_vals = model.forecast(steps=future_months)
@@ -963,19 +1047,23 @@ def predict_earthquakes_by_country(data, future_months=12, min_history_months=18
         else:
             trend = "→ Stable"
 
-        results.append({
-            "country": country,
-            "historical_avg": round(hist_avg, 1),
-            "predicted_total": round(predicted_total, 0),
-            "predicted_monthly": round(predicted_monthly, 1),
-            "trend": trend,
-            "confidence": confidence,
-            "pct_change": round(pct_change, 1),
-        })
+        results.append(
+            {
+                "country": country,
+                "historical_avg": round(hist_avg, 1),
+                "predicted_total": round(predicted_total, 0),
+                "predicted_monthly": round(predicted_monthly, 1),
+                "trend": trend,
+                "confidence": confidence,
+                "pct_change": round(pct_change, 1),
+            }
+        )
 
     result_df = pd.DataFrame(results)
     if not result_df.empty:
-        result_df = result_df.sort_values("predicted_total", ascending=False).reset_index(drop=True)
+        result_df = result_df.sort_values(
+            "predicted_total", ascending=False
+        ).reset_index(drop=True)
     return result_df
 
 
@@ -987,6 +1075,7 @@ def _country_name_to_iso3(name):
     """
     try:
         import pycountry
+
         results = pycountry.countries.search_fuzzy(str(name))
         if results:
             return results[0].alpha_3
@@ -1034,21 +1123,25 @@ def plot_country_prediction_heatmap(pred_df, raw_data=None):
     else:
         # Fallback: rough centroids for common seismic countries
         _fallback = {
-            "Indonesia": (-2.5, 118.0), "Japan": (36.2, 138.3),
-            "Chile": (-30.0, -71.0), "Philippines": (12.9, 121.8),
-            "Turkey": (39.0, 35.0), "United States": (38.0, -97.0),
-            "Mexico": (23.6, -102.5), "Iran": (32.4, 53.7),
-            "Papua New Guinea": (-6.3, 143.9), "New Zealand": (-40.9, 174.9),
-            "Peru": (-9.2, -75.0), "Russia": (61.5, 105.3),
-            "India": (20.6, 79.0), "China": (35.9, 104.2),
-            "Greece": (39.1, 21.8), "Italy": (41.9, 12.6),
+            "Indonesia": (-2.5, 118.0),
+            "Japan": (36.2, 138.3),
+            "Chile": (-30.0, -71.0),
+            "Philippines": (12.9, 121.8),
+            "Turkey": (39.0, 35.0),
+            "United States": (38.0, -97.0),
+            "Mexico": (23.6, -102.5),
+            "Iran": (32.4, 53.7),
+            "Papua New Guinea": (-6.3, 143.9),
+            "New Zealand": (-40.9, 174.9),
+            "Peru": (-9.2, -75.0),
+            "Russia": (61.5, 105.3),
+            "India": (20.6, 79.0),
+            "China": (35.9, 104.2),
+            "Greece": (39.1, 21.8),
+            "Italy": (41.9, 12.6),
         }
-        df["latitude"] = df["country"].map(
-            lambda c: _fallback.get(c, (None, None))[0]
-        )
-        df["longitude"] = df["country"].map(
-            lambda c: _fallback.get(c, (None, None))[1]
-        )
+        df["latitude"] = df["country"].map(lambda c: _fallback.get(c, (None, None))[0])
+        df["longitude"] = df["country"].map(lambda c: _fallback.get(c, (None, None))[1])
 
     df = df.dropna(subset=["latitude", "longitude"])
 
@@ -1080,19 +1173,19 @@ def plot_country_prediction_heatmap(pred_df, raw_data=None):
             "pct_change": True,
         },
         color_continuous_scale=[
-            [0.0,  "#1e3a5f"],
+            [0.0, "#1e3a5f"],
             [0.25, "#0369a1"],
-            [0.5,  "#0ea5a4"],
+            [0.5, "#0ea5a4"],
             [0.75, "#f97316"],
-            [1.0,  "#dc2626"],
+            [1.0, "#dc2626"],
         ],
         labels={
-            "predicted_total":   "Predicted Total",
+            "predicted_total": "Predicted Total",
             "predicted_monthly": "Monthly Avg",
-            "historical_avg":    "Historical Avg",
-            "trend":             "Trend",
-            "confidence":        "Confidence",
-            "pct_change":        "% Change",
+            "historical_avg": "Historical Avg",
+            "trend": "Trend",
+            "confidence": "Confidence",
+            "pct_change": "% Change",
         },
         title=f"ML Predicted Earthquake Count by Country — {int(df['predicted_total'].sum()):,} total",
         zoom=1,
@@ -1109,5 +1202,3 @@ def plot_country_prediction_heatmap(pred_df, raw_data=None):
         ),
     )
     return fig
-
-

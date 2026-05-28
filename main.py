@@ -321,14 +321,14 @@ def render_charts_tab(filtered_data):
     st.subheader("Statistical Analysis")
     left_col, right_col = st.columns(2)
     with left_col:
-        st.plotly_chart(plot_magnitude_distribution(filtered_data), width='stretch')
-        st.plotly_chart(plot_depth_vs_magnitude(filtered_data), width='stretch')
+        st.plotly_chart(plot_magnitude_distribution(filtered_data), width="stretch")
+        st.plotly_chart(plot_depth_vs_magnitude(filtered_data), width="stretch")
     with right_col:
-        st.plotly_chart(plot_correlation_heatmap(filtered_data), width='stretch')
-        st.plotly_chart(plot_top_countries_bar_chart(filtered_data), width='stretch')
+        st.plotly_chart(plot_correlation_heatmap(filtered_data), width="stretch")
+        st.plotly_chart(plot_top_countries_bar_chart(filtered_data), width="stretch")
 
     # Full-width trend chart
-    st.plotly_chart(plot_earthquake_trend(filtered_data), width='stretch')
+    st.plotly_chart(plot_earthquake_trend(filtered_data), width="stretch")
     st.markdown("---")
     st.subheader("🚨 Top 10 Largest Earthquakes in View")
     top_10 = filtered_data.nlargest(10, "mag")[
@@ -344,7 +344,7 @@ def render_charts_tab(filtered_data):
         "Depth (km)",
         "Country",
     ]
-    st.dataframe(top_10, width='stretch')
+    st.dataframe(top_10, width="stretch")
 
 
 def render_maps_tab(display_data, map_options):
@@ -375,7 +375,7 @@ def render_maps_tab(display_data, map_options):
                 with st.spinner("Rendering magnitude map..."):
                     st_folium(
                         create_magnitude_based_map(display_data),
-                        width='stretch',
+                        width="stretch",
                         height=500,
                         returned_objects=[],
                     )
@@ -392,7 +392,7 @@ def render_maps_tab(display_data, map_options):
                 with st.spinner("Rendering depth map..."):
                     st_folium(
                         create_depth_based_map(display_data),
-                        width='stretch',
+                        width="stretch",
                         height=500,
                         returned_objects=[],
                     )
@@ -410,7 +410,7 @@ def render_maps_tab(display_data, map_options):
             with st.spinner("Rendering cluster map..."):
                 st_folium(
                     create_marker_cluster_map(display_data),
-                    width='stretch',
+                    width="stretch",
                     height=600,
                     returned_objects=[],
                 )
@@ -428,7 +428,7 @@ def render_maps_tab(display_data, map_options):
             with st.spinner("Rendering country overview map..."):
                 st_folium(
                     create_country_region_map(display_data),
-                    width='stretch',
+                    width="stretch",
                     height=600,
                     returned_objects=[],
                 )
@@ -462,7 +462,7 @@ def render_advanced_tab(filtered_data):
         st.subheader("🔍 Depth Distribution")
         depth_categories = pd.cut(
             filtered_data["depth"],
-            bins=[0, 10, 30, 70, 300],
+            bins=[0, 10, 30, 70, 700],
             labels=[
                 "Shallow (0-10km)",
                 "Moderate (10-30km)",
@@ -498,7 +498,7 @@ def render_animation_tab(filtered_data, timeline_sample_size):
                 create_animated_timeline(
                     filtered_data, sample_size=timeline_sample_size
                 ),
-                width='stretch',
+                width="stretch",
             )
     except Exception as exc:
         st.error(f"Could not render the animated timeline: {exc}")
@@ -513,7 +513,7 @@ def render_animation_tab(filtered_data, timeline_sample_size):
                 create_3d_earthquake_visualization(
                     filtered_data, sample_size=timeline_sample_size
                 ),
-                width='stretch',
+                width="stretch",
             )
     except Exception as exc:
         st.error(f"Could not render the 3D plot: {exc}")
@@ -583,73 +583,142 @@ def render_ml_tab(data):
                         "Test MAE",
                     ]:
                         if col == "Accuracy (%)":
-                            display_df[col] = display_df[col].apply(lambda x: f"{x:.2f}%")
+                            display_df[col] = display_df[col].apply(
+                                lambda x: f"{x:.2f}%"
+                            )
                         else:
-                            display_df[col] = display_df[col].apply(lambda x: f"{x:.4f}")
-                            
+                            display_df[col] = display_df[col].apply(
+                                lambda x: f"{x:.4f}"
+                            )
+
                     # Reset index to show ranking
                     display_df.index = list(range(1, len(display_df) + 1))
                     display_df.index.name = "Rank"
-                    
+
                     # Select only the relevant formatted columns to show in the table
-                    st.table(display_df[["Model", "Accuracy (%)", "Train R²", "Test R²", "Test RMSE", "Test MAE"]])
-                    
-                    st.info("💡 **Why do simple models (like Baseline/Moving Average) sometimes show higher Accuracy?**\n\nEarthquake data is highly noisy. A Baseline model simply predicts a flat, average line. Mathematically, predicting a flat average is the 'safest' way to minimize percentage errors on chaotic data, which inflates its Accuracy score. However, a flat line is completely useless for forecasting. The Hybrid model sacrifices a tiny amount of raw accuracy because it actually attempts to capture the complex, underlying directional trends.")
+                    st.table(
+                        display_df[
+                            [
+                                "Model",
+                                "Accuracy (%)",
+                                "Train R²",
+                                "Test R²",
+                                "Test RMSE",
+                                "Test MAE",
+                            ]
+                        ]
+                    )
+
+                    st.info(
+                        "💡 **Why do simple models (like Baseline/Moving Average) sometimes show higher Accuracy?**\n\nEarthquake data is highly noisy. A Baseline model simply predicts a flat, average line. Mathematically, predicting a flat average is the 'safest' way to minimize percentage errors on chaotic data, which inflates its Accuracy score. However, a flat line is completely useless for forecasting. The Hybrid model sacrifices a tiny amount of raw accuracy because it actually attempts to capture the complex, underlying directional trends."
+                    )
 
                     st.markdown("---")
                     with st.container(border=True):
                         st.subheader("🔍 Detailed Model Statistics")
-                        selected_model = st.selectbox("Select a model to view details", display_df["Model"].tolist())
-                        
+                        selected_model = st.selectbox(
+                            "Select a model to view details",
+                            display_df["Model"].tolist(),
+                        )
+
                         if selected_model:
-                            model_stats = comparison_df[comparison_df["Model"] == selected_model].iloc[0]
+                            model_stats = comparison_df[
+                                comparison_df["Model"] == selected_model
+                            ].iloc[0]
                             det_col1, det_col2, det_col3, det_col4 = st.columns(4)
-                            det_col1.metric("Accuracy", f"{model_stats['Accuracy (%)']:.2f}%")
+                            det_col1.metric(
+                                "Accuracy", f"{model_stats['Accuracy (%)']:.2f}%"
+                            )
                             det_col2.metric("Test R²", f"{model_stats['Test R²']:.4f}")
-                            det_col3.metric("Test RMSE", f"{model_stats['Test RMSE']:.4f}")
-                            det_col4.metric("Test MAE", f"{model_stats['Test MAE']:.4f}")
-                            
+                            det_col3.metric(
+                                "Test RMSE", f"{model_stats['Test RMSE']:.4f}"
+                            )
+                            det_col4.metric(
+                                "Test MAE", f"{model_stats['Test MAE']:.4f}"
+                            )
+
                             st.divider()
-                            
+
                             det_col5, det_col6, det_col7, det_col8 = st.columns(4)
-                            det_col5.metric("Train R²", f"{model_stats['Train R²']:.4f}")
-                            det_col6.metric("Train RMSE", f"{model_stats['Train RMSE']:.4f}")
-                            det_col7.metric("Test MAPE", f"{model_stats['Test MAPE']:.2f}%")
-                            det_col8.metric("Max Error", f"{model_stats['Test Max Error']:.2f}")
+                            det_col5.metric(
+                                "Train R²", f"{model_stats['Train R²']:.4f}"
+                            )
+                            det_col6.metric(
+                                "Train RMSE", f"{model_stats['Train RMSE']:.4f}"
+                            )
+                            det_col7.metric(
+                                "Test MAPE", f"{model_stats['Test MAPE']:.2f}%"
+                            )
+                            det_col8.metric(
+                                "Max Error", f"{model_stats['Test Max Error']:.2f}"
+                            )
 
                             st.divider()
                             st.markdown("**Train vs Test Performance Comparison**")
-                            
+
                             # Build a comparison chart
-                            metrics_df = pd.DataFrame({
-                                "Metric": ["R² Score", "RMSE", "MAE", "R² Score", "RMSE", "MAE"],
-                                "Value": [
-                                    max(0, model_stats["Train R²"]), model_stats["Train RMSE"], model_stats["Train MAE"],
-                                    max(0, model_stats["Test R²"]), model_stats["Test RMSE"], model_stats["Test MAE"]
-                                ],
-                                "Dataset": ["Train", "Train", "Train", "Test", "Test", "Test"]
-                            })
+                            metrics_df = pd.DataFrame(
+                                {
+                                    "Metric": [
+                                        "R² Score",
+                                        "RMSE",
+                                        "MAE",
+                                        "R² Score",
+                                        "RMSE",
+                                        "MAE",
+                                    ],
+                                    "Value": [
+                                        max(0, model_stats["Train R²"]),
+                                        model_stats["Train RMSE"],
+                                        model_stats["Train MAE"],
+                                        max(0, model_stats["Test R²"]),
+                                        model_stats["Test RMSE"],
+                                        model_stats["Test MAE"],
+                                    ],
+                                    "Dataset": [
+                                        "Train",
+                                        "Train",
+                                        "Train",
+                                        "Test",
+                                        "Test",
+                                        "Test",
+                                    ],
+                                }
+                            )
                             fig_comp = px.bar(
-                                metrics_df, x="Metric", y="Value", color="Dataset", barmode="group",
-                                color_discrete_map={"Train": "#94a3b8", "Test": "#0ea5a4"},
-                                height=280
+                                metrics_df,
+                                x="Metric",
+                                y="Value",
+                                color="Dataset",
+                                barmode="group",
+                                color_discrete_map={
+                                    "Train": "#94a3b8",
+                                    "Test": "#0ea5a4",
+                                },
+                                height=280,
                             )
                             fig_comp.update_layout(
-                                margin=dict(l=0, r=0, t=10, b=0), 
+                                margin=dict(l=0, r=0, t=10, b=0),
                                 template="plotly_white",
                                 yaxis_title="Score / Error",
-                                xaxis_title=None
+                                xaxis_title=None,
                             )
-                            st.plotly_chart(fig_comp, width='stretch')
-                            
+                            st.plotly_chart(fig_comp, width="stretch")
+
                             # Add an automated generalization analysis
                             st.markdown("**Generalization Analysis:**")
                             if model_stats["Test R²"] < 0:
-                                st.info("ℹ️ **Chaotic Data Expected:** Test R² is negative, which is mathematically common for earthquakes. A massive random earthquake swarm in the test data skews the test mean, making normal trend predictions score lower. The model correctly ignores these unpredictable spikes to maintain a stable baseline trend.")
+                                st.info(
+                                    "ℹ️ **Chaotic Data Expected:** Test R² is negative, which is mathematically common for earthquakes. A massive random earthquake swarm in the test data skews the test mean, making normal trend predictions score lower. The model correctly ignores these unpredictable spikes to maintain a stable baseline trend."
+                                )
                             elif model_stats["Train R²"] - model_stats["Test R²"] > 0.3:
-                                st.warning("⚠️ **Overfitting Detected:** The model performs significantly better on training data than unseen test data. It may be memorizing noise instead of finding a true trend.")
+                                st.warning(
+                                    "⚠️ **Overfitting Detected:** The model performs significantly better on training data than unseen test data. It may be memorizing noise instead of finding a true trend."
+                                )
                             else:
-                                st.success("✅ **Good Generalization:** The model maintains balanced performance between training and test sets, making it reliable for extracting the underlying trend.")
+                                st.success(
+                                    "✅ **Good Generalization:** The model maintains balanced performance between training and test sets, making it reliable for extracting the underlying trend."
+                                )
 
                 else:
                     st.warning("Could not run model comparison.")
@@ -694,8 +763,8 @@ def render_ml_tab(data):
 
             # Display model performance metrics
             st.markdown("### 📊 Model Performance Metrics")
-            accuracy = max(0.0, 100.0 - ml_results['test_mape'])
-            
+            accuracy = max(0.0, 100.0 - ml_results["test_mape"])
+
             metric_col1, metric_col2, metric_col3 = st.columns(3)
             metric_col1.metric(
                 "Accuracy (%)",
@@ -732,8 +801,10 @@ def render_ml_tab(data):
 
             # Display actual vs predicted visualization
             st.markdown("### 📊 Actual vs Predicted Earthquake Frequency")
-            st.caption("Prediction accuracy: How closely the model predicts actual earthquake counts. Points near the red line are highly accurate.")
-            st.plotly_chart(plot_actual_vs_predicted(ml_results), width='stretch')
+            st.caption(
+                "Prediction accuracy: How closely the model predicts actual earthquake counts. Points near the red line are highly accurate."
+            )
+            st.plotly_chart(plot_actual_vs_predicted(ml_results), width="stretch")
 
             # Display Categorized Confusion Matrix & Classification Report
             st.markdown("### 🗂️ Categorized Confusion Matrix & Classification Report")
@@ -744,37 +815,39 @@ def render_ml_tab(data):
 
             cm_col, cr_col = st.columns(2)
             with cm_col:
-                st.plotly_chart(plot_confusion_matrix(ml_results), width='stretch')
+                st.plotly_chart(plot_confusion_matrix(ml_results), width="stretch")
             with cr_col:
-                st.dataframe(get_classification_report_df(ml_results), width='stretch')
+                st.dataframe(get_classification_report_df(ml_results), width="stretch")
 
             # Display trend forecast
             st.markdown("### 🔮 Future Trend Forecast")
             st.caption(
                 f"Gray dots = raw {aggregation_label.lower()} data (noisy) | Teal line = Hybrid Model trend | Pink dotted line = future forecast"
             )
-            
+
             # Add slider to control chart clutter
             max_history = len(ml_results["y_train"]) + len(ml_results["y_test"])
-            default_history = 24 if period == "M" else 52 # 2 years for monthly, 1 year for weekly
+            default_history = (
+                24 if period == "M" else 52
+            )  # 2 years for monthly, 1 year for weekly
             default_history = min(default_history, max_history)
-            
+
             time_unit = "months" if period == "M" else "weeks"
             display_history = st.slider(
                 f"Historical data to show in chart ({time_unit})",
                 min_value=min(12, max_history),
                 max_value=max_history,
                 value=default_history,
-                help="Reduce this to declutter the chart and focus on recent trends."
+                help="Reduce this to declutter the chart and focus on recent trends.",
             )
 
             st.plotly_chart(
                 create_prediction_plotly(
-                    ml_results, 
+                    ml_results,
                     future_periods=12 if period == "M" else 26,
-                    display_history_periods=display_history
+                    display_history_periods=display_history,
                 ),
-                width='stretch',
+                width="stretch",
             )
 
             # ── Country-level Prediction Heatmap ─────────────────────────────
@@ -786,7 +859,10 @@ def render_ml_tab(data):
             )
             country_months = st.slider(
                 "Forecast horizon (months)",
-                min_value=3, max_value=24, value=12, step=3,
+                min_value=3,
+                max_value=24,
+                value=12,
+                step=3,
                 key="country_forecast_months",
             )
             with st.spinner("Predicting earthquakes per country..."):
@@ -817,17 +893,21 @@ def render_ml_tab(data):
                         )
                         st.plotly_chart(
                             plot_country_prediction_heatmap(pred_df, raw_data=data),
-                            width='stretch',
+                            width="stretch",
                         )
                         st.markdown("#### 📋 Country Prediction Details")
                         display_pred = pred_df.copy()
                         display_pred.index = range(1, len(display_pred) + 1)
                         display_pred.columns = [
-                            "Country", "Hist. Monthly Avg",
+                            "Country",
+                            "Hist. Monthly Avg",
                             f"Pred. Total ({country_months}mo)",
-                            "Pred. Monthly Avg", "Trend", "Confidence", "% Change"
+                            "Pred. Monthly Avg",
+                            "Trend",
+                            "Confidence",
+                            "% Change",
                         ]
-                        st.dataframe(display_pred, width='stretch')
+                        st.dataframe(display_pred, width="stretch")
                 except Exception as country_exc:
                     st.error(f"Could not generate country predictions: {country_exc}")
 
@@ -847,7 +927,6 @@ def render_ml_tab(data):
 
     except Exception as exc:
         st.error(f"Could not train ML model: {exc}")
-
 
 
 def render_about_tab():
@@ -911,7 +990,7 @@ def main():
         """
         <div class="title-block">
             <h1>🌍 Earthquake Data Analyzer</h1>
-            <span class="badge">LIVE ANALYSIS</span>
+            <span class="badge">INTERACTIVE</span>
             <span class="badge" style="background:linear-gradient(90deg,#7c3aed,#a78bfa);">ML POWERED</span>
             <p class="subtitle" style="margin-top:0.6rem;">
                 Explore global seismic activity — filter by country, magnitude, depth &amp; time.
@@ -1088,7 +1167,7 @@ def main():
         .dt.tz_convert(None)
         .dt.strftime("%Y-%m-%d %H:%M UTC")
     )
-    st.dataframe(preview_df.head(20), width='stretch')
+    st.dataframe(preview_df.head(20), width="stretch")
 
     st.markdown("### 📊 Quick Summary")
     summary_col1, summary_col2, summary_col3 = st.columns(3)

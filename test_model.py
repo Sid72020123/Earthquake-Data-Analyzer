@@ -18,8 +18,10 @@ data = data.dropna(subset=["time", "latitude", "longitude", "mag", "depth", "cou
 
 # Use full history (same as dashboard default) with partial-month trimming
 frequency_data = prepare_time_series_data(data, period="M")
-print(f"Using {len(frequency_data)} months of data "
-      f"({frequency_data['time'].iloc[0].date()} → {frequency_data['time'].iloc[-1].date()})")
+print(
+    f"Using {len(frequency_data)} months of data "
+    f"({frequency_data['time'].iloc[0].date()} → {frequency_data['time'].iloc[-1].date()})"
+)
 
 # Split data
 split_index = int(len(frequency_data) * 0.8)
@@ -29,14 +31,16 @@ y_train = train_data["count"].values
 y_test = test_data["count"].values
 
 print(f"Train: {split_index} months, Test: {len(y_test)} months")
-print(f"Test period: {test_data['time'].iloc[0].date()} → {test_data['time'].iloc[-1].date()}")
+print(
+    f"Test period: {test_data['time'].iloc[0].date()} → {test_data['time'].iloc[-1].date()}"
+)
 
 print("=" * 60)
 print("📊 COMPARING MODELS FOR EARTHQUAKE FREQUENCY PREDICTION")
 print("=" * 60)
 
 # 1. Current Hybrid Model (ES + GBM)
-print("\n1️⃣  HYBRID MODEL (ES + Gradient Boosting) (Current Model)")
+print("\n1️⃣  HYBRID MODEL (ES + Random Forest) (Current Model)")
 print("-" * 60)
 ml_results = train_ml_model(frequency_data, test_size=0.2)
 print(f"Train R²: {ml_results['train_r2']:.4f}")
@@ -206,7 +210,7 @@ print("\n" + "=" * 60)
 print("🏆 COMPARISON SUMMARY:")
 print("=" * 60)
 models_summary = [
-    ("Hybrid (ES + GBM)", ml_results["test_r2"]),
+    ("Hybrid (ES + Random Forest)", ml_results["test_r2"]),
     ("Exponential Smoothing", exp_test_r2),
     ("Moving Average", ma_test_r2),
     ("Ridge Regression", ridge_test_r2),

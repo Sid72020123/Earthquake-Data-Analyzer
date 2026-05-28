@@ -143,7 +143,7 @@ A Hybrid approach is chosen because:
 - **Earthquake patterns are chaotic**: Real earthquakes are largely random and unpredictable
 - **General trends only**: Model captures broad patterns, not short-term fluctuations
 - **Data quality varies**: Some regions have better historical records than others
-- **Small sample**: Only 36 months of data may not capture all patterns
+- **Small sample**: Only 60 months of data may not capture all patterns
 - **No external factors**: Tectonic shifts, instrumentation changes not modeled
 - **Historical bias**: Past earthquakes may not reflect future patterns
 
@@ -151,17 +151,17 @@ A Hybrid approach is chosen because:
 
 For the trained model, the dashboard shows:
 
-| Metric                 | Explanation                                                  |
-| ---------------------- | ------------------------------------------------------------ |
-| **Total Samples**      | Number of time periods used (months or weeks)                |
-| **Training Samples**   | 80% of total (used to train the model)                       |
-| **Testing Samples**    | 20% of total (used to evaluate model)                        |
-| **Train R² Score**     | How well the model fits training data (0-1, higher = better) |
-| **Test R² Score**      | How well the model predicts new data (0-1, higher = better)  |
-| **Train RMSE**         | Average error on training data                               |
-| **Test RMSE**          | Average prediction error on test data (lower = better)       |
-| **Test MAPE**          | Mean absolute percentage error on test data                  |
-| **Max Error**          | Largest single prediction error in the test period           |
+| Metric               | Explanation                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| **Total Samples**    | Number of time periods used (months or weeks)                |
+| **Training Samples** | 80% of total (used to train the model)                       |
+| **Testing Samples**  | 20% of total (used to evaluate model)                        |
+| **Train R² Score**   | How well the model fits training data (0-1, higher = better) |
+| **Test R² Score**    | How well the model predicts new data (0-1, higher = better)  |
+| **Train RMSE**       | Average error on training data                               |
+| **Test RMSE**        | Average prediction error on test data (lower = better)       |
+| **Test MAPE**        | Mean absolute percentage error on test data                  |
+| **Max Error**        | Largest single prediction error in the test period           |
 
 ### Visualizations
 
@@ -180,15 +180,15 @@ For the trained model, the dashboard shows:
 6. Check the forecast for the next 12 months (or 26 weeks)
 7. Read the explanations and limitations honestly stated
 
-## Data Strategy: Why Up to 5 Years?
+## Data Strategy: Why Last 5 Years?
 
 The model uses up to **5 years** of complete historical data by default, configurable via the dashboard slider:
 
-| Timeframe          | Monthly Points | Pros                                                           | Cons                                                 |
-| ------------------ | -------------- | -------------------------------------------------------------- | ---------------------------------------------------- |
-| **5 Years (Default)** | ~60 months  | ✅ More data points, better trend stability                    | May include older patterns that differ from present  |
-| 3 Years            | ~36 months     | ✅ Recent patterns, good sample size                           | Less data for model training                         |
-| 1 Year             | ~12 months     | ✅ Very recent                                                 | ❌ Too few points, high volatility, poor trends      |
+| Timeframe             | Monthly Points | Pros                                        | Cons                                                |
+| --------------------- | -------------- | ------------------------------------------- | --------------------------------------------------- |
+| **5 Years (Default)** | ~60 months     | ✅ More data points, better trend stability | May include older patterns that differ from present |
+| 5 Years (Used)        | ~60 months     | ✅ Recent patterns, good sample size        | Less data for model training                        |
+| 1 Year                | ~12 months     | ✅ Very recent                              | ❌ Too few points, high volatility, poor trends     |
 
 **Best Practice**: More history generally yields more stable trend estimates. Use the slider in the dashboard to experiment.
 

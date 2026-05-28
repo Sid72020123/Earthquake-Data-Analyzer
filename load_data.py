@@ -38,7 +38,8 @@ def load_historical_data(start_year, end_year, save_directory="data", min_magnit
     all_dataframes = []
     for year in range(start_year, end_year + 1):
         df = fetch_year_data(year, min_magnitude)
-        df.to_csv(f"{save_directory}/year_{year}.csv", index=False)
+        if not df.empty:
+            df.to_csv(f"{save_directory}/year_{year}.csv", index=False)
         all_dataframes.append(df)
 
     if not all_dataframes:
