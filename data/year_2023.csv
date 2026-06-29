@@ -1593,7 +1593,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2023-12-03T20:13:31.213Z,9.0619,126.6963,84.261,4.5,mb,31.0,128.0,2.268,0.58,us,us7000lhe1,2024-02-10T23:47:27.040Z,"46 km ENE of Aras-asan, Philippines",earthquake,12.51,8.634,0.125,19.0,reviewed,us,us
 2023-12-03T20:10:19.177Z,8.8346,126.6593,67.691,4.9,mb,79.0,120.0,2.054,0.78,us,us7000lfyn,2024-02-10T23:47:27.040Z,"38 km E of Aras-asan, Philippines",earthquake,10.58,6.648,0.062,82.0,reviewed,us,us
 2023-12-03T20:03:12.970Z,8.5581,126.6507,77.572,4.8,mb,31.0,108.0,1.82,1.08,us,us7000lhfl,2024-02-10T23:47:27.040Z,"40 km ENE of Hinatuan, Philippines",earthquake,5.77,7.888,0.124,20.0,reviewed,us,us
-2023-12-03T19:49:35.739Z,8.9705,126.6121,20.0,6.9,mww,151.0,25.0,2.148,0.93,us,us7000lfxx,2025-08-16T07:44:40.068Z,"34 km ENE of Aras-asan, Philippines",earthquake,7.86,1.721,0.05,39.0,reviewed,us,us
+2023-12-03T19:49:35.739Z,8.9705,126.6121,20.0,6.9,mww,151.0,25.0,2.148,0.93,us,us7000lfxx,2026-06-27T07:19:43.677Z,"34 km ENE of Aras-asan, Philippines",earthquake,7.86,1.721,0.05,39.0,reviewed,us,us
 2023-12-03T19:47:20.396Z,8.7517,127.3971,10.0,4.4,mb,12.0,144.0,2.457,0.87,us,us7000lhdz,2024-02-10T23:47:27.040Z,"120 km E of Aras-asan, Philippines",earthquake,11.24,1.949,0.189,9.0,reviewed,us,us
 2023-12-03T19:37:24.507Z,8.5869,126.8123,69.349,4.0,mb,12.0,165.0,1.94,0.72,us,us7000lhdv,2024-02-10T23:47:27.040Z,"57 km ENE of Hinatuan, Philippines",earthquake,14.21,9.985,0.259,5.0,reviewed,us,us
 2023-12-03T19:14:54.619Z,8.8544,126.5721,65.775,4.8,mb,73.0,95.0,2.028,0.82,us,us7000lfxs,2024-02-10T23:47:27.040Z,"28 km E of Aras-asan, Philippines",earthquake,9.63,6.316,0.064,74.0,reviewed,us,us
@@ -1669,7 +1669,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2023-12-03T10:46:45.558Z,8.5099,126.5423,48.53,4.8,mb,47.0,117.0,1.72,0.48,us,us7000lhdh,2024-02-10T23:47:25.040Z,"27 km ENE of Hinatuan, Philippines",earthquake,9.32,7.34,0.072,60.0,reviewed,us,us
 2023-12-03T10:45:47.907Z,8.6436,126.1848,61.756,4.5,mb,31.0,137.0,1.675,0.6,us,us7000lhcd,2024-02-10T23:47:25.040Z,"8 km SSW of Salvacion, Philippines",earthquake,13.24,8.849,0.135,16.0,reviewed,us,us
 2023-12-03T10:39:23.796Z,8.5597,126.6174,45.264,5.7,mb,81.0,48.0,1.803,0.52,us,us7000lhdb,2025-07-28T19:35:31.934Z,"37 km ENE of Hinatuan, Philippines",earthquake,6.88,5.258,0.074,66.0,reviewed,us,us
-2023-12-03T10:35:52.871Z,8.488,126.7454,19.0,6.6,mww,135.0,32.0,1.822,0.83,us,us7000lftp,2025-08-15T20:53:21.492Z,"47 km ENE of Hinatuan, Philippines",earthquake,7.74,1.835,0.052,35.0,reviewed,us,us
+2023-12-03T10:35:52.871Z,8.488,126.7454,19.0,6.6,mww,135.0,32.0,1.822,0.83,us,us7000lftp,2026-06-27T07:17:06.981Z,"47 km ENE of Hinatuan, Philippines",earthquake,7.74,1.835,0.052,35.0,reviewed,us,us
 2023-12-03T10:27:56.714Z,8.5029,126.3646,55.82,4.4,mb,50.0,117.0,1.623,0.65,us,us7000lhcc,2024-02-10T23:47:24.040Z,"13 km ESE of Gamut, Philippines",earthquake,7.81,7.645,0.09,35.0,reviewed,us,us
 2023-12-03T10:22:06.926Z,8.4956,126.7356,45.362,4.6,mb,60.0,103.0,1.822,0.49,us,us7000lftm,2024-02-10T23:47:24.040Z,"46 km ENE of Hinatuan, Philippines",earthquake,9.29,6.794,0.067,67.0,reviewed,us,us
 2023-12-03T10:17:26.640Z,8.4718,126.8103,50.24,4.8,mb,80.0,84.0,1.852,0.64,us,us7000lftk,2024-02-10T23:47:24.040Z,"53 km ENE of Hinatuan, Philippines",earthquake,9.1,6.844,0.054,105.0,reviewed,us,us
@@ -1874,7 +1874,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2023-12-02T18:20:40.812Z,8.5944,126.6118,48.935,5.4,mb,189.0,28.0,1.828,0.73,us,us7000lfkr,2024-02-06T21:53:58.040Z,"37 km NE of Hinatuan, Philippines",earthquake,8.53,4.653,0.034,308.0,reviewed,us,us
 2023-12-02T18:15:29.883Z,8.4645,126.4469,68.843,4.6,mb,16.0,127.0,1.631,0.64,us,us7000lh3c,2024-02-06T21:54:02.040Z,"16 km NE of Hinatuan, Philippines",earthquake,12.97,8.498,0.158,12.0,reviewed,us,us
 2023-12-02T18:13:24.295Z,8.302,126.5678,60.889,5.1,mb,20.0,92.0,1.568,0.38,us,us7000lh3b,2024-02-06T21:54:02.040Z,"21 km NE of Barcelona, Philippines",earthquake,10.72,5.809,0.152,14.0,reviewed,us,us
-2023-12-02T18:09:25.972Z,8.4402,126.9387,46.378,6.3,mww,225.0,15.0,1.916,0.71,us,us7000lfkh,2025-07-28T19:25:24.167Z,"63 km ENE of Barcelona, Philippines",earthquake,5.84,3.655,0.098,10.0,reviewed,us,us
+2023-12-02T18:09:25.972Z,8.4402,126.9387,46.378,6.3,mww,225.0,15.0,1.916,0.71,us,us7000lfkh,2026-06-27T07:17:48.641Z,"63 km ENE of Barcelona, Philippines",earthquake,5.84,3.655,0.098,10.0,reviewed,us,us
 2023-12-02T18:06:29.578Z,8.4214,126.7036,57.413,5.1,mb,129.0,79.0,1.745,0.62,us,us7000lh1j,2024-02-06T21:54:01.040Z,"41 km E of Hinatuan, Philippines",earthquake,5.23,6.38,0.055,106.0,reviewed,us,us
 2023-12-02T18:06:05.091Z,8.4534,126.5004,75.992,4.6,mb,64.0,70.0,1.65,0.76,us,us7000lh2c,2024-02-06T21:54:02.040Z,"20 km ENE of Hinatuan, Philippines",earthquake,10.37,3.599,0.081,53.0,reviewed,us,us
 2023-12-02T18:04:43.289Z,8.4814,126.5757,46.984,5.1,mb,92.0,101.0,1.715,0.7,us,us7000lh1i,2024-02-06T21:54:01.040Z,"29 km ENE of Hinatuan, Philippines",earthquake,9.81,7.059,0.061,94.0,reviewed,us,us
@@ -1962,7 +1962,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2023-12-02T14:48:41.232Z,8.3993,126.7463,62.784,5.3,mb,63.0,110.0,1.756,0.85,us,us7000lgzu,2024-02-06T21:54:00.040Z,"43 km NE of Barcelona, Philippines",earthquake,10.28,7.271,0.084,47.0,reviewed,us,us
 2023-12-02T14:44:36.381Z,8.0495,126.6059,43.301,5.4,mb,31.0,127.0,1.409,1.16,us,us7000lh28,2024-02-06T21:54:02.040Z,"18 km ENE of Santa Maria, Philippines",earthquake,11.09,8.123,0.12,29.0,reviewed,us,us
 2023-12-02T14:44:03.355Z,8.5324,126.5047,66.534,5.4,mb,32.0,84.0,1.718,1.15,us,us7000lgz3,2024-02-06T21:54:00.040Z,"25 km NE of Hinatuan, Philippines",earthquake,11.36,8.641,0.124,22.0,reviewed,us,us
-2023-12-02T14:37:04.454Z,8.5266,126.4161,40.0,7.6,mww,128.0,43.0,1.668,0.98,us,us7000lff4,2026-05-04T17:53:24.474Z,"19 km E of Gamut, Philippines",earthquake,8.48,1.895,0.028,124.0,reviewed,us,us
+2023-12-02T14:37:04.454Z,8.5266,126.4161,40.0,7.6,mww,128.0,43.0,1.668,0.98,us,us7000lff4,2026-06-27T07:18:56.872Z,"19 km E of Gamut, Philippines",earthquake,8.48,1.895,0.028,124.0,reviewed,us,us
 2023-12-02T14:02:10.924Z,-55.7132,147.1049,11.0,5.5,mww,41.0,110.0,6.9,0.91,us,us7000lfev,2024-02-06T21:53:58.040Z,west of Macquarie Island,earthquake,11.15,1.858,0.054,33.0,reviewed,us,us
 2023-12-02T13:42:32.040Z,-0.5051,67.322,10.0,4.5,mb,18.0,120.0,9.299,0.66,us,us7000lgz0,2024-02-06T21:54:00.040Z,Carlsberg Ridge,earthquake,12.19,1.92,0.15,13.0,reviewed,us,us
 2023-12-02T13:42:04.550Z,-3.4668,102.0368,116.82,4.8,mb,57.0,99.0,1.276,1.01,us,us7000lfeq,2024-02-06T21:53:58.040Z,"44 km NW of Bengkulu, Indonesia",earthquake,8.64,3.673,0.077,52.0,reviewed,us,us
@@ -2027,7 +2027,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2023-12-01T05:46:27.102Z,34.0834,22.4557,10.0,4.3,mb,22.0,192.0,2.338,0.45,us,us7000lgpj,2024-02-06T21:54:00.040Z,"146 km N of Darnah, Libya",earthquake,9.04,1.975,0.177,9.0,reviewed,us,us
 2023-12-01T04:54:18.573Z,-19.1591,-177.6443,555.437,4.2,mb,30.0,51.0,3.043,0.85,us,us7000lgpf,2024-02-06T21:53:59.040Z,Fiji region,earthquake,14.59,4.77,0.136,16.0,reviewed,us,us
 2023-12-01T04:34:43.695Z,30.4864,141.995,21.861,4.5,mb,44.0,128.0,3.212,0.58,us,us7000lgpd,2024-02-06T21:53:59.040Z,"Izu Islands, Japan region",earthquake,10.81,5.236,0.121,21.0,reviewed,us,us
-2023-12-01T03:54:29.830Z,7.431,-80.4933,10.0,4.4,mb,53.0,132.0,2.56,0.55,us,us7000lf03,2024-02-06T21:53:55.040Z,"6 km WNW of Tonosí, Panama",earthquake,7.03,1.887,0.123,20.0,reviewed,us,us
+2023-12-01T03:54:29.830Z,7.431,-80.4933,10.0,4.4,mb,53.0,132.0,2.56,0.55,us,us7000lf03,2026-06-03T15:37:03.266Z,"6 km WNW of Tonosí, Panama",earthquake,7.03,1.887,0.123,20.0,reviewed,us,us
 2023-12-01T03:52:13.496Z,37.9594,141.8354,52.051,4.7,mb,80.0,107.0,2.828,1.11,us,us7000lf01,2024-02-06T21:53:55.040Z,"63 km SSE of Onagawa Chō, Japan",earthquake,7.77,5.902,0.057,94.0,reviewed,us,us
 2023-12-01T03:04:39.635Z,-18.8336,-177.7039,612.776,4.2,mb,23.0,80.0,3.306,0.79,us,us7000lgpb,2024-02-06T21:53:59.040Z,Fiji region,earthquake,9.49,11.041,0.146,13.0,reviewed,us,us
 2023-12-01T03:02:46.829Z,-18.644,-177.4291,633.858,4.3,mb,28.0,67.0,3.251,0.67,us,us7000lgpc,2024-02-06T21:53:59.040Z,Fiji region,earthquake,15.43,10.74,0.129,18.0,reviewed,us,us
@@ -6650,7 +6650,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2023-08-10T22:46:39.734Z,-20.1895,-177.9513,536.207,4.4,mb,25.0,70.0,2.751,0.46,us,us7000kp1l,2023-10-17T22:01:29.040Z,"296 km WNW of Houma, Tonga",earthquake,12.96,8.696,0.138,15.0,reviewed,us,us
 2023-08-10T22:15:50.126Z,3.7067,126.5118,28.542,4.6,mb,77.0,99.0,3.038,0.54,us,us6000kz5c,2023-10-17T22:01:29.040Z,"220 km SSE of Sarangani, Philippines",earthquake,5.11,5.168,0.07,61.0,reviewed,us,us
 2023-08-10T21:25:57.660Z,9.5521,93.8372,10.0,4.5,mb,27.0,105.0,7.972,0.43,us,us6000kz58,2023-10-17T22:01:29.040Z,"Nicobar Islands, India region",earthquake,6.9,1.901,0.139,15.0,reviewed,us,us
-2023-08-10T19:17:18.370Z,35.9345,-120.484,9.5,4.28,mw,72.0,54.0,0.01574,0.11,nc,nc73922596,2024-10-09T13:36:08.759Z,"6 km NW of Parkfield, CA",earthquake,0.14,0.2,,4.0,reviewed,nc,nc
+2023-08-10T19:17:18.370Z,35.9345,-120.484,9.5,4.28,mw,72.0,54.0,0.01574,0.11,nc,nc73922596,2026-06-02T17:29:05.853Z,"6 km NW of Parkfield, CA",earthquake,0.14,0.2,,4.0,reviewed,nc,nc
 2023-08-10T18:13:36.311Z,10.4485,93.4368,116.866,4.1,mb,23.0,130.0,9.581,0.7,us,us7000kp1g,2023-10-17T22:01:29.040Z,"154 km SSE of Port Blair, India",earthquake,14.97,9.839,0.158,13.0,reviewed,us,us
 2023-08-10T17:48:01.234Z,38.2665,38.2011,10.0,5.2,mww,114.0,30.0,0.832,0.87,us,us6000kz45,2023-10-17T22:01:29.040Z,"5 km SW of Yeşilyurt, Turkey",earthquake,4.83,1.716,0.04,60.0,reviewed,us,us
 2023-08-10T17:15:18.751Z,-20.1725,-69.0781,100.471,4.5,mwr,49.0,50.0,0.077,0.67,us,us6000kz3v,2023-10-17T22:01:29.040Z,"63 km ENE of La Tirana, Chile",earthquake,5.85,5.204,,,reviewed,us,guc
@@ -13932,7 +13932,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2023-02-14T15:08:29.614Z,-30.2226,-177.3526,33.726,4.8,mb,35.0,189.0,1.077,0.98,us,us6000jnxi,2023-04-22T21:33:07.040Z,"Kermadec Islands, New Zealand",earthquake,8.86,5.521,0.121,21.0,reviewed,us,us
 2023-02-14T13:44:03.567Z,35.5292,35.4049,10.0,4.3,mb,56.0,72.0,1.79,0.69,us,us6000jnr1,2023-04-22T21:33:07.040Z,"34 km W of Latakia, Syria",earthquake,5.41,1.872,0.125,18.0,reviewed,us,us
 2023-02-14T13:41:53.222Z,-18.0123,-178.3981,591.412,4.2,mb,24.0,70.0,3.39,0.85,us,us6000jqtz,2023-04-22T21:33:24.040Z,Fiji region,earthquake,13.53,8.235,0.141,14.0,reviewed,us,us
-2023-02-14T13:16:50.827Z,45.0998,23.2013,10.0,5.6,mww,197.0,27.0,1.217,0.6,us,us6000jnqz,2025-12-22T12:56:18.674Z,"0 km ESE of Lele?ti, Romania",earthquake,5.14,1.742,0.032,95.0,reviewed,us,us
+2023-02-14T13:16:50.827Z,45.0998,23.2013,10.0,5.6,mww,197.0,27.0,1.217,0.6,us,us6000jnqz,2026-06-28T19:40:16.113Z,"0 km ESE of Lele?ti, Romania",earthquake,5.14,1.742,0.032,95.0,reviewed,us,us
 2023-02-14T13:13:07.027Z,37.8316,37.9533,12.979,4.0,mb,36.0,69.0,0.792,0.55,us,us6000jnqy,2023-04-22T21:33:07.040Z,"5 km NE of Tut, Turkey",earthquake,3.04,4.462,0.211,6.0,reviewed,us,us
 2023-02-14T11:54:11.925Z,36.0172,36.1295,10.0,4.4,mb,92.0,63.0,1.444,0.49,us,us6000jnqt,2023-04-22T21:33:07.040Z,"6 km NNW of K??lak, Turkey",earthquake,3.43,1.847,0.082,43.0,reviewed,us,us
 2023-02-14T10:31:55.643Z,11.0748,-86.3733,35.0,4.2,mb,49.0,179.0,1.049,0.46,us,us6000jnqp,2023-04-22T21:33:07.040Z,"58 km WSW of San Juan del Sur, Nicaragua",earthquake,4.6,1.875,0.101,27.0,reviewed,us,us

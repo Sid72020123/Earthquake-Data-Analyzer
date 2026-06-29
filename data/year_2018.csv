@@ -3688,7 +3688,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2018-10-07T01:04:50.040Z,-17.193,-70.0622,155.99,4.3,mb,,115.0,0.681,1.11,us,us1000h8b6,2018-12-14T20:32:43.040Z,"10 km N of Chuquitira, Peru",earthquake,7.0,6.6,0.177,9.0,reviewed,us,us
 2018-10-07T00:49:59.510Z,-27.9186,-71.2558,19.17,4.1,mb,,184.0,0.327,0.9,us,us1000h8b2,2018-12-14T20:32:36.040Z,"87 km NNW of Vallenar, Chile",earthquake,5.3,1.7,0.184,8.0,reviewed,us,us
 2018-10-07T00:26:43.620Z,12.6527,-88.2276,55.04,4.9,mb,,72.0,1.15,1.3,us,us1000h8au,2018-12-14T20:32:43.040Z,"63 km SSW of Intipucá, El Salvador",earthquake,6.5,5.6,0.065,74.0,reviewed,us,us
-2018-10-07T00:11:51.220Z,20.0343,-73.0128,24.0,5.9,mww,,19.0,1.648,0.7,us,us1000h8an,2022-05-03T19:34:16.985Z,"21 km WNW of Port-de-Paix, Haiti",earthquake,5.0,1.4,0.055,32.0,reviewed,us,us
+2018-10-07T00:11:51.220Z,20.0343,-73.0128,24.0,5.9,mww,,19.0,1.648,0.7,us,us1000h8an,2026-06-28T17:43:48.689Z,"21 km WNW of Port-de-Paix, Haiti",earthquake,5.0,1.4,0.055,32.0,reviewed,us,us
 2018-10-07T00:10:47.940Z,34.7928,19.4261,10.0,4.0,mb,,194.0,4.141,0.65,us,us1000hb3i,2018-12-14T20:32:47.040Z,"272 km NNW of T?krah, Libya",earthquake,4.6,2.0,0.365,2.0,reviewed,us,us
 2018-10-07T00:10:04.880Z,7.6608,-37.7083,10.0,5.8,mww,,41.0,13.52,0.7,us,us1000h8ar,2022-05-03T20:04:21.062Z,central Mid-Atlantic Ridge,earthquake,9.6,1.8,0.062,25.0,reviewed,us,us
 2018-10-06T23:01:01.770Z,-6.2214,148.8939,52.49,5.0,mb,,23.0,3.599,0.88,us,us1000h8a8,2018-12-14T20:32:43.040Z,"72 km W of Kandrian, Papua New Guinea",earthquake,7.0,4.9,0.06,90.0,reviewed,us,us
@@ -4124,7 +4124,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2018-09-28T10:24:06.870Z,-0.4903,120.0401,10.0,4.3,mb,,113.0,1.755,0.67,us,us1000h73t,2018-12-01T16:44:19.040Z,"49 km NNE of Palu, Indonesia",earthquake,5.7,2.0,0.239,5.0,reviewed,us,us
 2018-09-28T10:16:48.730Z,-0.8748,120.0342,10.0,5.7,mb,,24.0,2.109,0.82,us,us1000h3rc,2022-08-08T08:42:33.777Z,"Minahasa, Sulawesi, Indonesia",earthquake,6.0,1.7,0.052,133.0,reviewed,us,us
 2018-09-28T10:14:20.120Z,-0.0175,119.7549,10.0,5.8,mb,,20.0,1.52,1.07,us,us1000h3p8,2022-08-08T08:41:47.830Z,"99 km N of Palu, Indonesia",earthquake,5.8,1.7,0.048,157.0,reviewed,us,us
-2018-09-28T10:02:45.250Z,-0.2559,119.8462,20.0,7.5,mww,,13.0,1.649,1.0,us,us1000h3p4,2026-04-02T04:27:07.356Z,"72 km N of Palu, Indonesia",earthquake,5.8,1.8,0.05,39.0,reviewed,us,us
+2018-09-28T10:02:45.250Z,-0.2559,119.8462,20.0,7.5,mww,,13.0,1.649,1.0,us,us1000h3p4,2026-06-08T04:53:31.212Z,"72 km N of Palu, Indonesia",earthquake,5.8,1.8,0.05,39.0,reviewed,us,us
 2018-09-28T09:57:37.550Z,-0.3165,119.9473,10.0,4.7,mb,,68.0,1.645,1.02,us,us1000h3q6,2018-12-01T16:42:56.040Z,"65 km N of Palu, Indonesia",earthquake,5.2,1.3,0.082,45.0,reviewed,us,us
 2018-09-28T09:22:48.620Z,-0.306,119.8209,10.0,4.4,mb,,109.0,1.704,0.43,us,us1000h72e,2018-12-01T16:44:10.040Z,"66 km N of Palu, Indonesia",earthquake,6.4,1.9,0.218,6.0,reviewed,us,us
 2018-09-28T09:20:38.900Z,0.8774,97.0156,35.0,4.6,mb,,142.0,0.702,0.81,us,us1000h3nt,2018-12-01T16:42:53.040Z,"178 km SSW of Singkil, Indonesia",earthquake,8.7,2.0,0.089,38.0,reviewed,us,us
@@ -5808,7 +5808,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2018-08-22T00:08:33.300Z,-19.4565,-175.7145,207.57,4.5,mb,,93.0,5.48,1.46,us,us2000h60n,2018-11-01T17:51:03.040Z,"148 km WNW of Pangai, Tonga",earthquake,14.6,9.1,0.113,23.0,reviewed,us,us
 2018-08-21T22:47:34.909Z,64.4913,-171.966,10.0,4.2,ml,,,,0.88,ak,ak018appljpu,2023-08-16T16:11:04.671Z,"61 km E of Provideniya, Russia",earthquake,,0.0,,,reviewed,ak,ak
 2018-08-21T22:32:26.470Z,-16.0315,168.1428,9.0,6.5,mww,,10.0,4.797,0.74,us,us1000gf2g,2022-08-08T07:22:11.439Z,"78 km E of Lakatoro, Vanuatu",earthquake,7.4,1.7,0.098,10.0,reviewed,us,us
-2018-08-21T21:31:47.600Z,10.7731,-62.9019,146.82,7.3,mww,,15.0,1.822,1.1,us,us1000gez7,2025-01-28T19:03:32.879Z,"40 km ENE of Carúpano, Venezuela",earthquake,7.5,3.4,0.033,88.0,reviewed,us,us
+2018-08-21T21:31:47.600Z,10.7731,-62.9019,146.82,7.3,mww,,15.0,1.822,1.1,us,us1000gez7,2026-06-29T02:22:29.627Z,"40 km ENE of Carúpano, Venezuela",earthquake,7.5,3.4,0.033,88.0,reviewed,us,us
 2018-08-21T21:31:40.270Z,10.6575,-62.8522,108.91,5.3,mb,,35.0,1.878,1.18,us,us1000gfdx,2022-05-03T19:27:54.260Z,"43 km E of Carúpano, Venezuela",earthquake,7.8,7.4,0.111,27.0,reviewed,us,us
 2018-08-21T21:23:16.120Z,-6.8589,108.7096,231.99,4.3,mb,,104.0,1.728,0.53,us,us2000h5h8,2018-11-01T17:51:03.040Z,"7 km E of Karangsembung, Indonesia",earthquake,10.6,9.2,0.178,9.0,reviewed,us,us
 2018-08-21T20:19:52.450Z,-23.7695,-176.269,10.0,4.6,mb,,96.0,7.529,1.19,us,us2000h5h4,2018-11-01T17:51:03.040Z,south of the Fiji Islands,earthquake,13.0,1.9,0.141,17.0,reviewed,us,us

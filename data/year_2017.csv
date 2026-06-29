@@ -3827,7 +3827,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2017-09-19T18:48:53.310Z,15.5496,-95.2636,20.63,4.4,mb,,175.0,0.842,1.4,us,us2000azg8,2017-12-19T01:54:06.040Z,"58 km SSE of El Carrizal, Mexico",earthquake,4.5,11.2,0.085,42.0,reviewed,us,us
 2017-09-19T18:44:05.630Z,1.778,127.0878,119.45,4.3,mb,,166.0,1.037,0.7,us,us2000awmp,2017-12-19T01:54:06.040Z,"102 km W of Tobelo, Indonesia",earthquake,12.0,9.5,0.148,14.0,reviewed,us,us
 2017-09-19T18:14:41.390Z,-37.2315,-74.1697,8.18,4.6,mwr,,132.0,0.92,0.84,us,us2000ar1y,2017-12-19T01:54:06.040Z,"61 km NW of Lebu, Chile",earthquake,3.8,4.6,0.049,40.0,reviewed,us,us
-2017-09-19T18:14:38.090Z,18.5499,-98.4887,48.0,7.1,mww,,23.0,0.984,1.14,us,us2000ar20,2026-02-28T02:48:35.888Z,"1 km S of Matzaco, Mexico",earthquake,4.5,1.8,0.048,41.0,reviewed,us,us
+2017-09-19T18:14:38.090Z,18.5499,-98.4887,48.0,7.1,mww,,23.0,0.984,1.14,us,us2000ar20,2026-06-06T00:22:51.952Z,"1 km S of Matzaco, Mexico",earthquake,4.5,1.8,0.048,41.0,reviewed,us,us
 2017-09-19T17:50:45.420Z,-31.7756,-72.4729,10.0,4.5,mb,,138.0,1.381,0.85,us,us2000aqyy,2022-08-07T17:56:31.531Z,"124 km W of Illapel, Chile",earthquake,3.2,1.9,0.192,8.0,reviewed,us,us
 2017-09-19T17:12:30.120Z,-7.454,128.1338,167.65,4.6,mb,,57.0,3.18,1.35,us,us2000aqxe,2017-12-19T01:54:06.040Z,"172 km NE of Lospalos, Timor Leste",earthquake,5.8,7.1,0.077,51.0,reviewed,us,us
 2017-09-19T16:50:50.410Z,1.7258,126.2954,61.23,4.1,mb,,149.0,1.43,0.74,us,us2000awmn,2017-12-19T01:54:06.040Z,"149 km E of Laikit, Laikit II (Dimembe), Indonesia",earthquake,10.2,11.7,0.139,14.0,reviewed,us,us
@@ -6745,7 +6745,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2017-07-06T06:57:39.410Z,52.7725,-35.2029,10.0,4.6,mb,,120.0,14.457,0.5,us,us10009957,2017-10-03T00:47:51.040Z,Reykjanes Ridge,earthquake,6.9,1.9,0.122,20.0,reviewed,us,us
 2017-07-06T06:42:26.080Z,38.2917,143.3363,10.0,5.0,mb,,98.0,2.053,0.95,us,us1000975e,2017-10-03T00:47:51.040Z,"165 km ESE of ?funato, Japan",earthquake,7.0,1.9,0.087,42.0,reviewed,us,us
 2017-07-06T06:35:35.960Z,46.8128,-112.665,14.73,5.0,mww,,107.0,0.876,0.57,us,us1000975k,2024-05-30T14:15:31.569Z,"15 km S of Lincoln, Montana",earthquake,4.9,5.9,0.046,46.0,reviewed,us,us
-2017-07-06T06:30:17.000Z,46.8811,-112.5753,12.18,5.8,mww,,62.0,0.214,0.59,us,us10009757,2025-11-03T20:49:29.992Z,"11 km SE of Lincoln, Montana",earthquake,5.5,3.9,0.021,212.0,reviewed,us,us
+2017-07-06T06:30:17.000Z,46.8811,-112.5753,12.18,5.8,mww,,62.0,0.214,0.59,us,us10009757,2026-06-24T18:30:13.966Z,"11 km SE of Lincoln, Montana",earthquake,5.5,3.9,0.021,212.0,reviewed,us,us
 2017-07-06T05:47:29.960Z,1.6784,127.634,180.65,4.5,mb,,204.0,0.939,0.77,us,us10009954,2017-10-03T00:47:51.040Z,"42 km W of Tobelo, Indonesia",earthquake,7.1,8.2,0.181,9.0,reviewed,us,us
 2017-07-06T05:40:12.600Z,10.5505,-86.003,30.71,4.0,mb,,168.0,0.432,0.93,us,us10009978,2017-10-03T00:47:51.040Z,"39 km W of Sardinal, Costa Rica",earthquake,6.8,10.6,0.197,7.0,reviewed,us,us
 2017-07-06T05:28:23.060Z,-25.8962,-179.9862,494.29,4.0,mb,,165.0,3.802,0.66,us,us10009953,2017-10-03T00:47:51.040Z,south of the Fiji Islands,earthquake,13.7,15.6,0.122,18.0,reviewed,us,us

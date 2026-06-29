@@ -5954,7 +5954,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2014-08-24T13:42:38.040Z,-20.8749,-178.5479,618.96,4.6,mb,,73.0,4.471,0.8,us,usb000s9nc,2014-11-22T02:06:34.000Z,Fiji region,earthquake,12.8,8.5,0.116,28.0,reviewed,us,us
 2014-08-24T12:43:47.420Z,55.6784,163.0412,33.96,4.4,mb,,97.0,3.698,0.99,us,usb000s9nb,2014-11-22T02:06:34.000Z,"70 km SSE of Ust’-Kamchatsk Staryy, Russia",earthquake,8.6,5.7,0.115,22.0,reviewed,us,us
 2014-08-24T11:15:51.170Z,-5.4919,147.0821,207.76,4.6,mb,,25.0,3.888,0.94,us,usb000s5u6,2022-07-26T23:16:11.282Z,"136 km N of Lae, Papua New Guinea",earthquake,7.5,4.9,0.07,62.0,reviewed,us,us
-2014-08-24T10:20:44.070Z,38.2151667,-122.3123333,11.12,6.02,mw,369.0,28.0,0.03604,0.18,nc,nc72282711,2026-04-28T14:33:46.378Z,"The 2014 South Napa, California Earthquake",earthquake,0.11,0.15,,0.0,reviewed,nc,nc
+2014-08-24T10:20:44.070Z,38.2151667,-122.3123333,11.12,6.02,mw,369.0,28.0,0.03604,0.18,nc,nc72282711,2026-06-24T21:09:11.783Z,"The 2014 South Napa, California Earthquake",earthquake,0.11,0.15,,0.0,reviewed,nc,nc
 2014-08-24T10:06:29.470Z,-7.2489,124.8018,539.95,4.2,mb,,129.0,2.545,0.9,us,usb000s9n5,2014-11-22T02:06:32.000Z,"157 km NNW of Maubara, Timor Leste",earthquake,16.0,10.2,0.167,10.0,reviewed,us,us
 2014-08-24T09:48:00.300Z,13.839,-92.0852,34.82,4.1,mb,,204.0,0.776,1.5,us,usc000s9hm,2015-01-30T06:48:55.861Z,"53 km SSW of Champerico, Guatemala",earthquake,4.2,7.8,0.14,15.0,reviewed,us,us
 2014-08-24T09:20:27.280Z,-22.9657,179.3259,557.25,4.5,mb,,88.0,5.329,1.19,us,usb000s5th,2014-11-22T02:06:32.000Z,south of the Fiji Islands,earthquake,13.3,7.8,0.097,31.0,reviewed,us,us

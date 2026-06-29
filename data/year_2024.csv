@@ -855,9 +855,8 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-12-10T03:44:14.892Z,50.9314,-177.3197,10.0,5.1,mb,215.0,77.0,0.833,0.82,us,us7000nxhl,2025-02-18T20:02:52.040Z,"115 km SSW of Adak, Alaska",earthquake,3.86,1.762,0.042,185.0,reviewed,us,us
 2024-12-10T03:10:10.040Z,4.3627,62.2895,10.0,4.4,mb,22.0,101.0,11.263,0.55,us,us7000p0e7,2025-02-18T20:02:52.040Z,Carlsberg Ridge,earthquake,10.68,1.916,0.138,15.0,reviewed,us,us
 2024-12-10T01:51:59.807Z,-24.2994,-67.3287,206.353,4.4,mb,22.0,121.0,1.551,0.8,us,us7000nxgz,2025-02-18T20:02:52.040Z,"102 km W of San Antonio de los Cobres, Argentina",earthquake,6.41,12.579,0.204,7.0,reviewed,us,us
-2024-12-10T00:39:56.966Z,39.1686,-119.0225,8.1,4.2,ml,28.0,42.03,0.25,0.1405,nn,nn00888661,2025-03-03T22:53:48.682Z,"23 km NNE of Yerington, Nevada",earthquake,,5.7,0.31,9.0,reviewed,nn,nn
 2024-12-09T23:27:42.352Z,-9.1937,-109.7691,10.0,4.9,mb,48.0,161.0,17.842,0.55,us,us7000p0dl,2025-02-18T20:02:52.040Z,central East Pacific Rise,earthquake,10.32,1.853,0.091,38.0,reviewed,us,us
-2024-12-09T23:08:31.577Z,39.1675,-119.0238,9.3,5.7,mw,32.0,41.37,0.248,0.1163,nn,nn00888580,2026-05-01T09:40:21.401Z,"2024 Parker Butte, Nevada Earthquake",earthquake,,2.4,,,reviewed,nn,nn
+2024-12-09T23:08:31.577Z,39.1675,-119.0238,8.0,5.71,mwr,30.0,105.0,0.248,0.1163,nn,nn00888580,2026-06-11T01:50:58.408Z,"2024 Parker Butte, Nevada Earthquake",earthquake,,2.3971,,,reviewed,nn,nn
 2024-12-09T22:41:05.989Z,-7.3629,129.1377,87.473,4.3,mb,28.0,49.0,2.923,0.78,us,us7000nxev,2025-02-18T20:02:52.040Z,"268 km ENE of Lospalos, Timor Leste",earthquake,9.2,5.534,0.129,17.0,reviewed,us,us
 2024-12-09T22:21:33.666Z,7.6171,126.7909,72.637,4.5,mb,39.0,113.0,1.319,0.43,us,us7000nxeu,2025-02-18T20:02:52.040Z,"25 km E of Baganga, Philippines",earthquake,11.2,7.576,0.102,28.0,reviewed,us,us
 2024-12-09T21:26:16.626Z,-4.2272,103.612,81.713,4.4,mb,17.0,129.0,0.668,0.34,us,us7000p0dk,2025-02-18T20:02:52.040Z,"38 km SSW of Tanjungagung, Indonesia",earthquake,12.99,9.649,0.19,10.0,reviewed,us,us
@@ -1054,7 +1053,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-12-05T19:01:24.118Z,-6.2676,153.1294,10.0,4.4,mb,30.0,126.0,2.276,0.45,us,us7000nzu3,2025-02-15T18:31:37.040Z,"233 km SSE of Kokopo, Papua New Guinea",earthquake,11.79,1.913,0.149,13.0,reviewed,us,us
 2024-12-05T18:47:36.030Z,38.844166666667,-122.827,0.41,4.27,ml,69.0,34.0,0.008657,0.06,nc,nc75095671,2025-02-15T18:29:52.040Z,"9 km WNW of Cobb, CA",earthquake,0.09,0.14,0.231,5.0,reviewed,nc,nc
 2024-12-05T18:46:29.660Z,40.349,-124.915,12.51,4.67,ml,54.0,241.0,0.4418,0.2,nc,nc75001903,2025-02-15T18:30:02.040Z,"53 km WNW of Petrolia, CA",earthquake,0.83,1.04,0.102,9.0,reviewed,nc,nc
-2024-12-05T18:44:21.110Z,40.374,-125.02166666667,10.0,7.0,mw,172.0,229.0,0.5261,0.23,nc,nc75095651,2025-12-05T18:54:29.394Z,"2024 Offshore Cape Mendocino, California Earthquake",earthquake,0.63,31.61,0.018,303.0,reviewed,nc,nc
+2024-12-05T18:44:21.110Z,40.374,-125.02166666667,10.0,7.0,mw,172.0,229.0,0.5261,0.23,nc,nc75095651,2026-06-12T17:47:06.116Z,"2024 Offshore Cape Mendocino, California Earthquake",earthquake,0.63,31.61,0.018,303.0,reviewed,nc,nc
 2024-12-05T17:38:46.403Z,28.4171,51.7405,10.0,4.4,mb,62.0,55.0,5.282,0.56,us,us7000nw71,2025-02-15T18:29:49.040Z,"93 km WSW of Fīrūzābād, Iran",earthquake,7.0,1.865,0.073,54.0,reviewed,us,us
 2024-12-05T16:51:20.278Z,-55.9482,-27.9128,111.734,5.1,mww,87.0,46.0,5.197,0.95,us,us7000nw6g,2025-02-15T18:29:48.040Z,South Sandwich Islands region,earthquake,9.63,4.571,0.139,5.0,reviewed,us,us
 2024-12-05T16:46:08.929Z,-12.3172,167.0375,250.003,4.8,mb,74.0,51.0,3.115,0.64,us,us7000nw5h,2025-02-15T18:29:48.040Z,"181 km NNW of Sola, Vanuatu",earthquake,9.91,7.274,0.033,278.0,reviewed,us,us
@@ -1769,7 +1768,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-11-14T07:07:14.875Z,33.9375,141.6776,10.0,4.4,mb,37.0,75.0,1.76,0.86,us,us7000nuxy,2025-01-26T16:31:00.040Z,"183 km SE of Katsuura, Japan",earthquake,7.89,1.876,0.115,22.0,reviewed,us,us
 2024-11-14T05:04:56.585Z,-21.2124,-68.5865,135.978,4.3,mb,17.0,88.0,0.843,0.56,us,us7000nrnn,2025-01-26T16:29:44.040Z,"34 km W of Ollagüe, Chile",earthquake,6.09,6.826,0.16,11.0,reviewed,us,us
 2024-11-14T04:35:00.570Z,16.9705,-95.0274,126.316,4.1,mb,42.0,95.0,0.911,1.43,us,us7000nuyh,2025-01-26T16:31:02.040Z,"2 km SW of Piedra Blanca, Mexico",earthquake,4.81,6.219,0.14,14.0,reviewed,us,us
-2024-11-14T02:40:35.178Z,38.173,-117.9166,14.2,4.3,ml,12.0,45.36,0.06,0.1676,nn,nn00887532,2025-11-14T02:50:47.747Z,"29 km SE of Mina, Nevada",earthquake,,0.8,0.38,5.0,reviewed,nn,nn
+2024-11-14T02:40:35.178Z,38.173,-117.9166,14.1949,4.3,ml,11.0,73.0,0.06,0.1676,nn,nn00887532,2026-06-12T17:55:42.335Z,"29 km SE of Mina, Nevada",earthquake,,0.8166,0.38,5.0,reviewed,nn,nn
 2024-11-14T02:38:16.293Z,23.8553,121.676,27.476,4.6,mwr,160.0,55.0,0.577,0.76,us,us7000nrn9,2025-01-26T16:29:43.040Z,"15 km SSE of Hualien City, Taiwan",earthquake,3.23,4.517,0.073,18.0,reviewed,us,us
 2024-11-14T02:12:06.078Z,29.188,130.1348,60.557,4.5,mb,38.0,101.0,2.33,0.99,us,us7000nrn4,2025-01-26T16:29:42.040Z,"97 km NNE of Tatsugō, Japan",earthquake,8.28,9.122,0.111,24.0,reviewed,us,us
 2024-11-14T01:55:37.126Z,35.5503,59.0018,10.0,4.2,mb,20.0,181.0,2.478,0.66,us,us7000nrn1,2025-01-26T16:29:42.040Z,"36 km NNW of Torbat-e Ḩeydarīyeh, Iran",earthquake,8.76,1.983,0.146,13.0,reviewed,us,us
@@ -3863,7 +3862,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-09-16T16:40:42.098Z,-5.89,146.2699,117.77,4.3,mb,48.0,120.0,3.601,0.62,us,us7000ng9f,2024-11-23T23:27:39.040Z,"62 km NE of Kainantu, Papua New Guinea",earthquake,9.87,6.74,0.095,31.0,reviewed,us,us
 2024-09-16T16:01:20.154Z,52.2835,-173.7952,89.3,4.5,mb,114.0,108.0,0.168,0.76,us,us7000ne9g,2024-11-23T23:27:18.040Z,"29 km ENE of Atka, Alaska",earthquake,8.98,1.623,0.041,172.0,reviewed,us,us
 2024-09-16T14:51:44.130Z,-4.4682,144.0354,122.983,4.3,mb,48.0,117.0,3.851,0.6,us,us7000ng9e,2024-11-23T23:27:38.040Z,"44 km S of Angoram, Papua New Guinea",earthquake,9.48,7.086,0.093,33.0,reviewed,us,us
-2024-09-16T14:40:21.768Z,45.5663,26.2679,132.923,5.2,mww,164.0,19.0,0.239,0.95,us,us7000ne92,2024-11-23T23:27:17.040Z,"8 km N of Cașoca, Romania",earthquake,6.19,3.633,0.053,34.0,reviewed,us,us
+2024-09-16T14:40:21.768Z,45.5663,26.2679,132.923,5.2,mww,164.0,19.0,0.239,0.95,us,us7000ne92,2026-06-28T19:42:50.078Z,"8 km N of Cașoca, Romania",earthquake,6.19,3.633,0.053,34.0,reviewed,us,us
 2024-09-16T14:25:40.327Z,31.6066,131.7437,10.0,4.8,mb,74.0,89.0,1.106,0.89,us,us7000ne90,2024-11-23T23:27:17.040Z,"35 km E of Nichinan, Japan",earthquake,6.29,1.849,0.067,69.0,reviewed,us,us
 2024-09-16T14:20:27.645Z,-5.6992,150.3637,112.288,4.5,mb,34.0,81.0,2.158,0.98,us,us7000ng9d,2024-11-23T23:27:38.040Z,"29 km ESE of Kimbe, Papua New Guinea",earthquake,6.13,6.551,0.116,22.0,reviewed,us,us
 2024-09-16T14:13:46.241Z,31.6079,131.8109,10.257,5.5,mww,120.0,57.0,1.164,1.2,us,us7000ne8y,2024-11-23T23:27:17.040Z,"42 km E of Nichinan, Japan",earthquake,5.78,3.425,0.11,8.0,reviewed,us,us
@@ -4657,7 +4656,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-08-23T17:25:30.894Z,-52.8736,21.1064,10.0,4.6,mb,48.0,56.0,20.483,0.59,us,us7000ngav,2024-11-02T21:29:40.040Z,south of Africa,earthquake,7.75,1.81,0.117,27.0,reviewed,us,us
 2024-08-23T17:17:46.591Z,-17.9434,-178.8157,563.347,4.2,mb,11.0,76.0,2.989,0.43,us,us7000nh9f,2024-11-02T21:29:48.040Z,"198 km E of Levuka, Fiji",earthquake,13.92,11.202,0.263,5.0,reviewed,us,us
 2024-08-23T16:17:11.955Z,2.7256,128.2093,56.348,4.4,mb,30.0,73.0,2.116,0.73,us,us7000n91d,2024-11-02T21:28:55.040Z,"112 km NNE of Tobelo, Indonesia",earthquake,9.33,6.95,0.111,23.0,reviewed,us,us
-2024-08-23T15:31:58.225Z,38.6864,-118.5666,5.5,4.3,ml,13.0,41.24,0.068,0.1639,nn,nn00882856,2025-08-23T15:42:06.347Z,"16 km ENE of Walker Lake, Nevada",earthquake,,1.8,0.27,4.0,reviewed,nn,nn
+2024-08-23T15:31:58.225Z,38.6864,-118.5666,5.4599,4.34,ml,12.0,89.0,0.068,0.1639,nn,nn00882856,2026-06-12T15:28:58.071Z,"16 km ENE of Walker Lake, Nevada",earthquake,,1.7575,0.27,4.0,reviewed,nn,nn
 2024-08-23T14:45:41.548Z,-6.5837,127.2255,413.15,4.3,mb,33.0,62.0,3.362,0.54,us,us7000n8zs,2024-11-02T21:28:54.040Z,"215 km N of Lospalos, Timor Leste",earthquake,11.73,8.777,0.129,17.0,reviewed,us,us
 2024-08-23T12:05:36.369Z,-20.157,-177.9961,575.367,4.4,mb,20.0,80.0,2.802,0.64,us,us7000ngb9,2024-11-02T21:29:42.040Z,Fiji region,earthquake,14.1,8.462,0.162,13.0,reviewed,us,us
 2024-08-23T12:00:59.597Z,35.9667,140.2689,82.399,4.1,mwr,60.0,117.0,0.658,0.64,us,us7000n8z3,2024-11-02T21:28:54.040Z,"4 km WNW of Edosaki, Japan",earthquake,5.63,3.92,0.098,10.0,reviewed,us,us
@@ -5037,7 +5036,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-08-14T04:14:47.736Z,6.7459,-73.0255,162.088,4.3,mb,43.0,69.0,0.85,0.74,us,us6000njzx,2024-10-26T15:47:46.040Z,"5 km W of Cepitá, Colombia",earthquake,6.82,6.065,0.062,74.0,reviewed,us,us
 2024-08-14T03:48:08.952Z,27.8663,52.0334,10.0,4.4,mb,81.0,132.0,4.738,0.52,us,us6000njzr,2024-10-26T15:47:46.040Z,"90 km WNW of Mohr, Iran",earthquake,7.24,1.873,0.079,46.0,reviewed,us,us
 2024-08-14T03:22:10.503Z,-6.4213,132.4744,10.0,4.2,mb,21.0,107.0,3.486,0.78,us,us6000njzj,2024-10-26T15:47:45.040Z,"92 km SSW of Tual, Indonesia",earthquake,6.62,1.721,0.167,10.0,reviewed,us,us
-2024-08-14T03:06:35.540Z,36.636,-115.7274,13.2,4.4,ml,43.0,44.07,0.19,0.1326,nn,nn00882322,2025-08-14T03:16:38.744Z,"8 km NW of Indian Springs, Nevada",earthquake,,2.0,0.27,20.0,reviewed,nn,nn
+2024-08-14T03:06:35.541Z,36.636,-115.7274,13.1619,4.39,ml,41.0,126.0,0.19,0.1326,nn,nn00882322,2026-06-12T15:28:28.552Z,"8 km NW of Indian Springs, Nevada",earthquake,,2.0271,0.27,20.0,reviewed,nn,nn
 2024-08-14T02:55:28.061Z,-15.8292,-75.0972,10.0,5.2,mww,111.0,83.0,4.178,0.86,us,us6000njz1,2024-10-26T15:47:43.040Z,"51 km S of San Juan, Peru",earthquake,8.51,1.759,0.058,29.0,reviewed,us,us
 2024-08-14T02:33:38.815Z,-6.0714,129.6299,206.706,4.5,mb,23.0,61.0,1.563,1.07,us,us6000njyx,2024-10-26T15:47:43.040Z,Banda Sea,earthquake,11.39,8.201,0.139,15.0,reviewed,us,us
 2024-08-14T02:08:05.613Z,20.1358,145.2623,10.0,4.8,mb,81.0,59.0,4.894,0.67,us,us6000njyu,2024-10-26T15:47:42.040Z,"Maug Islands region, Northern Mariana Islands",earthquake,11.39,1.841,0.075,55.0,reviewed,us,us
@@ -6212,14 +6211,14 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-07-11T16:17:21.077Z,48.8878,-128.4827,10.0,5.2,mww,130.0,94.0,1.051,0.79,us,us7000mym7,2024-10-09T03:07:13.980Z,"190 km W of Tofino, Canada",earthquake,5.77,1.867,0.052,36.0,reviewed,us,us
 2024-07-11T15:35:41.801Z,48.932,-128.7769,10.0,4.2,mb,19.0,143.0,1.033,1.12,us,us7000myku,2024-09-20T16:00:54.040Z,"211 km W of Tofino, Canada",earthquake,4.55,1.948,0.186,8.0,reviewed,us,us
 2024-07-11T15:17:35.633Z,48.8019,-128.7385,10.0,4.5,mb,40.0,102.0,0.913,0.97,us,us7000n0bt,2024-09-20T16:00:57.040Z,"210 km WSW of Tofino, Canada",earthquake,8.2,1.916,0.222,6.0,reviewed,us,us
-2024-07-11T15:08:47.169Z,48.7877,-128.7103,10.0,6.4,mww,149.0,60.0,0.904,0.88,us,us7000mykj,2025-07-11T15:19:00.049Z,"209 km WSW of Tofino, Canada",earthquake,4.64,1.34,0.041,58.0,reviewed,us,us
+2024-07-11T15:08:47.169Z,48.7877,-128.7103,10.0,6.4,mww,149.0,60.0,0.904,0.88,us,us7000mykj,2026-06-26T20:49:01.098Z,"209 km WSW of Tofino, Canada",earthquake,4.64,1.34,0.041,58.0,reviewed,us,us
 2024-07-11T12:30:56.256Z,4.1353,124.2515,372.415,4.3,mb,66.0,96.0,3.2,0.74,us,us7000myjz,2024-09-20T16:00:54.040Z,"194 km SW of Sarangani, Philippines",earthquake,8.56,2.911,0.066,66.0,reviewed,us,us
 2024-07-11T12:04:09.229Z,11.5502,-85.9086,190.558,4.6,mb,50.0,87.0,0.682,0.8,us,us7000myjw,2024-09-20T16:00:54.040Z,"5 km NNW of Belén, Nicaragua",earthquake,6.31,4.524,0.058,90.0,reviewed,us,us
 2024-07-11T11:46:40.592Z,14.3198,-93.3126,10.0,4.3,mb,51.0,134.0,1.17,1.36,us,us7000myjt,2024-09-20T16:00:54.040Z,"105 km WSW of Puerto Madero, Mexico",earthquake,5.28,1.879,0.067,63.0,reviewed,us,us
 2024-07-11T11:03:35.370Z,-18.4551,-177.8736,551.874,4.3,mb,35.0,83.0,3.689,0.7,us,us7000n0br,2024-09-20T16:00:57.040Z,Fiji region,earthquake,9.66,8.652,0.111,23.0,reviewed,us,us
 2024-07-11T10:45:22.017Z,-6.0596,147.7238,76.843,4.3,mb,27.0,115.0,3.37,0.8,us,us7000myjh,2024-09-20T16:00:54.040Z,"56 km NNW of Finschhafen, Papua New Guinea",earthquake,9.33,6.932,0.125,18.0,reviewed,us,us
 2024-07-11T10:11:50.217Z,-7.1041,129.5276,117.973,4.3,mb,33.0,72.0,2.592,0.81,us,us7000myja,2024-09-20T16:00:54.040Z,"Kepulauan Babar, Indonesia",earthquake,8.02,6.705,0.147,13.0,reviewed,us,us
-2024-07-11T09:27:34.446Z,12.3205,144.1514,10.0,5.4,mb,115.0,39.0,1.442,0.72,us,us7000myiz,2025-07-11T09:37:48.452Z,"118 km SSW of Merizo Village, Guam",earthquake,9.19,1.776,0.026,496.0,reviewed,us,us
+2024-07-11T09:27:34.446Z,12.3205,144.1514,10.0,5.4,mb,115.0,39.0,1.442,0.72,us,us7000myiz,2026-06-26T20:51:02.119Z,"118 km SSW of Merizo Village, Guam",earthquake,9.19,1.776,0.026,496.0,reviewed,us,us
 2024-07-11T09:10:54.266Z,-23.9182,-179.7445,488.301,4.3,mb,33.0,128.0,5.01,0.84,us,us7000n0bs,2024-09-20T16:00:57.040Z,south of the Fiji Islands,earthquake,12.07,12.055,0.107,25.0,reviewed,us,us
 2024-07-11T08:34:21.584Z,-8.9479,124.2237,65.588,4.5,mb,28.0,126.0,0.803,0.99,us,us7000myiw,2024-09-20T16:00:54.040Z,"32 km NNW of Pante Makasar, Timor Leste",earthquake,8.42,7.624,0.116,22.0,reviewed,us,us
 2024-07-11T05:59:33.893Z,-32.2791,-71.8487,21.362,4.3,mwr,35.0,150.0,0.761,0.77,us,us7000myif,2024-09-20T16:00:54.040Z,"61 km WNW of La Ligua, Chile",earthquake,5.87,4.911,0.039,64.0,reviewed,us,us
@@ -6500,13 +6499,13 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-07-03T22:39:59.667Z,-34.1388,-72.2364,17.756,4.0,mwr,49.0,141.0,0.706,0.84,us,us7000mwya,2024-09-12T21:52:28.040Z,"83 km SW of San Antonio, Chile",earthquake,4.46,4.116,0.052,36.0,reviewed,us,us
 2024-07-03T21:14:22.750Z,48.5007,-128.6621,10.0,4.1,mb,105.0,166.0,2.145,0.8,us,us7000mwxq,2024-09-12T21:52:28.040Z,"214 km WSW of Tofino, Canada",earthquake,7.86,1.965,0.07,56.0,reviewed,us,us
 2024-07-03T20:46:41.706Z,47.4604,153.1087,79.568,4.7,mb,129.0,114.0,6.372,0.62,us,us6000na5g,2024-09-12T21:52:27.040Z,Kuril Islands,earthquake,10.56,5.988,0.039,204.0,reviewed,us,us
-2024-07-03T20:25:13.237Z,48.5091,-128.8575,10.0,4.9,mww,202.0,144.0,2.185,0.65,us,us6000na4y,2025-07-03T20:35:18.601Z,"228 km WSW of Tofino, Canada",earthquake,7.96,1.869,0.068,21.0,reviewed,us,us
+2024-07-03T20:25:13.237Z,48.5091,-128.8575,10.0,4.9,mww,202.0,144.0,2.185,0.65,us,us6000na4y,2026-06-19T20:49:00.786Z,"228 km WSW of Tofino, Canada",earthquake,7.96,1.869,0.068,21.0,reviewed,us,us
 2024-07-03T20:23:46.026Z,48.5928,-128.6725,10.0,4.3,mb,104.0,143.0,2.079,0.61,us,us6000na4w,2024-09-12T21:52:27.040Z,"212 km WSW of Tofino, Canada",earthquake,7.18,1.903,0.064,73.0,reviewed,us,us
 2024-07-03T20:21:42.302Z,48.5794,-128.7066,10.0,4.3,mb,157.0,144.0,2.096,0.73,us,us6000na5b,2024-09-12T21:52:27.040Z,"215 km WSW of Tofino, Canada",earthquake,6.71,1.894,0.044,152.0,reviewed,us,us
-2024-07-03T20:19:35.973Z,48.4656,-129.0821,10.0,4.5,mb,139.0,146.0,2.263,0.65,us,us7000mybh,2025-07-03T20:29:41.175Z,"245 km WSW of Tofino, Canada",earthquake,8.56,1.865,0.056,95.0,reviewed,us,us
-2024-07-03T20:18:13.474Z,48.4906,-129.3694,10.0,4.6,mb,24.0,176.0,2.297,0.52,us,us6000na4t,2025-07-03T20:28:24.918Z,"264 km WSW of Tofino, Canada",earthquake,8.7,1.648,0.044,157.0,reviewed,us,us
-2024-07-03T20:16:50.426Z,48.326,-128.9085,10.0,4.4,mb,60.0,142.0,2.349,0.58,us,us7000mybc,2025-07-03T20:26:53.709Z,"239 km WSW of Tofino, Canada",earthquake,9.05,1.893,0.085,40.0,reviewed,us,us
-2024-07-03T20:13:24.684Z,48.74,-128.5301,10.0,4.2,mb,33.0,156.0,1.92,0.51,us,us7000mybg,2025-07-03T20:23:34.241Z,"197 km WSW of Tofino, Canada",earthquake,9.49,1.963,0.072,53.0,reviewed,us,us
+2024-07-03T20:19:35.973Z,48.4656,-129.0821,10.0,4.5,mb,139.0,146.0,2.263,0.65,us,us7000mybh,2026-06-19T20:51:15.474Z,"245 km WSW of Tofino, Canada",earthquake,8.56,1.865,0.056,95.0,reviewed,us,us
+2024-07-03T20:18:13.474Z,48.4906,-129.3694,10.0,4.6,mb,24.0,176.0,2.297,0.52,us,us6000na4t,2026-06-19T20:53:00.505Z,"264 km WSW of Tofino, Canada",earthquake,8.7,1.648,0.044,157.0,reviewed,us,us
+2024-07-03T20:16:50.426Z,48.326,-128.9085,10.0,4.4,mb,60.0,142.0,2.349,0.58,us,us7000mybc,2026-06-19T20:55:00.923Z,"239 km WSW of Tofino, Canada",earthquake,9.05,1.893,0.085,40.0,reviewed,us,us
+2024-07-03T20:13:24.684Z,48.74,-128.5301,10.0,4.2,mb,33.0,156.0,1.92,0.51,us,us7000mybg,2026-06-19T20:57:00.931Z,"197 km WSW of Tofino, Canada",earthquake,9.49,1.963,0.072,53.0,reviewed,us,us
 2024-07-03T20:06:34.263Z,0.6661,67.3711,10.0,4.3,mb,10.0,154.0,5.626,0.56,us,us7000myba,2024-09-12T21:52:31.040Z,Carlsberg Ridge,earthquake,13.35,1.939,0.265,4.0,reviewed,us,us
 2024-07-03T19:59:15.702Z,48.4888,-128.7569,10.0,4.4,mb,162.0,146.0,2.191,0.69,us,us6000na4b,2024-09-12T21:52:27.040Z,"221 km WSW of Tofino, Canada",earthquake,6.96,1.854,0.042,168.0,reviewed,us,us
 2024-07-03T19:31:08.572Z,27.8823,143.0124,10.0,4.5,mb,79.0,101.0,1.075,0.56,us,us6000na49,2024-09-12T21:52:27.040Z,"Bonin Islands, Japan region",earthquake,3.37,1.854,0.072,62.0,reviewed,us,us
@@ -6601,7 +6600,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-07-01T05:27:51.380Z,-0.1306,-78.2865,10.0,4.4,mb,61.0,69.0,0.264,0.57,us,us7000mxti,2024-09-12T21:52:31.040Z,"8 km NE of Oyambarillo, Ecuador",earthquake,3.08,1.886,0.082,43.0,reviewed,us,us
 2024-07-01T05:23:53.695Z,10.5367,125.2716,73.096,4.5,mb,48.0,129.0,3.458,0.42,us,us7000mxtd,2024-09-12T21:52:31.040Z,"10 km ESE of Hingatungan, Philippines",earthquake,14.29,8.041,0.094,33.0,reviewed,us,us
 2024-07-01T05:22:23.355Z,10.7784,125.3709,72.888,4.8,mb,122.0,36.0,3.691,0.64,us,us6000n9jj,2024-09-12T21:52:25.040Z,"29 km NE of Hingatungan, Philippines",earthquake,7.72,6.117,0.046,149.0,reviewed,us,us
-2024-07-01T05:12:05.901Z,14.9166,147.0697,27.113,5.0,mb,146.0,81.0,1.274,0.42,us,us6000n9jh,2025-07-01T05:22:11.399Z,"145 km ESE of Saipan, Northern Mariana Islands",earthquake,8.02,4.94,0.044,167.0,reviewed,us,us
+2024-07-01T05:12:05.901Z,14.9166,147.0697,27.113,5.0,mb,146.0,81.0,1.274,0.42,us,us6000n9jh,2026-06-16T20:48:56.582Z,"145 km ESE of Saipan, Northern Mariana Islands",earthquake,8.02,4.94,0.044,167.0,reviewed,us,us
 2024-07-01T03:59:51.766Z,-17.5864,-178.9348,536.674,4.2,mb,34.0,108.0,8.682,0.46,us,us7000mxtc,2024-09-12T21:52:30.040Z,"192 km ENE of Levuka, Fiji",earthquake,14.81,5.481,0.113,23.0,reviewed,us,us
 2024-07-01T03:32:28.556Z,37.6053,137.6336,10.0,4.2,mb,34.0,104.0,1.152,0.49,us,us6000n9j2,2024-09-12T21:52:25.040Z,"66 km NNW of Itoigawa, Japan",earthquake,6.95,1.899,0.127,17.0,reviewed,us,us
 2024-07-01T02:48:10.899Z,-17.5064,-66.4121,10.0,4.3,mb,10.0,126.0,2.043,0.48,us,us7000mxth,2024-09-12T21:52:31.040Z,"8 km SW of Sipe Sipe, Bolivia",earthquake,10.63,1.94,0.201,7.0,reviewed,us,us
@@ -6617,7 +6616,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-06-30T20:57:36.825Z,34.4881,45.5961,7.64,4.9,mww,80.0,105.0,0.278,0.7,us,us6000n9he,2024-09-04T21:57:45.040Z,"24 km W of Sarpol-e Z̄ahāb, Iran",earthquake,4.72,3.972,0.098,10.0,reviewed,us,us
 2024-06-30T20:52:00.512Z,-9.5293,107.4152,10.0,4.3,mb,32.0,119.0,1.931,0.53,us,us6000n9hh,2024-09-04T21:57:45.040Z,"252 km SSW of Singaparna, Indonesia",earthquake,6.32,1.697,0.107,25.0,reviewed,us,us
 2024-06-30T20:47:39.077Z,-8.2077,-74.6314,129.094,4.6,mb,47.0,110.0,4.341,0.51,us,us6000n9hb,2024-09-04T21:57:45.040Z,"20 km NNW of Pucallpa, Peru",earthquake,8.05,7.572,0.045,150.0,reviewed,us,us
-2024-06-30T18:23:20.345Z,18.9993,144.9393,592.508,5.2,mww,98.0,72.0,3.825,0.76,us,us6000n9gl,2025-06-30T18:33:31.709Z,"Pagan region, Northern Mariana Islands",earthquake,8.92,6.329,0.089,12.0,reviewed,us,us
+2024-06-30T18:23:20.345Z,18.9993,144.9393,592.508,5.2,mww,98.0,72.0,3.825,0.76,us,us6000n9gl,2026-06-15T20:49:04.554Z,"Pagan region, Northern Mariana Islands",earthquake,8.92,6.329,0.089,12.0,reviewed,us,us
 2024-06-30T16:06:37.072Z,6.0254,123.8748,530.12,4.4,mb,51.0,86.0,1.986,0.8,us,us6000n9ft,2024-09-04T21:57:45.040Z,"40 km WSW of Palimbang, Philippines",earthquake,13.0,8.85,0.082,43.0,reviewed,us,us
 2024-06-30T16:06:29.333Z,-9.3734,107.4144,20.277,5.2,mb,66.0,74.0,1.913,0.79,us,us6000n9fs,2024-09-04T21:57:45.040Z,"236 km SSW of Singaparna, Indonesia",earthquake,6.53,1.431,0.068,70.0,reviewed,us,us
 2024-06-30T15:28:34.577Z,2.9365,125.7646,9.984,4.5,mb,27.0,108.0,2.681,0.61,us,us7000mxa4,2024-09-04T21:57:45.040Z,"179 km NNE of Bitung, Indonesia",earthquake,12.1,4.864,0.115,22.0,reviewed,us,us
@@ -6641,7 +6640,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-06-30T01:37:08.979Z,30.8464,130.225,155.06,4.3,mb,44.0,124.0,0.689,0.86,us,us7000mx9s,2024-09-04T21:57:44.040Z,"47 km S of Makurazaki, Japan",earthquake,10.3,6.185,0.099,29.0,reviewed,us,us
 2024-06-30T01:15:58.140Z,34.557,140.6557,43.543,4.4,mb,45.0,113.0,0.8,0.55,us,us6000n99j,2024-09-04T21:57:44.040Z,"72 km SSE of Katsuura, Japan",earthquake,6.72,7.427,0.121,21.0,reviewed,us,us
 2024-06-30T00:17:08.744Z,-41.6402,84.7868,10.0,4.6,mb,16.0,88.0,37.709,0.66,us,us7000mx9p,2024-09-04T21:57:44.040Z,southeast Indian Ridge,earthquake,7.19,1.903,0.146,14.0,reviewed,us,us
-2024-06-29T23:35:33.664Z,39.391,-116.684,7.6,4.1,ml,8.0,94.69,0.962,0.1941,nn,nn00880126,2025-06-29T23:45:36.819Z,"35 km ESE of Austin, Nevada",earthquake,,3.6,0.22,4.0,reviewed,nn,nn
+2024-06-29T23:35:33.665Z,39.391,-116.684,7.6135,4.07,ml,8.0,216.0,0.962,0.1941,nn,nn00880126,2026-06-15T18:41:19.271Z,"35 km ESE of Austin, Nevada",earthquake,,3.59,0.22,4.0,reviewed,nn,nn
 2024-06-29T21:22:08.127Z,9.8509,124.0745,605.151,4.3,mb,104.0,96.0,3.139,0.65,us,us6000n9a0,2024-09-04T21:57:44.040Z,"7 km SSW of Sagbayan, Philippines",earthquake,11.22,8.844,0.059,82.0,reviewed,us,us
 2024-06-29T20:22:34.558Z,-22.2585,-174.4211,10.0,4.5,mb,14.0,91.0,1.009,0.51,us,us7000mx9f,2024-09-04T21:57:44.040Z,"115 km SSE of ‘Ohonua, Tonga",earthquake,4.95,1.916,0.221,6.0,reviewed,us,us
 2024-06-29T20:10:40.903Z,21.6148,143.0322,309.251,4.0,mb,49.0,115.0,5.511,0.62,us,us7000mx9e,2024-09-04T21:57:44.040Z,Mariana Islands region,earthquake,11.93,6.566,0.083,40.0,reviewed,us,us
@@ -6655,7 +6654,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-06-29T14:14:27.144Z,-29.8248,-179.3449,332.97,4.2,mb,22.0,106.0,1.362,0.49,us,us7000mx98,2024-09-04T21:57:44.040Z,Kermadec Islands region,earthquake,14.73,5.986,0.132,19.0,reviewed,us,us
 2024-06-29T12:24:45.535Z,-15.9696,-74.9182,19.695,4.2,mb,21.0,146.0,4.377,0.85,us,us7000mx9c,2024-09-04T21:57:44.040Z,"62 km WSW of Atiquipa, Peru",earthquake,9.25,4.131,0.175,9.0,reviewed,us,us
 2024-06-29T11:29:54.933Z,-15.6132,-173.5286,70.847,4.1,mb,12.0,142.0,2.393,0.36,us,us7000mx9a,2024-09-04T21:57:44.040Z,"47 km NE of Hihifo, Tonga",earthquake,11.11,5.016,0.233,5.0,reviewed,us,us
-2024-06-29T11:10:33.068Z,52.264,-175.1645,101.38,5.0,mb,91.0,129.0,0.545,0.95,us,us6000n95k,2025-06-29T11:20:46.448Z,"66 km W of Atka, Alaska",earthquake,6.76,4.404,0.022,635.0,reviewed,us,us
+2024-06-29T11:10:33.068Z,52.264,-175.1645,101.38,5.0,mb,91.0,129.0,0.545,0.95,us,us6000n95k,2026-06-14T20:48:58.612Z,"66 km W of Atka, Alaska",earthquake,6.76,4.404,0.022,635.0,reviewed,us,us
 2024-06-29T09:58:06.374Z,-16.1319,-74.8283,28.698,4.2,mb,23.0,148.0,4.56,1.28,us,us7000mx97,2024-09-04T21:57:44.040Z,"62 km SW of Atiquipa, Peru",earthquake,9.11,7.513,0.159,11.0,reviewed,us,us
 2024-06-29T09:29:00.038Z,44.4606,147.9073,77.306,4.2,mb,34.0,137.0,3.831,0.71,us,us6000n959,2024-09-04T21:57:44.040Z,"85 km S of Kuril’sk, Russia",earthquake,11.38,8.323,0.102,27.0,reviewed,us,us
 2024-06-29T09:16:47.923Z,6.7902,-73.0799,151.808,4.3,mb,41.0,97.0,0.892,0.93,us,us6000n957,2024-09-04T21:57:44.040Z,"6 km NNE of Jordán, Colombia",earthquake,9.38,9.365,0.052,105.0,reviewed,us,us
@@ -6867,7 +6866,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-06-23T05:34:08.040Z,44.7808,148.3024,85.574,4.1,mb,34.0,178.0,4.141,0.52,us,us6000n8xy,2024-08-30T18:17:06.040Z,"59 km SE of Kuril’sk, Russia",earthquake,4.17,9.711,0.099,28.0,reviewed,us,us
 2024-06-23T05:20:02.807Z,0.161,123.6036,143.476,4.1,mb,28.0,71.0,2.975,1.17,us,us6000n8xw,2024-08-30T18:17:06.040Z,"73 km SE of Gorontalo, Indonesia",earthquake,7.59,7.597,0.124,18.0,reviewed,us,us
 2024-06-23T04:50:53.444Z,4.7844,127.7135,79.482,4.9,mb,72.0,85.0,3.108,0.94,us,us7000mu2i,2024-08-30T18:17:06.040Z,"243 km SE of Pondaguitan, Philippines",earthquake,8.28,7.083,0.065,76.0,reviewed,us,us
-2024-06-23T03:57:58.918Z,10.6921,-62.6868,77.0,6.0,mww,124.0,36.0,1.753,1.09,us,us7000mu1p,2024-08-30T18:17:06.040Z,"20 km NE of Yaguaraparo, Venezuela",earthquake,8.23,1.891,0.035,78.0,reviewed,us,us
+2024-06-23T03:57:58.918Z,10.6921,-62.6868,77.0,6.0,mww,124.0,36.0,1.753,1.09,us,us7000mu1p,2026-06-25T14:35:53.926Z,"20 km NE of Yaguaraparo, Venezuela",earthquake,8.23,1.891,0.035,78.0,reviewed,us,us
 2024-06-23T03:12:06.264Z,37.0639,141.2412,46.707,4.7,mwr,99.0,120.0,1.906,0.68,us,us7000mu1d,2025-09-14T17:42:39.885Z,"31 km E of Iwaki, Japan",earthquake,6.24,5.244,0.086,13.0,reviewed,us,us
 2024-06-23T02:32:26.183Z,-21.1811,-68.5302,124.336,4.2,mb,21.0,60.0,0.904,0.84,us,us7000mu18,2024-08-30T18:17:12.040Z,"29 km W of Ollagüe, Chile",earthquake,7.53,9.207,0.186,8.0,reviewed,us,us
 2024-06-23T01:52:54.467Z,-19.8749,-176.369,245.611,4.1,mb,27.0,97.0,1.689,0.54,us,us6000n8xv,2024-08-30T18:17:06.040Z,"181 km NW of Houma, Tonga",earthquake,12.94,7.357,0.12,21.0,reviewed,us,us
@@ -6898,7 +6897,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-06-22T05:18:02.695Z,-58.551,149.3182,10.0,4.5,mb,15.0,112.0,6.693,0.9,us,us6000n8x3,2024-08-30T18:17:06.040Z,west of Macquarie Island,earthquake,10.58,1.954,0.15,13.0,reviewed,us,us
 2024-06-22T04:47:15.134Z,-5.9599,129.7928,164.18,4.2,mb,25.0,82.0,1.432,1.13,us,us6000n8x2,2024-08-30T18:17:06.040Z,Banda Sea,earthquake,10.43,4.926,0.159,12.0,reviewed,us,us
 2024-06-22T04:36:11.843Z,-5.7019,129.0086,244.072,4.3,mb,17.0,118.0,4.252,0.88,us,us6000n8x1,2024-08-30T18:17:06.040Z,"239 km SSE of Ambon, Indonesia",earthquake,7.24,11.995,0.201,7.0,reviewed,us,us
-2024-06-22T03:46:25.830Z,39.6675,-123.53283333333,3.33,4.34,mw,50.0,90.0,0.04189,0.13,nc,nc75025237,2025-06-22T03:56:38.396Z,"5 km WSW of Laytonville, CA",earthquake,0.21,0.58,,33.0,reviewed,nc,nc
+2024-06-22T03:46:25.830Z,39.6675,-123.53283333333,3.33,4.34,mw,50.0,90.0,0.04189,0.13,nc,nc75025237,2026-06-07T20:49:08.815Z,"5 km WSW of Laytonville, CA",earthquake,0.21,0.58,,33.0,reviewed,nc,nc
 2024-06-22T03:38:53.845Z,-23.4754,-179.6644,533.433,4.3,mb,23.0,111.0,4.724,1.06,us,us6000n8x5,2024-08-30T18:17:06.040Z,south of the Fiji Islands,earthquake,14.81,10.56,0.143,19.0,reviewed,us,us
 2024-06-22T03:12:32.775Z,11.5477,139.0649,10.0,4.6,mb,29.0,146.0,14.064,0.87,us,us6000n8wz,2024-08-30T18:17:06.040Z,"247 km NNE of Colonia, Micronesia",earthquake,10.3,1.827,0.128,18.0,reviewed,us,us
 2024-06-22T02:20:16.344Z,-3.3931,123.4268,10.0,4.4,mb,17.0,144.0,4.003,0.56,us,us6000n8wy,2024-08-30T18:17:06.040Z,"120 km ENE of Kendari, Indonesia",earthquake,8.63,1.776,0.179,10.0,reviewed,us,us
@@ -10159,7 +10158,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-04-05T16:13:20.733Z,0.5402,98.5578,57.402,4.8,mb,54.0,157.0,1.241,0.83,us,us7000ma7n,2024-06-12T21:51:54.040Z,"84 km E of Teluk Dalam, Indonesia",earthquake,8.65,7.55,0.07,64.0,reviewed,us,us
 2024-04-05T15:40:10.073Z,36.9977,141.3028,54.034,4.4,mb,31.0,130.0,2.528,1.14,us,us7000ma7g,2024-06-12T21:51:54.040Z,"37 km E of Iwaki, Japan",earthquake,7.16,8.088,0.143,14.0,reviewed,us,us
 2024-04-05T15:00:36.463Z,24.1336,121.8445,8.048,4.9,mb,49.0,73.0,0.684,0.86,us,us7000ma78,2024-06-12T21:51:54.040Z,"29 km NE of Hualien City, Taiwan",earthquake,4.58,4.43,0.081,47.0,reviewed,us,us
-2024-04-05T14:23:20.045Z,40.6963,-74.7596,2.624,4.8,mwr,245.0,54.0,0.684,0.63,us,us7000ma74,2026-05-15T00:56:04.108Z,"2024 Tewksbury, New Jersey Earthquake",earthquake,0.9,3.316,0.027,130.0,reviewed,us,us
+2024-04-05T14:23:20.045Z,40.6963,-74.7596,2.624,4.8,mwr,245.0,54.0,0.684,0.63,us,us7000ma74,2026-06-18T17:31:41.005Z,"2024 Tewksbury, New Jersey Earthquake",earthquake,0.9,3.316,0.027,130.0,reviewed,us,us
 2024-04-05T13:34:39.047Z,-19.2164,-177.4651,568.441,4.4,mb,34.0,75.0,2.879,0.72,us,us7000ma5f,2024-06-12T21:51:54.040Z,Fiji region,earthquake,13.62,11.2,0.108,25.0,reviewed,us,us
 2024-04-05T12:59:12.558Z,24.2276,121.7354,28.654,4.3,mb,34.0,77.0,0.549,0.93,us,us7000mbqg,2024-06-12T21:52:00.040Z,"30 km NNE of Hualien City, Taiwan",earthquake,3.44,4.063,0.168,10.0,reviewed,us,us
 2024-04-05T12:45:38.655Z,26.4924,96.9139,69.136,5.7,mb,157.0,22.0,5.571,0.71,us,us7000ma59,2024-06-12T21:51:54.040Z,"33 km NNE of Sarupathar, India",earthquake,8.38,6.269,0.031,379.0,reviewed,us,us
@@ -10407,7 +10406,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-04-03T00:11:25.266Z,24.1021,121.6812,13.931,6.4,mww,183.0,50.0,0.63,0.77,us,us7000m9gc,2024-06-12T21:51:51.040Z,"15 km NNE of Hualien City, Taiwan",earthquake,3.79,3.485,0.062,25.0,reviewed,us,us
 2024-04-03T00:09:31.012Z,24.1741,121.7374,32.25,5.0,mb,24.0,66.0,0.593,0.72,us,us7000mbhd,2024-06-12T21:51:58.040Z,"25 km NNE of Hualien City, Taiwan",earthquake,3.16,5.587,0.189,9.0,reviewed,us,us
 2024-04-03T00:05:01.965Z,15.8214,146.8668,10.0,5.3,mb,43.0,97.0,1.188,0.91,us,us7000mbhn,2024-06-12T21:51:58.040Z,"137 km ENE of Saipan, Northern Mariana Islands",earthquake,8.85,1.843,0.106,30.0,reviewed,us,us
-2024-04-02T23:58:12.173Z,23.8356,121.5976,40.0,7.4,mww,322.0,17.0,0.337,0.93,us,us7000m9g4,2026-04-08T14:41:26.707Z,"15 km S of Hualien City, Taiwan",earthquake,4.73,1.877,0.027,133.0,reviewed,us,us
+2024-04-02T23:58:12.173Z,23.8356,121.5976,40.0,7.4,mww,322.0,17.0,0.337,0.93,us,us7000m9g4,2026-06-25T10:54:32.203Z,"15 km S of Hualien City, Taiwan",earthquake,4.73,1.877,0.027,133.0,reviewed,us,us
 2024-04-02T23:16:51.102Z,5.4555,-72.3758,10.0,4.9,mb,183.0,54.0,0.827,0.69,us,us7000m9g0,2024-06-12T21:51:51.040Z,"13 km N of Yopal, Colombia",earthquake,5.59,1.857,0.043,166.0,reviewed,us,us
 2024-04-02T22:16:44.681Z,15.8934,146.8532,10.0,5.2,mww,241.0,40.0,1.213,0.83,us,us7000m9fv,2024-06-12T21:51:51.040Z,"139 km ENE of Saipan, Northern Mariana Islands",earthquake,9.09,1.774,0.061,26.0,reviewed,us,us
 2024-04-02T21:35:04.746Z,22.6348,142.6804,158.969,4.2,mb,33.0,164.0,4.464,0.87,us,us7000mb0r,2024-06-12T21:51:57.040Z,"Volcano Islands, Japan region",earthquake,15.55,9.777,0.115,21.0,reviewed,us,us
@@ -14115,7 +14114,7 @@ time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,
 2024-01-01T07:27:36.058Z,44.6082,147.0332,166.808,4.2,mb,26.0,146.0,3.222,0.57,us,us6000m33q,2024-03-09T21:40:06.040Z,"93 km NNE of Shikotan, Russia",earthquake,10.58,8.755,0.147,13.0,reviewed,us,us
 2024-01-01T07:27:28.747Z,37.3802,137.2254,10.0,4.6,mb,32.0,84.0,1.05,0.4,us,us6000m34g,2024-03-09T21:40:12.040Z,"33 km ENE of Anamizu, Japan",earthquake,3.34,1.876,0.125,19.0,reviewed,us,us
 2024-01-01T07:18:41.584Z,37.1895,136.8272,10.0,6.2,mb,185.0,32.0,1.278,0.4,us,us6000m0xm,2025-01-04T22:53:01.431Z,"8 km SW of Anamizu, Japan",earthquake,1.95,1.794,0.024,672.0,reviewed,us,us
-2024-01-01T07:10:09.476Z,37.4874,137.271,10.0,7.5,mww,282.0,36.0,0.957,0.55,us,us6000m0xl,2026-01-20T05:59:43.803Z,"2024 Noto Peninsula, Japan Earthquake",earthquake,4.03,1.807,0.034,82.0,reviewed,us,us
+2024-01-01T07:10:09.476Z,37.4874,137.271,10.0,7.5,mww,282.0,36.0,0.957,0.55,us,us6000m0xl,2026-06-01T20:13:16.871Z,"2024 Noto Peninsula, Japan Earthquake",earthquake,4.03,1.807,0.034,82.0,reviewed,us,us
 2024-01-01T07:06:05.477Z,37.4933,137.2491,10.0,5.8,mb,279.0,53.0,0.968,0.47,us,us6000m0xj,2024-03-09T21:38:16.040Z,"42 km NE of Anamizu, Japan",earthquake,2.05,1.792,0.021,784.0,reviewed,us,us
 2024-01-01T05:22:53.884Z,-7.8936,117.8591,10.0,4.7,mb,55.0,61.0,0.931,0.39,us,us6000m0x9,2024-03-09T21:38:15.040Z,"70 km NE of Pototano, Indonesia",earthquake,5.91,1.355,0.086,41.0,reviewed,us,us
 2024-01-01T05:19:00.363Z,-23.3645,-179.8743,540.187,4.5,mb,74.0,99.0,4.846,0.65,us,us6000m0x8,2024-03-09T21:38:14.040Z,south of the Fiji Islands,earthquake,13.65,7.749,0.071,58.0,reviewed,us,us
